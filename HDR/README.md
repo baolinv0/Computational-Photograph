@@ -4,8 +4,22 @@
 
 This folder collects research resources for **SDR→HDR / inverse tone mapping, HDR video reconstruction, gain-map HDR, HDR-IQA/VQA, perceptual evaluation, and generative HDR**.
 
+## 目录
+
+- [Files](#files)
+  - [HDR_Scholars.md](#hdr-scholars)
+  - [HDR_Papers_and_IQA.md](#hdr-papers-iqa)
+  - [HDR_OpenSource.md](#hdr-open-source)
+- [Current Research Framing for Mobile Same-EV SDR Video → HDR](#current-research-framing)
+- [Recommended core baseline stack](#recommended-core-baseline-stack)
+- [Maintenance rule](#maintenance-rule)
+
+---
+
+<a id="files"></a>
 ## Files
 
+<a id="hdr-scholars"></a>
 ### 1. [HDR_Scholars.md](./HDR_Scholars.md)
 HDR-related researcher/team watchlist, including:
 - Alan C. Bovik / Shreshth Saini / Bowen Chen
@@ -18,6 +32,7 @@ HDR-related researcher/team watchlist, including:
 
 Each entry records research focus, representative work, and why the line is relevant to mobile Video HDR.
 
+<a id="hdr-papers-iqa"></a>
 ### 2. [HDR_Papers_and_IQA.md](./HDR_Papers_and_IQA.md)
 Paper list organized by task:
 - single-image SDR→HDR / inverse tone mapping;
@@ -31,6 +46,7 @@ Paper list organized by task:
 
 The list explicitly distinguishes **peer-reviewed papers, preprints, datasets, metrics, and standards**.
 
+<a id="hdr-open-source"></a>
 ### 3. [HDR_OpenSource.md](./HDR_OpenSource.md)
 Verified open-source/project links, including:
 - `jpneagle/sdr2hdr`
@@ -50,6 +66,7 @@ The table records **input assumptions, capture type, open assets, and direct rel
 
 ---
 
+<a id="current-research-framing"></a>
 # Current Research Framing for Mobile Same-EV SDR Video → HDR
 
 Keep the following distinctions explicit when comparing papers:
@@ -61,6 +78,7 @@ Keep the following distinctions explicit when comparing papers:
 5. **Clipped SDR regions do not uniquely determine original HDR radiance; conservative rendering and generative completion are different research objectives.**
 6. **Full-reference HDR metrics and no-reference HDR-VQA solve different evaluation problems.**
 
+<a id="recommended-core-baseline-stack"></a>
 ## Recommended core baseline stack
 
 ```text
@@ -77,6 +95,7 @@ Same-EV compressed SDR video
         └─ Generative upper-bound reference: LumaFlux / Generative HDR Video
 ```
 
+<a id="maintenance-rule"></a>
 ## Maintenance rule
 
 When adding a new paper/project, record at minimum:
