@@ -3,6 +3,20 @@
 > Last checked: 2026-09-09  
 > Scope: SDR→HDR / inverse tone mapping (ITM), HDR video reconstruction, gain-map HDR, HDR image/video quality assessment (IQA/VQA), perceptual display metrics, generative HDR.
 
+## 目录
+
+- [1. Core Watchlist](#core-watchlist)
+- [2. Industry / Platform HDR Quality Line](#industry-platform-line)
+- [3. Recommended Tracking Priority for Mobile Video HDR](#tracking-priority)
+  - [Tier A — current SDR-video→HDR project](#tier-a)
+  - [Tier B — capture-side / multi-exposure HDR](#tier-b)
+  - [Tier C — foundational single-image HDR](#tier-c)
+- [4. Primary Links](#primary-links)
+- [5. Notes](#notes)
+
+---
+
+<a id="core-watchlist"></a>
 ## 1. Core Watchlist
 
 | Scholar / Team | Main affiliation / research line | HDR focus | Representative work | Why follow |
@@ -27,6 +41,7 @@
 | **Michael S. Brown** | computational photography / color | HDR gain maps | *Gain-MLP* (ICCV 2025) | Important for practical HDR encoding/representation and color-imaging engineering. |
 | **Xianwei Li / Huadong Ma** | BUPT | cinematic SDR→HDR | *HDRMovieformer* (AAAI 2026) | Important real paired professional-grading direction, distinct from synthetic HDR→SDR training. |
 
+<a id="industry-platform-line"></a>
 ## 2. Industry / Platform HDR Quality Line
 
 These authors are especially relevant when the project objective is **UGC HDR, compression, streaming, display-device dependence, or deployment-scale quality** rather than only reconstruction PSNR.
@@ -38,8 +53,10 @@ These authors are especially relevant when the project objective is **UGC HDR, c
 | **Balu Adsumilli** | Google / YouTube | CHUG, BrightRate, Beyond8Bits, LumaFlux, LumaGuide |
 | **Hai Wei / Zaixi Shang / Yixu Chen** | Amazon video-quality line | *HDR or SDR?*; HDRSDR-VQA |
 
+<a id="tracking-priority"></a>
 ## 3. Recommended Tracking Priority for Mobile Video HDR
 
+<a id="tier-a"></a>
 ### Tier A — directly relevant to current SDR-video→HDR project
 
 1. Shreshth Saini / Alan Bovik / Bowen Chen — HDR quality, HDR-Q, LumaFlux/LumaGuide.
@@ -49,16 +66,19 @@ These authors are especially relevant when the project objective is **UGC HDR, c
 5. Francesco Banterle / SaiKiran Tedla — ITM benchmark + generative HDR video.
 6. Xianwei Li / Huadong Ma — real professional SDR/HDR grading pairs.
 
+<a id="tier-b"></a>
 ### Tier B — capture-side / multi-exposure HDR reference
 
 1. Guanying Chen — DeepHDRVideo benchmark.
 2. Gangwei Xu / Xin Yang / Tianfan Xue / Jinwei Gu — HDRFlow, real-time alternating-exposure HDR video.
 
+<a id="tier-c"></a>
 ### Tier C — foundational single-image HDR
 
 1. Gabriel Eilertsen / Jonas Unger.
 2. Yu-Lun Liu / Jia-Bin Huang / Yung-Yu Chuang.
 
+<a id="primary-links"></a>
 ## 4. Primary Links
 
 - Alan C. Bovik / LIVE HDR resources: https://live.ece.utexas.edu/
@@ -70,6 +90,7 @@ These authors are especially relevant when the project objective is **UGC HDR, c
 - VITM-TC: https://github.com/ye3why/VITM-TC
 - ColorVideoVDP: https://github.com/gfxdisp/ColorVideoVDP
 
+<a id="notes"></a>
 ## 5. Notes
 
 - “HDR reconstruction” can mean very different tasks: **single SDR→HDR inference**, **alternating/multi-exposure fusion**, **display-oriented inverse tone mapping**, or **generative HDR synthesis**. Do not compare methods across these settings without checking the input assumptions.
