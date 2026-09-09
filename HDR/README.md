@@ -2,7 +2,7 @@
 
 > Last checked: 2026-09-09
 
-This folder collects research resources for **SDR→HDR / inverse tone mapping, HDR video reconstruction, gain-map HDR, HDR-IQA/VQA, perceptual evaluation, and generative HDR**.
+This folder collects research resources for **SDR→HDR / inverse tone mapping, HDR video reconstruction, gain-map HDR, HDR-IQA/VQA, perceptual evaluation, generative HDR, and commonly used HDR datasets/benchmarks**.
 
 ## 目录
 
@@ -10,6 +10,7 @@ This folder collects research resources for **SDR→HDR / inverse tone mapping, 
   - [HDR_Scholars.md](#hdr-scholars)
   - [HDR_Papers_and_IQA.md](#hdr-papers-iqa)
   - [HDR_OpenSource.md](#hdr-open-source)
+  - [HDR_Datasets.md](#hdr-datasets)
 - [Current Research Framing for Mobile Same-EV SDR Video → HDR](#current-research-framing)
 - [Recommended core baseline stack](#recommended-core-baseline-stack)
 - [Maintenance rule](#maintenance-rule)
@@ -64,6 +65,18 @@ Verified open-source/project links, including:
 
 The table records **input assumptions, capture type, open assets, and direct relevance to same-EV compressed SDR video**.
 
+<a id="hdr-datasets"></a>
+### 4. [HDR_Datasets.md](./HDR_Datasets.md)
+Task-oriented HDR dataset / benchmark index covering:
+- SDR→HDR / inverse tone mapping pairs: HDRTV1K, AIM 2025 ITM, HDRMovie7K/1K, xDR;
+- same-video HDR sources: HdM-HDRv, LiU-HDRv, MPI-HDRv and the VITM-TC synthesis protocol;
+- alternating-exposure HDR video: DeepHDRVideo, Real-HDRV, TOG13/Kalantari13;
+- multi-exposure HDR image: Kalantari17, SICE, NTIRE HDR;
+- HDR-IQA/VQA: ESPL-LIVE HDR, LIVE HDR, LIVE HDR-vs-SDR, CHUG, BrightVQ, HDRSDR-VQA, Beyond8Bits, HDRC;
+- calibrated/test content: Fairchild HDR Photographic Survey, EBU HDR sequences.
+
+Each entry records **task/input assumption, scale, HDR target origin, GT/subjective labels, strengths, limitations, access link, and direct comparability to current Same-EV mobile Video HDR**.
+
 ---
 
 <a id="current-research-framing"></a>
@@ -89,6 +102,7 @@ Same-EV compressed SDR video
         ├─ Temporal evidence recovery: VITM-TC
         ├─ Real-domain robustness: RealRep
         │
+        ├─ Dataset baseline: HDRTV1K / AIM2025 / xDR + target-camera data
         ├─ FR evaluation: ColorVideoVDP / HDRQA
         ├─ NR / HDR reasoning: HIDRO-VQA / BrightRate / Beyond8Bits
         │
@@ -98,12 +112,14 @@ Same-EV compressed SDR video
 <a id="maintenance-rule"></a>
 ## Maintenance rule
 
-When adding a new paper/project, record at minimum:
+When adding a new paper/project/dataset, record at minimum:
 - venue/year and publication status;
 - exact input/capture assumption;
-- HDR output representation;
-- training data origin;
-- temporal mechanism;
+- HDR output/target representation;
+- training data origin / target origin;
+- temporal mechanism or video continuity;
 - missing-information policy;
-- evaluation dataset/metric;
-- open-source link and license if available.
+- evaluation dataset/metric / subjective label;
+- dataset scale and split;
+- open-source/data link and license if available;
+- direct comparability to the current Same-EV compressed SDR video setting.
