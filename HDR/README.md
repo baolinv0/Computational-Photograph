@@ -11,6 +11,7 @@ This folder collects research resources for **SDR→HDR / inverse tone mapping, 
   - [HDR_Papers_and_IQA.md](#hdr-papers-iqa)
   - [HDR_OpenSource.md](#hdr-open-source)
   - [HDR_Datasets.md](#hdr-datasets)
+  - [HDR_Data_Taxonomy.md](#hdr-data-taxonomy)
 - [Current Research Framing for Mobile Same-EV SDR Video → HDR](#current-research-framing)
 - [Recommended core baseline stack](#recommended-core-baseline-stack)
 - [Maintenance rule](#maintenance-rule)
@@ -76,6 +77,16 @@ Task-oriented HDR dataset / benchmark index covering:
 - calibrated/test content: Fairchild HDR Photographic Survey, EBU HDR sequences.
 
 Each entry records **task/input assumption, scale, HDR target origin, GT/subjective labels, strengths, limitations, access link, and direct comparability to current Same-EV mobile Video HDR**.
+
+<a id="hdr-data-taxonomy"></a>
+### 5. [HDR_Data_Taxonomy.md](./HDR_Data_Taxonomy.md)
+Data-construction taxonomy organized by **how SDR and HDR are actually obtained**, rather than only by dataset name:
+- **Real HDR → Synthetic SDR**: HDR source types and five levels of SDR synthesis from simple TMO to ISP/codec-aware temporal degradation;
+- **Real SDR + Real HDR Pair**: existing delivery pair, professional independent grading pair, and physical synchronized camera/reference pair;
+- **Real Multi-Exposure + HDR GT**: capture-side bracketed/alternating-exposure HDR reconstruction data;
+- **Real SDR + Pseudo HDR**: target-domain adaptation with teacher/professional/generative HDR targets.
+
+It also gives the recommended data engine for the current project: **large-scale real-HDR-based synthesis + real-glasses target-domain adaptation + small high-value synchronized HDR reference capture**.
 
 ---
 
