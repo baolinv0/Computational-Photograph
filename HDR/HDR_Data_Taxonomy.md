@@ -82,13 +82,15 @@ S = D(H; \theta)
 <a id="hdr-source-types"></a>
 ### 2.1 真实 HDR 母数据的来源
 
+> **阅读规则：**“代表数据”列中的具体数据集 / 项目名可直接点击。优先链接正式论文；若数据集没有独立 canonical paper，则链接官方 dataset / repository；同时存在论文和数据页时给出 `Paper` / `Project` 辅助入口。
+
 | HDR 来源 | 原始 HDR 怎么得到 | 代表数据 | 优点 | 局限 | 对当前项目价值 |
 |---|---|---|---|---|---|
-| **Professional HDR Master / Graded HDR** | 影视制作 / DI / mastering 流程直接生成 PQ / HLG HDR master | Netflix **Sol Levante**、部分影视 HDR content | HDR rendering、色彩、峰值亮度较规范 | 内容偏 PGC / cinematic，不等于 camera scene GT | **高：作为 HDR rendering / color target** |
-| **Consumer HDR UGC** | 手机等消费设备直接拍摄 HLG / PQ HDR video | **LIVE UGC-HDR**, CHUG source | 内容分布接近日常拍摄、运动、曝光变化、真实 UGC | SDR counterpart 通常没有现成 GT | **很高：最接近眼镜/手机消费场景** |
-| **Professional / Multi-sensor HDR Capture** | 双机、多传感器或专用 HDR camera 直接捕获高动态范围视频 | **HdM-HDR-2014**, **LiU HDRv**, MPI-HDRv | HDR 动态范围可信，可作为高质量 HDR mother data | 设备、场景分布偏实验 / cinematic | **很高：尤其适合 controlled temporal synthesis** |
-| **Multi-exposure HDR Reconstruction** | 同一场景拍摄不同曝光，再做对齐/融合得到 HDR | Fairchild HDRPS、Kalantari17 等 | HDR GT 与曝光物理关系清楚 | 动态场景可能有 motion / merge artifact；常见于 image | **中：适合单图/物理验证** |
-| **CG / Rendered HDR** | 渲染器直接输出 scene-linear HDR / EXR | Synthetic / CG datasets | GT 完全可控，容易覆盖极端场景 | 与真实 optics / ISP / sensor 分布差异大 | **中低：用于补 coverage，不宜单独证明泛化** |
+| **Professional HDR Master / Graded HDR** | 影视制作 / DI / mastering 流程直接生成 PQ / HLG HDR master | [Netflix **Sol Levante**](https://opencontent.netflix.com/) | HDR rendering、色彩、峰值亮度较规范 | 内容偏 PGC / cinematic，不等于 camera scene GT | **高：作为 HDR rendering / color target** |
+| **Consumer HDR UGC** | 手机等消费设备直接拍摄 HLG / PQ HDR video | [**LIVE UGC-HDR**](https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html)；[**CHUG**](https://arxiv.org/abs/2510.09879) ([Project](https://shreshthsaini.github.io/CHUG/)) | 内容分布接近日常拍摄、运动、曝光变化、真实 UGC | SDR counterpart 通常没有现成 GT | **很高：最接近眼镜/手机消费场景** |
+| **Professional / Multi-sensor HDR Capture** | 双机、多传感器或专用 HDR camera 直接捕获高动态范围视频 | [**HdM-HDR-2014**](https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/) ([Paper](https://www.hdm-stuttgart.de/~froehlichj/hdm-hdr-2014/Paper_Jan%20Froehlich_Creating%20Cinematic%20Wide%20Gamut%20HDR-Video%20for%20the%20Evaluation%20of%20Tone%20Mapping%20Operators%20and%20HDR-Displays_SPIE-EI_2014.pdf))；[**LiU HDRv**](https://computergraphics.on.liu.se/hdrv_itn_liu/HDRv.php)；[MPI-HDRv](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html) | HDR 动态范围可信，可作为高质量 HDR mother data | 设备、场景分布偏实验 / cinematic | **很高：尤其适合 controlled temporal synthesis** |
+| **Multi-exposure HDR Reconstruction** | 同一场景拍摄不同曝光，再做对齐/融合得到 HDR | [Fairchild HDRPS](https://markfairchild.org/HDR.html) ([Paper](https://library.imaging.org/cic/articles/15/1/art00044))；[Kalantari17](https://cseweb.ucsd.edu/~viscomp/projects/SIG17HDR/) | HDR GT 与曝光物理关系清楚 | 动态场景可能有 motion / merge artifact；常见于 image | **中：适合单图/物理验证** |
+| **CG / Rendered HDR** | 渲染器直接输出 scene-linear HDR / EXR | Synthetic / CG datasets（当前未指定单一 canonical dataset） | GT 完全可控，容易覆盖极端场景 | 与真实 optics / ISP / sensor 分布差异大 | **中低：用于补 coverage，不宜单独证明泛化** |
 
 ### 代表性的真实 HDR mother data
 
@@ -100,7 +102,7 @@ S = D(H; \theta)
 - 动态范围：最高约 18 stops。
 - 特点：专门包含高光进出画面、brightness change、skin、specular、饱和颜色等 HDR 难例。
 - 适合：从同一真实 HDR video 人为生成 **Fixed-EV / AE-varying / bracketed** SDR，用于受控 temporal ablation。
-- Dataset: https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/
+- [Dataset](https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/) · [Paper PDF](https://www.hdm-stuttgart.de/~froehlichj/hdm-hdr-2014/Paper_Jan%20Froehlich_Creating%20Cinematic%20Wide%20Gamut%20HDR-Video%20for%20the%20Evaluation%20of%20Tone%20Mapping%20Operators%20and%20HDR-Displays_SPIE-EI_2014.pdf)
 
 #### LiU HDRv
 
@@ -109,7 +111,7 @@ S = D(H; \theta)
 - 采集：多传感器 HDR camera；原系统约 2336×1752、最高 30 fps、>24 f-stops，公开版本常为 1280×720 OpenEXR。
 - 特点：经典 HDR-video source，长期被 HDR reconstruction / tone mapping 工作复用。
 - 适合：扩充真实 HDR scene diversity，与 HdM 共同作为 synthetic SDR 的 HDR GT。
-- Repository: https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php
+- [Repository](https://computergraphics.on.liu.se/hdrv_itn_liu/HDRv.php) · [Resources](https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php)
 
 #### LIVE UGC-HDR
 
@@ -117,7 +119,7 @@ S = D(H; \theta)
 - 基本规模：2,153 个 HDR source videos。
 - 来源：iPhone amateur-user HDR capture，包含 HLG / Rec.2100 consumer content。
 - 适合：生成更接近真实 UGC 的 SDR training distribution。
-- Dataset: https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html
+- [Dataset](https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html)
 
 ---
 
@@ -170,7 +172,7 @@ HDR ──────────────┼─ TMO 2
 - spatial strength；
 - temporal mode。
 
-**代表思路**：LIVE-TMHDR、LumaFlux data pipeline。  
+**代表思路**：[LIVE-TMHDR](https://live.ece.utexas.edu/research/LIVE_TMHDR/index.html) ([Paper](https://arxiv.org/abs/2403.15061))、[LumaFlux](https://arxiv.org/abs/2604.02787) ([Code](https://github.com/shreshthsaini/LumaFlux)) data pipeline。  
 **价值**：避免模型只拟合一个 Tone Mapping inverse，提升未知前端 TM 的鲁棒性。
 
 ---
@@ -207,7 +209,7 @@ Quantization
 8-bit SDR/LDR
 ```
 
-**代表场景**：AIM 2025 ITM、VITM-TC 等 synthetic LDR protocol。  
+**代表场景**：[AIM 2025 ITM](https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Wang_AIM_2025_challenge_on_Inverse_Tone_Mapping_Report_Methods_and_ICCVW_2025_paper.html)、[VITM-TC](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html) ([Code](https://github.com/ye3why/VITM-TC/)) 等 synthetic LDR protocol。  
 **适合研究**：clipped highlight、exposure ambiguity、CRF inversion。
 
 ---
@@ -323,7 +325,7 @@ Original content
 
 代表：
 
-- **HDRTV1K**（公开 SDRTV→HDRTV baseline 常用数据）。
+- [**HDRTV1K — A New Journey From SDRTV to HDRTV**](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html)（[Code/Data](https://github.com/chxy95/HDRTVNet)）。
 
 适合：
 
@@ -356,8 +358,8 @@ Same source / master
 
 代表：
 
-- **xDR Dataset**：同一内容 native SDR / HDR grading；
-- **HDRMovie7K**：cinematic / DCDM-related SDR-HDR mapping。
+- [**xDR Dataset**](https://www.sciencedirect.com/science/article/pii/S0923596526000536)：同一内容 native SDR / HDR grading；
+- [**HDRMovie7K — HDRMovieformer**](https://ojs.aaai.org/index.php/AAAI/article/view/37578)：cinematic / DCDM-related SDR-HDR mapping。
 
 适合：
 
@@ -430,9 +432,9 @@ HDR reference
 
 代表：
 
-- **DeepHDRVideo**；
-- **Real-HDRV**；
-- Kalantari dynamic HDR datasets。
+- [**DeepHDRVideo — HDR Video Reconstruction: A Coarse-To-Fine Network and a Real-World Benchmark Dataset**](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_HDR_Video_Reconstruction_A_Coarse-To-Fine_Network_and_a_Real-World_Benchmark_ICCV_2021_paper.html)（[Dataset/Code](https://github.com/guanyingc/DeepHDRVideo-Dataset/)）；
+- [**Real-HDRV — Towards Real-World HDR Video Reconstruction**](https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html)；
+- [**Kalantari13 — Patch-Based High Dynamic Range Video**](https://web.ece.ucsb.edu/~psen/PaperPages/HDRVideo/)。
 
 特点：
 
@@ -474,7 +476,7 @@ Pseudo HDR target
 - 当前已有厂商 HDR pipeline output；
 - offline high-quality HDR model；
 - professional colorist output；
-- LumaFlux / diffusion HDR candidate；
+- [LumaFlux](https://arxiv.org/abs/2604.02787) / diffusion HDR candidate；
 - 多候选 + HDR-IQA / human selection 得到的 PGT。
 
 形成：
@@ -621,16 +623,16 @@ Multi-frame
 
 | 数据 | 分类 | 原始数据怎么得到 | SDR/HDR 关系 | 适合当前项目做什么 |
 |---|---|---|---|---|
-| **LIVE UGC-HDR** | A-HDR source | iPhone 等 consumer HDR UGC capture | 只有真实 HDR source；SDR 需自行合成 | **最适合构造消费场景 synthetic SDR** |
-| **HdM-HDR-2014** | A-HDR source | 双机 / 不同曝光专业 cinematic HDR capture | HDR 真实；SDR 常由后续论文合成 | **Controlled temporal synthesis** |
-| **LiU HDRv** | A-HDR source | 多传感器 HDR video camera | HDR 真实；SDR 需合成 | 扩充 HDR video scene diversity |
-| **Netflix Sol Levante** | A-HDR source | 专业原生 4K HDR production / mastering | 真实 HDR master | HDR rendering / mastering sanity check |
-| **LIVE-TMHDR** | A/B-like | 真实 HDR source 经多 TMO、空间/时间设置及专业 colorist 生成 SDR variants | HDR 真实；多数 SDR 为 TMO / expert rendered | **未知 Tone Mapping 鲁棒性** |
-| **HDRTV1K** | B1 | 公开 SDRTV / HDRTV paired content | SDR/HDR 都是真实 delivery，非 scene-physical pair | 公共 baseline / 预训练 |
-| **xDR** | B2 | 同内容分别做 native SDR / HDR professional grading | **真实独立 grading pair** | **真实 rendering target / evaluation** |
-| **HDRMovie7K** | B2 | cinematic / professional SDR-HDR workflow | professional paired rendering | 检查 synthetic mapping 偏差 |
-| **Real-HDRV** | C | RAW multi-exposure real capture + HDR labels | 真实多曝光输入 + HDR GT | future capture / alignment，不直接做 same-EV benchmark |
-| **DeepHDRVideo** | C | real + synthetic alternating-exposure HDR video | 多曝光条件 | architecture reference |
+| [**LIVE UGC-HDR**](https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html) | A-HDR source | iPhone 等 consumer HDR UGC capture | 只有真实 HDR source；SDR 需自行合成 | **最适合构造消费场景 synthetic SDR** |
+| [**HdM-HDR-2014**](https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/) ([Paper](https://www.hdm-stuttgart.de/~froehlichj/hdm-hdr-2014/Paper_Jan%20Froehlich_Creating%20Cinematic%20Wide%20Gamut%20HDR-Video%20for%20the%20Evaluation%20of%20Tone%20Mapping%20Operators%20and%20HDR-Displays_SPIE-EI_2014.pdf)) | A-HDR source | 双机 / 不同曝光专业 cinematic HDR capture | HDR 真实；SDR 常由后续论文合成 | **Controlled temporal synthesis** |
+| [**LiU HDRv**](https://computergraphics.on.liu.se/hdrv_itn_liu/HDRv.php) | A-HDR source | 多传感器 HDR video camera | HDR 真实；SDR 需合成 | 扩充 HDR video scene diversity |
+| [**Netflix Sol Levante**](https://opencontent.netflix.com/) | A-HDR source | 专业原生 4K HDR production / mastering | 真实 HDR master | HDR rendering / mastering sanity check |
+| [**LIVE-TMHDR**](https://live.ece.utexas.edu/research/LIVE_TMHDR/index.html) ([Paper](https://arxiv.org/abs/2403.15061)) | A/B-like | 真实 HDR source 经多 TMO、空间/时间设置及专业 colorist 生成 SDR variants | HDR 真实；多数 SDR 为 TMO / expert rendered | **未知 Tone Mapping 鲁棒性** |
+| [**HDRTV1K**](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html) | B1 | 公开 SDRTV / HDRTV paired content | SDR/HDR 都是真实 delivery，非 scene-physical pair | 公共 baseline / 预训练 |
+| [**xDR**](https://www.sciencedirect.com/science/article/pii/S0923596526000536) | B2 | 同内容分别做 native SDR / HDR professional grading | **真实独立 grading pair** | **真实 rendering target / evaluation** |
+| [**HDRMovie7K**](https://ojs.aaai.org/index.php/AAAI/article/view/37578) | B2 | cinematic / professional SDR-HDR workflow | professional paired rendering | 检查 synthetic mapping 偏差 |
+| [**Real-HDRV**](https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html) | C | RAW multi-exposure real capture + HDR labels | 真实多曝光输入 + HDR GT | future capture / alignment，不直接做 same-EV benchmark |
+| [**DeepHDRVideo**](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_HDR_Video_Reconstruction_A_Coarse-To-Fine_Network_and_a_Real-World_Benchmark_ICCV_2021_paper.html) | C | real + synthetic alternating-exposure HDR video | 多曝光条件 | architecture reference |
 | **Real glasses SDR + teacher HDR** | D | 真实产品 SDR + offline/teacher HDR | SDR 真实，HDR pseudo | **Target-domain adaptation** |
 | **Real glasses SDR + synchronized HDR reference** | B3 | 自采同步 SDR / HDR reference | 最接近 physical pair | **最终验收 / 高价值 fine-tuning** |
 
@@ -701,99 +703,85 @@ Real glasses SDR ↔ synchronized HDR reference
 
 - **HdM-HDR-2014**  
   Paper: *Creating cinematic wide gamut HDR-video for the evaluation of tone mapping operators and HDR-displays* — Fröhlich et al., SPIE 2014.  
-  Dataset / project: https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/
+  [Paper PDF](https://www.hdm-stuttgart.de/~froehlichj/hdm-hdr-2014/Paper_Jan%20Froehlich_Creating%20Cinematic%20Wide%20Gamut%20HDR-Video%20for%20the%20Evaluation%20of%20Tone%20Mapping%20Operators%20and%20HDR-Displays_SPIE-EI_2014.pdf) · [Dataset / project](https://www.hdm-stuttgart.de/vmlab/hdm-hdr-2014/)
 
 - **LiU HDRv**  
-  Official HDR Video Repository: https://computergraphics.on.liu.se/hdrv_itn_liu/HDRv.php  
-  Resources: https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php  
+  [Official HDR Video Repository](https://computergraphics.on.liu.se/hdrv_itn_liu/HDRv.php) · [Resources](https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php)  
   Note: LiU HDRv is generally cited via the official repository rather than one single canonical dataset paper.
 
 - **MPI HDRv**  
   Historical HDR video source used by HDRCNN / STPN / VITM-TC and related work.  
-  For current research comparison, see VITM-TC: https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html
+  For current research comparison, see [VITM-TC](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html).
 
 - **LIVE UGC-HDR**  
-  Official dataset: https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html
+  [Official dataset](https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html)
 
 - **CHUG**  
   Paper: *CHUG: Crowdsourced User-Generated HDR Video Quality Dataset* — Saini et al., ICIP 2025.  
-  Paper: https://arxiv.org/abs/2510.09879  
-  Project: https://shreshthsaini.github.io/CHUG/
+  [Paper](https://arxiv.org/abs/2510.09879) · [Project](https://shreshthsaini.github.io/CHUG/)
 
 - **Netflix Sol Levante**  
-  Official Netflix Open Content: https://opencontent.netflix.com/
+  [Official Netflix Open Content](https://opencontent.netflix.com/)
 
 - **Fairchild HDR Photographic Survey**  
   Paper: *The HDR Photographic Survey* — Mark D. Fairchild, CIC 2007.  
-  Paper: https://library.imaging.org/cic/articles/15/1/art00044  
-  Dataset / HDR resources: https://markfairchild.org/HDR.html
+  [Paper](https://library.imaging.org/cic/articles/15/1/art00044) · [Dataset / HDR resources](https://markfairchild.org/HDR.html)
 
 - **Kalantari17**  
   Paper: *Deep High Dynamic Range Imaging of Dynamic Scenes* — Kalantari & Ramamoorthi, SIGGRAPH 2017.  
-  Project / paper / dataset: https://cseweb.ucsd.edu/~viscomp/projects/SIG17HDR/
+  [Project / paper / dataset](https://cseweb.ucsd.edu/~viscomp/projects/SIG17HDR/)
 
 ### B. Multi-TMO / camera-model synthetic SDR
 
 - **LIVE-TMHDR**  
   Paper: *Subjective Quality Assessment of Compressed Tone-Mapped High Dynamic Range Videos* — Venkataramanan & Bovik, IEEE TIP 2024.  
-  Paper: https://arxiv.org/abs/2403.15061  
-  Dataset: https://live.ece.utexas.edu/research/LIVE_TMHDR/index.html
+  [Paper](https://arxiv.org/abs/2403.15061) · [Dataset](https://live.ece.utexas.edu/research/LIVE_TMHDR/index.html)
 
 - **LumaFlux**  
   Paper: *LumaFlux: Lifting 8-Bit Worlds to HDR Reality with Physically-Guided Diffusion Transformers* — Saini et al., 2026.  
-  Paper: https://arxiv.org/abs/2604.02787  
-  Code: https://github.com/shreshthsaini/LumaFlux
+  [Paper](https://arxiv.org/abs/2604.02787) · [Code](https://github.com/shreshthsaini/LumaFlux)
 
 - **AIM 2025 ITM Challenge**  
   Paper: *AIM 2025 challenge on Inverse Tone Mapping: Report, Methods and Results* — ICCV Workshops 2025.  
-  Paper: https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Wang_AIM_2025_challenge_on_Inverse_Tone_Mapping_Report_Methods_and_ICCVW_2025_paper.html
+  [Paper](https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Wang_AIM_2025_challenge_on_Inverse_Tone_Mapping_Report_Methods_and_ICCVW_2025_paper.html)
 
 - **VITM-TC synthetic protocol**  
   Paper: *Deep Video Inverse Tone Mapping Based on Temporal Clues* — Ye et al., CVPR 2024.  
-  Paper: https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html  
-  Code: https://github.com/ye3why/VITM-TC/
+  [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html) · [Code](https://github.com/ye3why/VITM-TC/)
 
 ### C. Real SDR / HDR paired or professionally graded data
 
 - **HDRTV1K**  
   Paper: *A New Journey From SDRTV to HDRTV* — Chen et al., ICCV 2021.  
-  Paper: https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html  
-  Code / dataset: https://github.com/chxy95/HDRTVNet
+  [Paper](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html) · [Code / dataset](https://github.com/chxy95/HDRTVNet)
 
 - **xDR Dataset**  
   Paper: *The xDR dataset: A cinematic natively graded HDR & SDR dataset for evaluation of inverse tone mapping methods* — Luzardo et al., Signal Processing: Image Communication 2026.  
-  Paper: https://www.sciencedirect.com/science/article/pii/S0923596526000536
+  [Paper](https://www.sciencedirect.com/science/article/pii/S0923596526000536)
 
 - **HDRMovie7K / HDRMovie1K**  
   Paper: *HDRMovieformer: A Transformer Framework and Benchmark for Cinematic SDR-to-HDR Conversion* — Li et al., AAAI 2026.  
-  Paper: https://ojs.aaai.org/index.php/AAAI/article/view/37578
+  [Paper](https://ojs.aaai.org/index.php/AAAI/article/view/37578)
 
 ### D. Real multi-exposure HDR video
 
 - **DeepHDRVideo**  
   Paper: *HDR Video Reconstruction: A Coarse-To-Fine Network and a Real-World Benchmark Dataset* — Chen et al., ICCV 2021.  
-  Paper: https://openaccess.thecvf.com/content/ICCV2021/html/Chen_HDR_Video_Reconstruction_A_Coarse-To-Fine_Network_and_a_Real-World_Benchmark_ICCV_2021_paper.html  
-  Dataset/code: https://github.com/guanyingc/DeepHDRVideo-Dataset/
+  [Paper](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_HDR_Video_Reconstruction_A_Coarse-To-Fine_Network_and_a_Real-World_Benchmark_ICCV_2021_paper.html) · [Dataset/code](https://github.com/guanyingc/DeepHDRVideo-Dataset/)
 
 - **Real-HDRV**  
   Paper: *Towards Real-World HDR Video Reconstruction: A Large-Scale Benchmark Dataset and A Two-Stage Alignment Network* — Shu et al., CVPR 2024.  
-  Paper: https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html
+  [Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html)
 
 - **Kalantari13 HDR Video**  
   Paper: *Patch-Based High Dynamic Range Video* — Kalantari et al., SIGGRAPH Asia / ACM TOG 2013.  
-  Project / paper / dataset: https://web.ece.ucsb.edu/~psen/PaperPages/HDRVideo/
+  [Project / paper / dataset](https://web.ece.ucsb.edu/~psen/PaperPages/HDRVideo/)
 
 ### E. 与当前 same-EV Video HDR 最值得优先阅读的 6 篇
 
-1. **A New Journey From SDRTV to HDRTV** — HDRTV1K / SDR→HDR baseline  
-   https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html
-2. **Subjective Quality Assessment of Compressed Tone-Mapped HDR Videos** — LIVE-TMHDR / 多 TMO  
-   https://arxiv.org/abs/2403.15061
-3. **Deep Video Inverse Tone Mapping Based on Temporal Clues** — Video temporal clue  
-   https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html
-4. **HDRMovieformer** — professional SDR/HDR grading / cinematic pair  
-   https://ojs.aaai.org/index.php/AAAI/article/view/37578
-5. **Real-HDRV** — real-data vs synthetic-data gap / capture-side HDR  
-   https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html
-6. **LumaFlux** — large-scale HDR-source → diverse synthetic SDR data engine  
-   https://arxiv.org/abs/2604.02787
+1. [**A New Journey From SDRTV to HDRTV**](https://openaccess.thecvf.com/content/ICCV2021/html/Chen_A_New_Journey_From_SDRTV_to_HDRTV_ICCV_2021_paper.html) — HDRTV1K / SDR→HDR baseline
+2. [**Subjective Quality Assessment of Compressed Tone-Mapped HDR Videos**](https://arxiv.org/abs/2403.15061) — LIVE-TMHDR / 多 TMO
+3. [**Deep Video Inverse Tone Mapping Based on Temporal Clues**](https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html) — Video temporal clue
+4. [**HDRMovieformer**](https://ojs.aaai.org/index.php/AAAI/article/view/37578) — professional SDR/HDR grading / cinematic pair
+5. [**Real-HDRV**](https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html) — real-data vs synthetic-data gap / capture-side HDR
+6. [**LumaFlux**](https://arxiv.org/abs/2604.02787) — large-scale HDR-source → diverse synthetic SDR data engine
