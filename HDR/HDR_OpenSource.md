@@ -3,6 +3,28 @@
 > Last checked: 2026-09-09  
 > This list prioritizes projects relevant to SDR→HDR, HDR video reconstruction, Gain Map, HDR-IQA/VQA and HDR evaluation.
 
+## 目录
+
+- [1. SDR → HDR / Inverse Tone Mapping](#sdr-to-hdr)
+- [2. HDR Video Reconstruction / Temporal Modeling](#hdr-video)
+- [3. HDR IQA / VQA / Perceptual Evaluation](#hdr-iqa-vqa)
+- [4. Gain Map / HDR Representation Resources](#gain-map-resources)
+- [5. Suggested Baseline Stack for Current Same-EV Compressed SDR Video → HDR](#baseline-stack)
+  - [A. Minimal engineering baseline](#baseline-a)
+  - [B. Structured HDR representation baseline](#baseline-b)
+  - [C. Temporal-evidence baseline](#baseline-c)
+  - [D. Real-domain robustness baseline](#baseline-d)
+  - [E. Evaluation stack](#baseline-e)
+  - [F. Generative upper-bound / research reference](#baseline-f)
+- [6. What Not to Compare Directly](#comparison-boundaries)
+  - [Same-EV SDR video vs alternating-exposure HDR video](#same-ev-vs-alternating)
+  - [Full-reference vs no-reference IQA](#fr-vs-nr)
+- [7. Practical Evaluation Checklist](#evaluation-checklist)
+- [8. Direct Links Summary](#direct-links)
+
+---
+
+<a id="sdr-to-hdr"></a>
 ## 1. SDR → HDR / Inverse Tone Mapping
 
 | Project | Task / Input assumption | Main idea | Open assets | Relevance to same-EV mobile Video HDR | Link |
@@ -15,6 +37,7 @@
 | **Guanys-dar/GM-Diffusion** | text/SDR + Gain Map → HDR generation / SDR→HDR | SDR+Gain Map decomposition + diffusion | code, training/inference scripts | **Medium/Exploratory**; useful for combining structured Gain Map with generative prior | https://github.com/Guanys-dar/GM-Diffusion |
 | **shreshthsaini/LumaFlux** | 8-bit BT.709 image/video → 10-bit PQ BT.2020 | frozen FLUX + physical/perceptual adapters + monotone tone-field decoder | code, training/eval/demo, weights/project page | **High research reference, low mobile practicality**; strong generative prior and modern HDR evaluation suite | https://github.com/shreshthsaini/LumaFlux |
 
+<a id="hdr-video"></a>
 ## 2. HDR Video Reconstruction / Temporal Modeling
 
 | Project | Capture/input | Core method | Open assets | Direct comparability to same-EV SDR? | Link |
@@ -25,6 +48,7 @@
 | **guanyingc/DeepHDRVideo-Dataset** | alternating-exposure HDR benchmark | real/synthetic static/dynamic HDR video data | dataset tools/data access info | useful for understanding multi-exposure benchmark design; not same-EV | https://github.com/guanyingc/DeepHDRVideo-Dataset |
 | **gfxdisp/HDRutils** | exposure/gain-modulated RAW/image stacks | HDR merge, RAW Bayer handling, alignment, exposure estimation, noise simulation | Python package/code | useful capture/physics toolbox; not an SDR→HDR model | https://github.com/gfxdisp/HDRutils |
 
+<a id="hdr-iqa-vqa"></a>
 ## 3. HDR IQA / VQA / Perceptual Evaluation
 
 | Project | Type | Input/reference requirement | What it provides | Recommended use | Link |
@@ -37,6 +61,7 @@
 | **NYU-ICL/TM-metric-adaptation** | tone-mapping quality metric adaptation | HDR reference + tone-mapped content + display model | display-photometry normalization; ColorVideoVDP-tm workflow | strong reference for evaluating SDR/HDR tone-mapping pairs correctly | https://github.com/NYU-ICL/TM-metric-adaptation |
 | **shreshthsaini/Awesome-Perceptual-Quality** | curated catalog | n/a | tagged IQA/VQA/HDR methods and subjective datasets | literature/dataset discovery | https://github.com/shreshthsaini/Awesome-Perceptual-Quality |
 
+<a id="gain-map-resources"></a>
 ## 4. Gain Map / HDR Representation Resources
 
 | Project | Purpose | Notes | Link |
@@ -45,45 +70,54 @@
 | **qtlark/GMNet** | learn Gain Map from SDR | ICLR 2025 official implementation | https://github.com/qtlark/GMNet |
 | **Guanys-dar/GM-Diffusion** | generative SDR+Gain Map HDR | ICCV 2025 official implementation | https://github.com/Guanys-dar/GM-Diffusion |
 
+<a id="baseline-stack"></a>
 ## 5. Suggested Baseline Stack for Current Same-EV Compressed SDR Video → HDR
 
+<a id="baseline-a"></a>
 ### A. Minimal engineering baseline
 
 1. `jpneagle/sdr2hdr`
    - establish deterministic/control-map SDR→HDR baseline;
    - inspect highlight expansion, protection gates, temporal EMA and PQ output pipeline.
 
+<a id="baseline-b"></a>
 ### B. Structured HDR representation baseline
 
 2. `qtlark/GMNet`
    - test Gain Map prediction as an alternative to direct HDR RGB;
    - retain controllability and display adaptation.
 
+<a id="baseline-c"></a>
 ### C. Temporal-evidence baseline
 
 3. `ye3why/VITM-TC`
    - determine whether same-EV neighbor frames contain recoverable evidence;
    - separate **temporal clue recovery** from simple **flicker suppression**.
 
+<a id="baseline-d"></a>
 ### D. Real-domain robustness baseline
 
 4. `kepengxu/RealRep`
    - compare degradation-conditioned mapping against fixed synthetic-TMO training.
 
+<a id="baseline-e"></a>
 ### E. Evaluation stack
 
 5. `gfxdisp/ColorVideoVDP` — reference HDR video evaluation.
 6. `cpb68/HDRQA` — HDR luminance-range-aware image evaluation.
 7. `shreshthsaini/Beyond8Bits` / `BrightRate` line — HDR no-reference / reasoning-oriented evaluation.
 
+<a id="baseline-f"></a>
 ### F. Generative upper-bound / research reference
 
 8. `shreshthsaini/LumaFlux`
 9. `Guanys-dar/GM-Diffusion`
 10. *Generating HDR Video from SDR Video* project page: https://sdr2hdrvideo.github.io/ (no verified official GitHub repository listed here as of the last check).
 
+<a id="comparison-boundaries"></a>
 ## 6. What Not to Compare Directly
 
+<a id="same-ev-vs-alternating"></a>
 ### Same-EV SDR video vs alternating-exposure HDR video
 
 `HDRFlow` and `DeepHDRVideo` receive exposure-bracket information that same-EV SDR does not contain. They should be used to study:
@@ -94,12 +128,14 @@
 
 They should **not** be used as a direct quality baseline unless the capture/input condition is matched.
 
+<a id="fr-vs-nr"></a>
 ### Full-reference vs no-reference IQA
 
 - `ColorVideoVDP`, HDR-VDP-style metrics: require a meaningful reference and display assumptions.
 - `HIDRO-VQA`, BrightRate/HDR-Q line: target no-reference or learned perceptual quality prediction.
 - The two classes answer different questions and should not be merged into one score table without explanation.
 
+<a id="evaluation-checklist"></a>
 ## 7. Practical Evaluation Checklist
 
 For every open-source SDR→HDR model, record:
@@ -113,6 +149,7 @@ For every open-source SDR→HDR model, record:
 7. **Metrics** — PU21, ΔE_ITP, HDR-VDP/ColorVideoVDP, subjective study, temporal flicker.
 8. **Deployment cost** — resolution, fps, latency, VRAM/RAM, parameters/MACs, codec I/O.
 
+<a id="direct-links"></a>
 ## 8. Direct Links Summary
 
 ```text
