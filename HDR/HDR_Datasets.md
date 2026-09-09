@@ -1,457 +1,240 @@
-# HDR 常用数据集与 Benchmark
+# HDR 常用数据集与 Benchmark：项目决策表
 
 > Last checked: 2026-09-09  
-> Scope: SDR→HDR / inverse tone mapping (ITM), single-image HDR reconstruction, same-EV HDR video, alternating-exposure HDR video, multi-exposure HDR imaging, HDR-IQA/VQA, HDR display/evaluation resources.
+> Scope: SDR→HDR / inverse tone mapping (ITM), same-EV HDR video, alternating-exposure HDR video, multi-exposure HDR imaging, HDR-IQA/VQA, HDR reference/master content.
 
 ## 目录
 
-- [1. 任务分类与快速选择](#task-map)
-- [2. SDR→HDR / Inverse Tone Mapping 配对数据](#itm-paired)
-- [3. Same-EV / 单视频 HDR 与 HDR Video Source 数据](#same-ev-video)
-- [4. Alternating-Exposure HDR Video Reconstruction](#alternating-video)
-- [5. Multi-Exposure HDR Image / Deghosting](#multi-exposure-image)
-- [6. HDR IQA / VQA 主观质量数据集](#hdr-iqa-vqa)
-- [7. HDR Reference / Display / Standards Test Content](#reference-content)
-- [8. 当前 Mobile Same-EV SDR Video→HDR 推荐组合](#recommended-stack)
-- [9. 使用数据集时必须记录的信息](#dataset-checklist)
+- [1. 如何读这个表](#how-to-read)
+- [2. SDR→HDR / ITM：直接相关数据](#itm)
+- [3. HDR Video / Temporal：视频源与多曝光数据](#video)
+- [4. HDR Source / Reference：可用于合成和物理校验的数据](#source)
+- [5. HDR IQA / VQA：主观质量与显示评价数据](#iqa)
+- [6. 对当前项目的推荐组合](#recommended)
+- [7. 使用任何 HDR 数据集前必须确认的信息](#checklist)
 
 ---
 
-<a id="task-map"></a>
-## 1. 任务分类与快速选择
+<a id="how-to-read"></a>
+## 1. 如何读这个表
 
-不同 HDR 数据集的输入假设差异非常大，不能只因为都叫 HDR 就直接横向比较。
+### 适用等级
 
-| 任务 | 最常见输入 | 代表数据集 | 对当前 Same-EV SDR Video→HDR 的直接相关性 |
-|---|---|---|---|
-| **SDR→HDR / ITM** | 单张/逐帧 SDR → HDR | HDRTV1K, AIM 2025 ITM, HDRMovie7K/1K, xDR | **最高** |
-| **Same-video Video ITM** | 普通 LDR/SDR 视频，多帧同类曝光 | HDM-HDRv, LiU-HDRv, MPI-HDRv；VITM-TC 用这些作为测试源 | **高** |
-| **Alternating-exposure HDR video** | Short/Long 或 2/3 档交替曝光 | DeepHDRVideo, Real-HDRV, TOG13/Kalantari13 | **低直接可比，高架构参考** |
-| **Multi-exposure HDR image** | 3 张或多张不同曝光静态/动态图 | Kalantari17, SICE, NTIRE HDR | **低直接可比** |
-| **HDR-IQA/VQA** | HDR image/video + MOS/JOD/主观评分 | ESPL-LIVE HDR, LIVE HDR, CHUG, BrightVQ, HDRSDR-VQA, Beyond8Bits | **评价系统高相关** |
-| **HDR reference source** | 原生 HDR EXR / HDR10 / HLG | Fairchild HDRPS, HdM-HDR-2014, LiU HDRv, MPI HDRv, EBU test sequences | 适合造数据、显示验证、FR evaluation |
+- **S**：对当前 same-EV、8-bit、压缩 SDR video → HDR 项目某个关键环节具有直接价值，应优先获取。
+- **A**：强相关，适合预训练、benchmark、受控实验或数据引擎。
+- **B**：有明显参考价值，但任务/域存在较大差异。
+- **C**：主要用于架构参考、辅助 sanity-check 或特定子问题。
+- **D**：不适合作为当前项目主训练/主 benchmark，只能作为外围参考。
 
-> **重要边界**：Same-EV temporal information ≠ exposure-bracket information。DeepHDRVideo / Real-HDRV 输入中存在真实曝光互补信息，不能直接作为普通压缩 SDR 视频的公平基线。
+### 影响力标记
 
----
+- **★★★★★**：经典/长期复用，或已经形成事实 benchmark。
+- **★★★★☆**：高水平 venue + 明显复用/规模优势；新数据可能引用尚未充分积累。
+- **★★★☆☆**：有价值但较新、较小或用途较窄。
 
-<a id="itm-paired"></a>
-## 2. SDR→HDR / Inverse Tone Mapping 配对数据
-
-### 2.1 HDRTV1K — ICCV 2021 / HDRTVNet
-
-- **任务**：SDRTV → HDRTV / inverse tone mapping。
-- **数据**：1,235 training pairs + 117 test pairs。
-- **来源**：4K HDR10 视频及其 SDR counterpart，抽取成配对图像。
-- **HDR 表示**：10-bit, Rec.2020, PQ / HDR10 source。
-- **优点**：SDR→HDR 领域最常见的公开 paired benchmark 之一；很多后续工作沿用。
-- **局限**：以帧为主，不验证长时间视频稳定性；pair 的形成过程仍需与目标 camera/ISP domain 区分。
-- **适合**：baseline、单帧映射能力、Gain Map / ITM 对比。
-- Project: https://github.com/chxy95/HDRTVNet
-- Dataset mirror: https://huggingface.co/datasets/chxy95/HDRTV1K
-
-### 2.2 AIM 2025 Challenge on Inverse Tone Mapping
-
-- **任务**：single LDR → HDR reconstruction。
-- **Training**：约 19,000 LDR-HDR pairs，256×256。
-- **Validation / Test**：各 100 张，512×512；test HDR GT 隐藏用于 challenge evaluation。
-- **LDR 生成**：HDR source → exposure sampling → noise → clipping → sampled camera response function/nonlinearity → 8-bit LDR。
-- **评价**：PU21-PSNR、PU21-SSIM。
-- **优点**：2025 年较规范的公开 ITM challenge，protocol 清楚，适合算法横向比较。
-- **局限**：依然属于由 HDR 合成 LDR 的训练/测试分布，不能单独证明真实 camera SDR 泛化。
-- Paper: https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Wang_AIM_2025_challenge_on_Inverse_Tone_Mapping_Report_Methods_and_ICCVW_2025_paper.html
-
-### 2.3 HDRMovie7K — AAAI 2026 / HDRMovieformer
-
-- **任务**：cinematic SDR→HDR conversion。
-- **来源**：professional Digital Cinema Distribution Master (DCDM) workflow 中的 lossless SDR-HDR frame pairs。
-- **价值**：与 HDR→synthetic-TMO→SDR 不同，目标是专业 SDR/HDR grading pair；更适合研究真实 creative grading / wide-color-gamut mapping。
-- **适合**：专业内容、电影 SDR→HDR、色彩和亮度映射。
-- **局限**：cinematic grading domain 与 mobile camera SDR domain 不同；不能直接代表眼镜/手机 ISP。
-- Paper: https://ojs.aaai.org/index.php/AAAI/article/view/37578
-
-### 2.4 HDRMovie1K — AAAI 2026
-
-- **任务**：online/streaming-oriented cinematic SDR→HDR evaluation。
-- **来源**：公开 HDR film clips curated 成 benchmark。
-- **作用**：与 HDRMovie7K 一起用于 HDRMovieformer 的跨内容/streaming evaluation。
-- **局限**：仍偏影视内容，不是 camera-native paired capture。
-- Paper: https://ojs.aaai.org/index.php/AAAI/article/view/37578
-
-### 2.5 xDR Dataset — SPIC 2026
-
-- **任务**：inverse tone mapping evaluation。
-- **规模**：10 个约 40 s 的 FHD cinematic sequences。
-- **关键特点**：同一 creative intent 下，由专业人员分别完成 **native SDR grading** 与 **native HDR grading**，而不是简单 HDR→TMO→SDR。
-- **价值**：非常适合检验“synthetic SDR pair 是否导致 benchmark 偏差”。
-- **局限**：规模小；适合 evaluation，不适合独立承担大模型训练。
-- Paper: https://www.sciencedirect.com/science/article/pii/S0923596526000536
-
-### 2.6 Fairchild HDR Photographic Survey — HDR reference source
-
-- **任务**：HDR rendering / tone mapping / IQA reference，而不是直接 paired SDR→HDR benchmark。
-- **规模**：106 HDR images；28 张具有更完整 colorimetric/appearance data，其余至少具备 absolute luminance calibration。
-- **优点**：经典、带绝对亮度/色度信息，适合 tone mapping 和 HDR quality 研究。
-- **局限**：静态图、年代较早，不代表 contemporary mobile video/UGC。
-- Access: https://markfairchild.org/HDR.html
+> 注意：2025–2026 新数据不能仅以当前引用次数判断影响力，因此“影响力”综合考虑 venue、数据规模、是否形成挑战赛/后续工作、是否被多篇方法复用。
 
 ---
 
-<a id="same-ev-video"></a>
-## 3. Same-EV / 单视频 HDR 与 HDR Video Source 数据
+<a id="itm"></a>
+## 2. SDR→HDR / Inverse Tone Mapping：直接相关数据
 
-这些数据通常是**原生 HDR 视频源**，研究者再根据 camera model/TMO 合成 LDR/SDR 输入。它们不等价于真实 paired camera SDR/HDR，但非常常用于 Video ITM。
+| 数据集 | 基本情况 | 原始数据 / 怎么得到 | SDR/HDR 配对真实性 | 影响力 / 使用情况 | 对当前项目适用度 | 最适合我们的用途 | 主要局限 |
+|---|---|---|---|---|---|---|---|
+| **HDRTV1K** | 1,235 train pairs + 117 test pairs；来源为 4K HDR10/SDR 视频帧；HDR 为 10-bit Rec.2020 PQ | 从 YouTube 收集具有 HDR10 版本及对应 SDR counterpart 的视频，抽帧形成 paired image dataset | **内容级 SDR/HDR counterpart，非 camera sensor 同源物理 GT** | **★★★★★**；ICCV 2021 HDRTVNet 建立后，被 FMNet、HDRTVNet++ 等 SDRTV→HDRTV 工作持续复用，是当前最常见的公开 ITM baseline 之一 | **A** | 单帧 baseline、Gain Map/ITM 对比、预训练、与公开论文横向比较 | 主要是逐帧 benchmark；不能验证长时 video stability；内容/后期制作域与眼镜 camera ISP 不同 |
+| **AIM 2025 ITM Challenge** | 约 19,000 train pairs，100 val，100 test；256²/512²；PU21-PSNR/SSIM 评价 | 从真实 HDR 内容出发，经 exposure sampling → noise → clipping → sampled CRF/nonlinearity → 8-bit JPEG LDR | **HDR GT 真实，LDR 输入为合成 camera pipeline** | **★★★★☆**；ICCV AIM Challenge，67 名参与者、319 次有效提交；protocol 和隐藏 GT 使其 benchmark 可信度较高 | **A** | 做标准化单图 ITM 算法排名、验证 missing-highlight reconstruction 能力 | synthetic LDR domain；仍不能证明真实眼镜 ISP 泛化 |
+| **xDR Dataset** | 10 段约 40 s、1920×1080、30 fps cinematic video；每段均有 SDR/HDR 版本 | 同一短片由专业制作流程分别 **native graded in SDR and HDR**，由专业调色人员保持同一艺术意图 | **真实独立 grading pair，不是 HDR→TMO→SDR 合成** | **★★★★☆（新但重要）**；2026 SPIC；当前规模小但数据构造非常稀缺，专门用于 ITM 评价 | **S（评价）/ B（训练）** | 最适合验证“算法输出是否接近真正专业 HDR rendering”，检查 synthetic-to-real grading gap | 只有 10 段；cinematic domain 与眼镜 UGC/camera domain 不同；更适合 eval 而非大规模训练 |
+| **HDRMovie7K** | 大规模 lossless cinematic SDR-HDR frame pairs；AAAI 2026 | 来自专业 **Digital Cinema Distribution Master (DCDM)** workflow 的 SDR/HDR frame pairs | **真实专业后期配对，不是简单 synthetic TMO** | **★★★★☆（新）**；AAAI 2026，首次大规模 cinematic SDR/HDR lossless benchmark；引用尚未充分积累 | **A（研究）** | 学习专业亮度/色彩映射、验证 synthetic TMO 与真实 grading 差异 | 电影域与 camera UGC 不同；数据公开可获得性需按作者发布状态确认 |
+| **HDRMovie1K** | 从公开 HDR film clips 构造的 streaming-oriented evaluation set | 从公开电影 HDR 内容 curated，面向在线/流媒体场景评估 | 不是 sensor-level paired capture；主要用于评测 | **★★★☆☆（新）**；与 HDRMovieformer 同期提出 | **B** | 检查模型在影视/streaming 内容上的跨域泛化 | 不是 mobile camera domain；不适合作为主要训练 GT |
+| **LIVE-TMHDR** | 40 pristine HDR source videos → **15,000 tone-mapped sequences**；>750k subjective opinions；>1,600 observers | 40 个真实 HDR source，经 **10 个开源 TMO × 4 spatial settings × 3 temporal modes**，另有 2 proprietary TMO 和 **human expert colorist** 手工 tone map；同时包含 compression | **HDR source 真实；大部分 SDR 为 TMO 派生，少部分为专家人工 SDR** | **★★★★★**；目前最系统的 HDR→SDR tone-mapping diversity 数据之一，也是 LumaFlux 训练源之一 | **S** | **最适合构建 unknown-front-end-TM robustness 实验**；同一 HDR 经多种 TMO 产生多种 SDR，可测试逆映射是否依赖某一 tone style；专家 SDR 可做高质量 eval | 仍不是完整 camera ISP：不包含真实 sensor→AE/AWB→DNR→sharpen→local TM 的全部链路 |
+| **LumaFlux mixed corpus** | 314,396 SDR-HDR pairs，来自 2,092 HDR videos；不是独立传统 benchmark | 将 HIDROVQA/CHUG/LIVE-TMHDR 等 HDR source 统一到 PQ/BT.2020/1000 nit；再生成 **8 TMOs × x264 CRF {23,31,39}** 的 SDR variants；LIVE-TMHDR 专家 SDR 可直接 passthrough | **HDR source 多为真实；绝大多数 SDR 仍为 synthetic degradation** | **★★★★☆（方法级）**；2026 LumaFlux 数据引擎；不是社区独立 benchmark，但构造方式很值得复用 | **A（数据引擎）** | 直接参考其“多 TMO + gamut conversion + codec round-trip + UGC/PGC balance”的造数方法 | 不应把 314K pair 规模误解为 314K 个真实 SDR/HDR camera pair；domain gap 仍存在 |
 
-### 3.1 HdM-HDR-2014 / Stuttgart HDR Dataset
+### 这一组怎么选
 
-- **内容**：cinematic wide-gamut HDR video sequences，室内/室外、焊接、火焰、汽车、人物等高动态范围场景。
-- **格式**：常见研究版本为 floating-point / HDR source；很多论文从中合成 LDR 或 alternating-exposure input。
-- **典型用途**：video tone mapping、video ITM、HDR display evaluation、DeepHDRVideo synthetic training/test source。
-- **VITM-TC**：CVPR 2024 将其作为 real HDR video source 之一进行测试输入合成。
-- **局限**：场景数量有限；历史影视/研究相机分布与 mobile UGC 不同。
-- Project/resource: https://www.hdm-stuttgart.de/~froehlichj/
-
-### 3.2 LiU HDRv Repository
-
-- **内容**：多组 HDR video sequences 和 HDR light probes；OpenEXR frame sequences。
-- **典型下载分辨率**：很多公开序列提供 1280×720 EXR 版本。
-- **部分序列**：Students、Bridge、River、Exhibition Area 等；部分有 radiometric calibration。
-- **用途**：video ITM、HDR video reconstruction synthetic source、tone mapping、lighting。
-- **License**：网站声明数据/代码可按 CC BY-SA 4.0 使用。
-- Resource: https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php
-
-### 3.3 MPI HDR Video Dataset
-
-- **任务**：早期 HDR video / perceptual HDR encoding reference。
-- **规模**：常见 benchmark summary 中为 2 个 HDR videos。
-- **用途**：video ITM / HDR compression / temporal HDR evaluation。
-- **VITM-TC**：作为 CVPR 2024 的 public HDR video testing source 之一。
-- Resource: https://resources.mpi-inf.mpg.de/hdr/video/
-
-### 3.4 VITM-TC 数据合成设置 — CVPR 2024
-
-VITM-TC 本身没有建立一个大规模 native paired SDR/HDR video dataset，而是组合不同数据源：
-
-- **HDR image source**：SICE，589 multi-exposure scenes。
-- **LDR video source**：REDS sharp training dataset。
-- **Synthetic video generation**：对 HDR image 做 random perspective transform 模拟 camera motion；再模拟 exposure / clipping / camera response。
-- **Real HDR video test source**：HdM-HDRv、LiU-HDRv、MPI-HDRv，并从 HDR source 模拟对应 LDR。
-
-这套 protocol 对当前项目很重要，因为它说明：
-
-> same-video temporal clue research 仍然严重受限于“缺少真实 paired SDR/HDR video”，很多结果仍依赖 synthetic camera pipeline。
-
-- Paper: https://openaccess.thecvf.com/content/CVPR2024/html/Ye_Deep_Video_Inverse_Tone_Mapping_Based_on_Temporal_Clues_CVPR_2024_paper.html
-- Code: https://github.com/ye3why/VITM-TC
+**如果要做公开论文 baseline：HDRTV1K + AIM 2025。**  
+**如果要验证真实/专业 SDR↔HDR 映射：xDR + HDRMovie7K。**  
+**如果要研究未知前端 Tone Mapping 鲁棒性：LIVE-TMHDR 最关键。**
 
 ---
 
-<a id="alternating-video"></a>
-## 4. Alternating-Exposure HDR Video Reconstruction
+<a id="video"></a>
+## 3. HDR Video / Temporal：视频源与多曝光数据
 
-### 4.1 DeepHDRVideo Dataset — ICCV 2021
+| 数据集 | 基本情况 | 原始数据 / 怎么得到 | 输入曝光关系 | 影响力 / 使用情况 | 对当前项目适用度 | 最适合我们的用途 | 主要局限 |
+|---|---|---|---|---|---|---|---|
+| **HdM-HDR-2014 / Stuttgart** | 专业 cinematic HDR video；动态范围最高约 18 stops；OpenEXR scene-radiance、Rec.2020 graded versions | 两台 ARRI Alexa 通过 mirror-rig 同时采集不同曝光，约 4-stop 差，再重建 HDR；场景专门包含高光进出、亮度变化、肤色、specular、饱和彩色等 HDR 难例 | 原始数据是 **真实 HDR video**；后续 ITM 论文通常再从它合成 SDR/LDR | **★★★★★**；经典 HDR video source；长期被 HDRCNN、DeepHDRVideo、VITM-TC、AIM 等代际工作复用 | **A** | 作为高质量 HDR 母片，构造 **Fixed-EV / AE-varying / codec-degraded** 的受控实验；验证 temporal clue 到底来自哪里 | 它本身不是 SDR/HDR paired camera dataset；如果自己合成 SDR，结论仍只代表 synthetic domain |
+| **LiU HDRv** | 多个真实 HDR sequences；公开 720p OpenEXR；原系统 2336×1752@30fps，>24 f-stops | LiU/SpheronVR 多传感器 HDRv camera 实拍；部分场景用 PR-650 做 radiometric calibration；很多序列未做绝对亮度标定 | 原始数据为 **真实 HDR video**，不是 LDR/HDR pair | **★★★★★**；经典 HDR video source；被 HDRCNN、STPN、DeepHDRVideo 等长期复用 | **A** | 与 HdM 类似，用作真实 HDR mother content；构造 fixed-EV synthetic SDR，做 temporal ablation | 多数序列不代表绝对 scene luminance；720p 公开版较低分辨率；非现代 mobile camera distribution |
+| **MPI HDRv** | 经典小规模 HDR video source；常见工作使用约 2 个 sequence | 早期 MPI HDR video repository 的真实 HDR scene data | 原始 HDR；后续常被用来合成 LDR/作为 source | **★★★☆☆**；被早期 HDRCNN/STPN/VITM-TC 等使用，但规模非常小 | **B** | sanity-check、补充场景 | 规模太小，不应作为主要 benchmark；旧数据获取/维护稳定性较弱 |
+| **DeepHDRVideo / ICCV 2021 benchmark** | 真实 + synthetic HDR video benchmark；真实捕获分 static GT、dynamic GT、dynamic no-GT；4K 级 Basler capture | 使用 Basler acA4096-30uc 拍摄 **2/3 档 alternating exposures**；另以 HdM/LiU HDR source 合成 alternating-exposure train/test data | **真实包围曝光**，输入帧之间具物理曝光互补信息 | **★★★★★**；ICCV 2021 后成为 alternating-exposure HDR video 主流 benchmark/代码基线之一 | **C（直接）/ A（架构）** | 学 alignment/fusion、motion robustness、real-world benchmark 设计 | 与我们 **same-EV SDR** 输入不公平；不能直接比较 PSNR 证明我们模型弱/强 |
+| **Real-HDRV / CVPR 2024** | 500 LDRs-HDRs video pairs；约 28k LDR frames + 4k HDR labels；450 train/50 test；昼夜/室内外/多运动模式 | **RAW domain 实拍**；官方提供原始 RAW；预生成版本采用 2 档 alternating exposures、相差 3 stops；HDR label 为真实采集构造 | **真实 alternating-exposure** | **★★★★☆**；CVPR 2024；当前最重要的大规模 real-world HDR video reconstruction benchmark 之一；论文直接证明 real-data training 比 synthetic 更强 | **C（直接）/ A（capture-side）** | 如果未来眼镜允许 exposure-bracket/staggered capture，非常重要；当前可用于研究真实运动/对齐难点 | 和当前 fixed-EV 输入机制不同，不能作为主 benchmark |
+| **Kalantari13 HDR Video / TOG13** | 9 个 dynamic video sequences；2/3 exposures；无可靠 HDR GT | 真实动态场景使用不同曝光拍摄；公开 exposure information、CRF 等 | **真实 alternating exposures** | **★★★★☆（经典）**；在 DeepHDRVideo 之前是常用真实动态 HDR video qualitative set | **D（主任务）/ B（参考）** | qualitative deghosting / alignment sanity check | 只有 9 段，且无 HDR GT，无法做严格定量 |
+| **VITM-TC synthetic protocol over HdM/LiU/MPI** | 不是独立母数据集；CVPR 2024 用真实 HDR video source 生成普通 LDR video | 对 HDR \(H\) 施加 exposure \(T\) → clipping → gamma/CRF（论文采用约 1/2.2）得到 LDR；HDR 保留为 GT | **HDR GT 真实，LDR synthetic**；曝光可随时间改变 | **★★★★☆**；VITM-TC 用于 same-video temporal clue ITM | **A（机制验证）** | 很适合复现并进一步改造成 **strict Fixed-EV** 版本，直接测“same-EV 多帧到底有没有额外信息” | 原论文更依赖 temporal exposure diversity，不等价于我们严格固定 EV 视频 |
 
-- **任务**：2/3 alternating-exposure LDR video → HDR video。
-- **公开内容**：
-  - synthetic training dataset；
-  - synthetic test dataset；
-  - real static scenes with GT HDR；
-  - real dynamic scenes with GT HDR；
-  - real dynamic scenes without GT HDR。
-- **Synthetic training source**：13 个 HdM-HDR-2014 videos + 8 个 LiU HDRv videos，共 21 HDR videos。
-- **Synthetic test**：`POKER FULLSHOT` 与 `CAROUSEL FIREWORKS`，各 60 frames，1920×1080。
-- **真实采集**：Basler camera，2/3 exposure alternating capture，并保留 RAW/metadata 处理流程。
-- **优点**：HDR video reconstruction 经典 benchmark，代码/数据/采集脚本完整。
-- **局限**：输入有真实 exposure complementarity，和普通 same-EV SDR video 任务不同。
-- Dataset: https://github.com/guanyingc/DeepHDRVideo-Dataset
-- Code: https://github.com/guanyingc/DeepHDRVideo
+### 对我们最关键的结论
 
-### 4.2 Real-HDRV — CVPR 2024
-
-- **任务**：real-world alternating-exposure HDR video reconstruction / deghosting。
-- **规模**：500 LDRs-HDRs video pairs，约 28,000 LDR frames + 4,000 HDR labels。
-- **覆盖**：daytime / nighttime / indoor / outdoor，多种 motion pattern。
-- **数据形态**：
-  - original RAW dataset；
-  - Real-HDRV-v1: sRGB HDR video reconstruction；
-  - Real-HDRV-v2: HDR deghosting。
-- **典型 exposure setup**：公开 repo 提供 2 alternating exposures，3 EV stops 的预处理版本。
-- **优势**：针对“synthetic HDR video data → real scene generalization gap”而设计。
-- **局限**：仍然是 alternating exposure capture，不是 post-ISP same-EV SDR。
-- Paper: https://openaccess.thecvf.com/content/CVPR2024/html/Shu_Towards_Real-World_HDR_Video_Reconstruction_A_Large-Scale_Benchmark_Dataset_and_CVPR_2024_paper.html
-- Dataset: https://github.com/yungsyu99/Real-HDRV
-
-### 4.3 TOG13 / Kalantari13 Dynamic HDR Video Dataset
-
-- **任务**：dynamic HDR video from alternating exposures。
-- **规模**：9 dynamic videos；包含 2-exposure / 3-exposure sequences。
-- **典型 scenes**：Cleaning、Dog、Fire、Ninja、ThrowingTowel、WavingHands 等。
-- **用途**：DeepHDRVideo/HDRFlow 等常作 qualitative or legacy benchmark。
-- **局限**：规模很小，很多序列缺乏现代严格 GT；更适合 qualitative motion/deghosting comparison。
-- Access mirror/info: https://github.com/guanyingc/DeepHDRVideo-Dataset
-
-### 4.4 HDRFlow 2024 的训练/测试数据组合
-
-HDRFlow 没有单独创造一个新的主 benchmark，而是使用：
-
-- **Training**：Vimeo-90K + Sintel（加强 large motion / flow supervision）。
-- **Testing**：DeepHDRVideo、HDR Synthetic Test Dataset、TOG13 Dynamic Dataset。
-- **意义**：说明 HDR video 模型常需要“真实 HDR benchmark + 通用 motion/flow dataset”联合训练。
-- Repo: https://github.com/OpenImagingLab/HDRFlow
+- **HdM / LiU / MPI = 真实 HDR 母片，不是现成真实 SDR/HDR pair。**
+- **DeepHDRVideo / Real-HDRV = 真正的多曝光 HDR video reconstruction 数据，但输入条件与我们不一致。**
+- 对当前项目，最有价值的实验是：基于 HdM/LiU 的同一 HDR GT，人工构造 **Fixed-EV / smooth-AE / alternating-exposure** 三种输入，定量拆解 temporal gain。
 
 ---
 
-<a id="multi-exposure-image"></a>
-## 5. Multi-Exposure HDR Image / Deghosting
+<a id="source"></a>
+## 4. HDR Source / Reference：可用于合成和物理校验的数据
 
-### 5.1 Kalantari HDR Dataset — SIGGRAPH / TOG 2017
-
-- **任务**：dynamic multi-exposure HDR image reconstruction。
-- **规模**：89 scenes = 74 train + 15 test。
-- **输入**：每个 scene 三张不同 exposure LDR，典型为 {-2,0,+2} 或 {-3,0,+3} EV。
-- **GT**：提供 aligned HDR ground truth。
-- **分辨率**：常用 release 约 1500×1000。
-- **地位**：multi-exposure HDR image deghosting 最经典的监督 benchmark 之一。
-- **局限**：输入条件与 same-EV video 完全不同。
-- Project: https://cseweb.ucsd.edu/~viscomp/projects/SIG17HDR/
-
-### 5.2 SICE — TIP 2018
-
-- **任务**：single-image contrast enhancement / multi-exposure fusion source；后续也常被拿来生成 HDR/ITM synthetic data。
-- **规模**：589 multi-exposure sequences，4,413 images。
-- **来源**：真实 multi-exposure image sequences。
-- **Reference**：使用 13 个 MEF/HDR methods 生成候选，再通过 subjective screening 选择 reference。
-- **重要限制**：这个 reference 是“主观筛选的 enhanced target”，**不是严格 radiometric HDR ground truth**。
-- **VITM-TC**：将 SICE 作为 HDR image source 之一合成视频训练数据。
-- Repo: https://github.com/csjcai/SICE
-
-### 5.3 NTIRE 2021 HDR Dataset
-
-- **任务**：multi-exposure HDR reconstruction challenge。
-- **常见 split**：约 1,494 train + 60 val + 201 test（文献汇总口径）。
-- **性质**：以 synthetic/controlled HDR reconstruction benchmark 为主。
-- **适合**：多曝光 HDR image reconstruction；不适合直接作为 same-EV SDR→HDR 结论依据。
+| 数据集 / 内容 | 基本情况 | 怎么得到 | 影响力 | 对当前项目适用度 | 推荐用途 | 局限 |
+|---|---|---|---|---|---|---|
+| **LIVE UGC-HDR** | **2,153** 个 10-bit HDR source videos；1080p/4K；30/60 fps；HLG + Rec.2100 | 由 amateur iPhone users 真实拍摄的 HDR UGC | **★★★★☆**；目前最重要的 consumer/mobile HDR source collection 之一；CHUG/Beyond8Bits/LumaFlux 研究链均依赖这一类 UGC HDR | **S（HDR source）** | **最贴近消费级 camera 内容分布**；可作为 HDR mother data 生成多种 SDR，特别适合补充手持运动、人像、日常场景 | 只有 HDR source，没有真实对应 SDR；若生成 SDR 仍属于 synthetic pair |
+| **Fairchild HDR Photographic Survey** | 106 HDR images；28 张有 colorimetric/appearance data，其余至少有 absolute luminance calibration；可下载原始 exposure stacks | 静态场景多档曝光（通常 1 stop 间隔）融合；同时现场做 luminance/color measurement | **★★★★★**；HDR imaging/color science 经典 reference | **B** | 检查 absolute luminance、色彩、tone mapping 物理合理性；作为静态 HDR source | 图像不是视频；场景较老；不适合 temporal training |
+| **Netflix Sol Levante** | 4K HDR anime open content；HDR10 Rec.2020 ST2084 1000 nit、Dolby Vision、16-bit HDR assets 等 | 从制作阶段即以 4K HDR 为目标完成专业 master；Netflix 开放 production/master assets | **★★★★☆**；行业级 open mastering reference，常用于 codec/display/HDR pipeline 验证 | **B** | 测 PQ/BT.2020/HDR10 pipeline、high-quality master sanity-check、codec robustness | 动画域单一；不是 camera UGC；不能代表 real sensor degradation |
+| **Netflix Sparks / Nocturne 等 open content** | 4K/HFR/Dolby Vision/HDR mastering assets；Sparks 具有 16-bit RAW/PQ 等高质量版本 | Netflix 为 codec/HDR production 研究专门拍摄并开放 | **★★★★☆** | **B** | 专业 HDR master、极端亮度/编码测试 | 场景数量有限；仍非真实 SDR/HDR paired camera data |
+| **SICE** | 589 高分辨率 multi-exposure sequences、4,413 images | 每个场景多曝光实拍；用 13 个 MEF/HDR 算法产生候选增强结果，再主观筛选参考图 | **★★★★★（曝光/增强领域）** | **C** | 学 exposure/contrast augmentation、局部明暗处理；辅助数据引擎 | 目标是 single-image contrast enhancement / MEF，不是 SDR→HDR video；reference 不是 radiometric HDR GT |
+| **Kalantari17 HDR image dataset** | 74 train + 15 test scenes；每场 3 个不同曝光 LDR + HDR GT | 动态场景多曝光实拍；曝光常为 {-2,0,+2} 或 {-3,0,+3}；通过专门流程获得 HDR GT | **★★★★★（HDR deghosting）**；至 2026 仍是最常用 multi-exposure HDR image benchmark 之一 | **D（主任务）/ B（fusion参考）** | 研究对齐、deghosting、曝光互补；若未来做 bracket capture 很重要 | 单图、多曝光；与 same-EV SDR→HDR 核心任务不一致 |
 
 ---
 
-<a id="hdr-iqa-vqa"></a>
-## 6. HDR IQA / VQA 主观质量数据集
+<a id="iqa"></a>
+## 5. HDR IQA / VQA：主观质量与显示评价数据
 
-### 6.1 ESPL-LIVE HDR Subjective Image Quality Database — 2016
-
-- **任务**：HDR/tone-mapped image subjective IQA / NR-IQA。
-- **规模**：1,811 images。
-- **主观数据**：>300,000 opinion scores，>5,000 observers。
-- **内容**：TMO / MEF algorithms 及 post-processing 输出。
-- **价值**：经典 large-scale HDR-related subjective image quality dataset。
-- **局限**：主要是 tone-mapped/displayed image quality，不代表原生 HDR10 video UGC。
-- Access: https://live.ece.utexas.edu/research/HDRDB/hdr_index.html
-
-### 6.2 LIVE HDR Video Quality Assessment Database — ICIP 2022
-
-- **任务**：HDR10 video quality / compression / scaling / ambient-condition assessment。
-- **规模**：310 videos，31 source contents，10 bitrate/resolution combinations。
-- **格式**：HDR10，50/60 fps；clip 通常 7–10 s。
-- **主观数据**：>20,000 human opinions。
-- **用途**：HDR compression/VQA、display-condition-aware evaluation。
-- Access: https://live.ece.utexas.edu/research/LIVEHDR/LIVEHDR_index.html
-
-### 6.3 LIVE HDR vs SDR Database — TIP 2024
-
-- **任务**：同内容 HDR vs SDR preference under scaling/compression/display differences。
-- **规模**：356 videos；公开授权部分 212 videos。
-- **主观实验**：67 observers，>23,000 ratings。
-- **显示设备**：OLED / QLED / LCD TVs。
-- **价值**：直接回答“HDR 是否一定比 SDR 更好”；非常适合产品 display-aware evaluation。
-- Access: https://live.ece.utexas.edu/research/LIVE_HDRvsSDR/index.html
-
-### 6.4 CHUG — ICIP 2025
-
-- **任务**：UGC-HDR VQA / streaming distortions。
-- **规模**：856 HDR-UGC sources → 5,992 videos。
-- **主观数据**：211,848 ratings。
-- **退化**：多 resolution / bitrate ladder transcoding，模拟真实平台 delivery conditions。
-- **价值**：较早的大规模 HDR-UGC subjective dataset；适合 NR-VQA 和 compression quality。
-- Dataset: https://github.com/shreshthsaini/CHUG
-- LIVE page: https://www.colorado.edu/lab/live/chug-crowdsourced-user-generated-hdr-video-quality-dataset
-
-### 6.5 BrightVQ — WACV 2026
-
-- **任务**：No-Reference HDR-UGC VQA。
-- **规模**：300 HDR source videos → 2,100 total clips。
-- **主观数据**：73,794 ratings。
-- **格式**：Rec.2020, 10-bit, PQ；portrait + landscape；360p/720p/1080p + source。
-- **价值**：同时覆盖 UGC-specific + HDR-specific artifacts。
-- **参考结果**：BrightRate 在作者公开版本中报告 BrightVQ SROCC 0.889；HIDRO-VQA 0.853。
-- Dataset: https://github.com/shreshthsaini/BrightVQ
-- Hugging Face: https://huggingface.co/datasets/shreshthsaini/BrightVQ
-
-### 6.6 HDRSDR-VQA — 2025
-
-- **任务**：HDR 与 SDR 的 pairwise preference / JOD modelling。
-- **规模**：960 videos from 54 source sequences；HDR + SDR，9 distortion levels。
-- **主观实验**：145 participants，6 consumer HDR-capable TVs，>22,000 pairwise comparisons。
-- **标签**：JOD (Just-Objectionable-Difference) scores。
-- **价值**：非常适合“HDR 增强是否真的比 SDR 好”与 display-dependent preference 研究。
-- Paper: https://arxiv.org/abs/2505.21831
-
-### 6.7 Beyond8Bits — CVPR 2026
-
-- **任务**：large-scale HDR-UGC VQA / HDR reasoning。
-- **论文完整规模**：约 44,276 videos，6,861 HDR sources，>1.5M crowd ratings。
-- **公开 publish-ready release**：41,419 clips，5,917 sources，约 1.46M ratings。
-- **resolution**：360p / 720p / 1080p + source；多 bitrate ladder。
-- **价值**：截至 2026 年最重要的 HDR-UGC subjective data resources 之一；HDR-Q/HAPO 的训练与 benchmark 基础。
-- **适合**：HDR-specific artifacts、NR VQA、MLLM reasoning、困难样本筛选。
-- Dataset: https://github.com/shreshthsaini/Beyond8Bits
-- Hugging Face: https://huggingface.co/datasets/shreshthsaini/Beyond8Bits
-
-### 6.8 HDRC — 2024
-
-- **任务**：compressed HDR image subjective quality assessment。
-- **规模**：80 reference HDR images，400 distorted images，20 observers（论文/综述统计口径）。
-- **压缩**：JPEG-XT、VVC。
-- **用途**：HDR compression IQA、不同 HDR perceptual encoding / quality metric comparison。
-- Repo: https://github.com/Yliu724/HDRC
-- Paper: https://link.springer.com/article/10.1007/s13042-024-02151-1
-
-### 6.9 Legacy HDR-IQA Databases
-
-2024/2026 HDR-IQA surveys 仍经常比较：
-
-- Narwaria2013: 10 refs / 140 distorted。
-- Narwaria2014: 6 refs / 210 distorted。
-- Korshunov2015: 20 refs / 240 distorted。
-- UPIQ HDR subset: 30 refs / 380 distorted。
-- HDR-Eye: 46 high-quality HDR images，常作 reference/source pool。
-
-这些数据规模较小，但对验证 HDR-specific objective metrics 仍有历史价值。
+| 数据集 | 基本情况 | 怎么得到 | 影响力 / 认可度 | 对当前项目适用度 | 最适合我们的用途 | 主要局限 |
+|---|---|---|---|---|---|---|
+| **LIVE HDR** | 310 HDR10 videos，31 source contents × 10 bitrate/resolution variants；>20k opinions；66 participants（其中质量任务约 40 subjects）；50/60 fps | 专业 HDR10 content 经 resolution/bitrate ladder 转码；在不同 ambient 条件下实验室主观评分 | **★★★★☆**；早期大型 HDR video subjective benchmark | **A（IQA）** | HDR compression/quality model 校准，验证 HDR 输出在不同码率下的质量 | 主要是 PGC + compression；不评价 SDR→HDR reconstruction truthfulness |
+| **LIVE HDR vs SDR** | 356 videos；212 公开；每视频有 3 个 TV 对应 MOS；>23k ratings，67 subjects，OLED/QLED/LCD | 同内容 HDR/SDR，在不同 scaling/bitrate + 三种显示设备上主观观看评分 | **★★★★☆**；IEEE TIP 2024；明确证明 HDR 不一定总优于 SDR | **S（产品评价）** | 非常适合回答“我们生成 HDR 后用户是否真的觉得更好”；建立 display-aware acceptance criterion | 不是 SDR→HDR GT；更适合 preference/quality 而非训练重建网络 |
+| **LIVE-TMHDR** | 15,000 tone-mapped videos；>750k opinions；>1,600 observers | 40 HDR source 经大量 TMO/时序模式/压缩 + expert colorist SDR | **★★★★★** | **S（IQA + 数据）** | 同时用于数据引擎和 tone-mapping quality judge；分析 halo、flicker、过度压缩等 TMO artifact | 主要评价 HDR→SDR tone mapping，不是原生 SDR→HDR |
+| **CHUG** | 856 UGC-HDR source → 5,992 videos；211,848 ratings | 真实 UGC HDR source，经多 resolution/bitrate transcoding 模拟社交平台 streaming；AMT 主观打分 | **★★★★☆**；ICIP 2025；第一批大规模 UGC-HDR subjective dataset | **S（IQA）** | 训练/验证 NR HDR-UGC VQA；学习真实消费视频压缩失真 | 不是 SDR/HDR pair；不能直接当 SDR→HDR supervision |
+| **BrightVQ** | 300 HDR UGC source → 2,100 transcoded clips；73,794 ratings | HDR UGC 经 bitrate ladder 编码，再 crowdsourcing 收集 MOS | **★★★★☆**；WACV 2026；BrightRate 在其上达到 0.889 SROCC | **S（IQA）** | 评估 HDR-specific + UGC-specific artifact；做 NR VQA baseline | 规模比 Beyond8Bits 小；主要关注转码质量 |
+| **HDRSDR-VQA / LIVE Paired Comparison HDR vs SDR** | 960 videos，54 sources；HDR+SDR、9 distortion levels；145 participants；6 台 consumer HDR TV；>22k pairwise comparisons，转换为 JOD | 同内容 HDR 与 SDR 经过 distortion ladder，在多台真实电视上做成对比较 | **★★★★☆**；2025 起的重要 display-aware HDR-vs-SDR benchmark | **S（产品 preference）** | 很适合定义“同内容 HDR 是否真正比 SDR 好”、屏幕依赖与用户收益 | 更偏评价，不给 scene-radiance GT；部分内容版权限制 |
+| **Beyond8Bits** | paper-reported ~44k videos / ~6.5k sources / >1.5M ratings；公开版 5,917 source → 41,419 clips，约 1.46M ratings | Crowd iPhone HDR + Vimeo HDR source，经 resolution/bitrate ladder transcoding；AMT 连续评分并用 SUREAL 聚合 MOS | **★★★★★（新但规模领先）**；CVPR 2026；当前最大公开 HDR-UGC subjective 数据之一，整合/扩展 CHUG、BrightVQ | **S（IQA/困难样本）** | 训练 HDR-native VQA/MLLM；构建 hard-case retrieval、版本比较、HDR artifact taxonomy | 不提供 SDR→HDR paired GT；训练 HDR reconstruction 本身价值有限 |
+| **ESPL-LIVE HDR Image Quality** | 1,811 processed images；>300k scores；>5,000 observers | 从多曝光 HDR/MEF 图像经 TMO/MEF/post-processing 获得多种结果，再大规模 crowdsourcing | **★★★★☆（经典 HDR-IQA image dataset）** | **B** | HDR/TMO image quality metric sanity-check | 静态图像；不是 video temporal quality |
 
 ---
 
-<a id="reference-content"></a>
-## 7. HDR Reference / Display / Standards Test Content
+<a id="recommended"></a>
+## 6. 对当前 Mobile Same-EV Compressed SDR Video → HDR 的推荐组合
 
-### 7.1 Fairchild HDR Photographic Survey
+### 6.1 如果目标是“训练一个能跑的 SDR→HDR baseline”
 
-- 106 calibrated HDR photographs。
-- 静态 HDR、绝对亮度/色度资料丰富。
-- https://markfairchild.org/HDR.html
+| 优先级 | 数据 | 为什么 |
+|---|---|---|
+| **1** | HDRTV1K | 有公开 paired baseline，最方便和论文比较 |
+| **2** | LIVE-TMHDR | 同一 HDR 有大量不同 TMO 的 SDR，可训练 unknown tone-style robustness |
+| **3** | LIVE UGC-HDR → 自建 synthetic SDR | 让 HDR mother content 更接近 consumer/mobile UGC |
+| **4** | AIM 2025 | 补单帧 clipping/noise/CRF inverse 能力 |
+| **5** | 自采真实眼镜 SDR + teacher/reference HDR | 最终解决 target-domain gap；这是公开数据无法替代的核心 |
 
-### 7.2 EBU HDR Test Sequences
+### 6.2 如果目标是“验证多帧到底有没有用”
 
-- HLG / BT.2100-oriented broadcast test content。
-- 典型研究汇总中包含约 10 个 4K-level sequences，50 fps。
-- 适合：HLG pipeline、codec/display compatibility、标准验证；不是 SDR→HDR paired training data。
-- https://tech.ebu.ch/testsequences
-
-### 7.3 LiU HDRv
-
-- 原生 OpenEXR HDR video sequences + light probes。
-- 适合：synthetic degradation、tone mapping、FR evaluation。
-- https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php
-
-### 7.4 HdM-HDR-2014
-
-- cinematic WCG/HDR test sequences，长期用于 HDR display/TMO/HDR reconstruction 研究。
-- https://www.hdm-stuttgart.de/~froehlichj/
-
----
-
-<a id="recommended-stack"></a>
-## 8. 当前 Mobile Same-EV SDR Video→HDR 推荐组合
-
-当前任务是：**眼镜输出压缩 Same-EV SDR video → 手机端 HDR video**。建议不要寻找一个“万能 HDR dataset”，而是组合不同数据完成不同验证。
-
-### A. 第一阶段：快速建立可比较 baseline
-
-1. **HDRTV1K**
-   - 训练/验证单帧 SDR→HDR mapping；
-   - 与 GMNet / HDRTVNet / RealRep 类方法建立横向基准。
-2. **AIM 2025 ITM**
-   - 用标准化 PU21 benchmark 检查 highlight / tone reconstruction；
-   - 避免只看普通 PSNR/SSIM。
-
-### B. 第二阶段：Video temporal capability
-
-3. **HdM-HDRv + LiU-HDRv + MPI-HDRv**
-   - 生成受控 same-EV synthetic SDR video；
-   - 验证 temporal stability 与 temporal clue recovery。
-4. **VITM-TC protocol**
-   - 作为 same-video temporal clue baseline；
-   - 重点研究“当前帧缺失、邻帧是否真的存在 evidence”。
-
-### C. 第三阶段：Real-domain gap
-
-5. **xDR / HDRMovie7K/1K**
-   - 用 real/professional SDR-HDR grading pair 检查 synthetic-TMO bias。
-6. **自采眼镜数据**
-   - 这是最终不可替代的数据；需要覆盖真实 ISP、codec、AE/TM history、head motion、occlusion、compression artifact。
-   - 若已有对应 HDR teacher/output，应明确它是 **target rendering / teacher result**，不自动等于 radiometric GT。
-
-### D. 第四阶段：HDR quality evaluation
-
-7. **ColorVideoVDP / HDRQA**
-   - 有可信 HDR reference 时做 FR evaluation。
-8. **LIVE HDR / HDRSDR-VQA**
-   - 验证 display-aware HDR benefit。
-9. **CHUG / BrightVQ / Beyond8Bits**
-   - 训练/校准 NR HDR-VQA；
-   - 做 HDR-specific artifact 分类、困难样本筛选和模型版本比较。
-
-### E. 不应作为直接 baseline 的数据
-
-- **DeepHDRVideo / Real-HDRV / TOG13**：因为输入含真实 alternating exposure information。
-- **Kalantari17 / SICE**：属于 multi-exposure image setting。
-
-它们可以参考 alignment、fusion、deghosting 和数据采集方式，但不能与 same-EV SDR→HDR 做不加说明的 PSNR 排名。
-
----
-
-<a id="dataset-checklist"></a>
-## 9. 使用数据集时必须记录的信息
-
-每新增一个 HDR dataset，至少记录：
-
-1. **Task**：ITM / HDR reconstruction / multi-exposure fusion / IQA / VQA / display test。
-2. **Input representation**：8-bit SDR、10-bit SDR/HDR、RAW、linear RGB、PQ、HLG、EXR。
-3. **Capture assumption**：same EV、alternating exposure、multi-exposure stack、synthetic SDR。
-4. **HDR target origin**：native capture、professional grading、TMO inverse target、teacher output、synthetic GT。
-5. **Pair validity**：是否 pixel-aligned / temporally aligned / same content / same creative intent。
-6. **Scale**：source count、clip/image count、resolution、fps、duration。
-7. **Temporal property**：single image、independent frames、continuous video、是否含 fast motion / scene cut / flicker。
-8. **Distortion/domain**：camera ISP、codec、noise、clipping、local TM、streaming ladder、UGC artifact。
-9. **Evaluation labels**：GT HDR、MOS、JOD、pairwise preference、attribute labels。
-10. **Display condition**：reference monitor、peak luminance、ambient condition、PQ/HLG interpretation。
-11. **License/access**：public / form request / academic-only / commercial restriction。
-12. **Direct comparability**：是否能与当前 Same-EV compressed SDR Video→HDR 公平比较。
-
----
-
-## 核心结论
-
-对于当前项目，最值得优先获取/跑通的不是多曝光 HDR benchmark，而是：
+推荐用 **HdM + LiU HDRv** 作为真实 HDR mother video，然后自己生成三组完全可控输入：
 
 ```text
-HDRTV1K / AIM2025
-        ↓
-单帧 SDR→HDR 基线
+A. Fixed-EV
+EV0  EV0  EV0  EV0  EV0
 
-HdM-HDRv / LiU-HDRv / MPI-HDRv
-        ↓
-Same-EV video synthetic + temporal test
+B. Smooth AE
+0  0  -0.3  -0.5  -0.3 EV
 
-xDR / HDRMovie
-        ↓
-检查 synthetic-to-real grading gap
-
-自采眼镜 SDR(+对应 HDR target)
-        ↓
-真实目标域
-
-LIVE HDR / HDRSDR-VQA / CHUG / BrightVQ / Beyond8Bits
-        ↓
-HDR quality / preference / NR-VQA
+C. Alternating exposure
+0  -2  0  -2  0 EV
 ```
 
-**真正缺的仍然是“大规模、真实 camera/ISP、same-EV compressed SDR video 与可信 HDR target 成对”的公开数据。**这也是当前项目自采数据和真实退化建模最有研究价值的地方。
+再对比：
+
+```text
+Single-frame SDR→HDR
+vs
+Multi-frame SDR→HDR
+```
+
+这比直接拿 DeepHDRVideo/Real-HDRV 更能回答我们当前问题，因为后者天然拥有曝光互补信息。
+
+### 6.3 如果目标是“证明输出 HDR 用户真的更喜欢”
+
+优先：
+
+1. **HDRSDR-VQA / LIVE HDR vs SDR** — 直接研究 HDR-vs-SDR preference 和 display dependency。
+2. **xDR** — 用专业 native SDR/HDR grading pair 做 reference comparison。
+3. **Beyond8Bits / BrightVQ / CHUG** — 做 HDR-specific artifact / UGC quality judge。
+4. **ColorVideoVDP / HDR-VDP-3** — 有可信 HDR reference 时做 FR perceptual evaluation。
+
+### 6.4 我们最建议的数据体系
+
+```text
+                         Public HDR source
+                ┌──────────────┼──────────────┐
+                │              │              │
+          LIVE UGC-HDR       HdM/LiU       Professional
+             (UGC)          (HDR video)   xDR/HDRMovie
+                │              │              │
+                └───────┬──────┴───────┬──────┘
+                        ▼              ▼
+             Multi-TMO / ISP-like     Native pair eval
+             degradation engine
+                        │
+                        ▼
+               Synthetic SDR/HDR pairs
+                        +
+               Real glasses SDR domain
+                        │
+                        ▼
+               SDR Video → HDR Model
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+          FR / paired          NR / preference
+      xDR, HDRTV1K, AIM     Beyond8Bits, HDRSDR-VQA
+```
+
+### 当前项目建议优先下载/申请的 8 个资源
+
+| 顺序 | 数据 | 角色 |
+|---|---|---|
+| **1** | **LIVE-TMHDR** | Tone Mapping diversity + expert SDR + subjective quality |
+| **2** | **LIVE UGC-HDR** | Consumer HDR mother video，最接近 UGC/mobile 内容 |
+| **3** | **HDRTV1K** | 标准 SDR→HDR paired baseline |
+| **4** | **HdM-HDR-2014** | 高质量 HDR video mother；做 fixed-EV temporal controlled test |
+| **5** | **LiU HDRv** | 补充真实 HDR video scene diversity |
+| **6** | **AIM 2025 ITM** | 标准化 single-image reconstruction benchmark |
+| **7** | **xDR** | native SDR/HDR grading pair，检查 synthetic→real grading gap |
+| **8** | **Beyond8Bits / HDRSDR-VQA** | HDR quality、版本比较、用户 preference 与困难样本挖掘 |
+
+---
+
+<a id="checklist"></a>
+## 7. 使用任何 HDR 数据集前必须确认的信息
+
+对每个数据集至少记录：
+
+1. **原始母数据是什么**：真实 scene radiance、HDR master、UGC HDR、专业 grading、还是 synthetic HDR。
+2. **SDR 怎么来的**：真实 camera SDR、独立专业 grading、TMO、camera simulation、codec degradation、还是 diffusion/generative synthesis。
+3. **HDR GT 怎么来的**：sensor/multi-exposure reconstruction、professional master、teacher output、还是生成模型。
+4. **输入是否包含曝光互补信息**：same-EV、AE-varying、alternating exposure、multi-sensor/staggered exposure。
+5. **颜色/亮度表示**：linear HDR / OpenEXR / PQ / HLG / Rec.2020 / P3 / BT.709；是否绝对亮度 calibrated。
+6. **视频时序是否真实**：逐帧抽样 dataset 不能证明 temporal consistency。
+7. **测试 split 是否按 source/video 隔离**：禁止相邻帧/同一母视频跨 train-test 泄漏。
+8. **评价任务是什么**：radiometric fidelity、content fidelity、HDR perceptual quality、HDR-vs-SDR preference、还是 compression quality。
+9. **公开可获得性与 license**：研究可用不代表商用可用。
+10. **与目标眼镜 pipeline 的 domain gap**：camera ISP、AE/AWB、local TM、DNR、sharpen、codec、bit-depth 等是否被覆盖。
+
+---
+
+## Primary sources / project links
+
+- HDRTV1K / HDRTVNet: https://github.com/chxy95/HDRTVNet
+- AIM 2025 ITM: https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Wang_AIM_2025_challenge_on_Inverse_Tone_Mapping_Report_Methods_and_ICCVW_2025_paper.html
+- xDR: https://www.sciencedirect.com/science/article/pii/S0923596526000536
+- HDRMovieformer: https://ojs.aaai.org/index.php/AAAI/article/view/37578
+- LIVE-TMHDR: https://live.ece.utexas.edu/research/LIVE_TMHDR/index.html
+- LIVE UGC-HDR: https://live.ece.utexas.edu/research/LIVE_UGC_HDR/index.html
+- LumaFlux data pipeline: https://github.com/shreshthsaini/LumaFlux
+- HdM-HDR-2014: https://hdm-stuttgart.de/vmlab/hdm-hdr-2014
+- LiU HDRv: https://computergraphics.on.liu.se/hdrv_itn_liu/Resources.php
+- DeepHDRVideo: https://github.com/guanyingc/DeepHDRVideo-Dataset
+- Real-HDRV: https://github.com/yungsyu99/Real-HDRV
+- Fairchild HDRPS: https://markfairchild.org/HDR.html
+- Sol Levante / Netflix Open Content: https://opencontent.netflix.com/
+- LIVE HDR: https://live.ece.utexas.edu/research/LIVEHDR/LIVEHDR_index.html
+- LIVE HDR vs SDR: https://live.ece.utexas.edu/research/LIVE_HDRvsSDR/index.html
+- CHUG: https://github.com/shreshthsaini/CHUG
+- BrightVQ: https://github.com/shreshthsaini/BrightVQ
+- HDRSDR-VQA: https://arxiv.org/abs/2505.21831
+- Beyond8Bits: https://github.com/shreshthsaini/Beyond8Bits
+- ESPL-LIVE HDR: https://www.colorado.edu/lab/live/espl-live-hdr-subjective-image-quality-database
