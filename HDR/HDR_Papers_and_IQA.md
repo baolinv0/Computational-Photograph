@@ -5,10 +5,32 @@
 
 Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** dataset/benchmark · **[M]** metric · **[S]** standard.
 
+## 目录
+
+- [1. SDR → HDR / Single-Image Inverse Tone Mapping](#single-image-itm)
+  - [Foundational](#single-image-foundational)
+  - [Recent structured / gain-map routes](#gain-map-routes)
+- [2. SDR → HDR, Real-World Generalization and Cinematic Grading](#real-world-generalization)
+- [3. HDR Video Reconstruction / Temporal Information](#hdr-video-temporal)
+  - [Alternating / multi-exposure capture](#alternating-exposure)
+  - [Same-video / inverse-tone-mapping temporal clues](#same-video-temporal-clues)
+- [4. Generative HDR / Foundation-Model Direction](#generative-hdr)
+- [5. HDR IQA / VQA / Perceptual Metrics](#hdr-iqa-vqa)
+  - [Full-reference perceptual metrics](#full-reference-metrics)
+  - [No-reference / learned HDR VQA](#no-reference-vqa)
+- [6. Standards and HDR Evaluation References](#standards)
+- [7. Recommended Reading Order for Mobile Same-EV SDR Video → HDR](#reading-order)
+  - [First priority](#first-priority)
+  - [Evaluation priority](#evaluation-priority)
+  - [Exploratory generative direction](#exploratory-generative)
+- [8. Key Research Questions to Keep Separate](#key-research-questions)
+
 ---
 
+<a id="single-image-itm"></a>
 # 1. SDR → HDR / Single-Image Inverse Tone Mapping
 
+<a id="single-image-foundational"></a>
 ## Foundational
 
 ### 1. HDR Image Reconstruction from a Single Exposure Using Deep CNNs — Eilertsen et al., ACM TOG / SIGGRAPH Asia 2017 **[P]**
@@ -24,6 +46,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 - Paper: https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Single-Image_HDR_Reconstruction_by_Learning_to_Reverse_the_Camera_Pipeline_CVPR_2020_paper.html
 - Code: https://github.com/alex04072000/SingleHDR
 
+<a id="gain-map-routes"></a>
 ## Recent structured / gain-map routes
 
 ### 3. Learning Gain Map for Inverse Tone Mapping — Liao et al., ICLR 2025 **[P]**
@@ -60,6 +83,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="real-world-generalization"></a>
 # 2. SDR → HDR, Real-World Generalization and Cinematic Grading
 
 ### 8. HDRMovieformer: A Transformer Framework and Benchmark for Cinematic SDR-to-HDR Conversion — Li et al., AAAI 2026 **[P][D]**
@@ -84,8 +108,10 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="hdr-video-temporal"></a>
 # 3. HDR Video Reconstruction / Temporal Information
 
+<a id="alternating-exposure"></a>
 ## Alternating / multi-exposure capture
 
 ### 11. HDR Video Reconstruction: A Coarse-to-Fine Network and a Real-World Benchmark Dataset — Chen et al., ICCV 2021 **[P][D]**
@@ -107,6 +133,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 > Note: these two papers receive **physically complementary exposures** and should not be directly compared with same-EV compressed SDR→HDR video.
 
+<a id="same-video-temporal-clues"></a>
 ## Same-video / inverse-tone-mapping temporal clues
 
 ### 13. Deep Video Inverse Tone Mapping Based on Temporal Clues — Ye et al., CVPR 2024 **[P]**
@@ -118,6 +145,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="generative-hdr"></a>
 # 4. Generative HDR / Foundation-Model Direction
 
 ### 14. LumaFlux: Lifting 8-Bit Worlds to HDR Reality with Physically-Guided Diffusion Transformers — Saini et al., 2026 **[Preprint]**
@@ -144,8 +172,10 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="hdr-iqa-vqa"></a>
 # 5. HDR IQA / VQA / Perceptual Metrics
 
+<a id="full-reference-metrics"></a>
 ## Full-reference perceptual metrics
 
 ### 17. HDR-VDP-3: A Multi-Metric for Predicting Image Differences, Quality and Contrast Distortions in HDR and Regular Content — Mantiuk et al., 2023 **[Preprint][M]**
@@ -176,6 +206,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 - Important conclusion: well-adapted general metrics can outperform older tone-mapping-specific metrics.
 - DOI/project/code: https://doi.org/10.1145/3799902.3811107 · https://github.com/NYU-ICL/TM-metric-adaptation
 
+<a id="no-reference-vqa"></a>
 ## No-reference / learned HDR VQA
 
 ### 21. HIDRO-VQA: High Dynamic Range Oracle for Video Quality Assessment — Saini et al., WACV Workshops 2024 **[P][M]**
@@ -221,6 +252,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="standards"></a>
 # 6. Standards and HDR Evaluation References
 
 ### 27. ITU-R BT.2100-3 — Image parameter values for HDR television **[S]**
@@ -237,8 +269,10 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="reading-order"></a>
 # 7. Recommended Reading Order for Mobile Same-EV SDR Video → HDR
 
+<a id="first-priority"></a>
 ## First priority
 1. **Single-Image HDR Reconstruction by Learning to Reverse the Camera Pipeline** — understand information loss / physical inverse formulation.
 2. **Deep Video Inverse Tone Mapping Based on Temporal Clues** — understand what temporal evidence can contribute in ordinary video.
@@ -246,12 +280,14 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 4. **RealRep** — real-SDR degradation/domain generalization.
 5. **HDRMovieformer + xDR dataset** — why real/professional SDR/HDR pairs matter.
 
+<a id="evaluation-priority"></a>
 ## Evaluation priority
 6. **ColorVideoVDP** — reference video HDR perceptual metric.
 7. **HDRQA CVPR 2024** — HDR luminance-range-aware IQA.
 8. **HDR or SDR? + HDRSDR-VQA** — display dependence and whether HDR is actually perceived as better.
 9. **BrightRate / Beyond8Bits** — HDR-native no-reference VQA and HDR quality reasoning.
 
+<a id="exploratory-generative"></a>
 ## Exploratory generative direction
 10. **LumaFlux**.
 11. **Generating HDR Video from SDR Video**.
@@ -259,6 +295,7 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 
 ---
 
+<a id="key-research-questions"></a>
 # 8. Key Research Questions to Keep Separate
 
 1. **True reconstruction vs plausible HDR rendering** — clipped 8-bit SDR does not uniquely determine original scene radiance.
