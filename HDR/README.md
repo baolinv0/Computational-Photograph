@@ -12,6 +12,7 @@ This folder collects research resources for **SDR→HDR / inverse tone mapping, 
   - [HDR_OpenSource.md](#hdr-open-source)
   - [HDR_Datasets.md](#hdr-datasets)
   - [HDR_Data_Taxonomy.md](#hdr-data-taxonomy)
+  - [HDR_Dataset_References_and_PGT.md](#hdr-dataset-references-pgt)
 - [Current Research Framing for Mobile Same-EV SDR Video → HDR](#current-research-framing)
 - [Recommended core baseline stack](#recommended-core-baseline-stack)
 - [Maintenance rule](#maintenance-rule)
@@ -87,6 +88,14 @@ Data-construction taxonomy organized by **how SDR and HDR are actually obtained*
 - **Real SDR + Pseudo HDR**: target-domain adaptation with teacher/professional/generative HDR targets.
 
 It also gives the recommended data engine for the current project: **large-scale real-HDR-based synthesis + real-glasses target-domain adaptation + small high-value synchronized HDR reference capture**.
+
+<a id="hdr-dataset-references-pgt"></a>
+### 6. [HDR_Dataset_References_and_PGT.md](./HDR_Dataset_References_and_PGT.md)
+Companion reference for dataset papers/project links and **Pseudo Ground Truth (PGT)** construction:
+- gives paper/project links for HDRTV1K, AIM 2025, xDR, HDRMovie7K/1K, LIVE-TMHDR, HDRTV4K, GMNet datasets, LumaFlux corpus, HdM/LiU, DeepHDRVideo, Real-HDRV, CHUG, BrightVQ, HDRSDR-VQA, Beyond8Bits, etc.;
+- compares PGT teachers: **RealRep, GMNet, HDRTVDM/HDRTVNet, LumaFlux, HDRMovieformer, product/professional HDR pipeline**;
+- recommends **multi-teacher candidate generation + confidence masking + temporal/source consistency filtering**;
+- cites direct HDR pseudo-GT precedents: **AAAI 2026 Bi-Level Uncertain Area Masking** and **IJCV 2025 HIDD pseudo-GT supervision**.
 
 ---
 
