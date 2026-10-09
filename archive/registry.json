@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-03",
+  "updated_on": "2026-10-09",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "2026-10-01 main brief backfill; not a complete historical migration",
+  "scope": "Incremental research archive through 2026-10-09; not a complete historical migration",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged; alphaxiv=saved and membership reread; notion=short hub entry created, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -11,7 +11,10 @@
     {
       "id": "arxiv-2609.39660",
       "title": "BAM! Bayesian Anything Model: a foundation model for generative computational imaging",
-      "aliases": ["BAM", "Bayesian Anything Model"],
+      "aliases": [
+        "BAM",
+        "Bayesian Anything Model"
+      ],
       "kind": "paper",
       "topic": "ISP",
       "source": "https://arxiv.org/abs/2609.39660v1",
@@ -25,13 +28,27 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.39660.md",
       "decision_key": "operator-conditioned-posterior-sampling",
       "decision_boundary": "Primary known-operator formulation; blind-kernel pipeline and nonlinear exploration must not be erased by overgeneralization.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"ISP","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.37850",
       "title": "RelayVSR: Large-Small Model Collaboration for Efficient Real-World Video Super-Resolution",
-      "aliases": ["RelayVSR"],
+      "aliases": [
+        "RelayVSR"
+      ],
       "kind": "paper",
       "topic": "Restoration",
       "source": "https://arxiv.org/abs/2609.37850v1",
@@ -45,13 +62,34 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.37850.md",
       "decision_key": "sparse-reference-vsr-system-reward",
       "decision_boundary": "A100 model-computation latency excludes future-reference waiting and non-model work.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false},{"type":"correction","date":"2026-10-03","evidence":"paper section 4.3 timing paragraph","change":"Separate model first-output time from input lookahead and end-to-end latency.","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"ISP","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        },
+        {
+          "type": "correction",
+          "date": "2026-10-03",
+          "evidence": "paper section 4.3 timing paragraph",
+          "change": "Separate model first-output time from input lookahead and end-to-end latency.",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.35673",
       "title": "FlowTool: Controlling Tool Parameter in Image Retouching via Flow Matching",
-      "aliases": ["FlowTool"],
+      "aliases": [
+        "FlowTool"
+      ],
       "kind": "paper",
       "topic": "Editing",
       "source": "https://arxiv.org/abs/2609.35673v1",
@@ -65,13 +103,27 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.35673.md",
       "decision_key": "continuous-tool-parameters-fixed-renderer",
       "decision_boundary": "Static renderer tool order is assumed; assets subject to approval; not arbitrary tool planning solved.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"Agent","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.39624",
       "title": "ExpandDiff: Dynamic Range Expanding Diffusion for Single-Image HDR Reconstruction",
-      "aliases": ["ExpandDiff"],
+      "aliases": [
+        "ExpandDiff"
+      ],
       "kind": "paper",
       "topic": "HDR",
       "source": "https://arxiv.org/abs/2609.39624",
@@ -85,13 +137,28 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.39624.md",
       "decision_key": "two-sided-clipping-training-hdr",
       "decision_boundary": "Clipping robustness does not prove factual reconstruction in unobservable regions; full experiment protocol pending.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"HDR","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "HDR",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.37732",
       "title": "The Camera Inside the Editor: Reading the Implicit Camera of Image Editors with Painted Calibration Patterns",
-      "aliases": ["The Camera Inside the Editor", "Camera Inside the Editor"],
+      "aliases": [
+        "The Camera Inside the Editor",
+        "Camera Inside the Editor"
+      ],
       "kind": "paper",
       "topic": "Editing",
       "source": "https://arxiv.org/abs/2609.37732",
@@ -105,13 +172,27 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.37732.md",
       "decision_key": "editing-camera-geometry-fidelity",
       "decision_boundary": "Probe of tested editors, not a universal calibrator or universal focal-bias result.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"Agent","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.38487",
       "title": "Multidimensional Observer Model and Perceptual Dimensions of Human Image Quality Assessment",
-      "aliases": ["Multidimensional Observer Model"],
+      "aliases": [
+        "Multidimensional Observer Model"
+      ],
       "kind": "paper",
       "topic": "IQA",
       "source": "https://arxiv.org/abs/2609.38487",
@@ -125,13 +206,27 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.38487.md",
       "decision_key": "task-dependent-perceptual-quality-subspace",
       "decision_boundary": "Task-dependent low dimensionality is not a universal two-axis IQA conclusion.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"IQA","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.38265",
       "title": "Raw Imagery Impacting Your AI: Should You Care?",
-      "aliases": ["Raw Imagery Impacting Your AI"],
+      "aliases": [
+        "Raw Imagery Impacting Your AI"
+      ],
       "kind": "paper",
       "topic": "Sensing",
       "source": "https://arxiv.org/abs/2609.38265",
@@ -145,13 +240,27 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.38265.md",
       "decision_key": "sensor-quality-task-operating-matrix",
       "decision_boundary": "Space vessel-detection evidence is not a phone Bayer RAW benchmark.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"Raw","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "arxiv-2609.40222",
       "title": "LOCI: Spatial Linear Memory for Streaming World Models",
-      "aliases": ["LOCI"],
+      "aliases": [
+        "LOCI"
+      ],
       "kind": "paper",
       "topic": "World Model",
       "source": "https://arxiv.org/abs/2609.40222",
@@ -165,13 +274,28 @@
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.40222.md",
       "decision_key": "geometry-indexed-hybrid-world-memory",
       "decision_boundary": "Bounded memory and revisitation fidelity do not establish mobile real-time physics prediction.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"verified_saved","alphaxiv_folder":"Agent","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "hub_indexed"
+      }
     },
     {
       "id": "product-huawei-xmage-z10",
       "title": "Huawei Ruiying Z10 official-source intake",
-      "aliases": ["华为睿影 Z10", "HUAWEI Ruiying Z10"],
+      "aliases": [
+        "华为睿影 Z10",
+        "HUAWEI Ruiying Z10"
+      ],
       "kind": "industry_signal",
       "topic": "Camera / Sensor",
       "source": "https://consumer.huawei.com/cn/accessories/xmage-z10-modular-camera/specs/",
@@ -184,8 +308,326 @@
       "canonical_url": "https://github.com/baolinv0/CameraPaper/blob/main/raw/huawei/2026-10-03-z10-source-check.md",
       "decision_key": "modular-camera-phone-system-boundary",
       "decision_boundary": "Official indexed specifications only; processing division, first-release date and independent performance require verification.",
-      "events": [{"type":"backfill","date":"2026-10-03","brief":"2026-10-01","new_alert":false}],
-      "sync": {"github":"written","alphaxiv":"not_applicable","notion":"hub_indexed"}
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-03",
+          "brief": "2026-10-01",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "not_applicable",
+        "notion": "hub_indexed"
+      }
+    },
+    {
+      "id": "arxiv-2609.37530",
+      "title": "RawVLA: Embodied Neural Image Signal Processor For Robotic Manipulation",
+      "aliases": [
+        "RawVLA"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "source": "https://arxiv.org/abs/2609.37530v1",
+      "earliest_public_verified": "2026-09-29",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.37530.md",
+      "decision_key": "task-directed-differentiable-neural-isp",
+      "decision_boundary": "Robotic task success on partly simulated or pseudo-RAW inputs; not human photographic IQ, demosaicing, or mobile deployment evidence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.10133",
+      "title": "HarnessIR: Harnessing Multimodal Foundation Models for Universal Real-World Image Restoration",
+      "aliases": [
+        "HarnessIR"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.10133v2",
+      "earliest_public_verified": "2026-10-07",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v2",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_and_author_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.10133.md",
+      "decision_key": "mfm-restoration-evidence-harness-verification",
+      "decision_boundary": "Closed or external MFM executors and verifier blind spots prevent treating benchmark gains as factual restoration guarantees.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        },
+        {
+          "type": "material_update",
+          "date": "2026-10-08",
+          "change": "arXiv v2; version diff not yet verified",
+          "new_alert": false
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.06508",
+      "title": "A General Pipeline for Dense Illuminant Estimation via Physically Based Synthetic Data",
+      "aliases": [
+        "Dense Illuminant Estimation",
+        "Hypersim-WB"
+      ],
+      "kind": "paper",
+      "topic": "Color",
+      "source": "https://arxiv.org/abs/2610.06508v1",
+      "earliest_public_verified": "2026-10-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.06508.md",
+      "decision_key": "physically-synthetic-dense-multi-illuminant-supervision",
+      "decision_boundary": "Indoor synthetic pretraining; real sensor spectra, outdoor scenes and temporal AWB behavior remain unverified.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.05109",
+      "title": "LoopMoEVR: Loop-Based Degradation-Aware Mixture-of-Experts for Unified UHD Video Restoration",
+      "aliases": [
+        "LoopMoEVR"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "source": "https://arxiv.org/abs/2610.05109v1",
+      "earliest_public_verified": "2026-10-04",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.05109.md",
+      "decision_key": "looped-small-moe-unified-uhd-restoration",
+      "decision_boundary": "0.884M parameters and V100 experiments do not establish end-to-end mobile 4K latency, power, bandwidth or thermal behavior.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.01670",
+      "title": "EditJudgeBias: Diagnosing Cue and Position Bias in Image Editing Evaluators",
+      "aliases": [
+        "EditJudgeBias"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.01670v1",
+      "earliest_public_verified": "2026-10-01",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.01670.md",
+      "decision_key": "audit-multimodal-judges-before-reward-use",
+      "decision_boundary": "Observed cue and order sensitivity applies to tested judges, prompts and edits; it does not invalidate all multimodal evaluators.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.06021",
+      "title": "Scalable Minimal-Change Learning for Controllable Image Editing",
+      "aliases": [
+        "ARRO",
+        "Scalable Minimal-Change Learning"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.06021v1",
+      "earliest_public_verified": "2026-10-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_and_repository_checked",
+      "independent_replication": "not_performed_code_unreleased",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.06021.md",
+      "decision_key": "agentic-audit-aggregate-verify-minimal-edit-reward",
+      "decision_boundary": "High reward inference budget; author repository says code coming soon, so reproducibility is not yet established.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.06831",
+      "title": "UniSlider: Perceptually Uniform Sliders for Continuous Image Editing",
+      "aliases": [
+        "UniSlider"
+      ],
+      "kind": "paper",
+      "topic": "Color",
+      "source": "https://arxiv.org/abs/2610.06831v1",
+      "earliest_public_verified": "2026-10-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.06831.md",
+      "decision_key": "psychometric-calibration-continuous-edit-control",
+      "decision_boundary": "Proxy-based remapping and desktop-GPU timings do not establish universal perception or mobile interactive performance.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2609.37742",
+      "title": "Lights, Camera, Attack: Exploiting Temporal HDR Fusion with Pulsed Light",
+      "aliases": [
+        "FLASH attack"
+      ],
+      "kind": "paper",
+      "topic": "HDR",
+      "source": "https://arxiv.org/abs/2609.37742v1",
+      "earliest_public_verified": "2026-09-29",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.37742.md",
+      "decision_key": "temporal-hdr-active-light-adversarial-consistency",
+      "decision_boundary": "Targets sequential temporal HDR; physical success and proof-of-concept defense are scene and device dependent.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "pending",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "product-oppo-find-x10-global-preview",
+      "title": "OPPO Find X10 global launch preview",
+      "aliases": [
+        "Find X10",
+        "Find X10 Pro Max"
+      ],
+      "kind": "industry_signal",
+      "topic": "Camera / Sensor",
+      "source": "https://www.oppo.com/en/newsroom/press/oppo-findx10series-upcoming-launch/",
+      "earliest_public_verified": "2026-10-08",
+      "earliest_source": "official_press_release",
+      "source_version": null,
+      "first_covered": "2026-10-09",
+      "checked_on": "2026-10-09",
+      "verification_scope": "official_product_press_and_specs_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/CameraPaper/blob/main/raw/oppo/2026-10-08-find-x10-global-launch-preview.md",
+      "decision_key": "per-lens-high-frame-rate-video-open-gate-boundary",
+      "decision_boundary": "Official preannouncement; combinations, sustained recording, thermal limits, color matching and hidden ISP/NPU topology remain unverified.",
+      "events": [
+        {
+          "type": "supporting_evidence",
+          "date": "2026-10-09",
+          "brief": "2026-10-09",
+          "new_alert": false,
+          "note": "Already notified by daily intake; weekly brief does not relabel it as a new discovery."
+        }
+      ],
+      "sync": {
+        "github": "written",
+        "alphaxiv": "not_applicable",
+        "notion": "pending"
+      }
     }
   ]
 }
