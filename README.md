@@ -13,29 +13,37 @@
 ### ISP / 成像逆问题
 
 - [BAM：显式成像算子 + 少步后验采样](papers/arxiv-2609.39660.md)
+- [RawVLA：任务目标反向约束显式 ISP](papers/arxiv-2609.37530.md)
 
 ### RAW / 传感器 / 任务成像
 
 - [Raw Imagery Impacting Your AI：SNR/MTF/分辨率到检测效用](papers/arxiv-2609.38265.md)
+- [Dense Illuminant：物理合成的密集多光源监督](papers/arxiv-2610.06508.md)
 
 ### HDR / Tone Mapping
 
 - [ExpandDiff：双端裁剪分布与 HDR 重建](papers/arxiv-2609.39624.md)
+- [FLASH：时序 HDR 跨曝光脉冲光攻击](papers/arxiv-2609.37742.md)
 - [既有 HDR 专题资料](HDR/)
 
 ### 恢复 / 视频 / 参考传播
 
 - [RelayVSR：稀疏生成参考与逐帧轻量恢复](papers/arxiv-2609.37850.md)
+- [HarnessIR：MFM executor + verification 的真实恢复](papers/arxiv-2610.10133.md)
+- [LoopMoEVR：循环 MoE 的统一 UHD 恢复](papers/arxiv-2610.05109.md)
 
 ### 编辑 / Agent / 可控渲染
 
 - [FlowTool：连续参数与离散工具选择的边界](papers/arxiv-2609.35673.md)
 - [The Camera Inside the Editor：几何保真评价](papers/arxiv-2609.37732.md)
+- [ARRO：结构化最小改动 reward](papers/arxiv-2610.06021.md)
+- [UniSlider：感知均匀的连续编辑校准](papers/arxiv-2610.06831.md)
 - [既有 AgenticIR 资料](AgenticIR/)
 
 ### IQA / 观察者
 
 - [Multidimensional Observer Model：任务相关感知子空间](papers/arxiv-2609.38487.md)
+- [EditJudgeBias：编辑评审器的顺序与线索偏置](papers/arxiv-2610.01670.md)
 
 ### World Model / 时序状态
 
@@ -43,6 +51,7 @@
 
 ## 周报快照
 
+- [2026-10-09：任务导向 ISP、恢复 agent 与 evaluator 风险](Recent_Papers_2026-10-09.md)
 - [2026-10-01：首批回填，2026-10-03 核验](Recent_Papers_2026-10-01.md)
 - [2026-09-19：既有笔记，未在本次重新核验](Recent_Papers_2026-09-19.md)
 - [2026-09-18：既有笔记，未在本次重新核验](Recent_Papers_2026-09-18.md)
