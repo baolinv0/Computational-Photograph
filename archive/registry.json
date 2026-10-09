@@ -5,7 +5,7 @@
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-10-09; not a complete historical migration",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
-  "sync_semantics": "github=write acknowledged; alphaxiv=saved and membership reread; notion=short hub entry created, not a full note mirror",
+  "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
   "items": [
     {
@@ -351,8 +351,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -390,8 +391,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -424,8 +426,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -457,8 +460,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -490,8 +494,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -524,8 +529,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -557,8 +563,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -590,8 +597,9 @@
       ],
       "sync": {
         "github": "written",
-        "alphaxiv": "pending",
-        "notion": "pending"
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "HDR",
+        "notion": "hub_indexed"
       }
     },
     {
@@ -626,7 +634,7 @@
       "sync": {
         "github": "written",
         "alphaxiv": "not_applicable",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     }
   ]
