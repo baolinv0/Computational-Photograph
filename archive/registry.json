@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-09",
+  "updated_on": "2026-10-16",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-09; not a complete historical migration",
+  "scope": "Incremental research archive through 2026-10-16; not a complete historical migration",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -635,6 +635,236 @@
         "github": "written",
         "alphaxiv": "not_applicable",
         "notion": "hub_indexed"
+      }
+    },
+    {
+      "id": "arxiv-2610.18733",
+      "title": "Neural Block-wise Auto-exposure for Single-Shot High Dynamic Range Imaging",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "HDR",
+      "source": "https://arxiv.org/abs/2610.18733v1",
+      "earliest_public_verified": "2026-10-09",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.18733.md",
+      "decision_key": "blockwise-spatial-ae-requires-sensor-readout",
+      "decision_boundary": "Spatial AE is useful only if sensor readout and tone mapping support it; no mobile deployment evidence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "HDR",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.14630",
+      "title": "DuSRFlow: Dual-Lens Super-Resolution via Parallax-Aware Flow Estimation and Complementary Reference Warping",
+      "aliases": [
+        "DuSRFlow"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "source": "https://arxiv.org/abs/2610.14630v1",
+      "earliest_public_verified": "2026-10-10",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.14630.md",
+      "decision_key": "dual-lens-parallax-reliability-before-fusion",
+      "decision_boundary": "Synthetic foreground supervision and author benchmarks do not establish mobile latency or cross-sensor robustness.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.20384",
+      "title": "Look Before You Restore: Learning to Predict Before Acting for Agentic Image Restoration",
+      "aliases": [
+        "PreActIR"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.20384v1",
+      "earliest_public_verified": "2026-10-14",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "full_paper_and_author_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.20384.md",
+      "decision_key": "predict-before-act-commit-rollback-restoration",
+      "decision_boundary": "Matched replay with references and a fixed tool pool is not no-reference deployment evidence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.19882",
+      "title": "BluePixel: Toward Native 4K Agentic Image Editing",
+      "aliases": [
+        "BluePixel"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.19882v1",
+      "earliest_public_verified": "2026-10-14",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "selected_sections_and_project_links_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.19882.md",
+      "decision_key": "native-4k-editing-model-plus-agent-harness",
+      "decision_boundary": "8.7 seconds on a Kunlunxin P800 XPU is not mobile latency or power evidence; shared reward bias remains.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.17661",
+      "title": "ScenePercept: Scenario-Conditioned Perceptual Assessment of Real-World User-Generated Content Images",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.17661v1",
+      "earliest_public_verified": "2026-10-13",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.17661.md",
+      "decision_key": "scenario-conditioned-structured-ugc-evaluation",
+      "decision_boundary": "Scenario semantics may dominate physical quality; cross-device and cross-cultural validity remain unverified.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.20501",
+      "title": "OLiVES: An Outdoor Low-Light Video Benchmark for Enhancement and Segmentation",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Raw",
+      "source": "https://arxiv.org/abs/2610.20501v1",
+      "earliest_public_verified": "2026-10-14",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.20501.md",
+      "decision_key": "synchronized-low-light-video-plus-downstream-task",
+      "decision_boundary": "Daylight ND simulation and controlled motion do not represent true handheld night imaging.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.19763",
+      "title": "Physics-Shaped, Not Physical: Auditing Physics-Guided Underwater Image Restoration",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Raw",
+      "source": "https://arxiv.org/abs/2610.19763v1",
+      "earliest_public_verified": "2026-10-14",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-16",
+      "checked_on": "2026-10-16",
+      "verification_scope": "full_paper_review",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.19763.md",
+      "decision_key": "restore-score-does-not-prove-physical-latent",
+      "decision_boundary": "One architecture, 800 images and 256-square training do not refute physics-guided restoration generally.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-16",
+          "brief": "2026-10-16",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
       }
     }
   ]
