@@ -5,10 +5,12 @@
 ## Visual-first decision (≤150 Chinese characters or concise English)
 Reading tier (must-read/deep-read/selective/scan/defer); where this paper sits within the Topic and team trajectory; what *new* knowledge is gained; what is supported; what to read closely; separately decide trust/replication/deployment.
 
-## 3 required quick-understanding visuals (render if supported)
+## Fast understanding visuals (1–3 as genuinely useful; source and portable fallback)
 - 🧭 Topic evolution map: dated rival branches, distinguish confirmed trend vs inference, 📍 mark paper
 - 📍 Field predecessor vs team lineage: inherited assets → actual delta; sourced nodes
 - ⚙️ Method flowchart: inputs → reused blocks / new contributions → outputs; match components to findings
+
+Do not add user prompt templates unless explicitly requested. Do not emit Mermaid-generated CSS or renderer code; use a clean diagram plus short textual equivalent.
 
 ## Topic context and paper positioning
 - Topic objective, maturity, persistent bottleneck, rival paradigms and evidence for trends:
