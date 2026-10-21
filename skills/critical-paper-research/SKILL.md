@@ -2,12 +2,12 @@
 name: critical-paper-research
 description: Use when a user asks to read, critique, compare, reproduce, contextualize, or assess the novelty, evidence, limitations, deployment, or research value of an academic paper or an emerging research topic, especially in computational photography, ISP, image restoration, editing, and agent systems.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Critical Paper Research / 批判性论文研究
 
-> Goal: turn a paper into an **evidence-bounded research decision**, not a fluent summary. Reusable lessons should improve the **next** review.
+> Goal: locate each paper within its **Topic, method lineage, and author/team trajectory**, then make an evidence-bounded **worth-reading → trust → verify → research** decision, not a fluent summary. Reusable lessons and Topic knowledge should improve the **next** review.
 
 ## Scope & safety
 
@@ -25,23 +25,35 @@ metadata:
 
 For **survey/review papers**, audit search coverage, taxonomy, selection bias, contradictions and unresolved questions rather than forcing one-model ablations. When source access is limited, issue a scoped review with visible coverage limitations instead of feigning L2 completeness.
 
+## Topic-first reading gate (mandatory at all levels)
+
+**Do not equate paper quality with worth reading.** First decide what new knowledge the paper brings relative to the Topic map, nearest technical predecessors and the authors' continuous research program. Reading, believing, reproducing and following the direction are four separate decisions.
+
+Before deep critique, provide a concise **Worth Reading** verdict (must-read / deep-read / selective / scan / defer), 1–3 reasons, recommended sections/figures, and expected takeaways. Record *value types*: direction, breakthrough, systems, methods/engineering, contrary evidence, research opportunity. Do not average arbitrary dimension scores into a misleading ranking.
+
+Retrieve or update a bounded **Topic Knowledge Base** with: problem and scope, maturity and bottlenecks, parallel paradigms and counterexamples, dated method lineage, credible known results, open questions and unresolved conflicts. Track **author/team trajectory** separately from institutional affiliations: verified recurrent authors, dated predecessor papers, datasets/models/benchmarks reused, continuity/pivots and possible incentives; do not infer individual contributions from shared institutional affiliation. Distinguish verified genealogy from inferred strategy. Consult [topic-context.md](references/topic-context.md).
+
+**Efficiency rule:** use an existing Topic map first, query only deltas; on L1 keep this stage lightweight and label unverified context. Deepen team/Topic research for L2/L3 when it could alter the paper's novelty or reading decision. If evidence cannot be retrieved, state the gap rather than speculate.
+
 ## Required process
 
 1. **Intake and source of truth.** Resolve canonical identity (arXiv/DOI), version/date, authors, paper type and user's decision. Read the actual paper, relevant figures/tables, supplement and code/config **when available**. Note exactly which parts were checked. A user-supplied blog is *secondary evidence*, not the paper. Record source access failures.
-2. **First-principles reconstruction.** Express task, inputs/outputs, constraints, objective, baseline, physical/information limits, and why old approaches fail. Separate true underlying problem from the authors' framing.
-3. **Closest-prior and disconfirmation search.** BEFORE judging novelty, search both matching terms and *functional equivalents*, including earlier methods from other subfields, alternative architectures, source citations, papers that contradict “first”, and relevant deployed systems. Search by **method / task / evaluation / deployment**, not only paper title. Record search paths, cutoff and residual coverage gaps. See [literature-search.md](references/literature-search.md).
-4. **Mechanism and attribution.** Build a `prior work → actual delta → predicted benefit → supporting experiment` chain for **each major claim**. Separate new algorithm from reuse/integration, model scale, new data, inference budget and tool availability. Recompute sensitive numerical claims from source definitions; use bounds/units.
-5. **Audit experiments.** Inspect data overlap, training/test split, prompt/metric parity, baselines, seeds/variance, statistical uncertainty, ablations, equal-compute alternatives, evaluator dependence, negative results, weak subsets and selection policy. If a test is absent, label **not established**, not “disproved”. See [review-checks.md](references/review-checks.md).
-6. **Two adversarial passes.** `Builder`: formulate the strongest evidence-supported contribution. `Reviewer`: find closest precedents, confounders, counterexamples and decisive missing controls. Reconcile via cited evidence. This can be done by **one agent in separate passes**; never imply independently run agents without actually running them.
-7. **Domain & deployment fit.** For imaging topics read [imaging-checks.md](references/imaging-checks.md). Specify RGB/RAW/latent, input/output resolution **in pixels**, real vs synthetic data, fidelity vs aesthetics, runtime hardware and precision, *end-to-end* latency/memory/energy, and cloud vs on-device evidence. Do not equate 4K output with native 4K processing.
-8. **Decision and verification.** Report **Fact / Author-reported / Independently checked / Inference / Unknown**. Distinguish scientific novelty, experimental strength, engineering value and product applicability. Provide the **smallest falsifiable experiment** that could overturn the conclusion, with controls, measurable effects, and exit criteria.
-9. **Reusable learning.** Check existing rules before adding a new one. Record only a reusable mistake/insight with `trigger → failure mode → check → counterexample → boundary → evidence`; otherwise cite an existing rule. If sources change a prior judgment, retain an explicit correction trail. See [lesson-policy.md](references/lesson-policy.md).
-10. **Persist only if requested or already authorized.** Respect repository authority, deduplicate paper IDs, update the **single canonical paper note**, optionally index lessons and write a short receipt. Confirm actual write/readback; otherwise supply files or text and state not uploaded. See [repository-integration.md](references/repository-integration.md).
+2. **Topic and research trajectory.** Establish (or load) the Topic map, competing research paradigms and the authors’/team’s dated research lineage; identify the paper’s position and genuine information increment. Do not make a trend claim from one team. See [topic-context.md](references/topic-context.md).
+3. **Reading-value decision.** Give a preliminary worth-reading tier, information gains, specific passages worth reading and why; revise after validation if evidence changes the decision. Keep this separate from paper quality, trustworthiness and replication priority.
+4. **First-principles reconstruction.** Express task, inputs/outputs, constraints, objective, baseline, physical/information limits, and why old approaches fail. Separate true underlying problem from the authors' framing.
+5. **Closest-prior and disconfirmation search.** BEFORE judging novelty, search both matching terms and *functional equivalents*, including earlier methods from other subfields, alternative architectures, source citations, papers that contradict “first”, and relevant deployed systems. Search by **method / task / evaluation / deployment**, not only paper title. Record search paths, cutoff and residual coverage gaps. See [literature-search.md](references/literature-search.md).
+6. **Mechanism and attribution.** Build a `prior work → actual delta → predicted benefit → supporting experiment` chain for **each major claim**. Separate new algorithm from reuse/integration, model scale, new data, inference budget and tool availability. Recompute sensitive numerical claims from source definitions; use bounds/units.
+7. **Audit experiments.** Inspect data overlap, training/test split, prompt/metric parity, baselines, seeds/variance, statistical uncertainty, ablations, equal-compute alternatives, evaluator dependence, negative results, weak subsets and selection policy. If a test is absent, label **not established**, not “disproved”. See [review-checks.md](references/review-checks.md).
+8. **Two adversarial passes.** `Builder`: formulate the strongest evidence-supported contribution. `Reviewer`: find closest precedents, confounders, counterexamples and decisive missing controls. Reconcile via cited evidence. This can be done by **one agent in separate passes**; never imply independently run agents without actually running them.
+9. **Domain & deployment fit.** For imaging topics read [imaging-checks.md](references/imaging-checks.md). Specify RGB/RAW/latent, input/output resolution **in pixels**, real vs synthetic data, fidelity vs aesthetics, runtime hardware and precision, *end-to-end* latency/memory/energy, and cloud vs on-device evidence. Do not equate 4K output with native 4K processing.
+10. **Decision and verification.** Report **Fact / Author-reported / Independently checked / Inference / Unknown**. Distinguish scientific novelty, experimental strength, engineering value and product applicability. Provide the **smallest falsifiable experiment** that could overturn the conclusion, with controls, measurable effects, and exit criteria.
+11. **Reusable learning.** Check existing rules before adding a new one. Record only a reusable mistake/insight with `trigger → failure mode → check → counterexample → boundary → evidence`; otherwise cite an existing rule. If sources change a prior judgment, retain an explicit correction trail. See [lesson-policy.md](references/lesson-policy.md).
+12. **Persist only if requested or already authorized.** Respect repository authority, deduplicate paper IDs, update the **single canonical paper note**, optionally index lessons and write a short receipt. Confirm actual write/readback; otherwise supply files or text and state not uploaded. See [repository-integration.md](references/repository-integration.md).
 
 ## 12 audit questions
 
 1. **Problem:** Why this problem, why now, and what physical/information constraints apply?
-2. **Position:** What is the nearest prior work and adjacent competing paradigm?
+2. **Position:** Where does this sit in the Topic maturity, nearest prior work, competing paradigms, and verified team trajectory?
 3. **Novelty:** What exactly is original vs repackaged or integrated?
 4. **Mechanism:** Why should it work, and which component is causal?
 5. **Experimental validity:** Are baselines, data, hyperparameters and inference budgets comparable?
@@ -65,7 +77,7 @@ Use evidence tags alongside each decisive claim:
 
 These are **provenance levels**, not a single scalar for research quality. `E2` can still be weak causal evidence. Never upgrade E2→E3 merely because multiple articles repeat one source. Each quantitative statement includes benchmark/subset, baselines, metric direction, hardware (if performance), resolution, version and a link/location, where applicable.
 
-For L2/L3, use [review-template.md](assets/review-template.md) as an **internal completeness check**, not a requirement to dump a 12-section essay. Put decisions first; separate author claims from reviewer inference; cite sections/figures/tables/code; disclose uncovered evidence. For systematic reviews, do not claim exhaustive coverage without a protocol and saturation/selection audit.
+For L2/L3, include Topic position, author/team genealogy, and worth-reading decision before the paper-level audit; use [review-template.md](assets/review-template.md) as an **internal completeness check**, not a requirement to dump a 12-section essay. Put decisions first; separate author claims from reviewer inference; cite sections/figures/tables/code; disclose uncovered evidence. For systematic reviews, do not claim exhaustive coverage without a protocol and saturation/selection audit.
 
 ## Auto-triggered adversarial checks
 
