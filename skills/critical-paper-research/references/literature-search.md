@@ -26,3 +26,7 @@ Stop only after search paths are reported and either adequate convergence is obs
 ## Topic trend claims
 
 Require multiple independent technical lines, chronological development, contradicters and deployment maturity. Separate trend observations from forecasts; do not equate publication with shipped product.
+
+## Topic map and team genealogy
+
+For L2/L3, map core goals, competing technical families, maturity and surviving limitations before labelling a single paper a trend. Trace verified team continuities via repeated authors plus concrete reused data, models or benchmarks; institution names alone do not prove research lineage. Log team predecessors separately from globally nearest prior. For reusable Topic KB structure and update gates see [topic-context.md](topic-context.md).
