@@ -10,6 +10,9 @@ A paper is a node in a research field, not a self-contained product brochure. Ju
 4. Decision: **must-read / deep-read / selective / scan / defer**, why (maximum 3 reasons), exact sections or figures to prioritize, expected value (direction / breakthrough / system / engineering / contradiction / opportunity).
 5. Separate: worth reading / claim可信 / worth reproducing / research investment. L1 must not require comprehensive genealogy.
 
+## Visual storytelling
+L2 begins with a compact dated Topic trend / rival-paradigm map, a **marked position** for the focal paper, and an input→blocks→output method diagram, subject to rendering capability. Diagrams are interpretive unless quoted from the paper; cite nodes and label uncertain inferred relations. Use icons sparingly and preserve legibility. See [visual-summary.md](visual-summary.md).
+
 ## L2 contextual research
 ### A. Topic map
 - Scope, target task, fundamental constraints, maturity stage and unsettled bottlenecks
@@ -32,7 +35,7 @@ A paper is a node in a research field, not a self-contained product brochure. Ju
 - Reading value can be high even if novelty is modest (robust negative result, transferable recipe, consolidated deployment evidence).
 
 ## L3 research decision
-Add explicit goal-dependent next actions, research portfolio fit, testable residual bottleneck, cost/quality/time constraints and smallest falsification experiment. Distinguish trend **observation** from team roadmap **inference** and product **evidence**.
+Only on explicit request: add goal-dependent next actions, research portfolio fit, testable residual bottleneck, cost/quality/time constraints and smallest falsification experiment. Distinguish trend **observation** from team roadmap **inference** and product **evidence**.
 
 ## Topic Knowledge Base (reusable file structure)
 Maintain one compact Topic note per stable topic, not one expensive resurvey per paper:
