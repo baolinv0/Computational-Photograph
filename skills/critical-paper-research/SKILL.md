@@ -20,7 +20,7 @@ metadata:
 | Mode | When | Mandatory output |
 |---|---|---|
 | **L1 Triage** | Paper Watch / broad scan | Problem, real delta vs closest known prior, strongest evidence, key uncertainty, read/defer decision; explicitly identify whether only abstract was read |
-| **L2 Deep Review** | “分析这篇论文”、compare paper/blog, claim novelty | 12-dimension audit, claim–evidence matrix, 3–5 nearest/competing works **when verifiably available**, rival explanations, missing controls, failure boundary, maturity and unresolved issues (not experiment planning) |
+| **L2 Deep Review** | “分析这篇论文”、compare paper/blog, claim novelty | Visual-first Topic map, marked paper position, verified author/team lineage, method pipeline; original evidence and limitations, closest/competing works and knowledge delta. **No experiment plan by default.** |
 | **L3 Research Decision** | User explicitly asks for experiment design, reproducibility plan or implementation planning | L2 plus falsifiable hypothesis, minimal controlled experiment, cost/quality Pareto and stop/go criteria. Never claim experiments were run |
 
 For **survey/review papers**, audit search coverage, taxonomy, selection bias, contradictions and unresolved questions rather than forcing one-model ablations. When source access is limited, issue a scoped review with visible coverage limitations instead of feigning L2 completeness.
