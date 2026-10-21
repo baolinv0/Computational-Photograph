@@ -2,7 +2,7 @@
 name: critical-paper-research
 description: Use when a user asks to read, critique, compare, reproduce, contextualize, or assess the novelty, evidence, limitations, deployment, or research value of an academic paper or an emerging research topic, especially in computational photography, ISP, image restoration, editing, and agent systems.
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Critical Paper Research / 批判性论文研究
@@ -37,7 +37,10 @@ Retrieve or update a bounded **Topic Knowledge Base** with: problem and scope, m
 
 ## Visual-first communication (mandatory when supported)
 
-A reader should grasp **trend → current position → value → what → how → limits** in the opening screen. Prefer a compact, legible visual overview over repetitive essay sections. Use Markdown Mermaid flowcharts or other **actually available** diagram/UI components, simple icons (e.g. 🧭 Topic, 📍 Position, 💡 Value, ⚙️ Method, 📊 Evidence, ⚠️ Limits) and concise tables. Do not fabricate images or illustrations of experiments. Never imply a generated diagram came from the authors; label interpretive schematics. For text-only channels use ASCII arrows.
+A reader should grasp **trend → current position → value → what → how → limits** in the opening screen.
+**Do not prepend a reusable user prompt, prompt-engineering advice, or a sample request** unless the user explicitly asks for prompt authoring. Go directly to the paper judgment.
+**Request-scope guard:** An example prompt authored by the assistant is not independent user authorization to expand the report. Experiment plans appear only if the user's actual current request expressly asks for experimental planning (or L3 is expressly requested). A quoted previous report containing an experiment request is not a new request.
+**Portable visual rule:** Never output renderer-generated CSS, serialized SVG style text, HTML style dumps, or frontend Mermaid markup. Author only Mermaid source if supported; include one-line accessible textual fallback (or a compact table) that remains intelligible after copy/paste. If the platform renders or exports a broken diagram, use plain text arrows/table instead of exposing CSS. Prefer a compact, legible visual overview over repetitive essay sections. Use Markdown Mermaid flowcharts or other **actually available** diagram/UI components, simple icons (e.g. 🧭 Topic, 📍 Position, 💡 Value, ⚙️ Method, 📊 Evidence, ⚠️ Limits) and concise tables. Do not fabricate images or illustrations of experiments. Never imply a generated diagram came from the authors; label interpretive schematics. For text-only channels use ASCII arrows.
 
 **Required L2 visual artifacts**, provided rendering is supported and reliable:
 1. **Topic evolution / competing branches:** dated milestones and parallel paradigms; mark this paper distinctly. Avoid misleading single linear trajectories or unsupported 'trend' arrows.
@@ -45,6 +48,8 @@ A reader should grasp **trend → current position → value → what → how �
 3. **What/how pipeline:** input → major blocks → output; label reused components vs new components and which claims are experimentally supported.
 
 Keep visuals information-dense and source-grounded; links/captions next to milestones. If diagrams do not render, provide compact tables instead. Avoid decorative icon overload and unreadable giant graphs. Optional quantitative chart only for verified comparable datapoints. See [visual-summary.md](references/visual-summary.md).
+
+**Default output should have no example-user-prompt section and no automatic experiment-plan section.** Prefer one compact top-level Topic map and one method pipeline over three redundant diagrams; team lineage may be a two-column table if clearer.
 
 **Default concise reading order:** ① one-paragraph verdict (worth reading and value) ② field map + paper position ③ author/team research lineage ④ what the method does/how it works (diagram) ⑤ evidence and actual incremental innovation ⑥ limitations and unresolved problems ⑦ knowledge delta/lesson feedback. Cover 12 audit dimensions internally but do not dump the questionnaire. **Do not include minimum credible experiment, future execution roadmap, benchmark design, stop/go or next-step task plan in L1/L2 unless user explicitly requests one.** A paper's missing controls may be named as limitations, without designing those experiments.
 
