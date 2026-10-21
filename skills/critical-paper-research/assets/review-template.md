@@ -2,8 +2,13 @@
 
 > Canonical ID | paper version | first public date | checked date | research mode L1/L2/L3 | source scope (abstract/selected/full+supp/code) | independent reproduction: no/partial/yes
 
-## Decision first (≤150 Chinese characters or concise English)
+## Visual-first decision (≤150 Chinese characters or concise English)
 Reading tier (must-read/deep-read/selective/scan/defer); where this paper sits within the Topic and team trajectory; what *new* knowledge is gained; what is supported; what to read closely; separately decide trust/replication/deployment.
+
+## 3 required quick-understanding visuals (render if supported)
+- 🧭 Topic evolution map: dated rival branches, distinguish confirmed trend vs inference, 📍 mark paper
+- 📍 Field predecessor vs team lineage: inherited assets → actual delta; sourced nodes
+- ⚙️ Method flowchart: inputs → reused blocks / new contributions → outputs; match components to findings
 
 ## Topic context and paper positioning
 - Topic objective, maturity, persistent bottleneck, rival paradigms and evidence for trends:
@@ -42,15 +47,18 @@ Problem | positioning | novelty | mechanism | validity | attribution | evaluatio
 ## Failure boundary and unresolved question
 What is not established? Which counterexample weakens headline claims? Note source coverage gaps.
 
-## Smallest credible experiment
-- H0/H1, data and stratification, controls and matched budgets, primary outcome and guardrails, error analysis, N/uncertainty, stop/go criterion.
+## Open questions and evidence gaps (L1/L2)
+- State limitations, unresolved contradictions and missing evidence only; **do not provide experimental designs, workplans, success thresholds or next-steps by default**.
+
+## Optional L3 experiment plan (only if user explicitly requests planning)
+- H0/H1, controls, outcomes, cost, uncertainty, stop/go.
 
 ## Research decision
 - Scientific novelty:
 - Empirical strength:
 - Engineering value:
 - Product readiness (real platform evidence only):
-- Next action and why:
+- Knowledge delta: prior belief → new supported conclusion → still unknown:
 
 ## Knowledge feedback
 - Reused rules: R##
