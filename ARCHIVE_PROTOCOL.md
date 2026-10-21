@@ -106,3 +106,9 @@ References：
 - [CameraPaper 贡献规则](https://github.com/baolinv0/CameraPaper/blob/main/CONTRIBUTING.md)
 - [CameraPaper 数据结构](https://github.com/baolinv0/CameraPaper/blob/main/DATA_SCHEMA.md)
 - [已有 2026-09-19 论文笔记](Recent_Papers_2026-09-19.md)
+
+## 深度论文审查 Skill（2026-10-21）
+
+[critical-paper-research v1.0](skills/critical-paper-research/SKILL.md) 规范论文创新性反查、证据分级、实验归因、设备部署及经验回写。每次主动发起 L2 深度审查或 L3 立项分析时，应先读取该 Skill 的 SKILL.md，按论文类型按需加载 references，并参考 [CameraPaper 研究方法库](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/research-methodology/paper-review-framework.md) 和 [经验规则](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/research-methodology/research-lessons.md)。
+
+日常广覆盖 Paper Watch 默认保持 L1，不强行要求完整 L2 的十二维长报告。经验只有在明确新证据、误判原因或反例时才升级；禁止将作者结果、理论估算或转述误称为独立复现。Skill 在 GitHub 有源码，不意味着 ChatGPT 用户账户已安装；ChatGPT/Codex 安装须走对应运行时流程。

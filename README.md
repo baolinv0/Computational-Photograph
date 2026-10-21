@@ -82,3 +82,9 @@
 ## References
 
 一手论文、项目和实验依据请进入各卡片 References。跨厂商论文归属规则以 [CameraPaper CONTRIBUTING](https://github.com/baolinv0/CameraPaper/blob/main/CONTRIBUTING.md) 为准。
+
+## 批判性论文研究 Skill
+
+- [critical-paper-research](skills/critical-paper-research/)：L1 论文快速筛选、L2 批判性深度审查、L3 可证伪研究计划；支持最近前作反查、实验归因、ISP/计算摄影部署专项与证据分级。
+- [CameraPaper 研究方法库](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/research-methodology/paper-review-framework.md)：跨论文的审查框架与经验 R01–R06。
+- 运行时安装与仓库归档是两个不同动作；参见 [Skill 安装说明](skills/critical-paper-research/README.md)。
