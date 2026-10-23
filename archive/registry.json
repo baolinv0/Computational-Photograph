@@ -935,10 +935,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "hub_indexed"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1172,9 +1174,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1204,9 +1208,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1236,9 +1242,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1268,9 +1276,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1300,9 +1310,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1332,9 +1344,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1364,9 +1378,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1396,9 +1412,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1428,9 +1446,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1460,9 +1480,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1492,9 +1514,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     },
     {
@@ -1524,9 +1548,11 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "written",
         "alphaxiv": "not_checked_this_survey_update",
-        "notion": "not_requested_this_survey_update"
+        "notion": "not_requested_this_survey_update",
+        "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
+        "github_checked_on": "2026-10-23"
       }
     }
   ]
