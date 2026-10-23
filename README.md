@@ -15,6 +15,9 @@
 
 地图维护跨论文关系和当前认识；以下主题入口仍导航到唯一技术卡片。已有专门综述不被总图取代，私人项目方案和未公开实验不写入公共地图。
 
+- [持续专题综述索引](surveys/README.md)：已有专题就增补，缺少独立研究分支时新建；同时回填前序工作。
+- [成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)：MESS、RawGen、UNICE 与逆 ISP / RAW 生成 / 曝光数据路线的系统比较。
+
 ## 主题入口
 
 ### ISP / 成像逆问题
@@ -104,3 +107,4 @@
 - [critical-paper-research](skills/critical-paper-research/)：L1 论文快速筛选、L2 批判性深度审查、L3 可证伪研究计划；支持最近前作反查、实验归因、ISP/计算摄影部署专项与证据分级。
 - [CameraPaper 研究方法库](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/research-methodology/paper-review-framework.md)：跨论文的审查框架与经验 R01–R06。
 - 运行时安装与仓库归档是两个不同动作；参见 [Skill 安装说明](skills/critical-paper-research/README.md)。
+

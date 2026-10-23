@@ -926,10 +926,16 @@
           "date": "2026-10-23",
           "brief": "2026-10-23",
           "new_alert": true
+        },
+        {
+          "type": "supporting_evidence",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "Rechecked selected primary sections and connected to historical data-synthesis survey; RawGen relation is survey synthesis, not direct inheritance."
         }
       ],
       "sync": {
-        "github": "written",
+        "github": "pending_readback",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
         "notion": "hub_indexed"
@@ -1137,6 +1143,390 @@
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
         "notion": "hub_indexed"
+      }
+    },
+    {
+      "id": "arxiv-2604.00093",
+      "title": "RawGen: Learning Camera Raw Image Generation",
+      "aliases": [
+        "RawGen"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2604.00093v1",
+      "earliest_public_verified": "2026-03-31",
+      "source_version": "arXiv v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_and_author_project_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2604.00093.md",
+      "decision_key": "canonical-xyz-many-to-one-camera-raw-generation",
+      "decision_boundary": "规范化线性生成结果不是该场景唯一真实传感器观测。相机映射要求标定信息；简单噪声模型不能代表所有传感器、光学和 ISP 特性。任意相机适配不等于无需相机信息。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-1811.11127",
+      "title": "Unprocessing Images for Learned Raw Denoising",
+      "aliases": [
+        "Unprocessing / UPI"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://people.csail.mit.edu/tfxue/papers/cvpr2019_unprocess.pdf",
+      "earliest_public_verified": null,
+      "source_version": "CVPR 2019 author PDF",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-1811.11127.md",
+      "decision_key": "analytic-unprocessing-synthetic-raw-denoising",
+      "decision_boundary": "简化的 ISP 与 smoothstep tone curve 不代表所有未知照片处理管线；合成 RAW 不应当作从 JPEG 精确找回的真实 RAW。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2006.12709",
+      "title": "CIE XYZ Net: Unprocessing Images for Low-Level Computer Vision Tasks",
+      "aliases": [
+        "CIE XYZ Net"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2006.12709",
+      "earliest_public_verified": null,
+      "source_version": "arXiv v1 method; journal metadata separately checked",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2006.12709.md",
+      "decision_key": "device-independent-xyz-learned-unprocessing",
+      "decision_boundary": "训练管线覆盖范围和重渲染风格决定适用边界；不代表可以无条件消除任意未知 photo-finishing。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2103.15061",
+      "title": "Invertible Image Signal Processing",
+      "aliases": [
+        "InvISP"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2103.15061",
+      "earliest_public_verified": null,
+      "source_version": "arXiv v2, 2021-04-06",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2103.15061.md",
+      "decision_key": "joint-forward-inverse-invertible-isp",
+      "decision_boundary": "前向 ISP 也由该方法设计，这是核心成立条件；不能把重建效果外推为任意互联网 JPEG 的真实 RAW 逆恢复。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2411.13150",
+      "title": "RAW-Diffusion: RGB-Guided Diffusion Models for High-Fidelity RAW Image Generation",
+      "aliases": [
+        "RAW-Diffusion"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2411.13150v1",
+      "earliest_public_verified": "2024-11-20",
+      "source_version": "arXiv v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2411.13150.md",
+      "decision_key": "rgb-guided-camera-specific-raw-diffusion",
+      "decision_boundary": "相机专属训练与成对渲染监督限制跨设备直接迁移；生成 RAW 不自动成为观测真值。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2003.11596",
+      "title": "Learning Multi-Scale Photo Exposure Correction",
+      "aliases": [
+        "MSEC"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2003.11596",
+      "earliest_public_verified": "2020-03-25",
+      "source_version": "arXiv v3, 2021-03-30",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2003.11596.md",
+      "decision_key": "raw-exposure-rendering-expert-retouch-target",
+      "decision_boundary": "目标是人工修图结果，不是 0 EV 或物理辐射真值；RAW 来源与人工目标的规模限制仍存在。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2507.17252",
+      "title": "Unsupervised Exposure Correction",
+      "aliases": [
+        "UEC / RCD"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2507.17252",
+      "earliest_public_verified": null,
+      "source_version": "arXiv v1, 2025-07-23；ECCV 2024 先于预印本",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2507.17252.md",
+      "decision_key": "exposure-color-separation-uec-rcd",
+      "decision_boundary": "方法无需手工校正标签训练不等于评测参考没有人工风格；曝光变换不等于任意局部重渲染或可靠补回缺失细节。2025 年 arXiv 上传不能当作首次提出。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2507.17157",
+      "title": "UNICE: Training A Universal Image Contrast Enhancer",
+      "aliases": [
+        "UNICE"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2507.17157v1",
+      "earliest_public_verified": "2025-07-23",
+      "source_version": "arXiv v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2507.17157.md",
+      "decision_key": "raw-mes-mef-pseudotarget-two-stage-enhancement",
+      "decision_boundary": "融合选优目标依赖 MEF 和 IQA 偏好，不是测量的真实 GT；两阶段推理成本不能与只部署轻量学生的 MESS 混同。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "doi-10.1609-aaai.v39i6.32617",
+      "title": "Enhancing Low-Light Images: A Synthetic Data Perspective on Practical and Generalizable Solutions",
+      "aliases": [
+        "SynLLIE"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://ojs.aaai.org/index.php/AAAI/article/view/32617",
+      "earliest_public_verified": null,
+      "source_version": "AAAI 2025 official abstract；页面日期 2025-04-11",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "official_abstract_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/doi-10.1609-aaai.v39i6.32617.md",
+      "decision_key": "explicit-isp-low-light-data-synllie",
+      "decision_boundary": "不能以摘要证明全面领先或确定每个参数的因果贡献；与 ISP-driven LLIE 存在明显作者和机制重叠，正式版本/扩展关系待查，不作独立证据重复计票。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2504.12204",
+      "title": "Towards Realistic Low-Light Image Enhancement via ISP Driven Data Modeling",
+      "aliases": [
+        "ISP-driven LLIE"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2504.12204v1",
+      "earliest_public_verified": "2025-04-16",
+      "source_version": "arXiv v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2504.12204.md",
+      "decision_key": "explicit-isp-noise-wb-exposure-data-modeling",
+      "decision_boundary": "退化模型和采样覆盖决定真实性，不自动恢复原始相机状态；与 SynLLIE 的正式身份关系待核实，不能算两份独立方向证据。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2003.07761",
+      "title": "CycleISP: Real Image Restoration via Improved Data Synthesis",
+      "aliases": [
+        "CycleISP"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2003.07761v1",
+      "earliest_public_verified": "2020-03-17",
+      "source_version": "arXiv v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2003.07761.md",
+      "decision_key": "learned-isp-cycle-noise-data-synthesis",
+      "decision_boundary": "循环一致性不保证不可逆丢失信息有唯一正确逆解；颜色条件和训练相机分布仍影响生成数据。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
+      }
+    },
+    {
+      "id": "arxiv-2312.13313",
+      "title": "ParamISP: Learned Forward and Inverse ISPs using Camera Parameters",
+      "aliases": [
+        "ParamISP"
+      ],
+      "kind": "paper",
+      "topic": "Raw / Enhancement data",
+      "source": "https://arxiv.org/abs/2312.13313",
+      "earliest_public_verified": "2023-12-20",
+      "source_version": "arXiv v2, 2024-04-15",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2312.13313.md",
+      "decision_key": "camera-parameter-conditioned-forward-inverse-isp",
+      "decision_boundary": "不是 metadata-free 的未知 JPEG 通用逆 ISP；参数条件与目标相机适配是成立条件。",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-23",
+          "new_alert": false,
+          "note": "User-requested living survey historical expansion; prior historical notification status not inferred."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "not_checked_this_survey_update",
+        "notion": "not_requested_this_survey_update"
       }
     }
   ]

@@ -3,6 +3,8 @@
 > Last checked: 2026-09-09  
 > Scope: dataset papers/project links and pseudo-ground-truth construction for **same-EV, 8-bit compressed SDR video from smart glasses → HDR on phone**.
 
+相关通用分支：[成像训练数据合成 survey：逆 ISP、RAW 生成与曝光退化](../surveys/imaging-training-data-synthesis.md)。该页比较 MESS、RawGen、UNICE 及前序；本页继续聚焦 SDR video → HDR 的数据和 PGT 条件，二者不互相替代。
+
 ## 目录
 
 - [1. 数据集论文 / 官方链接](#dataset-references)
@@ -389,3 +391,4 @@ C. Small synchronized/reference HDR set
 ```
 
 对当前项目，**PGT 最合理的定位是“真实眼镜 domain 的弱监督”，不是替代真实 HDR GT。**
+
