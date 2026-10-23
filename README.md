@@ -16,11 +16,14 @@
 - [RawVLA：任务目标反向约束显式 ISP](papers/arxiv-2609.37530.md)
 - [Neural Block-wise AE：分块曝光与单次 HDR](papers/arxiv-2610.18733.md)
 - [DuSRFlow：双摄大视差专用流与可靠性融合](papers/arxiv-2610.14630.md)
+- [RIECR：统一 RAW 欠曝/过曝校正与恢复](papers/arxiv-2610.28191.md)
+- [MESS：RAW 引导的多曝光训练数据合成](papers/arxiv-2610.24680.md)
 
 ### RAW / 传感器 / 任务成像
 
 - [Raw Imagery Impacting Your AI：SNR/MTF/分辨率到检测效用](papers/arxiv-2609.38265.md)
 - [Dense Illuminant：物理合成的密集多光源监督](papers/arxiv-2610.06508.md)
+- [S3D-Mosaic：跨波段结构迁移的光谱去马赛克](papers/arxiv-2610.24414.md)
 
 ### HDR / Tone Mapping
 
@@ -35,6 +38,7 @@
 - [LoopMoEVR：循环 MoE 的统一 UHD 恢复](papers/arxiv-2610.05109.md)
 - [OLiVES：同步低照视频增强与分割基准](papers/arxiv-2610.20501.md)
 - [Physics-Shaped, Not Physical：物理引导恢复审计](papers/arxiv-2610.19763.md)
+- [WorldSR：实体检索约束的多参考超分](papers/arxiv-2610.28423.md)
 
 ### 编辑 / Agent / 可控渲染
 
@@ -44,6 +48,7 @@
 - [UniSlider：感知均匀的连续编辑校准](papers/arxiv-2610.06831.md)
 - [PreActIR：执行前预测与 commit/rollback](papers/arxiv-2610.20384.md)
 - [BluePixel：native 4K 模型与编辑 Agent](papers/arxiv-2610.19882.md)
+- [MT Forcing：自 rollout 与单轮 teacher 的多轮编辑稳定化](papers/arxiv-2610.25404.md)
 - [既有 AgenticIR 资料](AgenticIR/)
 
 ### IQA / 观察者
@@ -51,6 +56,9 @@
 - [Multidimensional Observer Model：任务相关感知子空间](papers/arxiv-2609.38487.md)
 - [EditJudgeBias：编辑评审器的顺序与线索偏置](papers/arxiv-2610.01670.md)
 - [ScenePercept：场景条件化 UGC 感知评价](papers/arxiv-2610.17661.md)
+- [Face Contrast：手机人像三维可解释对比度](papers/arxiv-2610.26517.md)
+- [CheckDistill：结构化 checklist 的编辑 reward 蒸馏](papers/arxiv-2610.26740.md)
+- [VHA：生成式超分 hallucination 的问答式审计](papers/arxiv-2610.25770.md)
 
 ### World Model / 时序状态
 
@@ -58,6 +66,7 @@
 
 ## 周报快照
 
+- [2026-10-23：RAW 曝光恢复、显式检索式 SR 与 CameraX 控制边界](Recent_Papers_2026-10-23.md)
 - [2026-10-16：分块曝光、双摄可靠性与预测式恢复 Agent](Recent_Papers_2026-10-16.md)
 - [2026-10-09：任务导向 ISP、恢复 agent 与 evaluator 风险](Recent_Papers_2026-10-09.md)
 - [2026-10-01：首批回填，2026-10-03 核验](Recent_Papers_2026-10-01.md)

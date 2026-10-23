@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-16",
+  "updated_on": "2026-10-23",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-16; not a complete historical migration",
+  "scope": "Incremental research archive through 2026-10-23; not a complete historical migration",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -865,6 +865,278 @@
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
         "notion": "hub_indexed"
+      }
+    },
+    {
+      "id": "arxiv-2610.28191",
+      "title": "Unified RAW Image Exposure Correction and Restoration via Linear Illumination and Frequency-Adaptive Enhancement",
+      "aliases": [
+        "RIECR"
+      ],
+      "kind": "paper",
+      "topic": "Raw",
+      "source": "https://arxiv.org/abs/2610.28191v1",
+      "earliest_public_verified": "2026-10-20",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.28191.md",
+      "decision_key": "raw-linear-gain-plus-exposure-conditioned-residual",
+      "decision_boundary": "这是采集后的 exposure correction，不是硬件 AE 闭环。完全饱和区无法从观测中恢复真实纹理；跨相机主要是可视化，动态场景、手机时延/功耗/热均未验证。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.24680",
+      "title": "MESS: Multi-Exposure Sequence Synthesis for Generalizable Image Enhancement",
+      "aliases": [
+        "MESS"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "source": "https://arxiv.org/abs/2610.24680v1",
+      "earliest_public_verified": "2026-10-17",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_and_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.24680.md",
+      "decision_key": "raw-guided-rgb-multi-exposure-data-scaling",
+      "decision_boundary": "500K 是合成对而非真实多曝光测量；生成的是 plausible RGB exposure，不保留特定相机真实 RAW/CRF。NR-IQA 改善不等于无伪色或真实物理一致性，也没有手机端部署证据。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.24414",
+      "title": "S3D-Mosaic: Subgradient-Guided Cross-Band Structure Transfer for Spectral Demosaicing",
+      "aliases": [
+        "S3D-Mosaic"
+      ],
+      "kind": "paper",
+      "topic": "Raw",
+      "source": "https://arxiv.org/abs/2610.24414v1",
+      "earliest_public_verified": "2026-10-17",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_and_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.24414.md",
+      "decision_key": "subgradient-cross-band-spectral-demosaic",
+      "decision_boundary": "MSFA 与手机 RGB Bayer/Quad-Bayer 的采样、光谱响应和噪声不同；100 次 ADMM 等迭代未证明移动实时。无 GT 的少量真实场景不能证明逐波段光谱保真。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.26517",
+      "title": "Interpretable Face Contrast Modeling for Smartphone Portrait Rendering",
+      "aliases": [
+        "Face Contrast"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.26517v1",
+      "earliest_public_verified": "2026-10-19",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.26517.md",
+      "decision_key": "decomposed-face-contrast-observer-model",
+      "decision_boundary": "人台使主体、姿态与表情受控，也限制真实肤色、妆容、运动和社会偏好外推；真人验证规模较小。对比度相关性不是整体 portrait IQ，更不是跨文化偏好共识。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "Color",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.28423",
+      "title": "WorldSR: Harnessing World Knowledge Search for Grounded Image Super-Resolution",
+      "aliases": [
+        "WorldSR"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.28423v1",
+      "earliest_public_verified": "2026-10-20",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_and_project_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.28423.md",
+      "decision_key": "entity-retrieval-grounded-super-resolution",
+      "decision_boundary": "检索依赖实体分解、语料覆盖与参考歧义，成本与隐私边界未解决；NR-IQA 增益不证明细节真实。它是检索增强 SR，不是可预测动作后果的 world simulator。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.26740",
+      "title": "CheckDistill: Adaptive Checklist Distillation for Efficient Distributional Reward Modeling in Image Editing",
+      "aliases": [
+        "CheckDistill"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.26740v1",
+      "earliest_public_verified": "2026-10-19",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.26740.md",
+      "decision_key": "checklist-evidence-distilled-direct-reward",
+      "decision_boundary": "三组准确率不可合并为通用正确率；teacher agreement 只是可靠性 proxy，不能排除共同偏差和 reward hacking。自动 judge 提升不等于身份、文字与未编辑区事实保真。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.25404",
+      "title": "MT Forcing: Towards Stable and Consistent Multi-Turn Image Editing with Autoregressive Diffusion",
+      "aliases": [
+        "MT Forcing"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.25404v2",
+      "earliest_public_verified": "2026-10-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v2",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "selected_sections_and_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.25404.md",
+      "decision_key": "self-rollout-single-turn-teacher-multiturn-edit",
+      "decision_boundary": "100 个八轮 session 与 failure-triggered IF/CC 计分规则不等于任意长度稳定；共享 judge 可能偏向 teacher 风格。大权重、训练和推理成本未给手机可行性。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.25770",
+      "title": "VHA: VQA-based Hallucination Assessment for Generative Image Super-Resolution",
+      "aliases": [
+        "VHA"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.25770v1",
+      "earliest_public_verified": "2026-10-19",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-23",
+      "checked_on": "2026-10-23",
+      "verification_scope": "full_paper_and_repository_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.25770.md",
+      "decision_key": "qa-grounded-sr-hallucination-assessment",
+      "decision_boundary": "需要 ground-truth reference，不是部署时无参考 detector；VHA+ 继承 VLM label 和训练分布。benchmark 由下采样 GT 构造，不能覆盖所有真实未知退化。",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-23",
+          "brief": "2026-10-23",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending_membership_check",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
       }
     }
   ]
