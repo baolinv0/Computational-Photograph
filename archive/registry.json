@@ -895,10 +895,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -929,10 +929,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -963,10 +963,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -997,10 +997,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Color",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -1031,10 +1031,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -1065,10 +1065,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -1099,10 +1099,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     },
     {
@@ -1133,10 +1133,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending_membership_check",
+        "github": "written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed"
       }
     }
   ]
