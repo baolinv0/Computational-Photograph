@@ -15,6 +15,7 @@
 | T03/X01：生成式恢复能否用一次网络前向完成？ | [高效生成式恢复：潜空间与采样目标](efficient-generative-restoration.md) | 2026-10-24 v0.1；GLOW-FM、ELIR、WCDM、ReDDiT 等路线；仅 GLOW 本轮原文核验 |
 | T02/T06：一步编辑要几个噪声时刻？ | [一步免反演编辑与端点校准](one-step-inversion-free-editing.md) | 2026-10-24 v0.1；ECT 对 ChordEdit，ER-Chord 作为不同空间控制轴；前序 backlog |
 | T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-10-24 v0.1；Gate3DGen 的净化器效果和真实路由负例分开记录 |
+| T02/T03/T06：不同开放权重生成/编辑执行器应如何选型与充分发挥？ | [Qwen、FireRed、FLUX、FIBO、MOSS 五模型架构、任务与使用方法](open-image-editing-models-qwen-firered-flux-fibo-moss.md) | 2026-10-24 v0.1；官方与社区编辑分开；原生使用策略、部署许可与可证伪实验；尚无五者统一实测 |
 | T06：恢复执行器如何组织、验证与学习策略？ | [CameraPaper 的 AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | 复用另一仓库已有 canonical survey；不复制第二份全文 |
 
 这是跨仓库导航，不代表所有主题都已完成 survey；未建设的分支继续保存在 [总图](../LITERATURE_MAP.md) 中。
