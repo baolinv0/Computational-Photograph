@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-23",
+  "updated_on": "2026-10-24",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-23; not a complete historical migration",
+  "scope": "Incremental research archive through 2026-10-24; not exhaustive historical migration or complete Oct-23 source listing audit",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -1553,6 +1553,117 @@
         "notion": "not_requested_this_survey_update",
         "github_verified_content_commit": "8a307003c09b7095781a29fd832be67fae85eae8",
         "github_checked_on": "2026-10-23"
+      }
+    },
+    {
+      "id": "arxiv-2610.31222",
+      "title": "GLOW-FM: Efficient Generative Low-Light Image Enhancement with One-Step Latent Flow Matching",
+      "aliases": [
+        "GLOW-FM"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "source": "https://arxiv.org/abs/2610.31222v1",
+      "earliest_public_verified": "2026-10-22",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-10-24",
+      "checked_on": "2026-10-24",
+      "verification_scope": "original_pdf_fulltext_extracted_selected_methods_results_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.31222.md",
+      "decision_key": "latent-terminal-velocity-matching-one-step-real-low-light",
+      "decision_boundary": "TVM and Tiny-VAE conditional transport have one-step competitive LLIE in selected benchmarks; no mobile latency nor universal PSNR/fidelity advantage.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-24",
+          "source_version": "v1",
+          "new_alert": true,
+          "brief": "2026-10-24",
+          "note": "arXiv 2026-10-22 v1; alphaXiv discovery and original PDF text, official dated list inaccessible/stale, partial source coverage."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "pending_not_written",
+        "camerapaper": "pending_company_routing_review"
+      }
+    },
+    {
+      "id": "arxiv-2610.30827",
+      "title": "One Evaluation Is Enough: Inversion-Free Image Editing with Trajectory Correction",
+      "aliases": [
+        "ECT"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.30827v1",
+      "earliest_public_verified": "2026-10-22",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-10-24",
+      "checked_on": "2026-10-24",
+      "verification_scope": "original_pdf_fulltext_extracted_selected_methods_results_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.30827.md",
+      "decision_key": "shared-noisy-state-endpoint-calibrated-one-step-edit",
+      "decision_boundary": "Applies to epsilon-prediction VP one-step backbones, not arbitrary flow-matching or black-box image editors.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-24",
+          "source_version": "v1",
+          "new_alert": true,
+          "brief": "2026-10-24",
+          "note": "arXiv 2026-10-22 v1; alphaXiv discovery and original PDF text, official dated list inaccessible/stale, partial source coverage."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending_not_written",
+        "camerapaper": "pending_company_routing_review"
+      }
+    },
+    {
+      "id": "arxiv-2610.31649",
+      "title": "Gate3DGen: A Pre-processing Model that Selectively Purifies Real-World Images for 3D Generation",
+      "aliases": [
+        "Gate3DGen"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "source": "https://arxiv.org/abs/2610.31649v1",
+      "earliest_public_verified": "2026-10-22",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-10-24",
+      "checked_on": "2026-10-24",
+      "verification_scope": "original_pdf_fulltext_extracted_selected_methods_results_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.31649.md",
+      "decision_key": "keep-or-purify-for-downstream-3d-mesh-quality",
+      "decision_boundary": "Synthetic 3D purifier improves task geometry; real-image router accuracy matches always-PURIFY under proxy labels.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-24",
+          "source_version": "v1",
+          "new_alert": true,
+          "brief": "2026-10-24",
+          "note": "arXiv 2026-10-22 v1; alphaXiv discovery and original PDF text, official dated list inaccessible/stale, partial source coverage."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "pending_not_written",
+        "camerapaper": "pending_company_routing_review"
       }
     }
   ]
