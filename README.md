@@ -17,6 +17,9 @@
 
 - [持续专题综述索引](surveys/README.md)：已有专题就增补，缺少独立研究分支时新建；同时回填前序工作。
 - [成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)：MESS、RawGen、UNICE 与逆 ISP / RAW 生成 / 曝光数据路线的系统比较。
+- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
+- [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)：时间状态估计、端点校准和空间强度的不同控制维度。
+- [选择性恢复和任务效用 survey](surveys/selective-task-aware-restoration.md)：KEEP/PURIFY/VERIFY，真实路由与净化器独立评价。
 
 ## 主题入口
 
@@ -43,6 +46,9 @@
 
 ### 恢复 / 视频 / 参考传播
 
+- [GLOW-FM：Tiny-VAE + TVM 单步低光增强](papers/arxiv-2610.31222.md)
+- [Gate3DGen：任务导向净化与真实路由对照](papers/arxiv-2610.31649.md)
+
 - [RelayVSR：稀疏生成参考与逐帧轻量恢复](papers/arxiv-2609.37850.md)
 - [HarnessIR：MFM executor + verification 的真实恢复](papers/arxiv-2610.10133.md)
 - [LoopMoEVR：循环 MoE 的统一 UHD 恢复](papers/arxiv-2610.05109.md)
@@ -51,6 +57,8 @@
 - [WorldSR：实体检索约束的多参考超分](papers/arxiv-2610.28423.md)
 
 ### 编辑 / Agent / 可控渲染
+
+- [ECT：单时刻免反演编辑与端点校准](papers/arxiv-2610.30827.md)
 
 - [FlowTool：连续参数与离散工具选择的边界](papers/arxiv-2609.35673.md)
 - [The Camera Inside the Editor：几何保真评价](papers/arxiv-2609.37732.md)
@@ -75,6 +83,8 @@
 - [LOCI：几何条件化混合记忆](papers/arxiv-2609.40222.md)
 
 ## 周报快照
+
+- [2026-10-24：一步低光、一步编辑与选择性恢复的三个判断变化](Recent_Papers_2026-10-24.md)
 
 - [2026-10-23：RAW 曝光恢复、显式检索式 SR 与 CameraX 控制边界](Recent_Papers_2026-10-23.md)
 - [2026-10-16：分块曝光、双摄可靠性与预测式恢复 Agent](Recent_Papers_2026-10-16.md)
