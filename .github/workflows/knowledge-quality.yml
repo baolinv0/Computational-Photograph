@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 2
       - name: Test offline maintenance tools
         run: python3 -m unittest discover -s tests -v
       - name: Check archive and generated index
@@ -22,4 +23,4 @@ jobs:
       - name: Validate archived research skill
         run: python3 skills/critical-paper-research/scripts/validate_skill.py
       - name: Check whitespace
-        run: git show --format= --check HEAD
+        run: git diff --check HEAD^1 HEAD
