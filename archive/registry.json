@@ -3,7 +3,7 @@
   "updated_on": "2026-10-24",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-24; not exhaustive historical migration or complete Oct-23 source listing audit",
+  "scope": "Incremental research archive through 2026-10-24; not exhaustive historical migration or complete Oct-23 source listing audit; SpecKCast 2026-10-21 recommendation backfilled to X01 on 2026-10-24",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -1664,6 +1664,49 @@
         "alphaxiv_folder": "Restoration",
         "notion": "pending_not_written",
         "camerapaper": "pending_company_routing_review"
+      }
+    },
+    {
+      "id": "arxiv-2610.26837",
+      "title": "SpecKCast: Spectral Kalman Forecasting for Diffusion Acceleration",
+      "aliases": [
+        "SpecKCast",
+        "Spectral Kalman Forecasting"
+      ],
+      "kind": "paper",
+      "topic": "X01",
+      "source": "https://arxiv.org/abs/2610.26837v1",
+      "earliest_public_verified": "2026-10-19",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-10-21",
+      "checked_on": "2026-10-24",
+      "verification_scope": "original_paper_extracted_selected_sections_checked_and_author_project_page",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.26837.md",
+      "decision_key": "band-specific-scheduler-aligned-uncertainty-gated-dit-output-forecasting",
+      "decision_boundary": "Generation trajectory preservation and up-to-6x speedup do not establish restoration GT fidelity or mobile deployment; multi-step accessible sampler required.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-10-24",
+          "brief": "2026-10-21",
+          "new_alert": false,
+          "note": "Already recommended 2026-10-21; canonical GitHub card and X01 survey missing, not a new 2026-10-24 discovery."
+        },
+        {
+          "type": "correction",
+          "date": "2026-10-24",
+          "new_alert": false,
+          "note": "Previous attribution as global missed discovery was incorrect; failure was missing_archive and missing_map_integration. Existing alphaXiv Agent membership verified."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_required_backfill",
+        "camerapaper": "not_required_no_new_company_claim"
       }
     }
   ]
