@@ -158,7 +158,7 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 统一记录：训练 GPU-hours/teacher 调用、推理 NFE、总时延、显存/内存带宽、设备与分辨率、质量约束、是否含预处理/数据搬运/重试。没有设备实测就不标手机部署成功。
 
-## 三个连接示例
+### X01｜多步推理：缓存还是预测？（2026-10-24 历史补录）\n\n[SpecKCast](papers/arxiv-2610.26837.md) 于 2026-10-19 首次公开、2026-10-21 已推荐；本次仅修复未接入知识地图的问题。**旧地图**只把少步蒸馏、缓存等概括为加速路线；**新地图**明确分出 training-free reuse（TeaCache 等）、uniform forecasting（TaylorSeer/Spectrum）与 band-specific schedule-aligned forecasting（SpecKCast）。作者报告最高 6× 但非手机端恢复实测；生成轨迹一致性不等于 GT fidelity。当前项目方案不因该文自动改变。详见 [Diffusion 推理缓存与预测 survey](surveys/diffusion-inference-caching-forecasting.md)。\n\n## 三个连接示例
 
 以下是已有论文的地图组织示例，不是新发现。v0.2 重核了 MESS 的方法与选定证据；VHA、HarnessIR 沿用既有卡片的核验范围。
 
@@ -204,7 +204,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
-| 2026-10-24 | 新证据 / 三主题更新 | 单步生成式 LLIE（TVM）；ε-VP 一步编辑的单时刻控制；任务级净化与真实域路由反例 | T03 增加质量–成本实证；T02 修正“多时刻必要性”；T06 添加 router 必须胜过 Always-PURIFY 的边界，以上均不声称社区共识 |
+| 2026-10-24 | 历史覆盖纠错 / X01 | SpecKCast 10-21 已推荐但未进入 canonical card/X01 survey；补卡片和路线，纠正误称全局漏检 | 不是新论文通知；X01 分清缓存与预测，恢复迁移仍待实测 |\n| 2026-10-24 | 新证据 / 三主题更新 | 单步生成式 LLIE（TVM）；ε-VP 一步编辑的单时刻控制；任务级净化与真实域路由反例 | T03 增加质量–成本实证；T02 修正“多时刻必要性”；T06 添加 router 必须胜过 Always-PURIFY 的边界，以上均不声称社区共识 |
 | 2026-10-23 | 历史回填 / survey 建立 | 新建 T05 成像训练数据合成分支，接入 RawGen、UNICE 和逆 ISP 等前序 | 从单篇 MESS 定位扩展为输入来源、生成域、目标来源与真实验证的路线比较；不将并行工作画为继承 |
 | 2026-10-23 | 结构基线 / historical organization | 建立 T01–T06 与 X01，关联已有 canonical cards，加入 MESS/VHA/HarnessIR 三个示例 | 改变组织与回忆方式；不宣称新增论文、独立复现或新共识 |
 
