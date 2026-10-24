@@ -17,7 +17,7 @@
 
 - [持续专题综述索引](surveys/README.md)：已有专题就增补，缺少独立研究分支时新建；同时回填前序工作。
 - [成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)：MESS、RawGen、UNICE 与逆 ISP / RAW 生成 / 曝光数据路线的系统比较。
-- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
+- [Diffusion 推理缓存与预测 survey](surveys/diffusion-inference-caching-forecasting.md)：训练免改的 reuse/forecast 与频带调度，SpecKCast 历史补录。\n- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
 - [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)：时间状态估计、端点校准和空间强度的不同控制维度。
 - [选择性恢复和任务效用 survey](surveys/selective-task-aware-restoration.md)：KEEP/PURIFY/VERIFY，真实路由与净化器独立评价。
 
@@ -56,7 +56,7 @@
 - [Physics-Shaped, Not Physical：物理引导恢复审计](papers/arxiv-2610.19763.md)
 - [WorldSR：实体检索约束的多参考超分](papers/arxiv-2610.28423.md)
 
-### 编辑 / Agent / 可控渲染
+### 效率 / 推理缓存与预测\n\n- [SpecKCast：按频带时间校准的 Kalman 输出预测](papers/arxiv-2610.26837.md)（2026-10-21 已推荐，10-24 补归档）\n\n### 编辑 / Agent / 可控渲染
 
 - [ECT：单时刻免反演编辑与端点校准](papers/arxiv-2610.30827.md)
 
