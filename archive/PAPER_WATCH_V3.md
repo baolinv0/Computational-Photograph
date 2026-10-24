@@ -33,6 +33,16 @@
 - 能从更新后的 survey 回忆输入、控制、机制、输出、训练/推理和失败条件，并指出新工作究竟改变哪个环节。
 - 实际更新/创建的 GitHub 路径已读回；新发现、历史回填、纠错和未完成项分别记载。
 
+## 核心作者独立检索与漏检修复（2026-10-24）
+
+核心作者名单是与主题关键词并行的独立召回入口。每轮优先读取现有核心作者/团队清单；对可访问的作者索引进行姓名/稳定研究者 ID 级的增量检索，不只靠题名关键词；开放检索继续发现新作者。每位作者保留独立的成功覆盖截止、实际来源、查询日期和 checked/partial/blocked/not_checked 状态，不能用总任务 last_run_time 代替。
+
+**重叠窗口**：每次从该来源最后成功覆盖日期往前重查至少 7 天（必要时 14 天），与 registry 和历史通知按 ID/版本/结论去重；来源访问失败不推进该来源水位。作者级、分类日列表和主题搜索分别记录成功/失败范围，不把部分覆盖写成全覆盖。
+
+**漏检分类**：missed_discovery（此前确未发现）、missing_archive（此前已推荐但未入 canonical 卡）、missing_map_integration（已有卡但未入 survey/总图）、source_blocked（来源未覆盖）。先检索历史通知、alphaXiv membership 与 registry 再归因。历史补录记 backfill/correction，不更新 earliest_public_verified，不伪装当日新作，不重复收藏；只有实质版本变化才可标 Update。
+
+**本次复盘**：Michael S. Brown 参与的 SpecKCast（arXiv:2610.26837，v1 2026-10-19）已在 2026-10-21 Paper Watch 推荐，alphaXiv Agent 已收藏；2026-10-24 的缺口是 GitHub canonical 卡片和 X01 living survey 接入。此前将其称为“完全未检测到”不准确。修复文件见 [论文卡片](../papers/arxiv-2610.26837.md) 与 [推理加速专题](../surveys/diffusion-inference-caching-forecasting.md)。
+
 ## 保留的规则
 
 - 原范围：计算摄影、RAW/HDR/TM/ISP、真实与生成式恢复、IQA/Reward、Agentic restoration、Pseudo-GT、Preference Optimization、高效训练及相关 benchmark/challenge。
