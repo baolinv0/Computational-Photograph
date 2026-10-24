@@ -1,0 +1,26 @@
+name: Knowledge base quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Test offline maintenance tools
+        run: python3 -m unittest discover -s tests -v
+      - name: Check archive and generated index
+        run: python3 scripts/knowledge_base.py check
+      - name: Validate archived research skill
+        run: python3 skills/critical-paper-research/scripts/validate_skill.py
+      - name: Check whitespace
+        run: git diff --check HEAD^1 HEAD
