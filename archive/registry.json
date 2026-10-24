@@ -383,10 +383,16 @@
           "new_alert": true
         },
         {
-          "type": "material_update",
+          "type": "version_observed",
           "date": "2026-10-08",
           "change": "arXiv v2; version diff not yet verified",
           "new_alert": false
+        },
+        {
+          "type": "correction",
+          "date": "2026-10-24",
+          "new_alert": false,
+          "note": "Reclassified the 2026-10-08 event from material_update to version_observed: the recorded version diff is not yet verified. This is an event-label correction, not a new paper review or a verified method change."
         }
       ],
       "sync": {

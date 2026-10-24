@@ -8,6 +8,20 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+### 按问题快速定位
+
+| 想解决的问题 | 长期问题地图 | 相关专题入口 |
+|---|---|---|
+| 采集、曝光或 HDR 输入应保留什么信息？ | [T01：采集与成像物理](LITERATURE_MAP.md#t01) | [HDR 数据分类](HDR/HDR_Data_Taxonomy.md) |
+| 如何控制照片呈现，或理解一步编辑？ | [T02：影调、颜色、意图与参考](LITERATURE_MAP.md#t02) | [一步免反演编辑与端点校准](surveys/one-step-inversion-free-editing.md) |
+| 生成式恢复怎样权衡质量、真实性与成本？ | [T03：可信恢复与高分辨率](LITERATURE_MAP.md#t03) | [高效生成式恢复](surveys/efficient-generative-restoration.md) |
+| 质量评价与任务效用应怎样区分？ | [T04：IQA、Reward 与偏好决策](LITERATURE_MAP.md#t04) | [选择性恢复与任务效用](surveys/selective-task-aware-restoration.md) |
+| 训练监督来自哪里，哪些部分可信？ | [T05：数据与 Pseudo-GT](LITERATURE_MAP.md#t05) | [成像训练数据合成](surveys/imaging-training-data-synthesis.md) |
+| 恢复执行器如何组织、验证与重试？ | [T06：Agent、动作与闭环控制](LITERATURE_MAP.md#t06) | [AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) |
+| 多步推理怎样减少计算，缓存与预测有何区别？ | [X01：效率与训练部署](LITERATURE_MAP.md#x01) | [Diffusion 缓存、预测与分频调度](surveys/diffusion-inference-caching-forecasting.md) |
+
+查找单篇论文：[全部论文速查（由 registry 生成）](papers/README.md)。查看全部已有专题：[持续专题综述索引](surveys/README.md)；按日期回顾：[周报快照](#周报快照)。
+
 ## 长期文献地图
 
 - [持续文献总图：问题、竞争路线与系统方案](LITERATURE_MAP.md)：六个稳定主题与横向效率层；先建立问题坐标，再定位新证据。初版为结构基线，不代表所有历史论文已重新核验。
@@ -17,7 +31,8 @@
 
 - [持续专题综述索引](surveys/README.md)：已有专题就增补，缺少独立研究分支时新建；同时回填前序工作。
 - [成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)：MESS、RawGen、UNICE 与逆 ISP / RAW 生成 / 曝光数据路线的系统比较。
-- [Diffusion 推理缓存与预测 survey](surveys/diffusion-inference-caching-forecasting.md)：训练免改的 reuse/forecast 与频带调度，SpecKCast 历史补录。\n- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
+- [Diffusion 推理缓存与预测 survey](surveys/diffusion-inference-caching-forecasting.md)：训练免改的 reuse/forecast 与频带调度，SpecKCast 历史补录。
+- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
 - [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)：时间状态估计、端点校准和空间强度的不同控制维度。
 - [选择性恢复和任务效用 survey](surveys/selective-task-aware-restoration.md)：KEEP/PURIFY/VERIFY，真实路由与净化器独立评价。
 
@@ -56,7 +71,11 @@
 - [Physics-Shaped, Not Physical：物理引导恢复审计](papers/arxiv-2610.19763.md)
 - [WorldSR：实体检索约束的多参考超分](papers/arxiv-2610.28423.md)
 
-### 效率 / 推理缓存与预测\n\n- [SpecKCast：按频带时间校准的 Kalman 输出预测](papers/arxiv-2610.26837.md)（2026-10-21 已推荐，10-24 补归档）\n\n### 编辑 / Agent / 可控渲染
+### 效率 / 推理缓存与预测
+
+- [SpecKCast：按频带时间校准的 Kalman 输出预测](papers/arxiv-2610.26837.md)（2026-10-21 已推荐，10-24 补归档）
+
+### 编辑 / Agent / 可控渲染
 
 - [ECT：单时刻免反演编辑与端点校准](papers/arxiv-2610.30827.md)
 
@@ -98,6 +117,7 @@
 - [ARCHIVE_PROTOCOL：源头核验、职责、去重、同步与通知](ARCHIVE_PROTOCOL.md)
 - [registry.json：稳定身份、证据范围、结论 key 与增量事件](archive/registry.json)
 - [LEGACY：历史已出现对象与纠错边界](archive/LEGACY.md)
+- [贡献与检查：更新顺序、索引生成与离线校验](CONTRIBUTING.md)
 
 同一论文新版本只更新原卡片；真正改变决策才再次通知。若只是旧论文晚上传 arXiv、相同结论的新转述或同步重试，不当成研究新增。标题改名、会议版本与预印本用别名归并。
 
