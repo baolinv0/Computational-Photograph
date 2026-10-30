@@ -1738,10 +1738,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1772,10 +1774,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Color",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1807,10 +1811,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1841,10 +1847,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1876,10 +1884,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1910,10 +1920,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "HDR",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1944,10 +1956,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Restoration",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     },
     {
@@ -1978,10 +1992,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
+        "github": "verified",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
+        "notion_checked_on": "2026-10-30"
       }
     }
   ]
