@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-24",
+  "updated_on": "2026-10-30",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-24; not exhaustive historical migration or complete Oct-23 source listing audit; SpecKCast 2026-10-21 recommendation backfilled to X01 on 2026-10-24",
+  "scope": "Incremental research archive through 2026-10-30; eight new arXiv papers selected after hard gates; no independent replication.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -1707,6 +1707,281 @@
         "alphaxiv_folder": "Agent",
         "notion": "not_required_backfill",
         "camerapaper": "not_required_no_new_company_claim"
+      }
+    },
+    {
+      "id": "arxiv-2610.34854",
+      "title": "Learning Dual-Camera Smooth Zoom via Decoupled Geometric-Photometric Data Synthesis",
+      "aliases": [
+        "ZoomGS v2",
+        "ZoomFI"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "source": "https://arxiv.org/abs/2610.34854v1",
+      "earliest_public_verified": "2026-10-26",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_and_author_project_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.34854.md",
+      "decision_key": "dual-camera-zoom-geometric-photometric-synthesis",
+      "decision_boundary": "Real endpoint pairs lack intermediate-view GT; no mobile end-to-end deployment evidence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.36896",
+      "title": "PREEN: Exemplar-Based Color Style Transfer with Smartphone Editor Presets",
+      "aliases": [
+        "PREEN"
+      ],
+      "kind": "paper",
+      "topic": "Color",
+      "source": "https://arxiv.org/abs/2610.36896v1",
+      "earliest_public_verified": "2026-10-27",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.36896.md",
+      "decision_key": "reference-style-to-interpretable-editor-preset",
+      "decision_boundary": "PST50 is 50 pairs; 283 ms covers preset prediction only and the 315M CLIP backbone dominates.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.37599",
+      "title": "MoI-Bench: A Benchmark for Image Generation and Editing on Mobile Devices",
+      "aliases": [
+        "MoI-Bench",
+        "MoI-Eval"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.37599v1",
+      "earliest_public_verified": "2026-10-27",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_and_author_project_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.37599.md",
+      "decision_key": "mobile-image-quality-deployability-map",
+      "decision_boundary": "Common device deployment comparison is primarily text-to-image; VLM judges and no energy/thermal data.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.33203",
+      "title": "Of Chains and Gains: What Reinforcement Learning Changes on Reasoning-based Image Quality Assessment",
+      "aliases": [
+        "Chains and Gains"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.33203v1",
+      "earliest_public_verified": "2026-10-23",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.33203.md",
+      "decision_key": "rl-iqa-cot-causal-and-shortcut-audit",
+      "decision_boundary": "Tested Qwen2.5-VL recipes only; explicit chain usefulness does not establish causal dependence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.37186",
+      "title": "VGIQA: Fine-Grained Image Quality Assessment with Visual Grounding Rewards",
+      "aliases": [
+        "VGIQA",
+        "VGSR-2K"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2610.37186v1",
+      "earliest_public_verified": "2026-10-27",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.37186.md",
+      "decision_key": "grounded-local-quality-defect-assessment",
+      "decision_boundary": "Same-source SR data and model-generated annotation candidates limit cross-domain claims.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.37135",
+      "title": "Physics Guided Diffusion Model Based Exposure Interpolation for High Dynamic Range Imaging",
+      "aliases": [
+        "Physics Guided Exposure Interpolation"
+      ],
+      "kind": "paper",
+      "topic": "HDR",
+      "source": "https://arxiv.org/abs/2610.37135v1",
+      "earliest_public_verified": "2026-10-27",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.37135.md",
+      "decision_key": "physics-plus-diffusion-intermediate-exposure",
+      "decision_boundary": "Controlled aligned exposure sequences do not validate real dynamic simultaneous dual-exposure capture.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "HDR",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.37290",
+      "title": "Taming Noise Initialization for Zero-shot Video Restoration with Image Diffusion Priors",
+      "aliases": [
+        "TINDER"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "source": "https://arxiv.org/abs/2610.37290v1",
+      "earliest_public_verified": "2026-10-27",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.37290.md",
+      "decision_key": "input-inversion-temporal-noise-video-restoration",
+      "decision_boundary": "Zero-shot avoids retraining but inversion and multi-step sampling have no mobile cost evidence.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2610.32635",
+      "title": "EditJev: System One Routing for Image Editing Models",
+      "aliases": [
+        "EditJev"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2610.32635v1",
+      "earliest_public_verified": "2026-10-23",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-10-30",
+      "checked_on": "2026-10-30",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.32635.md",
+      "decision_key": "sample-level-image-editor-quality-latency-routing",
+      "decision_boundary": "Latency reductions use model-level averages and judge-derived preferences, not device request traces.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-10-30",
+          "brief": "2026-10-30",
+          "new_alert": true
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
       }
     }
   ]

@@ -25,6 +25,9 @@
 
 ### ISP / 成像逆问题
 
+- [Dual-Camera Smooth Zoom：几何—光度解耦的双摄连续切换](papers/arxiv-2610.34854.md)
+
+
 - [BAM：显式成像算子 + 少步后验采样](papers/arxiv-2609.39660.md)
 - [RawVLA：任务目标反向约束显式 ISP](papers/arxiv-2609.37530.md)
 - [Neural Block-wise AE：分块曝光与单次 HDR](papers/arxiv-2610.18733.md)
@@ -40,11 +43,17 @@
 
 ### HDR / Tone Mapping
 
+- [Physics-Guided Exposure Interpolation：物理中间曝光 + diffusion 高频残差](papers/arxiv-2610.37135.md)
+
+
 - [ExpandDiff：双端裁剪分布与 HDR 重建](papers/arxiv-2609.39624.md)
 - [FLASH：时序 HDR 跨曝光脉冲光攻击](papers/arxiv-2609.37742.md)
 - [既有 HDR 专题资料](HDR/)
 
 ### 恢复 / 视频 / 参考传播
+
+- [TINDER：用输入反演噪声维持零样本视频恢复时序](papers/arxiv-2610.37290.md)
+
 
 - [GLOW-FM：Tiny-VAE + TVM 单步低光增强](papers/arxiv-2610.31222.md)
 - [Gate3DGen：任务导向净化与真实路由对照](papers/arxiv-2610.31649.md)
@@ -57,6 +66,10 @@
 - [WorldSR：实体检索约束的多参考超分](papers/arxiv-2610.28423.md)
 
 ### 效率 / 推理缓存与预测\n\n- [SpecKCast：按频带时间校准的 Kalman 输出预测](papers/arxiv-2610.26837.md)（2026-10-21 已推荐，10-24 补归档）\n\n### 编辑 / Agent / 可控渲染
+
+- [PREEN：参考风格回归 29 维手机编辑预设](papers/arxiv-2610.36896.md)
+- [EditJev：编辑模型的样本级速度—质量路由](papers/arxiv-2610.32635.md)
+
 
 - [ECT：单时刻免反演编辑与端点校准](papers/arxiv-2610.30827.md)
 
@@ -71,6 +84,11 @@
 
 ### IQA / 观察者
 
+- [MoI-Bench：移动生成/编辑的质量—部署二维基准](papers/arxiv-2610.37599.md)
+- [VGIQA：局部缺陷 grounding reward](papers/arxiv-2610.37186.md)
+- [Chains and Gains：RL-IQA 的 CoT 因果与捷径审计](papers/arxiv-2610.33203.md)
+
+
 - [Multidimensional Observer Model：任务相关感知子空间](papers/arxiv-2609.38487.md)
 - [EditJudgeBias：编辑评审器的顺序与线索偏置](papers/arxiv-2610.01670.md)
 - [ScenePercept：场景条件化 UGC 感知评价](papers/arxiv-2610.17661.md)
@@ -83,6 +101,8 @@
 - [LOCI：几何条件化混合记忆](papers/arxiv-2609.40222.md)
 
 ## 周报快照
+
+- [2026-10-30：双摄连续切换、移动部署基准与 IQA 因果审计](Recent_Papers_2026-10-30.md)
 
 - [2026-10-24：一步低光、一步编辑与选择性恢复的三个判断变化](Recent_Papers_2026-10-24.md)
 
