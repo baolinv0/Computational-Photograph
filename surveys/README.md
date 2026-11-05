@@ -8,6 +8,10 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T01/T02/T05：低光、光源、色彩怎样联合定义 GT？ | [低光 RAW、AWB 与照明光谱](low-light-raw-awb-illumination.md) | 2026-11-05 补查：CHROMA-MILL、3L-D、Beyond CCT；含关键成立条件及跨手机缺口 |
+| T04/T05：低光/颜色评价的 GT 和 Judge 是否可靠？ | [低光 IQA、Color Judge 与 LOL Benchmark 审计](low-light-iqa-and-gt-validity.md) | 2026-11-05 补查：LOL 标签偏移、CIE 颜色真值、NightIQA；区分排名、物理色差与 MCQ |
+| T05/T03：只有噪声测量能否学习干净生成分布？ | [无干净 GT 的生成式恢复](noisy-measurements-to-clean-generators.md) | 2026-11-05 补查：Noise2Noise→非高斯测量过程+Consistency，理论条件与手机 RAW 缺口 |
+| X01/T01：实机 Learned ISP 和 Event-HDR 怎样对比？ | [移动 ISP GPU 部署与 Event-HDR](mobile-isp-and-event-hdr-efficiency.md) | 2026-11-05 补查：Mobile AI 2026 实机 Benchmark + HIVE-Diff 的单参考事件采集 |
 | T05：训练数据从哪里来，哪些部分可信？ | [成像训练数据合成：逆 ISP、RAW 生成与曝光退化](imaging-training-data-synthesis.md) | MESS、RawGen、UNICE 等 13 项代表工作；v0.1，有明确全文/摘要核验边界及待补历史分支 |
 | T01/T05：HDR 来源、输入与目标是什么关系？ | [既有 HDR 数据分类](../HDR/HDR_Data_Taxonomy.md) | 复用既有文档，不迁移；本次不重新核验其中全部条目 |
 | T02/T05：SDR video → HDR 的训练目标怎么定义？ | [既有 HDR 数据与 PGT](../HDR/HDR_Dataset_References_and_PGT.md) | 保留原适用范围，通用合成路线转至本目录新分支 |
