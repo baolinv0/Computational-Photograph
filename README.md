@@ -15,6 +15,11 @@
 
 地图维护跨论文关系和当前认识；以下主题入口仍导航到唯一技术卡片。已有专门综述不被总图取代，私人项目方案和未公开实验不写入公共地图。
 
+- [2026-10-25—11-05 停用缺口补查快照](Recent_Papers_2026-11-05.md)：9 篇精选论文、截至检查时的去重与完整性边界。
+- [低光 RAW、光谱与 AWB 联合恢复](surveys/low-light-raw-awb-illumination.md)：配对照明、RAW 混合、色温与多谱 CCM。
+- [低光与颜色评价可信度](surveys/low-light-iqa-and-gt-validity.md)：LOL 数据/脚本审计、CIE 色差、NightIQA。
+- [无干净 GT 的生成式恢复](surveys/noisy-measurements-to-clean-generators.md)：非高斯噪声过程与 Consistency。
+- [移动 ISP GPU 与 Event-HDR](surveys/mobile-isp-and-event-hdr-efficiency.md)：实机成本和事件帧采集边界。
 - [持续专题综述索引](surveys/README.md)：已有专题就增补，缺少独立研究分支时新建；同时回填前序工作。
 - [成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)：MESS、RawGen、UNICE 与逆 ISP / RAW 生成 / 曝光数据路线的系统比较。
 - [Diffusion 推理缓存与预测 survey](surveys/diffusion-inference-caching-forecasting.md)：训练免改的 reuse/forecast 与频带调度，SpecKCast 历史补录。\n- [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)：单步 latent transport、少步蒸馏、判别式基线与真实性/成本权衡。
@@ -22,6 +27,18 @@
 - [选择性恢复和任务效用 survey](surveys/selective-task-aware-restoration.md)：KEEP/PURIFY/VERIFY，真实路由与净化器独立评价。
 
 ## 主题入口
+
+### 2026-11-05 缺口补查重点
+
+- [CHROMA-MILL：低光增强与 AWB 联合标定](papers/arxiv-2611.04092.md)
+- [LOL Benchmark label shift：训练/测试 GT 与排名审计](papers/arxiv-2610.38121.md)
+- [CIE-grounded MLLM 色彩评价](papers/arxiv-2610.40212.md)
+- [NightIQA：夜景局部失真与问答评价](papers/arxiv-2611.04811.md)
+- [无 clean GT：非高斯噪声生成过程](papers/arxiv-2610.42036.md)
+- [3L-D：标定真实光照台的夜级数据](papers/arxiv-2611.02695.md)
+- [Beyond CCT：多通道 SPD 估计与 CCM](papers/arxiv-2610.40175.md)
+- [Mobile AI 2026 Learned ISP 真机 GPU 报告](papers/arxiv-2611.05008.md)
+- [HIVE-Diff：一帧 LDR + Event 的 HDR 视频](papers/arxiv-2611.03465.md)
 
 ### ISP / 成像逆问题
 
@@ -101,6 +118,8 @@
 - [LOCI：几何条件化混合记忆](papers/arxiv-2609.40222.md)
 
 ## 周报快照
+
+- [2026-11-05：停用缺口恢复与 Topic Update](Recent_Papers_2026-11-05.md)
 
 - [2026-10-30：双摄连续切换、移动部署基准与 IQA 因果审计](Recent_Papers_2026-10-30.md)
 
