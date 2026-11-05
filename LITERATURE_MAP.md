@@ -65,6 +65,16 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 | T06 Agent、动作与闭环控制 | 在既定执行器下，如何找到有效动作并控制失败与成本？ | 固定链；单步直接模型；等预算候选选择；自适应工具；原图重试/就地编辑；学习动作后果 | 执行器能做到、搜索找得到、评价选得对须分开 |
 | X01 效率与训练部署（横向层） | 哪些能力在训练期获取，哪些计算必须在部署期保留？ | 蒸馏/量化；低分辨率控制+高分辨率执行；少步/多阶段；缓存；端云分工 | 训练成本、模型时延、完整产品成本分别算 |
 
+### 2026-11-05 缺口补查：三个受影响的系统决策
+
+**T01/T02/T05：低光亮度与颜色不应默认串行独立**。补入 [CHROMA-MILL](papers/arxiv-2611.04092.md)、[3L-D](papers/arxiv-2611.02695.md)、[Beyond CCT](papers/arxiv-2610.40175.md)；照度、illumination SPD/chromaticity、AWB gain、CCM 和 Tone Mapping 是不同变量。新增的受控 RAW 与多通道环境光证据支持联合评价，但真实非均匀多光源和手机部署仍待证。详见 [联合恢复专题](surveys/low-light-raw-awb-illumination.md)。
+
+**T04：先验证 GT 和评价器是否测对目标**。补入 [LOL benchmark 审计](papers/arxiv-2610.38121.md)、[CIE color judgment](papers/arxiv-2610.40212.md)、[NightIQA](papers/arxiv-2611.04811.md)。旧认识是 PSNR 与 VLM 可作为有效信号；本轮修正为必须分别检验 GT 风格漂移、评价器物理色差误差，以及夜景失真识别能否转化为候选偏好选择。见 [评价可信度专题](surveys/low-light-iqa-and-gt-validity.md)。
+
+**T05/T03/X01：无 clean GT 与真实代价不能只靠主观样图判断**。[Learning Clean Generative Processes](papers/arxiv-2610.42036.md) 将 noisy-only generative learning 扩展到非高斯测量过程（满足 noise law/独立性条件）；[Mobile AI 2026 Learned ISP](papers/arxiv-2611.05008.md) 提供移动 GPU 真实运行对照；[HIVE-Diff](papers/arxiv-2611.03465.md) 用单张 LDR+events 扩展 N 帧 HDR，但非实时和饱和静态区域观测仍受限。见 [无 GT 理论](surveys/noisy-measurements-to-clean-generators.md) 与 [真机/Event-HDR](surveys/mobile-isp-and-event-hdr-efficiency.md)。
+
+上述均为停用窗口历史补查，不把 2026-10-30 已归档的八篇重复计为新发现。此次不宣称所有 arXiv 日列表已穷尽。
+
 ### T01｜采集与成像物理
 
 系统位置：进入恢复之前的观测生成与控制。保留曝光时间、模拟增益、数字增益、帧数与渲染亮度的区别。
@@ -204,6 +214,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-05 | 停用缺口补查 / 多主题 | 9 篇首次公开 10-28—11-03 的论文接入四个 living survey；10-30 已归档 8 篇不重复计数 | T04 加强 benchmark/色彩评价审计；T01/T02 补联合低光/AWB 和谱 CCM；T05 补 non-Gaussian noisy-only 生成，X01 补实机 ISP 与 Event-HDR 限制 |
 | 2026-10-24 | 历史覆盖纠错 / X01 | SpecKCast 10-21 已推荐但未进入 canonical card/X01 survey；补卡片和路线，纠正误称全局漏检 | 不是新论文通知；X01 分清缓存与预测，恢复迁移仍待实测 |\n| 2026-10-24 | 新证据 / 三主题更新 | 单步生成式 LLIE（TVM）；ε-VP 一步编辑的单时刻控制；任务级净化与真实域路由反例 | T03 增加质量–成本实证；T02 修正“多时刻必要性”；T06 添加 router 必须胜过 Always-PURIFY 的边界，以上均不声称社区共识 |
 | 2026-10-23 | 历史回填 / survey 建立 | 新建 T05 成像训练数据合成分支，接入 RawGen、UNICE 和逆 ISP 等前序 | 从单篇 MESS 定位扩展为输入来源、生成域、目标来源与真实验证的路线比较；不将并行工作画为继承 |
 | 2026-10-23 | 结构基线 / historical organization | 建立 T01–T06 与 X01，关联已有 canonical cards，加入 MESS/VHA/HarnessIR 三个示例 | 改变组织与回忆方式；不宣称新增论文、独立复现或新共识 |
