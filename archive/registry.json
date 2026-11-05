@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-30",
+  "updated_on": "2026-11-05",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-10-30; eight new arXiv papers selected after hard gates; no independent replication.",
+  "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -1998,6 +1998,312 @@
         "notion": "hub_indexed",
         "github_verified_content_commit": "8508851e2a2522a47d0c23905dedc23ba0f0aa57",
         "notion_checked_on": "2026-10-30"
+      }
+    },
+    {
+      "id": "arxiv-2610.38121",
+      "title": "What Does LOL Measure? Hidden Label Shifts in Low-Light Enhancement Benchmarks",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T04",
+      "source": "https://arxiv.org/abs/2610.38121v1",
+      "earliest_public_verified": "2026-10-28",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.38121.md",
+      "decision_key": "benchmark-label-shift-test-only-calibration-audit",
+      "decision_boundary": "GT rendering shift, overlap and test-time tuning invalidate naive LLIE rank interpretations; author's checkpoint audit, independent replication absent.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.04092",
+      "title": "CHROMA-MILL: Joint Low-Light Enhancement and White Balance under Colored Illumination",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T01",
+      "source": "https://arxiv.org/abs/2611.04092v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.04092.md",
+      "decision_key": "calibrated-raw-illuminant-intensity-joint-llie-awb",
+      "decision_boundary": "Linear RAW mixing requires aligned calibrated illuminants and limited convex-hull conditions; phone results do not dominate every PSNR metric.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2610.42036",
+      "title": "Learning Clean Generative Processes from Noisy Measurements",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T05",
+      "source": "https://arxiv.org/abs/2610.42036v1",
+      "earliest_public_verified": "2026-10-30",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.42036.md",
+      "decision_key": "non-gaussian-noisy-only-generative-process-consistency",
+      "decision_boundary": "Consistency guarantee conditional on measurement law, independent noisy views and identifiability; no general phone RAW proof.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2610.40212",
+      "title": "Benchmarking color judgment in multimodal LLMs with CIE-computable ground truth",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T04",
+      "source": "https://arxiv.org/abs/2610.40212v1",
+      "earliest_public_verified": "2026-10-29",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.40212.md",
+      "decision_key": "cie-grounded-color-judgment-mllm-benchmark",
+      "decision_boundary": "Synthetic color chart and fixed prompting do not establish real-scene human preference; fine CCT/color difference calibration is weak.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.02695",
+      "title": "3L-D: A Low-Light Level Dataset from a Sensor-Agnostic, Alignment-Preserving Acquisition Framework",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T05",
+      "source": "https://arxiv.org/abs/2611.02695v1",
+      "earliest_public_verified": "2026-11-02",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.02695.md",
+      "decision_key": "spectrally-calibrated-physical-night-illumination-pairs",
+      "decision_boundary": "Sensor-agnostic apparatus does not establish cross-device result; miniature scenes and laboratory spectral reconstruction are not natural night scenes.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.05008",
+      "title": "Learned Smartphone ISP on Mobile GPUs: Mobile AI 2026 Challenge Report",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "X01",
+      "source": "https://arxiv.org/abs/2611.05008v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.05008.md",
+      "decision_key": "mobile-gpu-real-bayer-to-rgb-isp-latency-benchmark",
+      "decision_boundary": "Measured on specified Adreno/Mali SoCs at 1920x2560, not complete camera pipeline or sustained thermals.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.03465",
+      "title": "HIVE-Diff: High Frame Rate HDR Video Reconstruction from a Single LDR Frame and Events",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T01",
+      "source": "https://arxiv.org/abs/2611.03465v1",
+      "earliest_public_verified": "2026-11-02",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.03465.md",
+      "decision_key": "single-ldr-event-guided-hdr-video-temporal-expansion",
+      "decision_boundary": "One LDR reference plus events differs from N-frame input; event-silent saturation hallucinates and iterative inference far slower than feedforward.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "HDR",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.04811",
+      "title": "NightIQA: A Comprehensive Dataset and Benchmark for MLLM-Based Nighttime Image Quality Assessment",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T04",
+      "source": "https://arxiv.org/abs/2611.04811v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.04811.md",
+      "decision_key": "night-qa-localization-technical-distortion-sft-grpo",
+      "decision_boundary": "Evaluation reports MCQ QA accuracy, not correlation with human quality MOS or correct real editor winner selection.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2610.40175",
+      "title": "Beyond CCT: Multi-channel SPD recovery for per-shot camera color correction",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T02",
+      "source": "https://arxiv.org/abs/2610.40175v1",
+      "earliest_public_verified": "2026-10-29",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-05",
+      "checked_on": "2026-11-05",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2610.40175.md",
+      "decision_key": "als-plus-whitepoint-spd-recovery-per-shot-ccm",
+      "decision_boundary": "Specific camera SSF and idealized ALS; spectral dictionary fails on held-out fluorescent classes without basis augmentation.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-05",
+          "new_alert": false,
+          "brief": "2026-11-05 catch-up",
+          "note": "First public during 2026-10-25–11-05 suspension gap; explicitly user-requested recovery. No claim of first publication today; prior dated paper-watch notification history separately checked as available."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "not_requested_for_catchup",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     }
   ]
