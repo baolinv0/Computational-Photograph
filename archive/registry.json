@@ -2030,7 +2030,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2064,7 +2064,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Color",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2098,7 +2098,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Restoration",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2132,7 +2132,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2166,7 +2166,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2200,7 +2200,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2234,7 +2234,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "HDR",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2268,7 +2268,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     },
@@ -2302,7 +2302,7 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Color",
-        "notion": "not_requested_for_catchup",
+        "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
     }
