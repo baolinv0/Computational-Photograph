@@ -2333,10 +2333,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2367,10 +2367,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Restoration",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2401,10 +2401,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2435,10 +2435,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2469,10 +2469,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2503,10 +2503,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2537,10 +2537,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Restoration",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2571,10 +2571,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
@@ -2605,10 +2605,10 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written:39ffb9ab41cd6ed101ad73a01a2dd113331f9dac",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending",
+        "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     }
