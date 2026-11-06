@@ -15,6 +15,10 @@
 
 地图维护跨论文关系和当前认识；以下主题入口仍导航到唯一技术卡片。已有专门综述不被总图取代，私人项目方案和未公开实验不写入公共地图。
 
+- [2026-11-06 Paper Watch：跨模态真实观测、统一恢复扩容、联合 inverse flow 与多轮保真](Recent_Papers_2026-11-06.md)：4 篇 v1 原文核验，分别标新作/前作/证据边界。
+- [非配准跨模态导引恢复专题](surveys/unaligned-guided-restoration.md)：RGB+NIR 真实新增观测、联合去噪与错配负例。
+- [统一恢复退化路由专题](surveys/universal-restoration-degradation-routing.md)：ICLR UniRestorer→UniRestorer++ 的扩容与 CDD-50。
+- [多轮编辑保真专题](surveys/multi-turn-editing-preservation.md)：MT Forcing、TailSteer、ROI 硬锁与原图重试的竞争关系。
 - [2026-10-25—11-05 停用缺口补查快照](Recent_Papers_2026-11-05.md)：9 篇精选论文、截至检查时的去重与完整性边界。
 - [低光 RAW、光谱与 AWB 联合恢复](surveys/low-light-raw-awb-illumination.md)：配对照明、RAW 混合、色温与多谱 CCM。
 - [低光与颜色评价可信度](surveys/low-light-iqa-and-gt-validity.md)：LOL 数据/脚本审计、CIE 色差、NightIQA。
@@ -27,6 +31,13 @@
 - [选择性恢复和任务效用 survey](surveys/selective-task-aware-restoration.md)：KEEP/PURIFY/VERIFY，真实路由与净化器独立评价。
 
 ## 主题入口
+
+### 2026-11-06 本轮新作
+
+- [UGD-FM：无配准 NIR 引导、稀疏匹配与少步去噪](papers/arxiv-2611.06422.md)
+- [UniRestorer++：退化层次扩容/区域专家与 CDD-50](papers/arxiv-2611.06042.md)
+- [Dual Flow：image–measurement 联合 flow 反问题](papers/arxiv-2611.05843.md)
+- [TailSteer：训练期修正多轮编辑漂移](papers/arxiv-2611.06741.md)
 
 ### 2026-11-05 缺口补查重点
 
@@ -119,6 +130,7 @@
 
 ## 周报快照
 
+- [2026-11-06：三个 Topic Update，四项新作](Recent_Papers_2026-11-06.md)
 - [2026-11-05：停用缺口恢复与 Topic Update](Recent_Papers_2026-11-05.md)
 
 - [2026-10-30：双摄连续切换、移动部署基准与 IQA 因果审计](Recent_Papers_2026-10-30.md)
