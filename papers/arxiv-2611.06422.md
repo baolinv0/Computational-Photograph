@@ -21,7 +21,7 @@
 
 ## 作者证据
 
-- Table 1 FANVID、严重 Poisson-Gaussian alpha=.03/sigma=.3：Restormer 单图 30.69 dB；UGD-FM(Restowner block, 1-step)32.59 / 2-step32.82 dB；对应高层图像基线的推理网络和 guide 输入**不等价**，不能将收益全归 flow。其他跨模态引导基线也有公平对照。
+- Table 1 FANVID、严重 Poisson-Gaussian alpha=.03/sigma=.3：Restormer 单图 30.69 dB；UGD-FM(Restormer block, 1-step)32.59 / 2-step32.82 dB；对应高层图像基线的推理网络和 guide 输入**不等价**，不能将收益全归 flow。其他跨模态引导基线也有公平对照。
 - Table 6(a) 相同 Restormer block：直接回归 30.27，standard FM 1-step 30.28、2-step 30.34；加 stage-focused 后 2-step30.42；再加 inference-consistent state 30.58。Flow 本身的一步直接增益很小，收益来自训练/采样配套设计和跨模态引导。
 - Table 6(b)：没有注意力 2-step 29.10，窗口匹配 30.03，adaptive sparse propagation 30.58；全局 attention OOM。证实 sparse aggregation 是重要负载模块。
 - 明示局限：大三维视差、遮挡与跨视角缺信息时引导错误；联合对齐有计算开销；未展示实际手机完整双 sensor 捕获、功耗/时延。
