@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-06",
+  "updated_on": "2026-11-05",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-11-06; 2026-11-05 arXiv cs.CV/eess.IV daily new listings screened for 4 newly announced items; prior 2026-11-05 catch-up retained; not exhaustive across all categories/authors.",
+  "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -2307,197 +2307,311 @@
       }
     },
     {
-      "id": "arxiv-2611.06422",
-      "title": "Unaligned Image Guided Denoising via Cross-modal Conditional Flow Matching",
-      "aliases": [
-        "UGD-FM"
-      ],
+      "id": "arxiv-2611.05024",
+      "title": "RGB Photo Enhancement with Deep Learning on Smartphone GPUs",
+      "aliases": [],
       "kind": "paper",
-      "topic": "T01",
-      "secondary_topics": [
-        "T03",
-        "X01"
-      ],
-      "system_roles": [
-        "acquisition",
-        "execution"
-      ],
-      "map_change": "Bridge;Engineering maturity",
-      "verdict": "GO-E",
-      "source": "https://arxiv.org/abs/2611.06422v1",
-      "earliest_public_verified": "2026-11-04",
-      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "topic": "X01",
+      "source": "https://arxiv.org/abs/2611.05024v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
       "source_version": "v1",
       "first_covered": "2026-11-06",
       "checked_on": "2026-11-06",
       "verification_scope": "selected_original_paper_methods_results_limitations_checked",
       "independent_replication": "not_performed",
-      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06422.md",
-      "decision_key": "cross-modal-noisy-rgb-nir-unaligned-sparse-flow",
-      "decision_boundary": "True RGB+NIR auxiliary observation; large parallax, occlusion and total dual-sensor capture cost not solved.",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.05024.md",
+      "decision_key": "mobile-rgb-enhancement-cross-soc-gpu-npu-benchmark",
+      "decision_boundary": "Device and delegate-specific latency; old DPED style mapping; no power/thermal/end-to-end camera pipeline.",
       "events": [
         {
-          "type": "first_archive",
+          "type": "new_discovery",
           "date": "2026-11-06",
           "new_alert": true,
-          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
-          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
         }
       ],
       "sync": {
-        "github": "verified_written",
-        "alphaxiv": "verified_saved",
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.00974",
+      "title": "Efficient Image Denoising on Smartphone GPUs",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T03",
+      "source": "https://arxiv.org/abs/2611.00974v1",
+      "earliest_public_verified": "2026-10-31",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.00974.md",
+      "decision_key": "real-mobile-rgb-denoising-cross-soc-benchmark",
+      "decision_boundary": "Single Sony sensor and RGB ISP output; no RAW/cross-sensor/power/thermal proof.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Restoration",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.00963",
+      "title": "4K Image Super-Resolution on Mobile NPUs",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "X01",
+      "source": "https://arxiv.org/abs/2611.00963v1",
+      "earliest_public_verified": "2026-10-31",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.00963.md",
+      "decision_key": "4k-sr-mobile-npu-quantization-fallback-benchmark",
+      "decision_boundary": "Under-5-ms result is Snapdragon INT8 track only; bicubic DIV2K and no end-to-end/power/thermal.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.02995",
+      "title": "ILLRAW: Illumination-Aware Learning for Object Detection in RAW Images",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T01",
+      "source": "https://arxiv.org/abs/2611.02995v1",
+      "earliest_public_verified": "2026-11-02",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.02995.md",
+      "decision_key": "illumination-aware-raw-direct-detection-adapter",
+      "decision_boundary": "Desktop-GPU datasets; synthetic pretraining and no cross-sensor/mobile deployment proof.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
         "alphaxiv_folder": "Raw",
-        "notion": "not_requested_this_run",
-        "camerapaper": "pending_company_metadata_check_if_applicable"
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.04481",
+      "title": "Goal-Driven Autonomous Optical Experimentation",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T06",
+      "source": "https://arxiv.org/abs/2611.04481v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.04481.md",
+      "decision_key": "instrument-acknowledged-goal-driven-optical-experiment-loop",
+      "decision_boundary": "One optical setup and small color set; agent/human/script contribution not isolated.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.04416",
+      "title": "FLASH: High-Resolution Image Editing with Sparse Halo Attention",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "T02",
+      "source": "https://arxiv.org/abs/2611.04416v1",
+      "earliest_public_verified": "2026-11-03",
+      "earliest_source": "arxiv_v1_paper_header",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.04416.md",
+      "decision_key": "frozen-lowres-anchor-sparse-halo-highres-editing",
+      "decision_boundary": "Server-minute 4K cost; no mobile or independent text/identity fidelity proof.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
     {
       "id": "arxiv-2611.06042",
-      "title": "UniRestorer++: Scalable Universal Image Restoration with Multi-Granularity Degradation Modeling",
-      "aliases": [
-        "UniRestorer++"
-      ],
+      "title": "UniRestorer++: Scaling Unified Image Restoration to Diverse Degradations via Hierarchical Routing",
+      "aliases": [],
       "kind": "paper",
       "topic": "T03",
-      "secondary_topics": [
-        "T05",
-        "X01"
-      ],
-      "system_roles": [
-        "execution",
-        "data",
-        "training"
-      ],
-      "map_change": "Engineering maturity;Boundary refinement",
-      "verdict": "GO-E",
       "source": "https://arxiv.org/abs/2611.06042v1",
       "earliest_public_verified": "2026-11-04",
-      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "earliest_source": "arxiv_v1_paper_header",
       "source_version": "v1",
       "first_covered": "2026-11-06",
       "checked_on": "2026-11-06",
       "verification_scope": "selected_original_paper_methods_results_limitations_checked",
       "independent_replication": "not_performed",
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06042.md",
-      "decision_key": "hierarchical-expert-scaling-dense-degradation-route-cdd50",
-      "decision_boundary": "Hierarchical MoE is already in ICLR 2026 UniRestorer; new dense regional routing, capacity scaling, CDD-50; 2.9B and A6000 not mobile.",
+      "decision_key": "hierarchical-degradation-routing-dense-region-experts-cdd50",
+      "decision_boundary": "Scaling is empirical over tested range; synthetic mixtures, routing errors and mobile cost remain.",
       "events": [
         {
-          "type": "first_archive",
+          "type": "supporting_evidence",
           "date": "2026-11-06",
-          "new_alert": true,
-          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
-          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+          "new_alert": false,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "Already surfaced by same-day Paper Watch; registry completion only, not relabelled as a weekly-new alert."
         }
       ],
       "sync": {
-        "github": "verified_written",
-        "alphaxiv": "verified_saved",
+        "github": "pending_readback",
+        "alphaxiv": "pending",
         "alphaxiv_folder": "Restoration",
-        "notion": "not_requested_this_run",
-        "camerapaper": "pending_company_metadata_check_if_applicable"
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
     {
-      "id": "arxiv-2611.05843",
-      "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
-      "aliases": [
-        "Dual Flow"
-      ],
+      "id": "arxiv-2611.06203",
+      "title": "BiCG-Net: Lightweight Target-Level Image Quality Assessment",
+      "aliases": [],
       "kind": "paper",
-      "topic": "T03",
-      "secondary_topics": [
-        "T01",
-        "X01"
-      ],
-      "system_roles": [
-        "execution"
-      ],
-      "map_change": "New route;Bridge",
-      "verdict": "PROBE",
-      "source": "https://arxiv.org/abs/2611.05843v1",
+      "topic": "T04",
+      "source": "https://arxiv.org/abs/2611.06203v1",
       "earliest_public_verified": "2026-11-04",
-      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "earliest_source": "arxiv_v1_paper_header",
       "source_version": "v1",
       "first_covered": "2026-11-06",
       "checked_on": "2026-11-06",
       "verification_scope": "selected_original_paper_methods_results_limitations_checked",
       "independent_replication": "not_performed",
-      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.05843.md",
-      "decision_key": "linear-operator-image-measurement-joint-flow",
-      "decision_boundary": "Major results use known linear A and Gaussian noise; final yhat=A xhat does not prove ground-truth image recovery or mobile camera ISP deployment.",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06203.md",
+      "decision_key": "target-level-iqa-nested-patch-teacher-consensus-distillation",
+      "decision_boundary": "No independent target-level human MOS; weak-label railway result risks circular validation.",
       "events": [
         {
-          "type": "first_archive",
+          "type": "new_discovery",
           "date": "2026-11-06",
           "new_alert": true,
-          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
-          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "First selected in the weekly portfolio after source and duplicate checks."
         }
       ],
       "sync": {
-        "github": "verified_written",
-        "alphaxiv": "verified_saved",
-        "alphaxiv_folder": "Restoration",
-        "notion": "not_requested_this_run",
-        "camerapaper": "pending_company_metadata_check_if_applicable"
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     },
     {
       "id": "arxiv-2611.06741",
-      "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
-      "aliases": [
-        "TailSteer"
-      ],
+      "title": "TailSteer: Self-Supervised Multi-Turn Image Editing via Trajectory Steering",
+      "aliases": [],
       "kind": "paper",
       "topic": "T06",
-      "secondary_topics": [
-        "T02",
-        "T05"
-      ],
-      "system_roles": [
-        "training",
-        "execution"
-      ],
-      "map_change": "New route;Boundary refinement",
-      "verdict": "GO",
       "source": "https://arxiv.org/abs/2611.06741v1",
       "earliest_public_verified": "2026-11-04",
-      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "earliest_source": "arxiv_v1_paper_header",
       "source_version": "v1",
       "first_covered": "2026-11-06",
       "checked_on": "2026-11-06",
       "verification_scope": "selected_original_paper_methods_results_limitations_checked",
       "independent_replication": "not_performed",
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06741.md",
-      "decision_key": "tail-trajectory-preservation-onpolicy-editing",
-      "decision_boundary": "Reported turn-ten protected-region fidelity improves, but Qwen/FLUX single-turn benchmarks sometimes regress; 8 H100 training not deployment cheap.",
+      "decision_key": "tail-trajectory-preservation-multiturn-editing",
+      "decision_boundary": "Multi-turn preservation trades off some single-turn edit accuracy; no mobile execution evidence.",
       "events": [
         {
-          "type": "first_archive",
+          "type": "supporting_evidence",
           "date": "2026-11-06",
-          "new_alert": true,
-          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
-          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+          "new_alert": false,
+          "brief": "2026-W45 weekly incremental radar",
+          "note": "Already surfaced by same-day Paper Watch; registry completion only, not relabelled as a weekly-new alert."
         }
       ],
       "sync": {
-        "github": "verified_written",
-        "alphaxiv": "verified_saved",
+        "github": "pending_readback",
+        "alphaxiv": "pending",
         "alphaxiv_folder": "Agent",
-        "notion": "not_requested_this_run",
-        "camerapaper": "pending_company_metadata_check_if_applicable"
+        "notion": "pending",
+        "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
     }
   ],
-  "discovery_audit_2026_11_06": {
-    "checked_on": "2026-11-06",
-    "cs_cv_daily_announced": "2026-11-05",
-    "eess_iv_daily_announced": "2026-11-05",
-    "alphaxiv_topical_retrieval": "partial; two broad topic search calls",
-    "author_by_name_overlap": "partial/not fully audited; no false success watermark",
-    "historical_check": "existing 2026-11-05 registry+LEGACY reviewed; ICLR 2026 UniRestorer explicitly accounted",
-    "known_gaps": "No exhaustive all cs.CV cross-lists/replacements or author-level 7–14-day provenance; no independent paper replication."
-  }
+  "updated_at": "2026-11-06"
 }

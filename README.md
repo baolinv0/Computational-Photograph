@@ -39,6 +39,16 @@
 - [Dual Flow：image–measurement 联合 flow 反问题](papers/arxiv-2611.05843.md)
 - [TailSteer：训练期修正多轮编辑漂移](papers/arxiv-2611.06741.md)
 
+### 2026-11-06 周报追加
+
+- [RGB 照片增强：跨 Snapdragon/Dimensity GPU/NPU](papers/arxiv-2611.05024.md)
+- [真实手机 RGB 去噪：跨 SoC 部署](papers/arxiv-2611.00974.md)
+- [4K 超分：移动 NPU 量化与 fallback](papers/arxiv-2611.00963.md)
+- [ILLRAW：照度感知的 RAW 直接检测](papers/arxiv-2611.02995.md)
+- [Goal-Driven Optical Experimentation：仪器确认闭环](papers/arxiv-2611.04481.md)
+- [FLASH：冻结低分辨率锚点的 4K 编辑](papers/arxiv-2611.04416.md)
+- [BiCG-Net：轻量目标级 IQA 与弱标签边界](papers/arxiv-2611.06203.md)
+
 ### 2026-11-05 缺口补查重点
 
 - [CHROMA-MILL：低光增强与 AWB 联合标定](papers/arxiv-2611.04092.md)

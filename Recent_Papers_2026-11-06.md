@@ -4,7 +4,7 @@
 
 ## 覆盖与裁决
 
-本轮恢复并查询 GitHub 2026-11-05 归档快照/66项 registry，搜索 Computational-Photograph 与 CameraPaper 入口，使用公开 arXiv cs.CV/eess.IV **2026-11-05 发布列表**、跨主题 alphaXiv 搜索与开放网页检索（2026-11-06）；四篇 arXiv v1 元数据虽标 2026-11-04，但被列入 11-05 官方新提交公告，前轮未完成这份日列表审计，并针对本轮四篇 arXiv 2026-11-04 v1 阅读方法、选定结果与相关前序。不是全站无遗漏审计；核心作者逐人 7–14 日覆盖尚不完整，不能推进其成功水位。之前已覆盖的 CHROMA-MILL、Beyond CCT、NightIQA、Mobile AI ISP 报告等不重复推荐。
+本轮恢复并查询 GitHub 2026-11-05 归档快照/66项 registry，搜索 Computational-Photograph 与 CameraPaper 入口，使用公开 arXiv cs.CV/eess.IV 当日列表、跨主题 alphaXiv 搜索与开放网页检索（2026-11-06），并针对本轮四篇 arXiv 2026-11-04 v1 阅读方法、选定结果与相关前序。不是全站无遗漏审计；核心作者逐人 7–14 日覆盖尚不完整，不能推进其成功水位。之前已覆盖的 CHROMA-MILL、Beyond CCT、NightIQA、Mobile AI ISP 报告等不重复推荐。
 
 | 身份 / 公开日期 / v1 | 主主题与地图变化 | 决策 | 主要反例或价值 |
 |---|---|---|---|
@@ -42,3 +42,23 @@
 以上为论文作者实验/所读原文选定章节，未做独立复现或跨模型等预算重跑。未触发新作的旧候选 UGD 外部前序、BiCG-Net（缺 target-level 人工 MOS）、ILLRAW（11-02）保留后续 triage，不占新论文推荐数；不能将历史日期冒充今日首发。
 
 **归档**：四份 canonical cards；三个稳定问题名新 survey；高效生成式恢复原 survey 的 Dual Flow 分支；LITERATURE_MAP / registry / surveys索引 / README / 本期快照。alphaXiv 仅收藏核验 ID 的论文；实际 GitHub 与 alphaXiv 状态以写入与读回回执为准。未完：作者级逐一 overlap 审计、真实手机链验证、强历史前序逐篇重审。
+
+
+## Weekly maintenance addendum · 2026-W45
+
+本段只记录本轮周报的**增量**，不复制上方 Paper Watch 卡片正文。7 篇新入选、2 篇同日已通知证据完成 registry/sync；全部为 v1 selected-sections 核验，尚无独立复现。
+
+- [RGB Photo Enhancement / Smartphone GPUs](papers/arxiv-2611.05024.md)：跨 Adreno/Mali 与 NPU 转换链。
+- [Efficient Image Denoising / Smartphone GPUs](papers/arxiv-2611.00974.md)：真实手机数据与跨 SoC 延迟。
+- [4K SR / Mobile NPUs](papers/arxiv-2611.00963.md)：Snapdragon INT8 4.33 ms 与 Dimensity 110 ms 的平台边界。
+- [ILLRAW](papers/arxiv-2611.02995.md)：直接 RAW 检测的照度/Bayer adapter。
+- [Goal-Driven Optical Experimentation](papers/arxiv-2611.04481.md)：带仪器确认的颜色实验闭环。
+- [FLASH high-resolution editing](papers/arxiv-2611.04416.md)：冻结 1K 锚点与 sparse halo attention。
+- [BiCG-Net](papers/arxiv-2611.06203.md)：39,482 参数目标级 IQA，但缺人类目标级 MOS。
+- [UniRestorer++](papers/arxiv-2611.06042.md) 与 [TailSteer](papers/arxiv-2611.06741.md)：同日 Paper Watch 已先行发现；本轮只作支撑与同步，不重复通知。
+
+### 新颖性/覆盖审计
+
+- 新发现 7；同日已通知的支撑 2；11 月 5 日停用缺口补查 9 篇不计本周新发现。
+- 直接成像/移动部署优先；没有用通用 diffusion 数量挤占 ISP/RAW/IQA 配额。
+- 没有功耗、温升、P95 或完整 camera-to-display 数据的工作，不称“移动端产品可用”。
