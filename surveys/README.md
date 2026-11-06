@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-10-24
+更新：2026-11-06
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -8,6 +8,9 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T01/T03：真实跨模态观测在不对齐时如何帮助恢复？ | [非配准跨模态导引恢复](unaligned-guided-restoration.md) | 2026-11-06：UGD-FM，含 NIR 数据边界、sparse alignment 与单图基线 |
+| T03/T05/X01：统一恢复怎样随退化层次扩容？ | [统一恢复的退化建模与专家扩容](universal-restoration-degradation-routing.md) | 2026-11-06：UniRestorer 2026 → UniRestorer++、CDD-50、真实域与硬件失败边界 |
+| T06/T02：如何抑制多轮图片编辑中的累积漂移？ | [多轮编辑保真](multi-turn-editing-preservation.md) | 2026-11-06：MT Forcing 与 TailSteer 的训练/推理/控制分层；单轮副作用 |
 | T01/T02/T05：低光、光源、色彩怎样联合定义 GT？ | [低光 RAW、AWB 与照明光谱](low-light-raw-awb-illumination.md) | 2026-11-05 补查：CHROMA-MILL、3L-D、Beyond CCT；含关键成立条件及跨手机缺口 |
 | T04/T05：低光/颜色评价的 GT 和 Judge 是否可靠？ | [低光 IQA、Color Judge 与 LOL Benchmark 审计](low-light-iqa-and-gt-validity.md) | 2026-11-05 补查：LOL 标签偏移、CIE 颜色真值、NightIQA；区分排名、物理色差与 MCQ |
 | T05/T03：只有噪声测量能否学习干净生成分布？ | [无干净 GT 的生成式恢复](noisy-measurements-to-clean-generators.md) | 2026-11-05 补查：Noise2Noise→非高斯测量过程+Consistency，理论条件与手机 RAW 缺口 |
@@ -16,7 +19,7 @@
 | T01/T05：HDR 来源、输入与目标是什么关系？ | [既有 HDR 数据分类](../HDR/HDR_Data_Taxonomy.md) | 复用既有文档，不迁移；本次不重新核验其中全部条目 |
 | T02/T05：SDR video → HDR 的训练目标怎么定义？ | [既有 HDR 数据与 PGT](../HDR/HDR_Dataset_References_and_PGT.md) | 保留原适用范围，通用合成路线转至本目录新分支 |
 | X01/T03：多步 DiT 推理怎样在不训练时减少网络调用？ | [Diffusion 缓存、预测与分频调度](diffusion-inference-caching-forecasting.md) | 2026-10-24 v0.1；SpecKCast 历史补录（10-21 已推荐），比较 TeaCache/TaylorSeer/Spectrum，前序待逐篇复核 |
-| T03/X01：生成式恢复能否用一次网络前向完成？ | [高效生成式恢复：潜空间与采样目标](efficient-generative-restoration.md) | 2026-10-24 v0.1；GLOW-FM、ELIR、WCDM、ReDDiT 等路线；仅 GLOW 本轮原文核验 |
+| T03/X01：生成式恢复能否用一次网络前向完成？ | [高效生成式恢复：潜空间与采样目标](efficient-generative-restoration.md) | 2026-11-06 增加与 LLIE 不同任务的已知线性算子 Dual Flow 分支；原 GLOW-FM/TVM 结论未改 |
 | T02/T06：一步编辑要几个噪声时刻？ | [一步免反演编辑与端点校准](one-step-inversion-free-editing.md) | 2026-10-24 v0.1；ECT 对 ChordEdit，ER-Chord 作为不同空间控制轴；前序 backlog |
 | T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-10-24 v0.1；Gate3DGen 的净化器效果和真实路由负例分开记录 |
 | T06：恢复执行器如何组织、验证与学习策略？ | [CameraPaper 的 AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | 复用另一仓库已有 canonical survey；不复制第二份全文 |
