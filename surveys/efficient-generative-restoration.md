@@ -51,6 +51,25 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 
 **离线**：真实配对或可审计的生成监督 → 匹配预算训练目标消融 → 可观察 GT 与无 GT 分层独立测试 → 同精度同输入尺寸比较完整设备延迟。生成器的 NFE 不等于完整时延，尤其 VAE 编解码不可忽略。
 
+## 已知物理算子的少步联合流：与低光增强并行的 inverse-problem 分支（2026-11-06）
+
+**问题边界**：此前“一步”路线大多从 LQ RGB 学映射或潜空间运输，不显式接收当前拍摄的线性前向算子。本分支讨论已知 **y=Ax+n** 的反问题与 posterior 采样，任务条件不同，不能仅比较 NFE 就声称某方法优越。
+
+| 竞争路线上下文 | 在线输入与状态 | 物理监督与训练 | 证据/失败边界 |
+|---|---|---|---|
+| 常规单步判别式/生成式 LLIE（GLOW-FM 等） | RGB LQ → RGB HQ | paired GT/潜空间目标；通常不显式要求 A | 强在快速特定任务；不自动满足相机 forward consistency |
+| 已知算子条件化后验（[BAM](../papers/arxiv-2609.39660.md)） | y+A → posterior flow samples | operator-conditioned 生成训练 | 少步、主要已知 A；与下行工作为共同机制而非证实直接继承 |
+| PnP-Flow / Flower / OT-ODE | y、A 与 learned prior → 多次逆求解 | 先验+后验/数据一致性更新 | 可显式约束物理，但 NFE、超参和假定 A 精确度重要 |
+| **[Dual Flow](../papers/arxiv-2611.05843.md)** | y 初始化 measurement state；与 image state 同步 evolve | 联合 x/y flow、operator-dependent correlated Gaussian denoising sufficient statistic | 在已知线性 A/高斯噪声的 CelebA 模拟上作者有优势；无法推出未知 ISP、真实 shot noise、mobile latency |
+
+**2026-11-04 v1 新证据**：Dual Flow 作者 Table I 的 100 张 CelebA/五种线性逆问题报告 Dual Flow-T 0.18s/image；与 PnP-Flow1 0.99s 的比较含具体作者实现及实验硬件，不是跨平台复杂度定理。它同时估计 clean image 和 noise-free measurement，强制结束时 y_hat=A x_hat；该物理一致性**不保证未知真实纹理被正确恢复**。Multi-trajectory mean 可改善 PSNR 同时牺牲部分 LPIPS，必须区分 distortion 与感知效果。
+
+**判断更新**：从“少步生成是否够快”拓展出**先验运算预算 vs 可核验测量约束**两轴。对于已知 forward operator，优先尝试在相同 A/噪声假设下比较 Dual Flow/PnP/BAM，而不是把它作为低光 image enhancement 的即插即用模块。已有 GLOW-FM 的 RGB LLIE 1-NFE 性价比结论保持不变。
+
+**完整方案**：离线已知 A+标定噪声/clean x 训练 joint-flow / 等预算 baseline；在线 y、A→image/measurement joint sampling→x_hat，再在 y 域检验观测拟合、在 x 域检验保真与 LPIPS，必要时报告不确定性。Agent 并非必需。真实 RAW 需另对 Poisson-Gaussian、CFA、AWB/CCM/TM 非线性与未知算子进行校准；该组合**尚未验证**。
+
+**历史待核**：PnP-Flow、Flower、D-Flow 的原文和 matched compute；BAM 实验前向算子失配；真实相机设备端总时延。本节为新的相关但不等价任务分支，不改变原 survey 的低光优势/失败边界。
+
 ## 判断与缺口
 
 **旧判断**：采样步数是生成式恢复的主要资源瓶颈；多步方法会持续降低 NFE。
@@ -67,4 +86,5 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 
 - [GLOW-FM / arXiv 2610.31222v1](https://arxiv.org/abs/2610.31222v1)
 - [该论文正文 Related Work 及 Tables 1–5](../papers/arxiv-2610.31222.md)
+- [Dual Flow / arXiv 2611.05843v1](https://arxiv.org/abs/2611.05843v1)
 - [T03 总图](../LITERATURE_MAP.md)
