@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-05",
+  "updated_on": "2026-11-06",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
+  "scope": "Incremental research archive through 2026-11-06; 2026-11-05 arXiv cs.CV/eess.IV daily new listings screened for 4 newly announced items; prior 2026-11-05 catch-up retained; not exhaustive across all categories/authors.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -2305,6 +2305,199 @@
         "notion": "hub_indexed_verified",
         "camerapaper": "pending_company_metadata_check_if_applicable"
       }
+    },
+    {
+      "id": "arxiv-2611.06422",
+      "title": "Unaligned Image Guided Denoising via Cross-modal Conditional Flow Matching",
+      "aliases": [
+        "UGD-FM"
+      ],
+      "kind": "paper",
+      "topic": "T01",
+      "secondary_topics": [
+        "T03",
+        "X01"
+      ],
+      "system_roles": [
+        "acquisition",
+        "execution"
+      ],
+      "map_change": "Bridge;Engineering maturity",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.06422v1",
+      "earliest_public_verified": "2026-11-04",
+      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06422.md",
+      "decision_key": "cross-modal-noisy-rgb-nir-unaligned-sparse-flow",
+      "decision_boundary": "True RGB+NIR auxiliary observation; large parallax, occlusion and total dual-sensor capture cost not solved.",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
+          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "not_requested_this_run",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.06042",
+      "title": "UniRestorer++: Scalable Universal Image Restoration with Multi-Granularity Degradation Modeling",
+      "aliases": [
+        "UniRestorer++"
+      ],
+      "kind": "paper",
+      "topic": "T03",
+      "secondary_topics": [
+        "T05",
+        "X01"
+      ],
+      "system_roles": [
+        "execution",
+        "data",
+        "training"
+      ],
+      "map_change": "Engineering maturity;Boundary refinement",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.06042v1",
+      "earliest_public_verified": "2026-11-04",
+      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06042.md",
+      "decision_key": "hierarchical-expert-scaling-dense-degradation-route-cdd50",
+      "decision_boundary": "Hierarchical MoE is already in ICLR 2026 UniRestorer; new dense regional routing, capacity scaling, CDD-50; 2.9B and A6000 not mobile.",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
+          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_requested_this_run",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.05843",
+      "title": "Dual Flow: Joint Image-Measurement Flow for Inverse Problems",
+      "aliases": [
+        "Dual Flow"
+      ],
+      "kind": "paper",
+      "topic": "T03",
+      "secondary_topics": [
+        "T01",
+        "X01"
+      ],
+      "system_roles": [
+        "execution"
+      ],
+      "map_change": "New route;Bridge",
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.05843v1",
+      "earliest_public_verified": "2026-11-04",
+      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.05843.md",
+      "decision_key": "linear-operator-image-measurement-joint-flow",
+      "decision_boundary": "Major results use known linear A and Gaussian noise; final yhat=A xhat does not prove ground-truth image recovery or mobile camera ISP deployment.",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
+          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_requested_this_run",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
+    },
+    {
+      "id": "arxiv-2611.06741",
+      "title": "TailSteer: Trajectory-Tail Steering for Drift-Resistant Multi-turn Image Editing",
+      "aliases": [
+        "TailSteer"
+      ],
+      "kind": "paper",
+      "topic": "T06",
+      "secondary_topics": [
+        "T02",
+        "T05"
+      ],
+      "system_roles": [
+        "training",
+        "execution"
+      ],
+      "map_change": "New route;Boundary refinement",
+      "verdict": "GO",
+      "source": "https://arxiv.org/abs/2611.06741v1",
+      "earliest_public_verified": "2026-11-04",
+      "earliest_source": "arxiv_v1_paper_header; first_seen_in_2026-11-05_category_announcement",
+      "source_version": "v1",
+      "first_covered": "2026-11-06",
+      "checked_on": "2026-11-06",
+      "verification_scope": "selected_original_paper_methods_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.06741.md",
+      "decision_key": "tail-trajectory-preservation-onpolicy-editing",
+      "decision_boundary": "Reported turn-ten protected-region fidelity improves, but Qwen/FLUX single-turn benchmarks sometimes regress; 8 H100 training not deployment cheap.",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-06",
+          "new_alert": true,
+          "brief": "2026-11-06 newly announced arXiv category coverage (Thursday 2026-11-05 announcements)",
+          "note": "v1 header dated 2026-11-04; the arXiv Thursday 2026-11-05 new-submission list was first screened in this run. Prior 2026-11-05 archive explicitly had not audited that category listing. Not an acceptance/version-only event."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_requested_this_run",
+        "camerapaper": "pending_company_metadata_check_if_applicable"
+      }
     }
-  ]
+  ],
+  "discovery_audit_2026_11_06": {
+    "checked_on": "2026-11-06",
+    "cs_cv_daily_announced": "2026-11-05",
+    "eess_iv_daily_announced": "2026-11-05",
+    "alphaxiv_topical_retrieval": "partial; two broad topic search calls",
+    "author_by_name_overlap": "partial/not fully audited; no false success watermark",
+    "historical_check": "existing 2026-11-05 registry+LEGACY reviewed; ICLR 2026 UniRestorer explicitly accounted",
+    "known_gaps": "No exhaustive all cs.CV cross-lists/replacements or author-level 7–14-day provenance; no independent paper replication."
+  }
 }
