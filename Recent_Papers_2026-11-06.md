@@ -4,7 +4,7 @@
 
 ## 覆盖与裁决
 
-本轮恢复并查询 GitHub 2026-11-05 归档快照/66项 registry，搜索 Computational-Photograph 与 CameraPaper 入口，使用公开 arXiv cs.CV/eess.IV 当日列表、跨主题 alphaXiv 搜索与开放网页检索（2026-11-06），并针对本轮四篇 arXiv 2026-11-04 v1 阅读方法、选定结果与相关前序。不是全站无遗漏审计；核心作者逐人 7–14 日覆盖尚不完整，不能推进其成功水位。之前已覆盖的 CHROMA-MILL、Beyond CCT、NightIQA、Mobile AI ISP 报告等不重复推荐。
+本轮恢复并查询 GitHub 2026-11-05 归档快照/66项 registry，搜索 Computational-Photograph 与 CameraPaper 入口，使用公开 arXiv cs.CV/eess.IV **2026-11-05 发布列表**、跨主题 alphaXiv 搜索与开放网页检索（2026-11-06）；四篇 arXiv v1 元数据虽标 2026-11-04，但被列入 11-05 官方新提交公告，前轮未完成这份日列表审计，并针对本轮四篇 arXiv 2026-11-04 v1 阅读方法、选定结果与相关前序。不是全站无遗漏审计；核心作者逐人 7–14 日覆盖尚不完整，不能推进其成功水位。之前已覆盖的 CHROMA-MILL、Beyond CCT、NightIQA、Mobile AI ISP 报告等不重复推荐。
 
 | 身份 / 公开日期 / v1 | 主主题与地图变化 | 决策 | 主要反例或价值 |
 |---|---|---|---|
