@@ -30,7 +30,7 @@
 
 ## 证据与反例
 
-作者在七单项测试从 UniRestorer 31.81→31.24？**更正：31.81→32.24 dB**，CDD-50 OOD 23.09→23.46 dB；这是论文内部特定权重和数据条件，不是独立复现。
+作者在七单项测试报告：UniRestorer 31.81→UniRestorer++ 32.24 dB，CDD-50 OOD 23.09→23.46 dB；这是论文内部特定权重和数据条件，不是独立复现。
 
 对于 512×512 输入，同量级模型 UniRestorer++ 为 176M / 1255 GFLOPs / 0.515s (A6000)，UniRestorer 为 171M / 1156G / 0.484s：局部路由增加实际成本。其 2.9B 总参数 scaling 改善 OOD PSNR，但**总权重/内存/训练预算极大**，不能从 active-expert FLOPs 近似固定推出手机可部署。单任务 SIDD NAFNet 40.30 vs 新模型 2.9B zero-shot 38.72 dB 是明确反例。
 
