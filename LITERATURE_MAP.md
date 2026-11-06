@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.2｜结构建立/修订：2026-10-23
+版本：v0.3｜结构建立/最近实质修订：2026-11-06
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -99,6 +99,10 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-10-24 增量（T02）**：[ECT](papers/arxiv-2610.30827.md) 用单时刻 angular transport + endpoint calibration 把 ChordEdit 的多时刻估计改成一次 temporal support；范围仅 ε-prediction VP 一步编辑，非任意 Qwen/FLUX。与 ER-Chord 的空间能量重新分配是**不同优化轴**，没有互相取代的实测证据。详见 [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)。**保留判断**：指令完成度与未编辑区保真需要独立衡量。
 
+### 2026-11-06｜T01/T03：在输入侧补充真实观测，而非让恢复器猜得更好
+
+**旧路线**：单 RGB 去噪、对齐 NIR/RGB 引导和光源/RAW 条件化恢复。**新证据** [UGD-FM](papers/arxiv-2611.06422.md) 在 noisy RGB+unaligned NIR 上融合跨谱 sparse matching 与 1–2 step flow；在 FANVID 作者消融中 sparse window→adaptive propagation，2-step 30.03→30.58 dB；但 3D 遮挡与额外 sensor 是未解约束。**地图变化 Bridge / Engineering maturity**：新增可用**物理第二观测**的跨谱引导路线，与 [CHROMA-MILL](papers/arxiv-2611.04092.md) 的曝光/颜色训练监督是互补而非继承。**不变**：恢复方法不能创造未测到的真实光线信息，也不能跳过相机双路同步/端到端成本。详见 [非配准导引恢复 survey](surveys/unaligned-guided-restoration.md)。
+
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
 系统位置：保留/重建观测信息，并界定可接受的生成自由度。
@@ -112,6 +116,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 方案回忆：可靠观测 → 恢复/融合 → 仅在授权范围引入先验 → 独立事实保持与感知评价。该分解是分析坐标，不是假设必须实施每个模块。
 
 **2026-10-24 增量（T03/X01）**：[GLOW-FM](papers/arxiv-2610.31222.md) 把已有 Terminal Velocity Matching 迁移到 Tiny-VAE 潜空间低光增强，1 NFE 的结果在部分真实配对数据有竞争力；但 UHD-LOL4K 和 LOL-v1 PSNR 并非最佳，跨域 NR-IQA 也不证明文字/身份/原生高分辨率保真。详见 [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)。**不变**：需要同时报告可观察结构、生成自由度与端到端设备代价。
+
+**2026-11-06 增量（T03/T05/X01）**：并列两类**不同问题**。其一，[UniRestorer++](papers/arxiv-2611.06042.md) 明确接续 ICLR 2026 UniRestorer 的粗细层次路由，本次主要新增可扩 LoRA 层级、区域 dense routing 和 CDD-50 五重组合退化；作者报告七任务均值 31.81→32.24 dB，但 2.9B 不等于移动部署，SIDD 仍有专项模型优势。地图变化 Engineering maturity/Boundary refinement，综述见 [退化专家扩容](surveys/universal-restoration-degradation-routing.md)。其二，[Dual Flow](papers/arxiv-2611.05843.md) 在**已知线性 A/高斯**条件下让 image/measurement joint flow 末态满足 y_hat=A x_hat；这是与 [BAM](papers/arxiv-2609.39660.md) 的物理条件生成路线不同的求解机制，New route/Bridge，详见 [高效生成式恢复 survey 的并行 inverse 分支](surveys/efficient-generative-restoration.md)。**判断更新**：恢复能力的规模收益、退化识别置信度、已知测量约束是三个分离控制轴。**不变**：真实 GT fidelity、端到端设备成本、专项简单 baseline 必须独立对照。
 
 ### T04｜IQA、Reward 与偏好决策
 
@@ -159,6 +165,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 方案回忆：原始输入+目标 → 状态诊断 → 有界动作/候选 → 执行 → 独立验收 → 接受/回滚/从原图重试/停止。必须保留强单步与等预算 best-of-K 对照。
 
 **2026-10-24 增量（T06 / T03 / T04）**：[Gate3DGen](papers/arxiv-2610.31649.md) 在图像到 3D 任务中引入整图 KEEP/PURIFY 路由与下游几何目标；合成 benchmark 净化显著有效，但真实照片 proxy 路由 accuracy 与 Always-PURIFY 同为 58.33%。应将**净化器收益**、**路由收益**和**任务指标真实性**独立验证。关联 [选择性恢复与任务效用 survey](surveys/selective-task-aware-restoration.md)。**不变**：非 GT 可观察输入不能被 VLM 评价变成真实 GT。
+
+**2026-11-06 增量（T06/T02）**：[TailSteer](papers/arxiv-2611.06741.md) 在多轮编辑器训练期，以原图保护区构造自监督 endpoint，并让 early trajectory 学 base、late trajectory 学 preservation。与 [MT Forcing](papers/arxiv-2610.25404.md) 的跨回合 rollout distillation 属竞争/互补机制（分析者综合，非断言直接继承），与推理时原图回退/ROI compositor 也是不同选项。作者的十轮保真优势伴随某些 Qwen/FLUX 单轮编辑准确率下降，不能称无损。**地图变化 New route/Boundary refinement**：将“多轮执行器本身的保真能力”从 Agent 的可发现性、可选择性明确分开；单轮目标区域操作失败不能由此文直接解决。综述见 [多轮编辑保真](surveys/multi-turn-editing-preservation.md)。
 
 ### X01｜效率与训练部署
 
@@ -214,6 +222,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-06 | 新证据 / T01、T03、T06 | UGD-FM、UniRestorer++、Dual Flow、TailSteer 四项 arXiv 11-04 v1，3 个新 survey、1 个旧 survey 增补 | 明确真实新增跨谱观测与恢复先验分开；模型扩容须结合误识别与成本；已知算子联合流是并行解法；多轮保真训练不解决工具规划 |
 | 2026-11-05 | 停用缺口补查 / 多主题 | 9 篇首次公开 10-28—11-03 的论文接入四个 living survey；10-30 已归档 8 篇不重复计数 | T04 加强 benchmark/色彩评价审计；T01/T02 补联合低光/AWB 和谱 CCM；T05 补 non-Gaussian noisy-only 生成，X01 补实机 ISP 与 Event-HDR 限制 |
 | 2026-10-24 | 历史覆盖纠错 / X01 | SpecKCast 10-21 已推荐但未进入 canonical card/X01 survey；补卡片和路线，纠正误称全局漏检 | 不是新论文通知；X01 分清缓存与预测，恢复迁移仍待实测 |\n| 2026-10-24 | 新证据 / 三主题更新 | 单步生成式 LLIE（TVM）；ε-VP 一步编辑的单时刻控制；任务级净化与真实域路由反例 | T03 增加质量–成本实证；T02 修正“多时刻必要性”；T06 添加 router 必须胜过 Always-PURIFY 的边界，以上均不声称社区共识 |
 | 2026-10-23 | 历史回填 / survey 建立 | 新建 T05 成像训练数据合成分支，接入 RawGen、UNICE 和逆 ISP 等前序 | 从单篇 MESS 定位扩展为输入来源、生成域、目标来源与真实验证的路线比较；不将并行工作画为继承 |
