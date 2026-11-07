@@ -8,6 +8,16 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-07 Paper Watch 增量
+
+- [本轮三主题增量报告](Recent_Papers_2026-11-07.md)：五篇11-05首发v1，11-06新公告；区分采集观测、恢复模型合并和编辑/评价训练，不重复11-06已推荐研究。
+- [CoGenRec：互补视觉传感器与HDR/运动重建](papers/arxiv-2611.07665.md)
+- [OptIMerge：扩散恢复专家的后验参数合并](papers/arxiv-2611.07543.md)
+- [WeLM-Image：多模态理解与生成训练系统](papers/arxiv-2611.07392.md)
+- [StitchEdit：深度先验的逐层兼容迁移](papers/arxiv-2611.07922.md)
+- [ArtiVidRM：基于视频伪影证据的Reward](papers/arxiv-2611.07301.md)
+- [编辑器理解、几何训练survey](surveys/editor-understanding-and-geometry-training.md) · [伪影Reward survey](surveys/artifact-grounded-reward-and-verification.md)。
+
 ## 长期文献地图
 
 - [持续文献总图：问题、竞争路线与系统方案](LITERATURE_MAP.md)：六个稳定主题与横向效率层；先建立问题坐标，再定位新证据。初版为结构基线，不代表所有历史论文已重新核验。
