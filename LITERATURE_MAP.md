@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.3｜结构建立/最近实质修订：2026-11-06
+版本：v0.4｜结构建立/最近实质修订：2026-11-07
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -75,6 +75,10 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 上述均为停用窗口历史补查，不把 2026-10-30 已归档的八篇重复计为新发现。此次不宣称所有 arXiv 日列表已穷尽。
 
+### 2026-11-07｜T01/T03：传感补充测量和生成先验，贡献不得混算
+
+**旧路线**：单RAW/多曝光帧融合、event+一帧锚点HDR（HIVE-Diff）、同步RGB/NIR辅助恢复（UGD-FM）。**新证据**：[CoGenRec](papers/arxiv-2611.07665.md) 把CVS长曝光RGB+短曝光高速稀疏差分融合为去模糊/插帧/HDR序列，采用多尺度测量约束+video diffusion+细节VAE；作者有真实CVS样例和同测量基线，但约1M训练clips、曝光增强和额外硬件都是强替代解释。**变化 Bridge / Engineering maturity**，这并非先验凭空创造HDR事实。**判断**：观测信息的增益与生成重建改进单独分摊，不变的是单手机RGB/TM无CVS不能继承此结果。在线CVS观测→传感约束→diffusion→RGB；离线仿真+真实配对→分阶段训练；Agent不是必需。详见[多模态sensor与Event-HDR survey](surveys/mobile-isp-and-event-hdr-efficiency.md)。
+
 ### T01｜采集与成像物理
 
 系统位置：进入恢复之前的观测生成与控制。保留曝光时间、模拟增益、数字增益、帧数与渲染亮度的区别。
@@ -84,6 +88,12 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 需要维护的争议：联合采集–渲染的收益来自更好采集、目标外观变化、额外预算，还是耦合机制本身？何时一条共享渲染流足够，何时需要任务专用表示？
 
 方案回忆：输入观测/元数据 → 候选采集配置 → 固定或条件化后端 → 同目标外观评价。没有同预算、同目标的对照，不能归因为联合控制。
+
+### 2026-11-07｜T02：理解—生成训练与深度先验迁移是两条不同能力路径
+
+**旧路线**：Qwen-Image类通用编辑器+专门空间mask与外部动作系统；多轮编辑保真另有TailSteer/MT Forcing。**新证据**：[WeLM-Image](papers/arxiv-2611.07392.md)（GO-E，Engineering maturity）通过大型MoT–MoE分离理解/生成路径、不同生成/编辑奖励与蒸馏扩展一体执行器；[StitchEdit](papers/arxiv-2611.07922.md)（PROBE，New route/Boundary refinement）用逐层depth/edit梯度兼容性微调深度LoRA，解决特定几何编辑中的遗忘。StitchEdit同depth-init baseline DCS 0.80→0.92，但固定cosine已0.90、目标depth是真实感知模型proxy。
+
+**判断**：模型表示、已有知识迁移和按指令命中区域是不同能力，不能把榜单或3D深度基准迁移成光度区域编辑的证据。**不变**：保持目标区域成功与未编辑区泄漏双独立指标。**系统**：离线大规模多任务数据/奖励训练或深度先验+逐层探针训练；在线源图+指令/参考→编辑器→独立空间保护检验；外部Agent仅负责动作/候选，不被上述研究证明已集成。详见[编辑执行器训练与几何专题](surveys/editor-understanding-and-geometry-training.md)。
 
 ### T02｜影调、颜色、意图与参考
 
@@ -103,6 +113,12 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **旧路线**：单 RGB 去噪、对齐 NIR/RGB 引导和光源/RAW 条件化恢复。**新证据** [UGD-FM](papers/arxiv-2611.06422.md) 在 noisy RGB+unaligned NIR 上融合跨谱 sparse matching 与 1–2 step flow；在 FANVID 作者消融中 sparse window→adaptive propagation，2-step 30.03→30.58 dB；但 3D 遮挡与额外 sensor 是未解约束。**地图变化 Bridge / Engineering maturity**：新增可用**物理第二观测**的跨谱引导路线，与 [CHROMA-MILL](papers/arxiv-2611.04092.md) 的曝光/颜色训练监督是互补而非继承。**不变**：恢复方法不能创造未测到的真实光线信息，也不能跳过相机双路同步/端到端成本。详见 [非配准导引恢复 survey](surveys/unaligned-guided-restoration.md)。
 
+### 2026-11-07｜T03/X01：恢复专家并不一定要用MoE路由才能统一
+
+**旧路线**：独立任务专家、统一多任务backbone、UniRestorer++的退化层级MoE。**新证据**：[OptIMerge](papers/arxiv-2611.07543.md)（Google，GO-E，New route/Boundary refinement）把相同基础U-Net上独立微调的恢复专家，经小规模校准优化attention+convolution空间对齐合并成一份多任务checkpoint；不是免训练的均值，也不是在线按输入选择专家。作者OID+DPDD任务上优于简单均值/部分joint对照，但DPDD LPIPS较独立专家更差，DPDD+SR上SR PSNR未赢joint。
+
+**判断**：把“训练期共享”“在线专家路由”“后验权重合并”列为三种竞争路线；同样需要共享底座及跨相机迁移检验。**不变**：不能把低秩融合训练费用或32 DDIM steps当作手机端低成本。**系统**：离线各任务专家→冻结→联合校准权重→单合并checkpoint；在线LQ→合并扩散恢复器→RGB；无额外Agent，仍需外部GT fidelity与成本。见[统一恢复survey](surveys/universal-restoration-degradation-routing.md)。
+
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
 系统位置：保留/重建观测信息，并界定可接受的生成自由度。
@@ -118,6 +134,12 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-10-24 增量（T03/X01）**：[GLOW-FM](papers/arxiv-2610.31222.md) 把已有 Terminal Velocity Matching 迁移到 Tiny-VAE 潜空间低光增强，1 NFE 的结果在部分真实配对数据有竞争力；但 UHD-LOL4K 和 LOL-v1 PSNR 并非最佳，跨域 NR-IQA 也不证明文字/身份/原生高分辨率保真。详见 [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)。**不变**：需要同时报告可观察结构、生成自由度与端到端设备代价。
 
 **2026-11-06 增量（T03/T05/X01）**：并列两类**不同问题**。其一，[UniRestorer++](papers/arxiv-2611.06042.md) 明确接续 ICLR 2026 UniRestorer 的粗细层次路由，本次主要新增可扩 LoRA 层级、区域 dense routing 和 CDD-50 五重组合退化；作者报告七任务均值 31.81→32.24 dB，但 2.9B 不等于移动部署，SIDD 仍有专项模型优势。地图变化 Engineering maturity/Boundary refinement，综述见 [退化专家扩容](surveys/universal-restoration-degradation-routing.md)。其二，[Dual Flow](papers/arxiv-2611.05843.md) 在**已知线性 A/高斯**条件下让 image/measurement joint flow 末态满足 y_hat=A x_hat；这是与 [BAM](papers/arxiv-2609.39660.md) 的物理条件生成路线不同的求解机制，New route/Bridge，详见 [高效生成式恢复 survey 的并行 inverse 分支](surveys/efficient-generative-restoration.md)。**判断更新**：恢复能力的规模收益、退化识别置信度、已知测量约束是三个分离控制轴。**不变**：真实 GT fidelity、端到端设备成本、专项简单 baseline 必须独立对照。
+
+### 2026-11-07｜T04：可解释的故障列表是否真的提高候选选优？
+
+**旧路线**：VideoScore/VideoAlign等标量排序、VisionReward等自然语言推理、NightIQA/CheckDistill结构化视觉证据。**新证据**：[ArtiVidRM](papers/arxiv-2611.07301.md)（PROBE，Boundary refinement / Supporting evidence）在视频生成中先列artifact，再用semantic recall/列表长度/偏好同时优化Qwen3-VL。GenAI-Bench的无ties作者准确率0.753，较VisionReward 0.744略高；MonetBench 0.697低于VisionReward 0.721；T2VQA-DB的Hit@1不是最优。
+
+**判断**：结构化缺陷可成为训练奖励的可检查中间表示，但不能从“写得出故障”推断Judge会在真实RAW恢复候选中选得准。**不变**：可达性/发现性/可选性三者分离。**系统**：离线人类偏好+独立伪影标注→SFT+多Reward→独立排名与下游验证；在线视频→故障列表→得分/决策；Agent若用该分数进行重试，属于未验证接口。详见[artifact-rubric survey](surveys/artifact-grounded-reward-and-verification.md)。
 
 ### T04｜IQA、Reward 与偏好决策
 
