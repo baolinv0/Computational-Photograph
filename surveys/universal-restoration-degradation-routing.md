@@ -18,6 +18,7 @@
 | 单 backbone 混合恢复 | RGB LQ，隐式识别 | PromptIR/InstructIR/Restormer 类统一模型 | 参数共享、简洁 | 任务冲突、极端复合退化 |
 | 固定粒度专家路由 | 图像退化表示 → expert | MoCE-IR 类 MoE | 用专家减少冲突 | 细粒度 OOD 误识别、像素非均匀 |
 | **层级 + 退化置信/区域路由** | 图像/局部 degradation map → 路由层级和 expert | ICLR2026 UniRestorer → [UniRestorer++](../papers/arxiv-2611.06042.md) 扩至多层 LoRA 和局部 top-1 | 可扩容且按不确定性回退 | 标签/路由 OOD、权重存储和训练成本 |
+| **已训练恢复专家的后验参数合并（非MoE）** | 共享底座的数个task-tuned U-Net → 融合权重 | [OptIMerge](../papers/arxiv-2611.07543.md)：冻结专家，用少量配对数据优化attention/conv通道和空间对齐 | 一份网络覆盖多退化，消除路由模型权重池 | 需要额外校准训练；不能消除任务冲突或推理步数 |
 | 外部 Agent 工具池 | 状态/目标 → 工具、顺序、重试 | [HarnessIR](../papers/arxiv-2610.10133.md) 或专用工具系统 | 动作动态组合、可验证 | 搜索/评估成本与不可观察真值；**不等于网络 MoE** |
 
 数据路线分别是单项合成、组合合成 CDD-11/50、真实配对和无真值的 OOD 使用；不得用同一 GT 假设对所有路线归因。
@@ -36,9 +37,21 @@
 
 挑战可信性：CDD-50 在作者构造的合成复合退化条件下有优势；能否泛化真实 ISP 域、RAW/视频/新硬件噪声/几何运动仍未定。更大模型与更多合成数据是重要替代解释；作者做了 dense/vanilla MoE 对照但并非完整等总成本匹配。
 
+## 2026-11-07｜参数后验合并：不是多专家在线路由
+
+**新证据**：[OptIMerge](../papers/arxiv-2611.07543.md)（Google，2026-11-05 v1，GO-E）基于 Model Soups (2022)、Task Arithmetic (2023)、TIES/DARE 的已有合并问题，新增在**dense I2I restoration diffusion**网络中对attention语义通道与convolution空间滤波器分开对齐。冻结两个或三个同底座已微调恢复专家，100–500校准图训练约3.2M融合参数，不是无需训练的简单平均，更不是按图像退化在线切换专家。
+
+**作者同设置对照（Table1/4）**：motion OID+defocus DPDD组合，OID PSNR naive soup 20.88、joint 22.59、Opt 22.72、single expert 22.92；DPDD Opt 23.91高于joint23.37和single23.39，但DPDD LPIPS Opt 0.2191不及single0.2023；DPDD+SR上Opt SR21.12低于joint21.24。卷积Cayley变换加益有消融证据，attention对齐是主要增益基础。
+
+**判断更新**：统一恢复存在至少三条独立可选控制：训练期共享网络、动态层级MoE、**多个已训专家的后验权重合并**。Opt合并可节省在线存储多模型成本，却要付出离线优化和32-step DDIM推理；没有实机吞吐/显存的等价对照时不能称端侧更快。与UniRestorer++是竞争部署表示（综合推断），不是直接继承。**不变**：专用小模型仍是强质量/设备基线。
+
+**行动**：GO-E 给“已有同底座专家、离线允许校准”的情形，不强制替换独立TM/ISP。最小判别：同expert checkpoints、校准数据、算力预算比较simple soup、LoRA joint refresh、Opt和独立任务专用模型，配套保存质量—推理成本Pareto。
+
 ## 完整方案
 
-**离线**：真实退化/标注可信 GT + 合成单/复合退化及独立 held-out compositions → 学习 degradation representations 和 hierarchy → train shared trunk+experts → train granularity uncertainty/local routing → 外场 OOD 验证、成本曲线和 specialist 比较。
+**离线（层级MoE）**：真实退化/标注可信 GT + 合成单/复合退化及独立 held-out compositions → 学习 degradation representations 和 hierarchy → train shared trunk+experts → train granularity uncertainty/local routing → 外场 OOD 验证、成本曲线和 specialist 比较。
+
+**离线（后验merge替代路线）**：共同预训底座→分别task FT→冻结专家，收集各任务小校准集→仅优化融合/通道对齐系数→独立多任务测试与成本核算。在线只执行一份合并网络，**无MoE路由**。
 
 **在线**：RGB LQ → degradation identification and confidence → spatial hierarchy expert routing → one selected expert per location / shared trunk → restored RGB → fidelity/perceptual evaluation；可有独立的任务级 Agent，但 UniRestorer++ 本身不需要 Agent。
 
@@ -48,6 +61,8 @@
 
 待核验 PromptIR / MoCE-IR 原文训练预算、复合退化数据与新增 2.9B 的同活跃参数匹配；公开 checkpoint 是否和论文 v1 一致；手机 GPU/DDR 和 4K 运行成本；真实几何和色彩 GT 可信性。只核验 UniRestorer++ 选定原文章节与 UniRestorer 官方 ICLR 摘要。
 
+- [OptIMerge 原文 v1](https://arxiv.org/html/2611.07543v1)
+- [Model Soups 2022 前序](https://arxiv.org/abs/2203.05482)
 - [UniRestorer++ 2026 原文](https://arxiv.org/html/2611.06042v1)
 - [ICLR 2026 原始前作](https://proceedings.iclr.cc/paper_files/paper/2026/hash/04fb0ea2010694af12735724a601a3b4-Abstract-Conference.html)
 - [UniRestorer++ canonical card](../papers/arxiv-2611.06042.md)
