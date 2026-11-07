@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-05",
+  "updated_on": "2026-11-07",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
@@ -2611,7 +2611,177 @@
         "notion": "hub_indexed_verified",
         "camerapaper": "not_applicable_unless_company_affiliation_verified"
       }
+    },
+    {
+      "id": "arxiv-2611.07665",
+      "title": "CoGenRec: A Unified Generative Framework for Complementary Vision Reconstruction",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "HDR",
+      "source": "https://arxiv.org/abs/2611.07665v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-07",
+      "checked_on": "2026-11-07",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.07665.md",
+      "decision_key": "cvs-complementary-measurements-video-diffusion-reconstruction",
+      "decision_boundary": "CVS sensor observation and 1M synthetic clips differ from ordinary RGB/RAW; no verified on-device end-to-end power/latency.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-07",
+          "new_alert": true,
+          "brief": "Paper Watch v3.2 2026-11-07",
+          "note": "New 2026-11-05 arXiv v1 in 2026-11-06 cs.CV list; compared against prior successful 2026-11-06 report and registry. Technical selected sections verified; author's data not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "HDR",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
+    },
+    {
+      "id": "arxiv-2611.07543",
+      "title": "OptIMerge: Optimization-Based Merging of Diffusion Models",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "source": "https://arxiv.org/abs/2611.07543v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-07",
+      "checked_on": "2026-11-07",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.07543.md",
+      "decision_key": "spatially-aware-posthoc-merging-diffusion-restoration-experts",
+      "decision_boundary": "Additional calibration training, 32-DDIM-step inference, some LPIPS/SR below specialist or joint training; cross-camera and mobile untested.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-07",
+          "new_alert": true,
+          "brief": "Paper Watch v3.2 2026-11-07",
+          "note": "New 2026-11-05 arXiv v1 in 2026-11-06 cs.CV list; compared against prior successful 2026-11-06 report and registry. Technical selected sections verified; author's data not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
+    },
+    {
+      "id": "arxiv-2611.07392",
+      "title": "WeLM-Image: A Unified Image Generation Model towards Visual Intelligence",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2611.07392v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-07",
+      "checked_on": "2026-11-07",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.07392.md",
+      "decision_key": "production-scale-unified-editor-mot-moe-specialized-reward-and-distillation",
+      "decision_boundary": "Large data and model scale confounds component gain; cannot infer spatial leakage-free edit or smartphone deployment.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-07",
+          "new_alert": true,
+          "brief": "Paper Watch v3.2 2026-11-07",
+          "note": "New 2026-11-05 arXiv v1 in 2026-11-06 cs.CV list; compared against prior successful 2026-11-06 report and registry. Technical selected sections verified; author's data not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
+    },
+    {
+      "id": "arxiv-2611.07922",
+      "title": "StitchEdit: Stitching Depth Priors into Image Editors via Per-Layer Gradient Probing",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Agent",
+      "source": "https://arxiv.org/abs/2611.07922v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-07",
+      "checked_on": "2026-11-07",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.07922.md",
+      "decision_key": "per-layer-gradient-compatible-depth-prior-transfer-to-editors",
+      "decision_boundary": "Proxy depth metric and synthetic editing targets; fixed cosine near probe result; photometric editing not tested.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-07",
+          "new_alert": true,
+          "brief": "Paper Watch v3.2 2026-11-07",
+          "note": "New 2026-11-05 arXiv v1 in 2026-11-06 cs.CV list; compared against prior successful 2026-11-06 report and registry. Technical selected sections verified; author's data not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
+    },
+    {
+      "id": "arxiv-2611.07301",
+      "title": "ArtiVidRM: Verifiable Artifact-as-Rubric Reward Modeling for Explicit Quality Articulation in Video Generation",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "IQA",
+      "source": "https://arxiv.org/abs/2611.07301v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-07",
+      "checked_on": "2026-11-07",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.07301.md",
+      "decision_key": "artifact-explicit-video-reward-preference-and-optimization",
+      "decision_boundary": "Video-generation preference not RAW/ISP fidelity; loses to VisionReward on MonetBench and VideoAlign on Hit@1; tie conditions differ.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-07",
+          "new_alert": true,
+          "brief": "Paper Watch v3.2 2026-11-07",
+          "note": "New 2026-11-05 arXiv v1 in 2026-11-06 cs.CV list; compared against prior successful 2026-11-06 report and registry. Technical selected sections verified; author's data not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
     }
   ],
-  "updated_at": "2026-11-06"
+  "updated_at": "2026-11-07"
 }
