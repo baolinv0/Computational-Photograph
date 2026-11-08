@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.4｜结构建立/最近实质修订：2026-11-07
+版本：v0.4｜结构建立/最近实质修订：2026-11-08
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -188,6 +188,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-10-24 增量（T06 / T03 / T04）**：[Gate3DGen](papers/arxiv-2610.31649.md) 在图像到 3D 任务中引入整图 KEEP/PURIFY 路由与下游几何目标；合成 benchmark 净化显著有效，但真实照片 proxy 路由 accuracy 与 Always-PURIFY 同为 58.33%。应将**净化器收益**、**路由收益**和**任务指标真实性**独立验证。关联 [选择性恢复与任务效用 survey](surveys/selective-task-aware-restoration.md)。**不变**：非 GT 可观察输入不能被 VLM 评价变成真实 GT。
 
+**2026-11-08 历史 backfill（T06/T04/X01，不触发新作通知）**：[Adaptive Low-Light Enhancement for Road Anomaly Detection](papers/arxiv-2611.08393.md) 首发为 **2026-11-05 v1**，属于 11-07 已成功检查过的 arXiv 日列表窗口。它在合成低光道路检测中展示 uniform SCI 可损害 mAP，而亮度三分支有时部分恢复 dusk；但 YOLOv8n 严重低光 mAP always-KEEP 0.268 > router 0.218，且 router 切换 SCI 强度的贡献未单独隔离。**地图变化 Supporting evidence / Boundary refinement**：对前述 [Gate3DGen](papers/arxiv-2610.31649.md) 真实域路由未胜过 trivial baseline 的判断，新增不同任务负例。两个论文属于分析者归纳的共同机制而非经核验的直接继承。**不变**：必须同时比较 always-KEEP/always-EXECUTE/route，真实域收益、完整设备成本和模型兼容性未被证明；单路手机 ISP/TM 不改。系统位置：在线图像→亮度或其他任务证据→KEEP/选择增强强度→下游 detector；离线数据/检测监督与路由校准独立核验，本文无 Agent。详见 [选择性恢复与任务效用专题](surveys/selective-task-aware-restoration.md)。
+
 **2026-11-06 增量（T06/T02）**：[TailSteer](papers/arxiv-2611.06741.md) 在多轮编辑器训练期，以原图保护区构造自监督 endpoint，并让 early trajectory 学 base、late trajectory 学 preservation。与 [MT Forcing](papers/arxiv-2610.25404.md) 的跨回合 rollout distillation 属竞争/互补机制（分析者综合，非断言直接继承），与推理时原图回退/ROI compositor 也是不同选项。作者的十轮保真优势伴随某些 Qwen/FLUX 单轮编辑准确率下降，不能称无损。**地图变化 New route/Boundary refinement**：将“多轮执行器本身的保真能力”从 Agent 的可发现性、可选择性明确分开；单轮目标区域操作失败不能由此文直接解决。综述见 [多轮编辑保真](surveys/multi-turn-editing-preservation.md)。
 
 ### X01｜效率与训练部署
@@ -244,6 +246,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-08 | 历史回填 / T06、T04、X01 | 11-05 v1 的道路低光检测任务路由补归档，新增跨模型/亮度的 always-KEEP 负例与 Jetson 分支代价；非新论文通知 | 加强“能减少 always-on 损害 ≠ 比不增强更好”的边界；保留原有控制与 TM 方案 |
 | 2026-11-06 | 新证据 / T01、T03、T06 | UGD-FM、UniRestorer++、Dual Flow、TailSteer 四项 arXiv 11-04 v1，3 个新 survey、1 个旧 survey 增补 | 明确真实新增跨谱观测与恢复先验分开；模型扩容须结合误识别与成本；已知算子联合流是并行解法；多轮保真训练不解决工具规划 |
 | 2026-11-05 | 停用缺口补查 / 多主题 | 9 篇首次公开 10-28—11-03 的论文接入四个 living survey；10-30 已归档 8 篇不重复计数 | T04 加强 benchmark/色彩评价审计；T01/T02 补联合低光/AWB 和谱 CCM；T05 补 non-Gaussian noisy-only 生成，X01 补实机 ISP 与 Event-HDR 限制 |
 | 2026-10-24 | 历史覆盖纠错 / X01 | SpecKCast 10-21 已推荐但未进入 canonical card/X01 survey；补卡片和路线，纠正误称全局漏检 | 不是新论文通知；X01 分清缓存与预测，恢复迁移仍待实测 |\n| 2026-10-24 | 新证据 / 三主题更新 | 单步生成式 LLIE（TVM）；ε-VP 一步编辑的单时刻控制；任务级净化与真实域路由反例 | T03 增加质量–成本实证；T02 修正“多时刻必要性”；T06 添加 router 必须胜过 Always-PURIFY 的边界，以上均不声称社区共识 |
