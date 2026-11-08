@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-07",
+  "updated_on": "2026-11-08",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
@@ -2781,7 +2781,63 @@
         "notion": "not_modified_in_this_run",
         "camerapaper": "not_modified_in_this_run"
       }
+    },
+    {
+      "id": "arxiv-2611.08393",
+      "title": "Adaptive Low-Light Enhancement for Road Anomaly Detection: A Multi-Architecture Benchmark and Edge Deployment Study",
+      "aliases": [
+        "Adaptive Low-Light Enhancement for Road Anomaly Detection",
+        "SCI luminance-adaptive road detector router"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T01",
+        "T03",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "strategy",
+        "execution",
+        "evaluation",
+        "deployment"
+      ],
+      "map_change": [
+        "Supporting evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "WATCH",
+      "source": "https://arxiv.org/abs/2611.08393v1",
+      "earliest_public_verified": "2026-11-05",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-08",
+      "checked_on": "2026-11-08",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.08393.md",
+      "canonical_survey": "surveys/selective-task-aware-restoration.md",
+      "decision_key": "task-aware-low-light-router-may-underperform-always-keep",
+      "decision_boundary": "Synthetic road detector 4444 images and Jetson Nano; routing SCI variants may mitigate dusk damage but can lose to always-KEEP and always-SCI in dark conditions; no real night scenes, camera RAW or mixed weather and no causal isolation of variant switching.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-08",
+          "new_alert": false,
+          "earliest_public_date": "2026-11-05",
+          "brief": "2026-11-08 Paper Watch v3.2 maintenance only",
+          "note": "First released in already checked 2026-11-06 arXiv list; WATCH negative evidence for T06; not a newly published alert and no alphaXiv auto-save."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "not_saved_watch",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
     }
   ],
-  "updated_at": "2026-11-07"
+  "updated_at": "2026-11-08"
 }
