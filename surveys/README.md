@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-07
+更新：2026-11-08
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -23,7 +23,7 @@
 | X01/T03：多步 DiT 推理怎样在不训练时减少网络调用？ | [Diffusion 缓存、预测与分频调度](diffusion-inference-caching-forecasting.md) | 2026-10-24 v0.1；SpecKCast 历史补录（10-21 已推荐），比较 TeaCache/TaylorSeer/Spectrum，前序待逐篇复核 |
 | T03/X01：生成式恢复能否用一次网络前向完成？ | [高效生成式恢复：潜空间与采样目标](efficient-generative-restoration.md) | 2026-11-06 增加与 LLIE 不同任务的已知线性算子 Dual Flow 分支；原 GLOW-FM/TVM 结论未改 |
 | T02/T06：一步编辑要几个噪声时刻？ | [一步免反演编辑与端点校准](one-step-inversion-free-editing.md) | 2026-10-24 v0.1；ECT 对 ChordEdit，ER-Chord 作为不同空间控制轴；前序 backlog |
-| T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-10-24 v0.1；Gate3DGen 的净化器效果和真实路由负例分开记录 |
+| T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-11-08 v0.2；Gate3DGen 与低光道路检测 WATCH/backfill 的不同任务负例：减少统一增强伤害不等于击败 always-KEEP；后者非新论文通知 |
 | T06：恢复执行器如何组织、验证与学习策略？ | [CameraPaper 的 AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | 复用另一仓库已有 canonical survey；不复制第二份全文 |
 
 这是跨仓库导航，不代表所有主题都已完成 survey；未建设的分支继续保存在 [总图](../LITERATURE_MAP.md) 中。
