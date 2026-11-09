@@ -33,7 +33,7 @@
 ## 前序与判断
 
 **历史机制**（不是直接方法继承的统一流水线）：
-1. [Ren 等：Flickr-AES / 个性化美学残差](https://arxiv.org/abs/1704.01841)（经典个性化与通用模型残差路线；原文链接与机制需后续单独核验）。
+1. [Ren 等：Flickr-AES / 个性化美学残差](https://openaccess.thecvf.com/content_ICCV_2017/html/Ren_Personalized_Image_Aesthetics_ICCV_2017_paper.html)（经典个性化与通用模型残差路线；原文链接与机制需后续单独核验）。
 2. [PARA (CVPR 2022)](https://arxiv.org/abs/2203.16754)：31,220 张照片、438 名评分者、客观/主观属性与条件 PIAA；已复核原文 §1–2。
 3. [LAPIS (CVPRW 2025)](https://arxiv.org/abs/2504.07670)：11,723 张艺术品与个体评分属性，测试跨图像域；本次核验官方摘要及论文在 v2 的使用条件。
 4. [DEAR (2025-12 预印本)](https://arxiv.org/abs/2512.05209)：MIT-Adobe FiveK 多修图版本的**同场景渲染偏好配对**；是摄影调色选择不同于单幅照片美学评分的直接任务边界，已复核论文 §1、§3。
