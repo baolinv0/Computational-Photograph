@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-08
+更新：2026-11-09
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -8,6 +8,7 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T04/T02：众人美学 MOS 怎样校准为个人偏好，与同场景修图偏好有何区别？ | [个人审美与摄影渲染评价](personalized-aesthetic-preference-and-rendering.md) | 2026-11-09：Undertone-P v2（11-05 公开）历史实质修订补录，PARA / LAPIS / DEAR 路线比较；不作新研究通知 |
 | T02/T03：编辑器如何联合理解、生成并保留几何先验？ | [执行器理解、几何与训练](editor-understanding-and-geometry-training.md) | 2026-11-07：WeLM-Image工程系统与StitchEdit逐层兼容迁移；独立于多轮漂移/Agent Judge |
 | T04/T06：视频伪影列表能否让Reward选择更可信？ | [伪影证据驱动Reward与验证](artifact-grounded-reward-and-verification.md) | 2026-11-07：ArtiVidRM vs VideoScore/VisionReward；保留MonetBench与Hit@1反例 |
 | T01/T03：真实跨模态观测在不对齐时如何帮助恢复？ | [非配准跨模态导引恢复](unaligned-guided-restoration.md) | 2026-11-06：UGD-FM，含 NIR 数据边界、sparse alignment 与单图基线 |
