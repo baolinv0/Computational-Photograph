@@ -49,6 +49,7 @@
 
 ## References
 
+- [Ren 等个性化美学（ICCV 2017）](https://openaccess.thecvf.com/content_ICCV_2017/html/Ren_Personalized_Image_Aesthetics_ICCV_2017_paper.html)
 - [Undertone v1 与 v2](https://arxiv.org/abs/2609.27110v2)
 - [Undertone canonical](../papers/arxiv-2609.27110.md)
 - [PARA / CVPR 2022](https://arxiv.org/abs/2203.16754)
