@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-08",
+  "updated_on": "2026-11-09",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
@@ -2837,7 +2837,61 @@
         "notion": "not_modified_in_this_run",
         "camerapaper": "not_modified_in_this_run"
       }
+    },
+    {
+      "id": "arxiv-2609.27110",
+      "title": "Undertone: Personalizing Frozen VLM Aesthetic Judges from Few Ratings",
+      "aliases": [
+        "Feed the Panel Dimensions, Not Verdicts: Rubric-Decomposed Fusion of Vision-Language Aesthetic Judges",
+        "Undertone-P"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T02",
+        "T06",
+        "X01"
+      ],
+      "system_roles": [
+        "evaluation",
+        "strategy"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2609.27110v2",
+      "earliest_public_verified": "2026-09-22",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v2",
+      "first_covered": "2026-11-09",
+      "checked_on": "2026-11-09",
+      "verification_scope": "selected_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.27110.md",
+      "canonical_survey": "surveys/personalized-aesthetic-preference-and-rendering.md",
+      "decision_key": "population-prior-frozen-vlm-readout-personalized-aesthetics-cold-start",
+      "decision_boundary": "Crowd prior and labels from other raters explain much of cold-start: first 10 ratings add 0.008 Spearman to the crowd prior in the cited protocol. Single-photo aesthetics differs from same-scene rendering preference; six-VLM inference cost is not mobile latency.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-09",
+          "new_alert": false,
+          "earliest_public_date": "2026-09-22",
+          "source_version": "v2",
+          "note": "v1 published Sep 22, 2026 with rubric panel research; substantial v2 Nov 5 rewrote to Bayesian personal preference, already in Nov 6 listings covered by previous success, cataloged Nov 9 without new notification."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "IQA",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run"
+      }
     }
   ],
-  "updated_at": "2026-11-08"
+  "updated_at": "2026-11-09"
 }
