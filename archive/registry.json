@@ -2886,7 +2886,7 @@
       ],
       "sync": {
         "github": "verified_written",
-        "alphaxiv": "pending",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
         "notion": "not_modified_in_this_run",
         "camerapaper": "not_modified_in_this_run"
