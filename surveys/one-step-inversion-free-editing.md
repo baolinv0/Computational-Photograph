@@ -1,6 +1,6 @@
 # 一步免反演图像编辑：时间控制、空间控制与端点保真
 
-版本 v0.1 | 2026-10-24 | 主主题 T02，关联 T06 / X01
+版本 v0.2 | 2026-11-10 | 主主题 T02，关联 T06 / X01
 
 目录：[快速回忆](#快速回忆) · [竞争路线](#竞争路线) · [系统接口](#系统接口) · [证据边界](#证据边界) · [判断变更](#判断变更) · [References](#references)
 
@@ -54,8 +54,23 @@ ECT 原文 Table 1：PIE-Bench SD-Turbo matched ChordEdit→ECT，未编辑区 P
 
 **记忆反例**：“一次 temporal evaluation”仍可在一个 batch 中跑两种文本条件，不能写成一次条件模型算力等于标准单图前向。
 
+## 2026-11-10：流式视频的 source-V 复用是新的约束条件，不是一步图像 ECT 的后继
+
+**新增 [AR-Edit](../papers/arxiv-2611.09795.md)，GO-E / New route（T02/T06/X01）**。在 DMD-distilled 3–4-step 自回归视频 diffusion 中，Q/K 在时刻间相对稳定、V 承载可重用源内容。此方法不做 inversion：从 clean source 前向提取 V，对 target-prompt 的当前 chunk 分时/分层注入，保留未来 chunk 的 target KV-cache。属于**模型可见 attention 级条件控制**；ECT 是 ε-prediction VP 一步 *图像* 的同一时刻方向/端点校准，二者并未相互继承，输入、模型训练与评测不同。
+
+| 受控编辑分支 | 前提与控制 | 对照 & 结果（作者原文，非独立复现） | 适用边界 |
+|---|---|---|---|
+| ECT / ChordEdit | ε-VP 一步图像模型； temporal support/ endpoint | PIE-Bench：matched ChordEdit→ECT，保护区 PSNR 22.63→23.74dB | 不适用任意 flow-v-prediction 模型 |
+| **AR-Edit** | 3–4-step DMD-distilled causal video；t=0 source-V cache + target prompt | Reward Forcing 4 steps：source 7.28、text 6.11、TF 0.47、6NFE/10.50FPS；DynaEdit 7.17/5.96/0.39、13NFE/4.66FPS（单 H100） | 无通用 API 权限或 30FPS 手机运行证据 |
+| StreamEdit / FlowEdit / DynaEdit | 自回归/多步 velocity 差、可用 attention cache | 相同 Self Forcing 4步 StreamEdit 6.12FPS vs AR-Edit 10.25；但15步 StreamEdit source 8.11 > AR-Edit 7.22 | Edit-step 增减会影响源保留/指令完成权衡 |
+
+**判断增量**：从单图「时间端点估计 vs 空间调节」扩展到视频「源特征的哪个 attention 子空间值得保留」，**未改变** ROI source leakage 和编辑完成度独立评价的基本要求。论文 VLM Judge 不是人类真值，作者另有小样本选优；相邻系统质量对照时必须固定 backbone 和步骤。
+
+**系统回忆**：离线先获得已训练、蒸馏的因果视频骨干；在线 streaming source video+instruction→t=0 V cache→target-prompt 逐 chunk 生成（选择性注入 V，KV 缓存保持 target consistency）→编辑视频，测源保留+文字要求+色调保真+GPU成本。Agent 只可作为上层策略，本文未验证自动工具选择。**行动**：保留作为流视频编辑的专用工程路线；不替换单帧手机 Tone Mapping 或 Reference Retouch。待查跨相机色彩、人工保真与移动端编解码全链延迟。
+
 ## References
 
 - [ECT 2610.30827v1](https://arxiv.org/abs/2610.30827v1)
 - [论文卡片](../papers/arxiv-2610.30827.md)
+- [AR-Edit v1（2026-11-06）](https://arxiv.org/abs/2611.09795v1) · [canonical card](../papers/arxiv-2611.09795.md)
 - [T02/T06 总图](../LITERATURE_MAP.md)
