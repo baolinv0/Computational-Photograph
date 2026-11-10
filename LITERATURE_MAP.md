@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.4｜结构建立/最近实质修订：2026-11-09
+版本：v0.5｜结构建立/最近实质修订：2026-11-10
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -78,6 +78,16 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 ### 2026-11-07｜T01/T03：传感补充测量和生成先验，贡献不得混算
 
 **旧路线**：单RAW/多曝光帧融合、event+一帧锚点HDR（HIVE-Diff）、同步RGB/NIR辅助恢复（UGD-FM）。**新证据**：[CoGenRec](papers/arxiv-2611.07665.md) 把CVS长曝光RGB+短曝光高速稀疏差分融合为去模糊/插帧/HDR序列，采用多尺度测量约束+video diffusion+细节VAE；作者有真实CVS样例和同测量基线，但约1M训练clips、曝光增强和额外硬件都是强替代解释。**变化 Bridge / Engineering maturity**，这并非先验凭空创造HDR事实。**判断**：观测信息的增益与生成重建改进单独分摊，不变的是单手机RGB/TM无CVS不能继承此结果。在线CVS观测→传感约束→diffusion→RGB；离线仿真+真实配对→分阶段训练；Agent不是必需。详见[多模态sensor与Event-HDR survey](surveys/mobile-isp-and-event-hdr-efficiency.md)。
+
+### 2026-11-10｜三个长期问题的增量：测量先验、控制型编辑、评价执行分离
+
+**T03 / T01，已知物理观测与生成先验**。此前 BAM/Dual Flow 是已知算子的生成式路线，DAPS/SITCOM 等分层反演还存在优化目标与先验分布的张力。新 [FANO](papers/arxiv-2611.08923.md)（PROBE，Boundary refinement）解释 SITCOM 的 late-layer radial drift：residual 持续降低而 PSNR 变坏，锚定前向噪声 e 而不是任意 x_t；FFHQ 模拟 HDR PSNR 28.13→29.88 dB，e-search 是主要贡献、radius 在 HDR 上有净效益。**未变**：已知 A/高斯模拟、约1500次需反传 denoiser 不等于已解决真实手机 HDR 或部署。新增[完整反演路线图](surveys/measurement-consistent-generative-inverse-problems.md)，离线需物理算子/噪声/GT，在线已知 y、A→分层约束搜索→x，Agent 非必需。
+
+**T02 / T05 / X01，执行器内部的源图锁定有两条并行途径**。[Paste2Place](papers/arxiv-2611.09387.md)（GO-E，Bridge / Engineering maturity）以固定位置的拼接物体+mask 为输入，离线对齐 Blender 物理成像三态训练前景光照和背景影响，在线 1-step source-anchored bridge；作者消融 bridge-only PSNR 29.68→加物理引导30.83，不能把全收益算成物理分解。[AR-Edit](papers/arxiv-2611.09795.md)（GO-E，New route）在已蒸馏 causal video 模型用 t=0 V-cache 实施免反演串流编辑；Reward Forcing 同 4步对照6 NFE/10.5FPS，运行于 H100。它们分别控制**空间物理目标**和**attention/时间流的源保持**，不是一条直接继承路径，均无手机 RAW 色彩证明。见[合成专题](surveys/object-scene-composition-and-relighting.md)和[免反演编辑](surveys/one-step-inversion-free-editing.md)。
+
+**T04 / T03 / T06，先识别失真≠具备恢复动作**。[水下 UAV 五模型 zero-shot benchmark](papers/arxiv-2611.09740.md)（GO-E，Counter-evidence）报告诊断性能与直接 restoration 之间明显落差：最佳 balanced acc 约0.654，但100图直接恢复 PSNR 最高只增0.255dB、pool LPIPS 没有改善，还会幻觉内容。它与[选择性恢复](surveys/selective-task-aware-restoration.md)的 KEEP/RESTORE 失败证据互补但不是直接方法继承。**未变**：评估、执行器候选可达性和 selector 需要三项独立证据；特殊水下域不代表全部真实照片恢复失败。
+
+**行动**：上述结果暂无需扩张当前 Tone Mapping / AWB / RAW 恢复执行链；优先复用强简单对照，只有出现对应真实失败条件再安排最小判别实验。所有技术指标均为作者报告，并非独立复现。
 
 ### T01｜采集与成像物理
 
@@ -254,6 +264,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-10 | 新论文 / T02、T03、T04、T05、X01 | FANO、Paste2Place、AR-Edit、水下 UAV 五模型基准（均11-06 arXiv v1、11-09 新公告）归位；新增两专题、修订两专题 | 分离真实测量一致性/优化先验、源图条件化编辑、失真诊断/真实恢复能力；原 ISP/TM 方案保持 |
 | 2026-11-09 | 历史实质版本回填 / T04、T02 | Undertone v1（09-22）→ v2（11-05）技术命题改变；补审 PARA、DEAR 与同场景渲染偏好边界；11-06 已覆盖，不作为新通知 | crowd-only 强先验与 K 个用户标签净收益分开；新个人化 survey，但不直接改变 ISP/TM 或 Agent 实验 |
 | 2026-11-08 | 历史回填 / T06、T04、X01 | 11-05 v1 的道路低光检测任务路由补归档，新增跨模型/亮度的 always-KEEP 负例与 Jetson 分支代价；非新论文通知 | 加强“能减少 always-on 损害 ≠ 比不增强更好”的边界；保留原有控制与 TM 方案 |
 | 2026-11-06 | 新证据 / T01、T03、T06 | UGD-FM、UniRestorer++、Dual Flow、TailSteer 四项 arXiv 11-04 v1，3 个新 survey、1 个旧 survey 增补 | 明确真实新增跨谱观测与恢复先验分开；模型扩容须结合误识别与成本；已知算子联合流是并行解法；多轮保真训练不解决工具规划 |
