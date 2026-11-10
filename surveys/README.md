@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-09
+更新：2026-11-10
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -8,6 +8,8 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T03/T01：已知测量算子下怎样在保持先验分布内优化？ | [已知算子的生成式反演与测量一致性](measurement-consistent-generative-inverse-problems.md) | 2026-11-10：FANO 对 DAPS/SITCOM 的优化变量与 radial drift；BAM/Dual Flow 为不同训练预算路线，真实 RAW 待验证 |
+| T02/T05：固定物体布局，怎样协调前景照明与背景投影？ | [物体—环境光影协调与一步合成](object-scene-composition-and-relighting.md) | 2026-11-10：Paste2Place 的物理标注合成数据及 bridge/physics 分量消融，不能外推端侧色彩校准 |
 | T04/T02：众人美学 MOS 怎样校准为个人偏好，与同场景修图偏好有何区别？ | [个人审美与摄影渲染评价](personalized-aesthetic-preference-and-rendering.md) | 2026-11-09：Undertone-P v2（11-05 公开）历史实质修订补录，PARA / LAPIS / DEAR 路线比较；不作新研究通知 |
 | T02/T03：编辑器如何联合理解、生成并保留几何先验？ | [执行器理解、几何与训练](editor-understanding-and-geometry-training.md) | 2026-11-07：WeLM-Image工程系统与StitchEdit逐层兼容迁移；独立于多轮漂移/Agent Judge |
 | T04/T06：视频伪影列表能否让Reward选择更可信？ | [伪影证据驱动Reward与验证](artifact-grounded-reward-and-verification.md) | 2026-11-07：ArtiVidRM vs VideoScore/VisionReward；保留MonetBench与Hit@1反例 |
@@ -23,8 +25,8 @@
 | T02/T05：SDR video → HDR 的训练目标怎么定义？ | [既有 HDR 数据与 PGT](../HDR/HDR_Dataset_References_and_PGT.md) | 保留原适用范围，通用合成路线转至本目录新分支 |
 | X01/T03：多步 DiT 推理怎样在不训练时减少网络调用？ | [Diffusion 缓存、预测与分频调度](diffusion-inference-caching-forecasting.md) | 2026-10-24 v0.1；SpecKCast 历史补录（10-21 已推荐），比较 TeaCache/TaylorSeer/Spectrum，前序待逐篇复核 |
 | T03/X01：生成式恢复能否用一次网络前向完成？ | [高效生成式恢复：潜空间与采样目标](efficient-generative-restoration.md) | 2026-11-06 增加与 LLIE 不同任务的已知线性算子 Dual Flow 分支；原 GLOW-FM/TVM 结论未改 |
-| T02/T06：一步编辑要几个噪声时刻？ | [一步免反演编辑与端点校准](one-step-inversion-free-editing.md) | 2026-10-24 v0.1；ECT 对 ChordEdit，ER-Chord 作为不同空间控制轴；前序 backlog |
-| T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-11-08 v0.2；Gate3DGen 与低光道路检测 WATCH/backfill 的不同任务负例：减少统一增强伤害不等于击败 always-KEEP；后者非新论文通知 |
+| T02/T06：一步编辑要几个噪声时刻？ | [一步免反演编辑与端点校准](one-step-inversion-free-editing.md) | 2026-11-10 v0.2：AR-Edit 的自回归视频 source-V 注入；ECT 对 ChordEdit，ER-Chord 作为不同空间控制轴；前序 backlog |
+| T06/T03/T04：什么时候不应该恢复？ | [选择性恢复与任务效用](selective-task-aware-restoration.md) | 2026-11-10 v0.3：新增水下 UAV MLLM 诊断≠恢复的负例；原 Gate3DGen 与低光道路检测 WATCH/backfill 的不同任务负例：减少统一增强伤害不等于击败 always-KEEP；后者非新论文通知 |
 | T06：恢复执行器如何组织、验证与学习策略？ | [CameraPaper 的 AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | 复用另一仓库已有 canonical survey；不复制第二份全文 |
 
 这是跨仓库导航，不代表所有主题都已完成 survey；未建设的分支继续保存在 [总图](../LITERATURE_MAP.md) 中。
