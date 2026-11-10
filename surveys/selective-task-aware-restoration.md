@@ -1,6 +1,6 @@
 # 选择性图像恢复与任务效用：什么时候保留原图？
 
-版本 v0.2 | 2026-11-08 | 主主题 T06，桥接 T03、T04、T01、X01
+版本 v0.3 | 2026-11-10 | 主主题 T06，桥接 T03、T04、T01、X01
 
 目录：[快速回忆](#快速回忆) · [问题树](#问题树) · [关键新证据](#关键新证据) · [完整方案与局限](#完整方案与局限) · [判断与积压](#判断与积压) · [References](#references)
 
@@ -54,6 +54,14 @@
 
 最小判别实验：同一真实低光测试切分，固定 detector 和 SCI variants，比较 always-KEEP / always-medium / always-strong / pre-fixed luminance router；再按 detector 分层评估。若路由仅挽回统一增强的伤害而没有超过相应强简单基线，则不增设在线控制器。
 
+## 2026-11-10：跨域负证据——会诊断，不等于能恢复
+
+[Zero-Shot Benchmarking of Unified Multimodal Models for Shallow-Water UAV Image Distortion Assessment and Restoration](../papers/arxiv-2611.09740.md)（2026-11-06 v1，GO-E / Counter-evidence，主 T04、连 T03/T06）是本路线的另一类负证据。它并不比较 KEEP vs 增强路由的算法，而是同时测量**统一 MLLM 的失真诊断能力与其直接恢复能力**：1000 张图、600 半合成+400 全合成，五个 frozen unified MLLM 的 zero-shot 诊断与 100 张图直接恢复。作者报告最佳失真识别 balanced accuracy 约 0.654，而直接恢复的 PSNR 平均增益最多 0.255dB，所有受测模型在 pooled LPIPS 上均无改善，部分内容被幻觉式重新生成。
+
+**路线关系**：Gate3DGen/道路低光研究的是「要不要调用 purifier」，这篇则问「即使识别了退化，同一个统一模型是否具有恢复能力」。它们具有共同**识别→执行分离**的抽象，却是不同任务/域，不构成直接继承或跨领域共识。海水散射/水下 UAV 与真实手机 RAW 低光不是相同测量退化。原论文少量 human annotation 对浊度一致性约 0.507，合成 ground truth/人类评分同样要核查。
+
+**判断变化**：此前的“路由可能不如 always-KEEP”保持；现在增加“**识别/分析质量不能作为直接 restoration executor 的能力代理**”，也不能把生成式回写的 NR-IQA 当作源结构保真。在线最小方案：image→可选退化诊断（硬数字能判时不必上 VLM）→强简单 deterministic/specialist/unified MLLM 候选→独立 PSNR/LPIPS/ROI leakage/人评；Agent 可以选择，但未验证与本论文共同集成。对当前系统**不改**，未解决的是图像本身信息不可恢复时的真实可达性。
+
 ## 完整方案与局限
 
 **离线**：可校验 GT/几何资产 → 干净视角 → 受控及可审计退化 → 多任务目标和路由标签 → purifier 和 router 分别训练 → 独立真实照片/下游设备检查。
@@ -77,4 +85,5 @@
 - [Gate3DGen arXiv v1](https://arxiv.org/abs/2610.31649v1)
 - [论文细节与作者实验](../papers/arxiv-2610.31649.md)
 - [Adaptive Low-Light Enhancement for Road Anomaly Detection, 2026-11-05 v1（backfill）](https://arxiv.org/abs/2611.08393v1)；[HTML Tables I–II](https://arxiv.org/html/2611.08393v1)
+- [2026-11-06 水下UAV unified MLLM 诊断/恢复基准](https://arxiv.org/abs/2611.09740v1) · [canonical card](../papers/arxiv-2611.09740.md)
 - [T03/T06 总图](../LITERATURE_MAP.md)
