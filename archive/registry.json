@@ -2935,10 +2935,12 @@
         }
       ],
       "sync": {
-        "github": "written_pending_readback",
-        "alphaxiv": "pending_check",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "notion": "not_modified_in_this_run",
-        "camerapaper": "not_modified_in_this_run"
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Restoration",
+        "notation": "github_contents_and_alphaxiv_folder_membership_readback_verified_2026-11-10"
       }
     },
     {
@@ -2988,10 +2990,12 @@
         }
       ],
       "sync": {
-        "github": "written_pending_readback",
-        "alphaxiv": "pending_check",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "notion": "not_modified_in_this_run",
-        "camerapaper": "not_modified_in_this_run"
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Color",
+        "notation": "github_contents_and_alphaxiv_folder_membership_readback_verified_2026-11-10"
       }
     },
     {
@@ -3039,10 +3043,12 @@
         }
       ],
       "sync": {
-        "github": "written_pending_readback",
-        "alphaxiv": "pending_check",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "notion": "not_modified_in_this_run",
-        "camerapaper": "not_modified_in_this_run"
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Agent",
+        "notation": "github_contents_and_alphaxiv_folder_membership_readback_verified_2026-11-10"
       }
     },
     {
@@ -3091,10 +3097,12 @@
         }
       ],
       "sync": {
-        "github": "written_pending_readback",
-        "alphaxiv": "pending_check",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "notion": "not_modified_in_this_run",
-        "camerapaper": "not_modified_in_this_run"
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "IQA",
+        "notation": "github_contents_and_alphaxiv_folder_membership_readback_verified_2026-11-10"
       }
     }
   ],
