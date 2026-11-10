@@ -8,6 +8,14 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-10 Paper Watch：测量约束、源内容编辑与评价能力边界
+
+- [三个 Topic Update，四项 2026-11-06 v1 新作](Recent_Papers_2026-11-10.md)：进入 11-09 arXiv 新公告；和此前已覆盖论文做身份/结论去重。
+- [FANO：已知算子扩散逆问题的前向噪声变量与 radial drift](papers/arxiv-2611.08923.md) · [物理测量一致性专题](surveys/measurement-consistent-generative-inverse-problems.md)。
+- [Paste2Place：区域光影与源图桥接](papers/arxiv-2611.09387.md) · [物体—环境合成专题](surveys/object-scene-composition-and-relighting.md)。
+- [AR-Edit：因果视频免反演源 V 缓存](papers/arxiv-2611.09795.md) · [一步免反演编辑专题](surveys/one-step-inversion-free-editing.md)。
+- [水下 UAV：统一 MLLM 诊断不等于恢复能力](papers/arxiv-2611.09740.md) · [选择性恢复专题](surveys/selective-task-aware-restoration.md)。
+
 ## 2026-11-07 Paper Watch 增量
 
 - [本轮三主题增量报告](Recent_Papers_2026-11-07.md)：五篇11-05首发v1，11-06新公告；区分采集观测、恢复模型合并和编辑/评价训练，不重复11-06已推荐研究。
