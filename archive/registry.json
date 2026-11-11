@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-10",
+  "updated_on": "2026-11-11",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-11-05; catch-up candidates 2026-10-25–11-05, selected papers only; not exhaustive arXiv daily listing audit.",
+  "scope": "Incremental research archive through 2026-11-11; selected papers only, not exhaustive arXiv or author-level listing coverage.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -3104,7 +3104,174 @@
         "alphaxiv_folder": "IQA",
         "notation": "github_contents_and_alphaxiv_folder_membership_readback_verified_2026-11-10"
       }
+    },
+    {
+      "id": "arxiv-2611.10066",
+      "title": "VLM as an Editing Pilot: VLM-Steered Velocity Control for Flow-Based Image Editing",
+      "authors": "Kuan-Shen Chiu; Jia-Wei Liao; Yu-Chieh Chao; Li-Xuan Peng; Wei-Yun Ma; Cheng-Fu Chou",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T02",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "strategy",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.10066v1",
+      "earliest_public_verified": "2026-11-06",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-11",
+      "checked_on": "2026-11-11",
+      "verification_scope": "selected_original_paper_methods_results_ablations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.10066.md",
+      "canonical_survey": "surveys/one-step-inversion-free-editing.md",
+      "decision_key": "per-step-vlm-instruction-semantic-selects-flow-editing-velocity",
+      "decision_boundary": "FLUX/SD3 accessible velocity and Qwen3-VL-8B per-step policy; H100 26.44s/image, 53GB peak. Fixed coupling 4.00s; brute-force tcs higher IA but poorer background; not a mobile photofinishing executor.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-06",
+          "brief": "2026-11-11 Paper Watch v3.2 Topic Update",
+          "note": "First verifiable arXiv v1 2026-11-06/07/08, cs.CV official new listing 2026-11-10 after last verified 2026-11-09 listing; checked original selected sections and important counterexamples. Venue acceptance is not new paper; earlier external full-publication date pending for any conference version; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Agent",
+        "notation": "canonical-card-survey-map-and-alphaxiv_membership_readback_verified_2026-11-11"
+      }
+    },
+    {
+      "id": "arxiv-2611.10485",
+      "title": "Decoupling Direction and Magnitude: Language-Steered Flow Matching for Super-Resolution in the Dark",
+      "authors": "Jiaxin Gao; Ziyu Yue; Yaohua Liu; Danchen Cui; Zhihui Zhao; Zhixun Su",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T02",
+        "T05",
+        "X01"
+      ],
+      "system_roles": [
+        "goal",
+        "execution",
+        "training",
+        "evaluation"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.10485v1",
+      "earliest_public_verified": "2026-11-07",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-11",
+      "checked_on": "2026-11-11",
+      "verification_scope": "selected_original_paper_methods_results_ablations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.10485.md",
+      "canonical_survey": "surveys/efficient-generative-restoration.md",
+      "decision_key": "spatial-step-size-plus-degradation-language-steers-one-step-dark-super-resolution",
+      "decision_boundary": "RELLISUR dark-SR paired conditions; SD3 20390.77G FLOPs 0.448s; cannot infer mobile efficiency or authenticity from DarkFace NR-IQA; numeric-only vs language control unmatched. NeurIPS OpenReview earlier public date pending.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-07",
+          "brief": "2026-11-11 Paper Watch v3.2 Topic Update",
+          "note": "First verifiable arXiv v1 2026-11-06/07/08, cs.CV official new listing 2026-11-10 after last verified 2026-11-09 listing; checked original selected sections and important counterexamples. Venue acceptance is not new paper; earlier external full-publication date pending for any conference version; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Restoration",
+        "notation": "canonical-card-survey-map-and-alphaxiv_membership_readback_verified_2026-11-11"
+      }
+    },
+    {
+      "id": "arxiv-2611.11210",
+      "title": "DynOLAT: OLAT Video Prediction for Controllable Dynamic Full-Body Relighting",
+      "authors": "Taoming Liu; Yinji ShenTu; Guangzhao He; Yudong Jin; Yukang Ye; Siyu Zhang; Fan Jia; Wei Hua; Hujun Bao; Xiaowei Zhou",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Color",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T05",
+        "T01",
+        "X01"
+      ],
+      "system_roles": [
+        "acquisition",
+        "data",
+        "goal",
+        "execution",
+        "training",
+        "deployment"
+      ],
+      "map_change": [
+        "New route",
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.11210v1",
+      "earliest_public_verified": "2026-11-08",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-11",
+      "checked_on": "2026-11-11",
+      "verification_scope": "selected_original_paper_methods_results_ablations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.11210.md",
+      "canonical_survey": "surveys/lighting-conditioned-portrait-video-relighting.md",
+      "decision_key": "learn-dynamic-human-OLAT-basis-then-linear-light-environment-recombine",
+      "decision_boundary": "24M frames / 224 identity-outfit combinations, foreground masked sRGB and channel aligned metrics; 101 bases for 57 frames 1080p takes 26.89m on 8xA100; no realtime mobile; ACM DOI prior release timing pending.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-08",
+          "brief": "2026-11-11 Paper Watch v3.2 Topic Update",
+          "note": "First verifiable arXiv v1 2026-11-06/07/08, cs.CV official new listing 2026-11-10 after last verified 2026-11-09 listing; checked original selected sections and important counterexamples. Venue acceptance is not new paper; earlier external full-publication date pending for any conference version; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Color",
+        "notation": "canonical-card-survey-map-and-alphaxiv_membership_readback_verified_2026-11-11"
+      }
     }
   ],
-  "updated_at": "2026-11-10"
+  "updated_at": "2026-11-11"
 }
