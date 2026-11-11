@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.5｜结构建立/最近实质修订：2026-11-10
+版本：v0.6｜结构建立/最近实质修订：2026-11-11
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -119,6 +119,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-10-24 增量（T02）**：[ECT](papers/arxiv-2610.30827.md) 用单时刻 angular transport + endpoint calibration 把 ChordEdit 的多时刻估计改成一次 temporal support；范围仅 ε-prediction VP 一步编辑，非任意 Qwen/FLUX。与 ER-Chord 的空间能量重新分配是**不同优化轴**，没有互相取代的实测证据。详见 [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)。**保留判断**：指令完成度与未编辑区保真需要独立衡量。
 
+**2026-11-11 光照可控性分支**：[DynOLAT](papers/arxiv-2611.11210.md) 不直接由单个目标环境图生成整段人像视频，而是在 LightStage 动态 OLAT paired data 上训练同一视频多入射方向的响应基，再按目标 HDR 环境图在线**线性光域重组**；与 [Lux Post Facto](https://openaccess.thecvf.com/) / HumanOLAT / UniRelight 属于相邻/竞争的动态重照明路线，与 [Paste2Place](papers/arxiv-2611.09387.md) 只有 source-anchored bridge 的共同抽象，**非经证实直接继承**。**旧→新**：只比较新光照外观是否合理→增加控制方向/相对强度的可测接口。**不变**：准确光谱、局部曝光量、实时手机部署尚未验证；101 基、57帧1088p在 8×A100 下生成约26.89分钟，不能等同实时编辑。路线、采集和对照：[动态人像 OLAT relighting 专题](surveys/lighting-conditioned-portrait-video-relighting.md)。
+
 ### 2026-11-06｜T01/T03：在输入侧补充真实观测，而非让恢复器猜得更好
 
 **旧路线**：单 RGB 去噪、对齐 NIR/RGB 引导和光源/RAW 条件化恢复。**新证据** [UGD-FM](papers/arxiv-2611.06422.md) 在 noisy RGB+unaligned NIR 上融合跨谱 sparse matching 与 1–2 step flow；在 FANVID 作者消融中 sparse window→adaptive propagation，2-step 30.03→30.58 dB；但 3D 遮挡与额外 sensor 是未解约束。**地图变化 Bridge / Engineering maturity**：新增可用**物理第二观测**的跨谱引导路线，与 [CHROMA-MILL](papers/arxiv-2611.04092.md) 的曝光/颜色训练监督是互补而非继承。**不变**：恢复方法不能创造未测到的真实光线信息，也不能跳过相机双路同步/端到端成本。详见 [非配准导引恢复 survey](surveys/unaligned-guided-restoration.md)。
@@ -144,6 +146,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-10-24 增量（T03/X01）**：[GLOW-FM](papers/arxiv-2610.31222.md) 把已有 Terminal Velocity Matching 迁移到 Tiny-VAE 潜空间低光增强，1 NFE 的结果在部分真实配对数据有竞争力；但 UHD-LOL4K 和 LOL-v1 PSNR 并非最佳，跨域 NR-IQA 也不证明文字/身份/原生高分辨率保真。详见 [高效生成式恢复 survey](surveys/efficient-generative-restoration.md)。**不变**：需要同时报告可观察结构、生成自由度与端到端设备代价。
 
 **2026-11-06 增量（T03/T05/X01）**：并列两类**不同问题**。其一，[UniRestorer++](papers/arxiv-2611.06042.md) 明确接续 ICLR 2026 UniRestorer 的粗细层次路由，本次主要新增可扩 LoRA 层级、区域 dense routing 和 CDD-50 五重组合退化；作者报告七任务均值 31.81→32.24 dB，但 2.9B 不等于移动部署，SIDD 仍有专项模型优势。地图变化 Engineering maturity/Boundary refinement，综述见 [退化专家扩容](surveys/universal-restoration-degradation-routing.md)。其二，[Dual Flow](papers/arxiv-2611.05843.md) 在**已知线性 A/高斯**条件下让 image/measurement joint flow 末态满足 y_hat=A x_hat；这是与 [BAM](papers/arxiv-2609.39660.md) 的物理条件生成路线不同的求解机制，New route/Bridge，详见 [高效生成式恢复 survey 的并行 inverse 分支](surveys/efficient-generative-restoration.md)。**判断更新**：恢复能力的规模收益、退化识别置信度、已知测量约束是三个分离控制轴。**不变**：真实 GT fidelity、端到端设备成本、专项简单 baseline 必须独立对照。
+
+**2026-11-11 暗光 SR 可控恢复分支**：[DeLang-SR](papers/arxiv-2611.10485.md) 将 LQ 推导的退化意图/视觉 token 对应生成 velocity **direction**，将区域可靠性对应 step-size **magnitude**，在 SD3 先验上实现一网络 update。它承接 DaLPSR/S3Diff 的任务抽象，新增的是方向与局部剂量的显式分工而非首次使用语言。作者 RELLISUR x2 PSNR23.865dB；同 5K steps base→full 21.358→22.986dB，但没有纯数值描述对语言的足额反证，完整模型 20,390.77 GFLOPs、0.448s/图。**旧→新**：从只压 NFE，加入局部修复风险与语义方向的独立条件；**不变**：可信明区保护、GT 真实性和全链真实成本缺一不可。详见 [高效生成恢复 survey](surveys/efficient-generative-restoration.md)。
 
 ### 2026-11-07｜T04：可解释的故障列表是否真的提高候选选优？
 
@@ -210,6 +214,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-11-06 增量（T06/T02）**：[TailSteer](papers/arxiv-2611.06741.md) 在多轮编辑器训练期，以原图保护区构造自监督 endpoint，并让 early trajectory 学 base、late trajectory 学 preservation。与 [MT Forcing](papers/arxiv-2610.25404.md) 的跨回合 rollout distillation 属竞争/互补机制（分析者综合，非断言直接继承），与推理时原图回退/ROI compositor 也是不同选项。作者的十轮保真优势伴随某些 Qwen/FLUX 单轮编辑准确率下降，不能称无损。**地图变化 New route/Boundary refinement**：将“多轮执行器本身的保真能力”从 Agent 的可发现性、可选择性明确分开；单轮目标区域操作失败不能由此文直接解决。综述见 [多轮编辑保真](surveys/multi-turn-editing-preservation.md)。
 
+**2026-11-11 同执行器轨迹内闭环选择**：[V2C-Edit](papers/arxiv-2611.10066.md) 基于 FlowEdit 的 coupled/decoupled 等多 velocity 备选，逐时刻使用 VLM Instruction-Level Similarity 选择和可选 mask；改变的是**可发现性**，不是训练新 executor 或完全解决 Judge **可选择性**。同骨干消融 IA 5.69→6.07、保护区 PSNR 17.78→17.44；高预算 brute-force IA6.22但更破坏背景；H100 26.44s/图远慢于固定 FlowEdit 4.00s。**地图变化 Bridge/Boundary refinement**：Agent 思路能下沉到模型生成轨迹，且闭环成本/偏差必须评价。**不变**：可达/可发现/可选及 ROI 真实保持独立，现有确定性局部 photofinishing 不是直接被替代。详见 [免反演编辑竞争路线](surveys/one-step-inversion-free-editing.md)。
+
 ### X01｜效率与训练部署
 
 它是贯穿六个主题的比较维度，不再把每个高效模块当成新的孤立研究方向。
@@ -264,6 +270,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-11 | 新论文 / T02、T03、T06、X01、T05 | V2C-Edit（逐时刻编辑动作选择）、DeLang-SR（暗光 SR 方向/局部剂量）、DynOLAT（动态人像物理光照响应基） | T06 加强可发现性与评审成本边界；T03 增控制分工但不改变手机计算预算结论；T02 新增可测方向/光强控制路线；均不宣称多论文共识 |
 | 2026-11-10 | 新论文 / T02、T03、T04、T05、X01 | FANO、Paste2Place、AR-Edit、水下 UAV 五模型基准（均11-06 arXiv v1、11-09 新公告）归位；新增两专题、修订两专题 | 分离真实测量一致性/优化先验、源图条件化编辑、失真诊断/真实恢复能力；原 ISP/TM 方案保持 |
 | 2026-11-09 | 历史实质版本回填 / T04、T02 | Undertone v1（09-22）→ v2（11-05）技术命题改变；补审 PARA、DEAR 与同场景渲染偏好边界；11-06 已覆盖，不作为新通知 | crowd-only 强先验与 K 个用户标签净收益分开；新个人化 survey，但不直接改变 ISP/TM 或 Agent 实验 |
 | 2026-11-08 | 历史回填 / T06、T04、X01 | 11-05 v1 的道路低光检测任务路由补归档，新增跨模型/亮度的 always-KEEP 负例与 Jetson 分支代价；非新论文通知 | 加强“能减少 always-on 损害 ≠ 比不增强更好”的边界；保留原有控制与 TM 方案 |
