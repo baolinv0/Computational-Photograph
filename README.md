@@ -8,6 +8,13 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-11 Paper Watch：生成轨迹的闭环编辑、局部暗光 SR 强度、真实 OLAT 人像重照明
+
+- [三个 Topic Update、三项 2026-11-06—08 新作](Recent_Papers_2026-11-11.md)：2026-11-10 arXiv cs.CV 新公告，早于本轮的 11-10 成功检查尚未覆盖；核心作者 + 全领域开放检索。
+- [V2C-Edit：VLM 按时刻决定 flow editing velocity](papers/arxiv-2611.10066.md) · [免反演编辑路线](surveys/one-step-inversion-free-editing.md)；区分编辑可发现性与最终可选择性。
+- [DeLang-SR：暗光 SR 的方向与局部步长分离](papers/arxiv-2611.10485.md) · [高效生成恢复路线](surveys/efficient-generative-restoration.md)；强提醒 1 NFE 仍需 20,390.77 GFLOPs。
+- [DynOLAT：动态 OLAT 光响应基](papers/arxiv-2611.11210.md) · [新建人像视频重照明专题](surveys/lighting-conditioned-portrait-video-relighting.md)；物理光照方向可控但基视频生成缓慢。
+
 ## 2026-11-10 Paper Watch：测量约束、源内容编辑与评价能力边界
 
 - [三个 Topic Update，四项 2026-11-06 v1 新作](Recent_Papers_2026-11-10.md)：进入 11-09 arXiv 新公告；和此前已覆盖论文做身份/结论去重。
