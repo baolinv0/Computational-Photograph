@@ -1,6 +1,6 @@
 # 一步免反演图像编辑：时间控制、空间控制与端点保真
 
-版本 v0.2 | 2026-11-10 | 主主题 T02，关联 T06 / X01
+版本 v0.3 | 2026-11-11 | 主主题 T02，关联 T06 / X01
 
 目录：[快速回忆](#快速回忆) · [竞争路线](#竞争路线) · [系统接口](#系统接口) · [证据边界](#证据边界) · [判断变更](#判断变更) · [References](#references)
 
@@ -23,12 +23,28 @@
    ├─ 显式反演 / 多步时间积分 → 结构保留可调、计算较大
    ├─ 零反演但多时刻控制场 → ChordEdit
    ├─ 同时刻解析传输 + 端点校准 → ECT（仅 ε-VP 一步骨干）
-   └─ 空间可靠性重分配 → ER-Chord（不同控制维度）
+   ├─ 空间可靠性重分配 → ER-Chord（不同控制维度）
+   └─ 多步免反演 flow 的逐时刻方向决策 → V2C-Edit（需 VLM）
                       ↓
        未编辑区 fidelity + 编辑目标完成度 + 总预算
 ```
 
 条件差异：只适用 ε-prediction VP 的 ECT，不能直接照搬 FLUX/Qwen 等 v-prediction 流模型。公开黑盒模型也不允许内部编辑场访问。
+
+### 2026-11-11 竞争分支：编辑轨迹内逐时刻选择，而非只调固定耦合点
+
+**问题**：FlowEdit 的 source coupling 过强时产生 zero-edit，但不锚定则有背景泄漏。此前 ECT 关注「一次可否估计端点」，AR-Edit 关注「是否缓存视频 source-V」；本轮 **[V2C-Edit](../papers/arxiv-2611.10066.md)** 关注「在 FLUX/SD3 多步轨迹的每一时刻应执行哪一种编辑速度」。是不同优化轴，不是 ECT / AR-Edit 的升级继承。
+
+| 竞争路线 | 相同执行器内的控制 | 作者证据 / 代价 | 成立条件 |
+|---|---|---|---|
+| FlowEdit fixed coupling | 预设 source–target coupling 和 switch point | H100/50 图，4.00s/图；可保真但 zero-edit | FLUX/SD3 可访问 flow trajectory |
+| FlowEdit brute-force switch | 遍历 t_cs，选成功的较激进方向 | IA 6.22、protected PSNR 16.18；79.99s/图 | 高候选预算、没有很强保护约束 |
+| **V2C per-step ILS** | coupled / decoupled / extrapolated / persistent direction，VLM 隐状态检查 terminal previews，mask 抑制未编辑区 | IA 6.07 / protected PSNR 17.44；26.44s/图、53GB H100 | 需可访问速度场与 Qwen3-VL-8B，不能黑盒 API/手机直接使用 |
+| Explicit deterministic mask + end-point selection | 已知 ROI，预设有限 edit actions + 多候选筛选 | 强简单系统对照，论文未在同预算中完成 | 已知可编辑区域与局部光度目标 |
+
+**判断变化**：训练免费 != 推理免费，**动态闭环让已存在的 executor 更易找到可编辑轨迹（可发现性）**，但没有补足输出目标量化精度、错误 mask 的证据或 executor 容量。该论文 Table 3 耦合单候选 IA 5.69→四候选 6.07，保护区 PSNR 17.78→17.44，证明 trade-off 未消失。与 T06 [AgenticIR survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) 仅为控制机制互补关系，不将多步 generator 变成已经验证的多工具 Agent。
+
+**方案**：在线源图+指令→每步候选 velocity 与 terminal preview→ILS 打分→局部 mask→更新→输出后分开验证编辑成功与非目标泄漏；离线不训练 V2C 但需已训练 FLUX/SD3+VLM，独立标定评审和真实 photofinishing 的绝对幅度误差。行动：保持现有一步/确定性局部修图基线；研究性最小比较固定 GPU 预算的 FlowEdit、t_cs sweep、V2C。适用门槛是语义 zero-edit 而非精细肤色 ΔLab 对齐。
 
 ## 系统接口
 
@@ -73,4 +89,5 @@ ECT 原文 Table 1：PIE-Bench SD-Turbo matched ChordEdit→ECT，未编辑区 P
 - [ECT 2610.30827v1](https://arxiv.org/abs/2610.30827v1)
 - [论文卡片](../papers/arxiv-2610.30827.md)
 - [AR-Edit v1（2026-11-06）](https://arxiv.org/abs/2611.09795v1) · [canonical card](../papers/arxiv-2611.09795.md)
+- [V2C-Edit v1](https://arxiv.org/abs/2611.10066v1) · [canonical card](../papers/arxiv-2611.10066.md)
 - [T02/T06 总图](../LITERATURE_MAP.md)
