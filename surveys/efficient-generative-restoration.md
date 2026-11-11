@@ -1,6 +1,6 @@
 # 高效生成式图像恢复：少步能力从哪里来？
 
-版本 v0.1 | 首次建图 2026-10-24 | T03 / X01（跨 T01 低光）
+版本 v0.2 | 首次建图 2026-10-24，最近更新 2026-11-11 | T03 / X01（跨 T01 低光）
 
 目录：[一分钟回忆](#一分钟回忆) · [路线地图](#路线地图) · [横向证据](#横向证据) · [系统方案](#系统方案) · [判断与缺口](#判断与缺口) · [References](#references)
 
@@ -51,6 +51,21 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 
 **离线**：真实配对或可审计的生成监督 → 匹配预算训练目标消融 → 可观察 GT 与无 GT 分层独立测试 → 同精度同输入尺寸比较完整设备延迟。生成器的 NFE 不等于完整时延，尤其 VAE 编解码不可忽略。
 
+## 2026-11-11：暗光 SR 的修复方向与局部强度是不同控制轴（T03/T02/X01）
+
+既有 GLOW-FM 等研究的主要问题是 LLIE 的一网络前向/紧凑潜空间与保真-计算权衡；暗光 **SR** 还要补丢失空间细节，尤其明亮可信区域、阴暗不可信区域需要不同动作。原有强基线包括 **RELLISUR** 配对低光 SR 任务、**Restormer / CATANet** 判别式方法、**DaLPSR** 的 degradation language prompt（2024，证明「语言描述退化」并非首次），**S3Diff** 的基于 diffusion prior 单步 SR（本文消融的 base）。
+
+| 竞争机制 | 输入 / 控制 | 训练依赖与证据 | 核心边界 |
+|---|---|---|---|
+| 判别式 SR + 局部增益 | LQ RGB→one-pass restoration | 无 SD3 大先验；GT/paired 损失 | 极暗不可见细节无真实信息可恢复 |
+| S3Diff / one-step generative SR | LQ/降质条件→统一 velocity | 预训练生成先验 + 任务数据 | 全局条件可能过度影响可靠明区 |
+| **[DeLang-SR](../papers/arxiv-2611.10485.md)** | LQ 的统计→结构化 degradation language + visual tokens 控 velocity direction；spatial strength 控局部 Euler length | frozen SD3 + LoRA；作者 Table 4 在匹配 5K step：base 21.358→full 22.986 dB；无语言 22.433 | 无「纯数值 descriptor 而无文本」的同预算强对照；20,390.77 GFLOPs/0.448s，不是端侧轻量 |
+| 多步 conservative / PnP 或 Grounded SR | 显式 observation constraints / ROI confidence | 额外 forward consistency 或可信参考 | 不能由生成分数直接保证纹理真实 |
+
+**判断更新**：新增一个「**生成方向（降质类型/意图） vs 局部修复剂量（信号可靠性）**」的可控分解，但并不等于这一分解首创、也不证明语言是必须的。作者 RELLISUR x2 23.865 PSNR/0.2186 LPIPS，较 DOD 20.806/0.2557（各自训练和计算不同，不是同预算隔离）；真实 DarkFace NR-IQA 不代表真实性。**不变**：评估 NFE 必须结合完整 FLOPs、GPU memory、GT 真实性及输入可观察信息。
+
+**系统**：离线 paired dark-SR + 低质统计→训练 token/strength predictor 和 SD3 LoRA→分层真实 GT、noise/lighting cross-camera 评估；在线低照低分辨图→统计语言/visual tokens→SD3 velocity→局部强度图→一次更新→高分辨输出并验证暗/亮保真。Agent 不必要。**行动**：PROBE，仅验证 numeric-only condition + deterministic spatial gain 是否可匹敌 language condition；不替换端侧 LLIE/TM。
+
 ## 已知物理算子的少步联合流：与低光增强并行的 inverse-problem 分支（2026-11-06）
 
 **问题边界**：此前“一步”路线大多从 LQ RGB 学映射或潜空间运输，不显式接收当前拍摄的线性前向算子。本分支讨论已知 **y=Ax+n** 的反问题与 posterior 采样，任务条件不同，不能仅比较 NFE 就声称某方法优越。
@@ -87,4 +102,5 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 - [GLOW-FM / arXiv 2610.31222v1](https://arxiv.org/abs/2610.31222v1)
 - [该论文正文 Related Work 及 Tables 1–5](../papers/arxiv-2610.31222.md)
 - [Dual Flow / arXiv 2611.05843v1](https://arxiv.org/abs/2611.05843v1)
+- [DeLang-SR v1](https://arxiv.org/abs/2611.10485v1) · [canonical card](../papers/arxiv-2611.10485.md)
 - [T03 总图](../LITERATURE_MAP.md)
