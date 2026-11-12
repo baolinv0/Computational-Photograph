@@ -158,7 +158,7 @@ Reward model 训练期可用，不代表它已成为可靠的在线候选选择�
 - 核心路线：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 生成 underwater input，避免把传统增强算法输出直接当作 clean GT。
 - v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的数据集，并报告 6 个架构/3 个测试集；v2 的真正增量是更深入的 appearance/structure/depth reliability 分析、depth-aware modulation、人类感知评价、degradation–restoration reciprocity 和 real-world validation。
 - 关键证据：v1 已有 6 个 restoration architectures、3 个 test sets；v2 的新增分析表明，更高 spatial plausibility 不必然提升下游 restoration performance。
-- 近年前序：UIEB/EUVP 等真实水下增强测试集；WaterGAN/算法增强参考等合成监督路线。UWNature 与真实水下 paired GT 不等价。
+- 近年前序：WaterGAN（2017）的 in-air RGB + depth 合成配对、Sea-Thru（CVPR 2019）的 RGBD/range 物理恢复、UIEB（2019）的真实水下 perceptual benchmark。UWNature 与真实水下 paired GT 不等价。
 - 作者主张：source-preserving supervision 可提供具有竞争力的 underwater restoration data。
 - 局部证据：跨架构/测试集结果与 human perceptual analysis。
 - 共同方向：数据质量必须同时考虑 intrinsic plausibility 和 downstream utility；目前仍是 underwater 局部证据。
