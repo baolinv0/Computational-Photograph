@@ -147,7 +147,7 @@ Reward model 训练期可用，不代表它已成为可靠的在线候选选择�
 
 ### 1. 旧地图
 
-水下增强的监督路线包括真实采集 benchmark（如 UIEB/EUVP）、算法增强参考、物理/合成退化，以及保留 clean source 的 source-preserving pseudo-pair。它们解决的不是同一个 GT 可信度问题。
+水下增强的历史锚点是三条不同路线：WaterGAN（2017）用 in-air RGB + depth 生成 paired underwater input；Sea-Thru（CVPR 2019）用 RGBD/range 与修正物理模型恢复颜色；UIEB（2019）提供 950 张真实水下图，其中 890 张有 pairwise-consensus reference、60 张没有满意参考。UWNature 则是 source-preserving unpaired synthesis。它们解决的不是同一个 GT 可信度问题。
 
 ### 2. 本次变化
 
