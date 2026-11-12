@@ -3422,7 +3422,7 @@
           "type": "update",
           "date": "2026-11-11",
           "new_alert": true,
-          "earliest_public_date": "2026-11-10",
+          "earliest_public_date": "2026-03-06",
           "brief": "2026-11-12 Paper Watch v3.2 Update",
           "note": "v1 first public 2026-03-06; v4 submitted 2026-11-10 05:34 UTC and appeared in the 2026-11-11 replacement listing. Material addition: reward-independent 40-input/5-expert human study with 72.5% LR-faithfulness preference; not a new paper."
         }
@@ -3475,7 +3475,7 @@
           "type": "update",
           "date": "2026-11-11",
           "new_alert": true,
-          "earliest_public_date": "2026-11-10",
+          "earliest_public_date": "2026-04-16",
           "brief": "2026-11-12 Paper Watch v3.2 Update",
           "note": "v1 first public 2026-04-16; v2 submitted 2026-11-10 08:19 UTC and appeared in the 2026-11-11 replacement listing. Material addition: measured one-step inference time and expanded diffusion-baseline comparison; not a new paper."
         }
@@ -3529,7 +3529,7 @@
           "type": "update",
           "date": "2026-11-11",
           "new_alert": true,
-          "earliest_public_date": "2026-11-10",
+          "earliest_public_date": "2025-11-18",
           "brief": "2026-11-12 Paper Watch v3.2 Update/backfill",
           "note": "v1 first public 2025-11-18; v2 submitted 2026-11-10 13:37 UTC and appeared in the 2026-11-11 replacement listing. Material addition: six architectures, three test sets and expanded synthetic-supervision reliability analysis; not a new paper."
         }
