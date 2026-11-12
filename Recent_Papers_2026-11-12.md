@@ -43,7 +43,7 @@
 
 - arXiv v1 首传：2026-11-10 03:16 UTC；当前 v1；首次 public new listing：2026-11-11；首次覆盖：2026-11-12。
 - 核心命题：预训练 VAE 在 HDR 深暗区域可能丢失 chroma；在 VAE 前加入 13-parameter invertible exposure-equivariant EquivFlow，让曝光变化成为 additive shift、chroma 对曝光尺度保持不变。
-- 关键证据：多个冻结图像/视频 VAE 的编码测试；LTX-2.3 22B + IC-LoRA 端到端系统；5,780 crops、1,015 parent sequences；102 个 ARRI/HDRTV4K/UPIQ 视频片段；chroma-preserving loss 消融有贡献。
+- 关键证据：多个冻结图像/视频 VAE 的编码测试；LTX-2.3 22B + IC-LoRA 端到端系统；5,780 crops、1,015 parent sequences；102 个 ARRI/HDRTV4K/UPIQ 视频片段。VAE round-trip 中 LogC3/Log-Gamma 的 reconstruction R² 可持平或略高，但在 −8/−10 EV 深暗区丢失更多 linearly recoverable chroma；EquivFlow 的六组 chromatic ΔEITP 更优，unseen ACES-like curve aggregate PSNR 则仍由 LogC3 占优。
 - 主要争议：EquivFlow 与 LogC3 对比的输入合同不一致（scene-linear proxy vs raw SDR）；编码选择面板与 ARRI 测试集有少量重叠；unseen ACES-like curve 的 aggregate PSNR 上 LogC3 仍占优；无移动端成本。
 - 近年前序：LumiVid（LogC3）、DiffHDR（Log-Gamma）。属于竞争表示路线，不能把发表先后当作继承。
 - 作者主张：提升 VAE 传输深暗色度的能力。
