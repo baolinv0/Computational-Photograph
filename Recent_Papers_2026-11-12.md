@@ -96,7 +96,7 @@
 
 - v1 首发：2026-03-06；当前 v4 提交：2026-11-10 05:34 UTC；v4 首次 public replacement listing：2026-11-11；本库首次覆盖：2026-11-12。
 - 核心命题：把 perceptual quality 与 LR-faithfulness 分成不同 reward，在每个 LR-conditioned rollout group 内先分别归一化，再融合为 DiffusionNFT update 信号。
-- 真正增量：v4 新增 reward-independent human study：40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons；LucidNFT 在 72.5% 比较中被判定更忠实于 LR，baseline 17.5%，tie 10%。
+- 真正增量：v4 新增 reward-independent human study：40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons；LucidNFT 在 72.5% 的 binary judgments 中被判定更忠实于 LR，LucidFlux baseline 27.5%；实验不允许 tie，Fleiss’ κ=0.415。
 - 近年前序：DSPO 是人类偏好 + 语义实例反馈路线；LucidNFT 明确沿用 DiffusionNFT update，主要改造 reward evaluator / scalarization，而不是提出全新 RL 算法。
 - 争议：LucidConsistency 同时参与训练和部分评价，仍有 reward/metric self-reference；人评样本小；收益同时受 evaluator、LucidLR 数据和 RL budget 影响。
 - 作者主张：感知质量提升且 LR 证据保持更好。
@@ -184,6 +184,8 @@ clean source + unpaired underwater references → I2I degradation synthesis / de
 详细正文：[Imaging Training Data Synthesis survey](surveys/imaging-training-data-synthesis.md)。
 
 ---
+
+**纠错记录（LucidNFT v4，2026-11-12）：** 依据 arXiv v4 Table 9，human study 为 200 次 binary judgments、无 tie，72.5% vs 27.5%，Fleiss’ κ=0.415。此前草稿的 17.5% / 10% tie 是不准确转录，已更正。
 
 ## 其他候选与未升级项
 
