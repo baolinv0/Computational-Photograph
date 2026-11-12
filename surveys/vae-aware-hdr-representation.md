@@ -41,6 +41,8 @@ Reported setup:
 - chroma-preserving objective is load-bearing in ablations;
 - chromatic-fidelity gains are reported across tested settings.
 
+At the VAE round-trip level, LogC3/Log-Gamma can match or slightly exceed EquivFlow on reconstruction R², yet their linearly recoverable chroma degrades sharply at −8/−10 EV; EquivFlow preserves more deep-shadow chroma. In end-to-end evaluation it reports lower ΔEITP across the six chromatic columns, while LogC3 still wins aggregate PSNR on the unseen ACES-like curve.
+
 Important limits:
 
 1. The EquivFlow and LogC3 end-to-end paths do not share an identical input contract: EquivFlow uses an inverse-tone-mapped scene-linear proxy, while the LogC3 comparison uses raw SDR input.
