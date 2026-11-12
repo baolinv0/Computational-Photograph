@@ -217,6 +217,19 @@ RawGen 的重建对照中，其他 baseline 以默认 ISP 的 one-to-one 配对�
 | 2026-10-23 | 用户提出 RawGen 为相关历史工作 | 核实生成域和条件；与 MESS 建立综合对照，未发现 MESS v1 直接引用 | 不把时间顺序或关键词相同当继承 |
 | 2026-10-23 | 少量锚点可能漏掉必要前序 | 3–5 个锚点仅限制主视图，完整 survey 继续扩展；已制定有则插入、无则建分支规则 | 旧论文回填不冒充新论文推送 |
 
+## Historical anchors: underwater pseudo-pairs, physics and real benchmark
+
+The underwater literature provides three distinct supervision/evidence routes that should not be collapsed into one "paired data" category.
+
+| Route | Anchor | Input → output | What is treated as target/evidence | Key boundary |
+|---|---|---|---|---|
+| Generative synthetic pairs | WaterGAN (2017) | In-air RGB + depth → synthetic underwater RGB | Original in-air image is the color target for the generated underwater observation | The pair is generated, not a simultaneously captured underwater/air physical pair; quality depends on the simulator and depth conditioning |
+| Physics-based RGBD restoration | Sea-Thru (CVPR 2019) | Underwater RGBD + range-dependent water model → color-restored RGB | RGBD range and revised attenuation/backscatter model constrain reconstruction | Requires range/depth and model assumptions; not a scalable paired training corpus |
+| Real-world perceptual benchmark | UIEB (2019) | 950 real underwater images → 890 reference images + 60 challenging no-reference cases | References are produced through a designed pairwise-comparison process, not physical in-air ground truth | Useful real-world benchmark, but references are perceptual consensus and the 60 challenge cases explicitly lack satisfactory references |
+| Source-preserving unpaired synthesis | UWNature (2025; v2 update 2026) | Clean natural image + unpaired underwater appearance → synthetic underwater input | Original clean source remains the target | Avoids enhancement-algorithm pseudo-GT, but does not reproduce a real underwater radiance measurement |
+
+**Relationship:** WaterGAN is a learned simulator, Sea-Thru is a physics/range-conditioned inverse model, UIEB is a real-world perceptual benchmark, and UWNature is source-preserving unpaired synthesis. They answer different questions: data coverage, physical plausibility, perceptual evaluation, and downstream training utility.
+
 ## 2026-11-12 backfill：UWNature v2 的 supervision reliability
 
 [UWNature v2](../papers/arxiv-2511.14521.md) 是 2025-11-18 首发论文的实质版本更新，v2 于 2026-11-10 提交并在 2026-11-11 的新版本列表中出现。本次作为 **Update/backfill** 处理，不作为新论文。
