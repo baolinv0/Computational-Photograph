@@ -39,7 +39,7 @@
 
 ## 2026-11-12：LR-faithfulness 不等于 NR-IQA
 
-[LucidNFT v4](../papers/arxiv-2603.05947.md) 将 Real-ISR 的目标拆成 perceptual quality 与 LR-referenced faithfulness，并训练 LucidConsistency 作为 LR 证据评价器。v4 新增 40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons 的 reward-independent human study；LucidNFT 在 72.5% 比较中被判定更忠实于 LR，baseline 17.5%，tie 10%。
+[LucidNFT v4](../papers/arxiv-2603.05947.md) 将 Real-ISR 的目标拆成 perceptual quality 与 LR-referenced faithfulness，并训练 LucidConsistency 作为 LR 证据评价器。v4 新增 40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons 的 reward-independent human study；LucidNFT 在 72.5% 的 200 次 binary judgments 中被判定更忠实于 LR，LucidFlux baseline 27.5%；实验不允许 tie，Fleiss’ κ=0.415。
 
 这是一条 **training reward / preference** 证据，不是通用 NR-IQA，也不是在线 Agent judge。其指标仍需谨慎：LucidConsistency 同时参与训练和部分评价，存在 self-reference；小规模人评只能补强，不能替代跨数据集独立验证。完整机制与系统分层见 [LR-anchored Real-ISR preference optimization](lr-anchored-real-isr-preference-optimization.md)。
 
