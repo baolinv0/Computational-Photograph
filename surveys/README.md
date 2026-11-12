@@ -32,6 +32,15 @@
 
 这是跨仓库导航，不代表所有主题都已完成 survey；未建设的分支继续保存在 [总图](../LITERATURE_MAP.md) 中。
 
+## 2026-11-12 新建与更新
+
+- [Low-Light RAW Neural Rendering](low-light-raw-neural-rendering.md) — T03/T01：RawNeRF、LE3D、From Chaos to Clarity、HDRSplat 与 RetinexGS 的 RAW 3DGS 竞争路线。
+- [VAE-Aware HDR Representation](vae-aware-hdr-representation.md) — T02/T03：LumiVid LogC3、DiffHDR Log-Gamma、Dark Matters EquivFlow 的冻结 VAE 前表示路线。
+- [LR-Anchored Real-ISR Preference Optimization](lr-anchored-real-isr-preference-optimization.md) — T04/T03：DSPO、DiffusionNFT 与 LucidNFT 的 reward / preference / LR-faithfulness 路线。
+- 更新 [高效生成式恢复](efficient-generative-restoration.md)：补入 DVFace v2 的 one-step 视频人脸实测成本。
+- 更新 [低光与颜色 IQA](low-light-iqa-and-gt-validity.md)：补入 LucidNFT v4 的 reward-independent human study。
+- 更新 [成像训练数据合成](imaging-training-data-synthesis.md)：补入 UWNature v2 supervision reliability 反证。
+
 ## 维护原则
 
 1. **已有则插入，缺少独立分支才创建。** 查同问题和同义词，不仅查文件名。
