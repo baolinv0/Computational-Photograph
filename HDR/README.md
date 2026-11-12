@@ -100,6 +100,13 @@ Companion reference for dataset papers/project links and **Pseudo Ground Truth (
 ---
 
 <a id="current-research-framing"></a>
+## 2026-11-12 additions
+
+- [Low-Light RAW Neural Rendering survey](../surveys/low-light-raw-neural-rendering.md)：RawNeRF → LE3D / From Chaos to Clarity / HDRSplat → RetinexGS。
+- [VAE-Aware HDR Representation survey](../surveys/vae-aware-hdr-representation.md)：LumiVid / DiffHDR / Dark Matters 的 VAE 前 HDR 编码路线。
+- [RetinexGS canonical card](../papers/arxiv-2611.13280.md)。
+- [Dark Matters canonical card](../papers/arxiv-2611.13504.md)。
+
 # Current Research Framing for Mobile Same-EV SDR Video → HDR
 
 Keep the following distinctions explicit when comparing papers:
