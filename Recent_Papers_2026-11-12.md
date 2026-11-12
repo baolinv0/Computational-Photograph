@@ -110,7 +110,7 @@
 
 - v1 首发：2026-04-16；当前 v2 提交：2026-11-10 08:19 UTC；v2 首次 public replacement listing：2026-11-11；本库首次覆盖：2026-11-12。
 - 核心机制仍是 spatial/temporal dual-codebook + asymmetric fusion + one-step Wan2.1 diffusion。
-- 真正增量：v2 增加效率测量与近期 diffusion restoration 对比。81 帧、512×512、单张 A6000、one-step 15.13 s，约 5.4 FPS；作者报告相对 SVFR 约 15.2×、相对 Upscale-A-Video 约 23.1×。
+- 真正增量：v2 增加效率测量与近期 diffusion restoration 对比。81 帧、512×512、单张 A6000、one-step 15.13 s，约 5.4 FPS；作者报告相对 SVFR 约 15.2×、相对 Upscale-A-Video 约 23.1×。训练约 16K VFHQ 视频并合成退化，codebook/LQ refinement/diffusion adaptation 分别 250K/50K/15K iterations，4×A6000。
 - 争议：one-step 不等于 real-time；真实视频缺少 HR GT；长视频 chunk-wise inference 可能引入边界不一致。
 - 近年前序：DicFace 的时序 codebook、SVFR 等多步视频人脸恢复路线。
 - 作者主张：质量、身份保持和时序一致性优于近期方法。
