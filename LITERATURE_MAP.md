@@ -309,7 +309,7 @@ Topic ID / 稳定问题：
 
 #### 3. T05：Pseudo-GT 的内在真实性不等于训练效用
 
-**旧地图：** UIEB/EUVP 等数据集提供真实水下增强测试；WaterGAN/算法增强参考等路线试图扩展配对监督；source-preserving synthetic pair 则保留 clean source 作为 target。
+**旧地图：** WaterGAN（2017）用 in-air RGB + depth 生成 underwater pseudo-pairs；Sea-Thru（CVPR 2019）用 RGBD/range 与分离的 attenuation/backscatter 模型做物理恢复；UIEB（2019）提供 950 张真实水下图，其中 890 张有 pairwise-consensus reference、60 张没有满意参考；UWNature 则保留 clean source 作为 target 做 unpaired synthesis。
 
 **本次变化：** [UWNature v2](papers/arxiv-2511.14521.md) 对 6 个 restoration architectures、3 个 test sets 增加外观、结构、深度和人类感知分析，指出空间上更合理的合成退化不一定提升下游恢复。地图变化 Counter-evidence / Boundary refinement。
 
