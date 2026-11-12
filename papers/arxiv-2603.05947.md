@@ -28,8 +28,8 @@ LucidNFT在 flow-based Real-ISR 中同时优化感知质量与 LR-faithfulness�
 
 ## 技术机制
 
-1. LucidConsistency：以 Qwen3-VL-Embedding-8B 为基础，利用 content-consistent degradation pools 和 inpainting hard negatives 学习 LR-referenced faithfulness，识别局部 hallucination。
-2. LucidLR：约 20K real-world degraded images，用于 RL fine-tuning。
+1. LucidConsistency：以冻结的 Qwen3-VL-Embedding-8B 为基础训练 LoRA；85K LSDIR images 构建三等级 content-consistent degradation pools，37.7K original–inpainted pairs（来自 33.3K originals）作为局部 hallucination hard negatives。
+2. LucidLR：20K unpaired real-world degraded images，覆盖 13 个 semantic categories、15 种 primary degradations，median resolution 1080×960，附逐图 license metadata，用于 RL fine-tuning。
 3. Decoupled reward normalization：对每个 LR-conditioned rollout group 内的不同 reward 分别归一化，再融合，保留 objective-specific candidate contrast。
 4. 使用 DiffusionNFT update 对 flow-based Real-ISR backbone 做 RL fine-tuning；不是新的在线 agent。
 
@@ -50,7 +50,9 @@ LucidNFT在 flow-based Real-ISR 中同时优化感知质量与 LR-faithfulness�
 
 ## v4 更新与关键证据
 
-v4 新增 reward-independent human study：40 个 RealSR LR inputs、5 位 expert annotators、共 200 个 binary judgments；LucidNFT 输出在 72.5% 比较中被判定更忠实于 LR，baseline 为 17.5%，tie 为 10%。这比仅用 LucidConsistency 自身分数评价更有价值，但样本量仍小。
+**纠错记录 2026-11-12：** 依据 v4 arXiv HTML 的 Table 9，200 次 binary judgments 中为 72.5% 对 27.5%，且不允许 tie；此前草稿中的 17.5% / 10% tie 是不准确转录，已更正。
+
+v4 新增 reward-independent human study：40 个 RealSR LR inputs、5 位 expert annotators、共 200 个 binary judgments；LucidNFT 输出在 72.5% 的 binary judgments 中被判定更忠实于 LR，baseline 为 27.5%；实验不允许 tie，Fleiss’ κ=0.415（moderate agreement）。这比仅用 LucidConsistency 自身分数评价更有价值，但样本量仍小。
 
 作者还报告在 8 个 Real-ISR 方法、3 个真实退化测试集上取得感知质量提升，并通常保持 LR-referenced consistency。
 
