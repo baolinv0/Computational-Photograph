@@ -22,7 +22,7 @@ UWNature 保留清晰自然照片作为 clean reference，再用 unpaired image-
 
 ## v1 到 v2 的实质更新
 
-v1 提出 UWNature 数据生成路线；v2 增加 appearance distributions、structural consistency、depth-aware modulation、perceptual evaluation 和 restoration behavior 分析，并引入 UWImgNetSD 作为 AI-generated underwater appearance 的辅助评估材料。该版本改变了对“更真实退化一定带来更好模型”的判断边界。
+v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的 source-preserving synthetic datasets，覆盖 6 类水下退化，并已在 6 个架构、3 个测试集上评估。v2 的实质增量是 appearance/structure/depth reliability 分析、depth-aware modulation、human perceptual evaluation、degradation–restoration reciprocity 和 real-world validation；不是首次引入 UWImgNetSD 或 6×3 benchmark。该版本改变了对“更真实退化一定带来更好模型”的判断边界。
 
 ## 问题与路线关系
 
@@ -49,9 +49,9 @@ v1 提出 UWNature 数据生成路线；v2 增加 appearance distributions、str
 
 **作者主张：** UWNature 可提供具有竞争力的 restoration supervision，并在真实 underwater images 上获得较好感知质量。
 
-**局部证据：** v2 跨 6 个 restoration architectures 和 3 个 test sets 评估，并增加人类感知与 depth-aware degradation 分析。
+**局部证据：** v1 已报告 6 个 restoration architectures 和 3 个 test sets；v2 在此基础上增加人类感知与 depth-aware degradation / downstream behavior 分析。
 
-**重要反证：** 更高的 spatial plausibility 不必然带来更好的 restoration performance。这说明 intrinsic data realism 不能替代 downstream learning utility。
+**重要反证：** v1 的“consistently superior performance”表述在 v2 中被进一步限定：更高的 spatial plausibility 不必然带来更好的 restoration performance。这说明 intrinsic data realism 不能替代 downstream learning utility。
 
 **边界：** 仍是 underwater domain；clean in-air source 并不等于真实 underwater radiance reference；没有独立复现；跨相机/跨场景的结论不能直接迁移到移动 ISP。
 
