@@ -38,7 +38,7 @@ v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的 source-preservin
 - **输出：** 合成 underwater degraded input 与原始自然照片组成的 pseudo-pair。
 - **目标定义：** clean source image 本身定义 target；生成器只负责构造 degraded input。
 - **执行表示：** unpaired image-to-image translation，v2 增加 depth-aware modulation。
-- **训练数据/监督：** UWNature 自然照片及 underwater appearance 数据；v2 扩展 UWImgNetSD 与外观/结构/深度可靠性分析。
+- **训练数据/监督：** v1 已构建 UWNature 与 UWImgNetSD 两个 source-preserving synthetic datasets；v2 沿用这些数据并扩展外观/结构/深度可靠性、人类感知与 downstream behavior 分析。
 - **评价：** 6 个 restoration architectures、3 个 test sets；结合 objective metrics、人类感知评价和 synthetic degradation 与模型学习行为之间的对应关系。
 - **反馈：** restoration model 的下游训练/测试表现反向验证 synthetic data utility。
 - **成本：** 论文没有给出可直接复用的统一端到端数据生成成本。
