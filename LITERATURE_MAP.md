@@ -181,7 +181,7 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 方案回忆：先定义该评什么 → 取得可用证据 → 校准评分/排序 → 检查稳定性 → 根据场景约束做决定 → 独立审核被优化后的结果。
 
-**2026-11-12 T04 增量：** [LucidNFT v4](papers/arxiv-2603.05947.md) 增加 40 个 LR 输入、5 位专家的 reward-independent human study（72.5% 比较更偏好其 LR-faithfulness）。它是离线 RL reward 证据，不是在线 Agent judge；详细路线见 [LR-Anchored Real-ISR Preference Optimization](surveys/lr-anchored-real-isr-preference-optimization.md)。
+**2026-11-12 T04 增量：** [LucidNFT v4](papers/arxiv-2603.05947.md) 增加 40 个 LR 输入、5 位专家、200 次 binary judgments 的 reward-independent human study（72.5% vs 27.5%，不允许 tie，Fleiss’ κ=0.415）。它是离线 RL reward 证据，不是在线 Agent judge；详细路线见 [LR-Anchored Real-ISR Preference Optimization](surveys/lr-anchored-real-isr-preference-optimization.md)。
 
 ### T05｜数据与 Pseudo-GT
 
@@ -202,7 +202,7 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 方案回忆：确定 target 来源 → 选择退化/目标生产方式 → 检查配对与区域可靠性 → 训练同一 student → 在独立真实数据上验收。
 
-**2026-11-12 T05 更新：** [UWNature v2](papers/arxiv-2511.14521.md) 扩大了 synthetic supervision reliability 评估，并明确指出更高 spatial plausibility 不必然改善 restoration performance。该版本是 2025-11-18 首发论文的实质更新，不作为新论文计数；source-preserving pseudo-pair 仍是有效路线，但需同时测 intrinsic realism 与 downstream utility。
+**2026-11-12 T05 更新：** [UWNature v2](papers/arxiv-2511.14521.md) 在 v1 已有的两个 10K-pair 数据集、6 个架构和 3 个测试集基础上，增加更深入的 appearance/structure/depth reliability、人类感知、degradation–restoration reciprocity 与 real-world validation，并明确指出更高 spatial plausibility 不必然改善 restoration performance。该版本是 2025-11-18 首发论文的实质更新，不作为新论文计数；source-preserving pseudo-pair 仍是有效路线，但需同时测 intrinsic realism 与 downstream utility。
 
 专题深化：[成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)。覆盖逆 ISP、RAW/XYZ 生成和曝光监督的历史路线；MESS 与 RawGen 是综合建立的并行关联，不是已核实的直接继承。阅读时同时区分 UNICE 的融合目标与 MESS 保留原始 RGB 目标。
 
