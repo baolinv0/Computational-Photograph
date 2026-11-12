@@ -8,6 +8,14 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-12 Paper Watch：HDR 表示、RAW 重建、Real-ISR Reward 与监督可靠性
+
+- [本轮 Topic Update](Recent_Papers_2026-11-12.md)：2 篇新作 + 3 项实质版本更新。
+- [RetinexGS](papers/arxiv-2611.13280.md) · [Dark Matters](papers/arxiv-2611.13504.md)
+- [LucidNFT v4](papers/arxiv-2603.05947.md) · [DVFace v2](papers/arxiv-2604.14560.md) · [UWNature v2](papers/arxiv-2511.14521.md)
+- 新建：[Low-Light RAW Neural Rendering](surveys/low-light-raw-neural-rendering.md) · [VAE-Aware HDR Representation](surveys/vae-aware-hdr-representation.md) · [LR-Anchored Real-ISR Preference Optimization](surveys/lr-anchored-real-isr-preference-optimization.md)
+- 更新：[高效生成式恢复](surveys/efficient-generative-restoration.md) · [IQA/GT 可信度](surveys/low-light-iqa-and-gt-validity.md) · [训练数据合成](surveys/imaging-training-data-synthesis.md)
+
 ## 2026-11-11 Paper Watch：生成轨迹的闭环编辑、局部暗光 SR 强度、真实 OLAT 人像重照明
 
 - [三个 Topic Update、三项 2026-11-06—08 新作](Recent_Papers_2026-11-11.md)：2026-11-10 arXiv cs.CV 新公告，早于本轮的 11-10 成功检查尚未覆盖；核心作者 + 全领域开放检索。
