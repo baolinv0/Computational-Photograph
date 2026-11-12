@@ -221,7 +221,7 @@ RawGen 的重建对照中，其他 baseline 以默认 ISP 的 one-to-one 配对�
 
 [UWNature v2](../papers/arxiv-2511.14521.md) 是 2025-11-18 首发论文的实质版本更新，v2 于 2026-11-10 提交并在 2026-11-11 的新版本列表中出现。本次作为 **Update/backfill** 处理，不作为新论文。
 
-其基本路线是 source-preserving pseudo-pair：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 合成 underwater input。v2 增加 appearance distribution、structural consistency、depth-aware modulation、人类感知评价和 restoration behavior 分析，覆盖 6 个 restoration architectures 与 3 个 test sets。
+其基本路线是 source-preserving pseudo-pair：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 合成 underwater input。v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的 source-preserving datasets，并报告 6 个 restoration architectures 与 3 个 test sets。v2 的新增内容是更深入的 appearance/structure/depth reliability 分析、depth-aware modulation、人类感知评价、degradation–restoration reciprocity 和 real-world validation。
 
 最重要的判断变化：**更高的 synthetic degradation spatial plausibility 不必然带来更好的 restoration performance。** 因此数据质量至少要分成 intrinsic realism、target/source consistency 和 downstream learning utility 三层；不能只用 VLM 或视觉观感挑选数据生成器。UWNature 仍是 underwater 专项证据，不能直接外推到移动 ISP。
 
