@@ -49,7 +49,7 @@ EquivFlow 是紧凑的可逆颜色编码：曝光变化在编码空间表现为 
 
 **作者主张：** EquivFlow 在多个冻结图像/视频 VAE 上保持 exposure structure 与 deep-dark chroma transport，并在 SDR-to-HDR 视频扩散测试中带来稳定的色度保真收益。
 
-**局部证据：** 论文做了多个 pretrained VAE 的编码级测试，并在 102 个视频片段上进行端到端评估；chroma loss 消融显示该项对暗部色度保持是关键的。
+**局部证据：** VAE round-trip 表中 LogC3/Log-Gamma 的重建 R² 可与 EquivFlow 持平或略高，但在 -8/-10 EV 的深暗区域，LogC3/Log-Gamma 的 linearly recoverable chroma 明显衰减甚至不可恢复；EquivFlow 保留更多 chroma。端到端 102 clips 中，EquivFlow 在六个 chromatic columns 的 ΔEITP 指标上更优，但 unseen ACES-like curve 的 aggregate PSNR 仍由 LogC3 占优；chroma loss ablation 显示该项是暗部色度保持的关键。
 
 **关键争议/替代解释：**
 1. EquivFlow 与 LogC3 的端到端比较并非完全相同的输入合同：EquivFlow 使用 inverse-tone-mapped scene-linear proxy，LogC3 对照使用 raw SDR 输入。因此收益不能全部归因于编码函数本身。
