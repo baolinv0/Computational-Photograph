@@ -97,6 +97,17 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 
 **记忆反例**：GFLOPs 最少的方案不必是恢复 PSNR 最好；NR-IQA 优势不等于真细节恢复。
 
+## 2026-11-12：视频人脸 one-step 与表示侧控制
+
+**DVFace v2**（arXiv:2604.14560）补充了实际效率对照：81 帧、512×512、单张 A6000、one-step 15.13 s，约 5.4 FPS；相对 SVFR 和 Upscale-A-Video 的作者测量分别约 15.2×、23.1×。这把“one-step 更快”从结构性推断推进到单卡实测，但仍不是 30 FPS 实时视频，长视频还需 chunk-wise 处理，chunk 边界一致性是明确风险。核心架构仍是 spatial/temporal dual-codebook + asymmetric fusion，不是新的一步生成理论。
+
+该分支与 [DicFace](https://arxiv.org/abs/2506.13355) 的时序 codebook 思路竞争/互补；DVFace 的主要工程增量是把先验注入 one-step Wan2.1 backbone。真实视频缺少可靠 HR GT，NR-IQA 与 temporal metrics 不能替代身份/结构事实验证。
+
+**相关新入口：**
+- [DVFace v2 canonical card](../papers/arxiv-2604.14560.md)
+- [LR-anchored Real-ISR preference optimization](lr-anchored-real-isr-preference-optimization.md)：离线 reward 优化与在线视频恢复是不同系统角色。
+- [VAE-aware HDR representation](vae-aware-hdr-representation.md)：表示侧的 HDR/VAE 接口是另一条独立分支。
+
 ## References
 
 - [GLOW-FM / arXiv 2610.31222v1](https://arxiv.org/abs/2610.31222v1)
