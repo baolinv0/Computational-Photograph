@@ -26,7 +26,9 @@ v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的 source-preservin
 
 ## 问题与路线关系
 
-- 传统 underwater paired datasets 往往依赖增强算法输出或不完全可靠的参考图，GT 本身可能带有算法偏差。
+- **WaterGAN (2017)：** in-air RGB + depth → synthetic underwater RGB，原始 in-air image 作为 target；这是生成式模拟配对，不是真实同时采集的 underwater/air pair。
+- **Sea-Thru (CVPR 2019)：** 使用 RGBD/range 与 revised attenuation/backscatter model 做物理恢复；需要深度/距离约束，不是大规模 paired training corpus。
+- **UIEB (2019)：** 950 张真实水下图，890 张有 perceptual reference，60 张作为无满意参考的 challenge cases；reference 是 pairwise-comparison consensus，不是物理 clean GT。
 - UWNature 采用 source-preserving pseudo-pair：自然照片保留为 clean target，unpaired I2I 生成 underwater input。
 - 它与物理成像模型/真实水下采集是互补路线，不等于获得了真实水下 paired GT。
 
@@ -64,3 +66,6 @@ PROBE。v2 的重要性在于修正数据合成的评价标准，而不是证明
 ## References
 
 - [UWNature v2, arXiv:2511.14521](https://arxiv.org/abs/2511.14521)
+- [WaterGAN, arXiv:1702.07392](https://arxiv.org/abs/1702.07392)
+- [UIEB, arXiv:1901.05495](https://arxiv.org/abs/1901.05495)
+- [Sea-Thru, CVPR 2019](https://openaccess.thecvf.com/content_CVPR_2019/html/Akkaynak_Sea-Thru_A_Method_for_Removing_Water_From_Underwater_Images_CVPR_2019_paper.html)
