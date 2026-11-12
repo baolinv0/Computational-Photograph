@@ -43,7 +43,7 @@
 
 - arXiv v1 首传：2026-11-10 03:16 UTC；当前 v1；首次 public new listing：2026-11-11；首次覆盖：2026-11-12。
 - 核心命题：预训练 VAE 在 HDR 深暗区域可能丢失 chroma；在 VAE 前加入 13-parameter invertible exposure-equivariant EquivFlow，让曝光变化成为 additive shift、chroma 对曝光尺度保持不变。
-- 关键证据：多个冻结图像/视频 VAE 的编码测试；LTX-2.3 22B + IC-LoRA 端到端系统；5,780 crops、1,015 parent sequences；102 个 ARRI/HDRTV4K/UPIQ 视频片段。VAE round-trip 中 LogC3/Log-Gamma 的 reconstruction R² 可持平或略高，但在 −8/−10 EV 深暗区丢失更多 linearly recoverable chroma；EquivFlow 的六组 chromatic ΔEITP 更优，unseen ACES-like curve aggregate PSNR 则仍由 LogC3 占优。
+- 关键证据：多个冻结图像/视频 VAE 的编码测试；LTX-2.3 22B + IC-LoRA 端到端系统；5,780 crops、1,015 parent sequences；102 个 ARRI/HDRTV4K/UPIQ 视频片段。EquivFlow 拟合 15k steps，LoRA 训练 6.5k steps、4×H100 80GB；推理 30 diffusion steps，未报告墙钟/移动端成本。VAE round-trip 中 LogC3/Log-Gamma 的 reconstruction R² 可持平或略高，但在 −8/−10 EV 深暗区丢失更多 linearly recoverable chroma；EquivFlow 的六组 chromatic ΔEITP 更优，unseen ACES-like curve aggregate PSNR 则仍由 LogC3 占优。
 - 主要争议：EquivFlow 与 LogC3 对比的输入合同不一致（scene-linear proxy vs raw SDR）；编码选择面板与 ARRI 测试集有少量重叠；unseen ACES-like curve 的 aggregate PSNR 上 LogC3 仍占优；无移动端成本。
 - 近年前序：LumiVid（LogC3）、DiffHDR（Log-Gamma）。属于竞争表示路线，不能把发表先后当作继承。
 - 作者主张：提升 VAE 传输深暗色度的能力。
@@ -98,7 +98,7 @@
 - 核心命题：把 perceptual quality 与 LR-faithfulness 分成不同 reward，在每个 LR-conditioned rollout group 内先分别归一化，再融合为 DiffusionNFT update 信号。
 - 真正增量：v4 新增 reward-independent human study：40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons；LucidNFT 在 72.5% 的 binary judgments 中被判定更忠实于 LR，LucidFlux baseline 27.5%；实验不允许 tie，Fleiss’ κ=0.415。
 - 近年前序：DSPO 是人类偏好 + 语义实例反馈路线；LucidNFT 明确沿用 DiffusionNFT update，主要改造 reward evaluator / scalarization，而不是提出全新 RL 算法。
-- 争议：LucidConsistency 同时参与训练和部分评价，仍有 reward/metric self-reference；人评样本小；收益同时受 evaluator、LucidLR 数据和 RL budget 影响。
+- 争议：LucidConsistency 同时参与训练和部分评价，仍有 reward/metric self-reference；人评样本小；收益同时受 evaluator、LucidLR 数据和 RL budget 影响。RL 使用 8×A100、600 steps、24 LR groups × 12 rollouts、768 resolution，完整墙钟成本未给出。
 - 作者主张：感知质量提升且 LR 证据保持更好。
 - 局部证据：8 个 Real-ISR 方法、3 个真实退化测试集和 40-input human study。
 - 共同方向：Real-ISR 正在从单一 perceptual reward 转向多目标 faithfulness/perceptual alignment；尚无通用 reward 共识。
