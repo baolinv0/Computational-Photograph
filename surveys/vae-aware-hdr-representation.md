@@ -41,14 +41,14 @@ Reported setup:
 - chroma-preserving objective is load-bearing in ablations;
 - chromatic-fidelity gains are reported across tested settings.
 
-At the VAE round-trip level, LogC3/Log-Gamma can match or slightly exceed EquivFlow on reconstruction R², yet their linearly recoverable chroma degrades sharply at −8/−10 EV; EquivFlow preserves more deep-shadow chroma. In end-to-end evaluation it reports lower ΔEITP across the six chromatic columns, while LogC3 still wins aggregate PSNR on the unseen ACES-like curve.
+At the VAE round-trip level, LogC3/Log-Gamma can match or slightly exceed EquivFlow on reconstruction R², yet their linearly recoverable chroma degrades sharply at −8/−10 EV; EquivFlow preserves more deep-shadow chroma. In end-to-end evaluation it reports lower ΔEITP across the six chromatic columns. Under matched Reinhard, EquivFlow has higher aggregate-fidelity point estimates; under the unseen ACES-like curve, the aggregate PSNR lead passes to LogC3. Because the conditioning reference differs, the authors attribute the result to the complete conditioning system rather than the encoding alone.
 
 Important limits:
 
 1. The EquivFlow and LogC3 end-to-end paths do not share an identical input contract: EquivFlow uses an inverse-tone-mapped scene-linear proxy, while the LogC3 comparison uses raw SDR input.
 2. The encoding-selection panel has limited overlap with the ARRI test subset; the selection and test sets are not fully image-disjoint.
 3. LogC3 remains stronger on aggregate PSNR for the unseen ACES-like curve. EquivFlow's strongest evidence is deep-dark chroma transport, not universal superiority across every metric.
-4. The 22B video diffusion system has no reported mobile or real-time deployment cost.
+4. EquivFlow fitting uses 15,000 steps; the IC-LoRA adapter uses 6,500 steps on 4×H100 80GB with effective batch 4; inference uses 30 diffusion steps. The 22B video diffusion system has no reported wall-clock training time, mobile or real-time deployment cost.
 
 ## 5. Full system reconstruction
 
