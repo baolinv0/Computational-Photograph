@@ -38,10 +38,10 @@ EquivFlow 是紧凑的可逆颜色编码：曝光变化在编码空间表现为 
 - **输出：** HDR 视频。
 - **目标定义：** 配对 HDR 视频定义监督目标；编码阶段通过冻结 VAE round-trip 和 chroma fidelity 目标选择表示。
 - **执行表示：** 13-parameter invertible EquivFlow → frozen VAE → video diffusion。
-- **训练数据/监督：** 论文报告 5,780 crops、来自 1,015 parent sequences；使用 LTX-2.3 22B video diffusion backbone 与 IC-LoRA 适配。
+- **训练数据/监督：** 论文报告 5,780 crops、来自 1,015 parent sequences；使用 LTX-2.3 22B video diffusion backbone 与 IC-LoRA 适配；VAE、diffusion backbone 和 text encoder 冻结，只训练 rank-32 adapter。训练集为 5,780 crops（5,388 train / 324 validation / 68 test），来自 1,015 parent sequences；是公开素材的固定派生数据，不是新公开数据集。
 - **评价：** VAE round-trip chroma transport、DeltaEITP、PSNR 和视频级重建指标；端到端测试共 102 clips，覆盖 ARRI、HDRTV4K、UPIQ。
 - **反馈：** 配对 HDR 监督、chroma-preserving loss、VAE latent reconstruction。
-- **成本：** 使用 22B 级视频生成模型；论文没有给出完整训练墙钟、端到端延迟或移动端成本。
+- **成本：** 使用 22B 级视频生成模型；EquivFlow 第一阶段拟合 15,000 steps；adapter 训练 6,500 steps，4×H100 80GB、effective batch 4；推理使用 30 diffusion steps。论文没有给出完整训练墙钟、端到端延迟或移动端成本。
 - **强基线：** LogC3（LumiVid）、Log-Gamma（DiffHDR）；不能把不同输入预处理协议下的对比当作纯编码消融。
 - **Agent 控制层：** 无；没有在线候选搜索或 judge。
 
