@@ -41,7 +41,7 @@ LucidNFT introduces:
 - **decoupled reward normalization:** normalize each reward within each LR-conditioned rollout group before fusion;
 - **DiffusionNFT update:** reused rather than replaced.
 
-The v4 human study uses 40 RealSR LR inputs and 5 expert annotators, producing 200 binary comparisons. LucidNFT outputs are judged more LR-faithful in 72.5% of comparisons, the baseline in 17.5%, and 10% are ties.
+The v4 human study uses 40 RealSR LR inputs and 5 expert annotators, producing 200 binary comparisons. LucidNFT outputs are judged more LR-faithful in 72.5% of 200 binary judgments, versus 27.5% for LucidFlux; ties were not allowed and Fleiss’ κ is 0.415.
 
 The study is useful because it is independent of LucidConsistency's own score, but it is still small. The paper also evaluates 8 Real-ISR methods across RealLQ250, DRealSR and RealSR.
 
