@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-11",
+  "updated_on": "2026-11-12",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-11-11; selected papers only, not exhaustive arXiv or author-level listing coverage.",
@@ -3270,6 +3270,277 @@
         "camerapaper": "not_modified_in_this_run",
         "alphaxiv_folder": "Color",
         "notation": "canonical-card-survey-map-and-alphaxiv_membership_readback_verified_2026-11-11"
+      }
+    },
+    {
+      "id": "arxiv-2611.13280",
+      "title": "RetinexGS: Retinex-Inspired Gaussian Splatting for Low-Light RAW Reconstruction",
+      "authors": "Yulang Fei; Huaiyuan Weng; Chul Min Yeum",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Raw",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T01",
+        "X01"
+      ],
+      "system_roles": [
+        "data",
+        "execution",
+        "training",
+        "deployment"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.13280v1",
+      "earliest_public_verified": "2026-11-09",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-12",
+      "checked_on": "2026-11-12",
+      "verification_scope": "full_paper_methods_main_results_and_ablations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13280.md",
+      "canonical_survey": "surveys/low-light-raw-neural-rendering.md",
+      "decision_key": "retinex_appearance_factorization_plus_dng_noise_weighting_for_low_light_raw_3dgs",
+      "decision_boundary": "Five-scene evidence; only two custom scenes; no cross-camera or dynamic-scene validation; appearance factorization and unequal iteration budgets explain part of the gain; rendering FPS is not full pipeline cost.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-09",
+          "brief": "2026-11-12 Paper Watch v3.2 Topic Update",
+          "note": "First arXiv v1 2026-11-09 21:44 UTC; appeared in the 2026-11-11 cs.CV new listing after the previous source coverage. Full text and selected ablations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Raw",
+        "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
+      }
+    },
+    {
+      "id": "arxiv-2611.13504",
+      "title": "Dark Matters: VAE-Aware HDR Encoding for SDR-to-HDR Video Reconstruction",
+      "authors": "Donghoon Cha; Bomseok Park; Hansl von Kwon; Ku DoHyung; Hanwool Sul",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "HDR",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T03",
+        "X01"
+      ],
+      "system_roles": [
+        "target",
+        "execution",
+        "training",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route"
+      ],
+      "verdict": "GO",
+      "source": "https://arxiv.org/abs/2611.13504v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-12",
+      "checked_on": "2026-11-12",
+      "verification_scope": "full_paper_methods_vae_tests_main_results_and_ablations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13504.md",
+      "canonical_survey": "surveys/vae-aware-hdr-representation.md",
+      "decision_key": "exposure_equivariant_invertible_hdr_encoding_preserves_chroma_before_frozen_vae",
+      "decision_boundary": "EquivFlow versus LogC3 comparison has different input reference contracts; selection panel has limited overlap with ARRI test subset; LogC3 wins aggregate PSNR on unseen ACES-like curve; 22B model cost not reported.",
+      "events": [
+        {
+          "type": "new_discovery",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-12 Paper Watch v3.2 Topic Update",
+          "note": "First arXiv v1 2026-11-10 03:16 UTC; appeared in the 2026-11-11 cs.CV new listing. Full paper and VAE/encoding ablations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "HDR",
+        "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
+      }
+    },
+    {
+      "id": "arxiv-2603.05947",
+      "title": "LucidNFT: LR-Anchored Multi-Reward Preference Optimization for Flow-Based Real-World Super-Resolution",
+      "authors": "Song Fei; Tian Ye; Sixiang Chen; Zhaohu Xing; Jianyu Lai; Lei Zhu",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T03",
+        "T05",
+        "X01"
+      ],
+      "system_roles": [
+        "target",
+        "data",
+        "execution",
+        "evaluation",
+        "policy",
+        "training"
+      ],
+      "map_change": [
+        "Supporting evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "GO",
+      "source": "https://arxiv.org/abs/2603.05947v4",
+      "earliest_public_verified": "2026-03-06",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v4",
+      "first_covered": "2026-11-12",
+      "checked_on": "2026-11-12",
+      "verification_scope": "v4_full_text_reward_ablation_benchmark_and_human_study_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2603.05947.md",
+      "canonical_survey": "surveys/lr-anchored-real-isr-preference-optimization.md",
+      "decision_key": "lr_faithfulness_reward_with_per_reward_group_normalization_for_flow_real_isr",
+      "decision_boundary": "v4 adds 40-input/5-expert human study (200 comparisons); LucidConsistency is both training reward and part of evaluation; gains jointly depend on evaluator, LucidLR data and RL budget; no online judge.",
+      "events": [
+        {
+          "type": "update",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-12 Paper Watch v3.2 Update",
+          "note": "v1 first public 2026-03-06; v4 submitted 2026-11-10 05:34 UTC and appeared in the 2026-11-11 replacement listing. Material addition: reward-independent 40-input/5-expert human study with 72.5% LR-faithfulness preference; not a new paper."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Restoration",
+        "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
+      }
+    },
+    {
+      "id": "arxiv-2604.14560",
+      "title": "DVFace: Spatio-Temporal Dual-Prior Diffusion for Video Face Restoration",
+      "authors": "Zheng Chen; Bowen Chai; Rongjun Gao; Mingtao Nie; Xi Li; Bingnan Duan; Jianping Fang; Xiaohong Liu; Linghe Kong; Yulun Zhang",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "execution",
+        "training",
+        "evaluation",
+        "deployment"
+      ],
+      "map_change": [
+        "Engineering maturity"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2604.14560v2",
+      "earliest_public_verified": "2026-04-16",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v2",
+      "first_covered": "2026-11-12",
+      "checked_on": "2026-11-12",
+      "verification_scope": "v1_v2_full_text_v2_efficiency_table_and_failure_discussion_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2604.14560.md",
+      "canonical_survey": "surveys/efficient-generative-restoration.md",
+      "decision_key": "spatiotemporal_dual_codebook_priors_enable_one_step_video_face_restoration",
+      "decision_boundary": "v2 reports 81 frames at 512x512 in 15.13s on A6000 (~5.4 FPS); not real-time; real-world tests lack HR GT; long-video chunk boundaries can be inconsistent.",
+      "events": [
+        {
+          "type": "update",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-12 Paper Watch v3.2 Update",
+          "note": "v1 first public 2026-04-16; v2 submitted 2026-11-10 08:19 UTC and appeared in the 2026-11-11 replacement listing. Material addition: measured one-step inference time and expanded diffusion-baseline comparison; not a new paper."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Restoration",
+        "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
+      }
+    },
+    {
+      "id": "arxiv-2511.14521",
+      "title": "A Generative Data Framework with Reliable Supervision for Underwater Image Restoration and Enhancement",
+      "authors": "Yufeng Tian; Yifan Chen; Zhe Sun; Libang Chen; Mingyu Dou; Jijun Lu; Ye Zheng; Xuelong Li",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T05",
+      "secondary_themes": [
+        "T03",
+        "T04"
+      ],
+      "system_roles": [
+        "data",
+        "target",
+        "training",
+        "evaluation"
+      ],
+      "map_change": [
+        "Counter-evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2511.14521v2",
+      "earliest_public_verified": "2025-11-18",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v2",
+      "first_covered": "2026-11-12",
+      "checked_on": "2026-11-12",
+      "verification_scope": "v1_v2_full_text_v2_reliability_analysis_and_cross_architecture_results_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2511.14521.md",
+      "canonical_survey": "surveys/imaging-training-data-synthesis.md",
+      "decision_key": "source_preserving_underwater_pseudopairs_and_realism_versus_downstream_utility",
+      "decision_boundary": "Underwater-only; clean in-air source is not a real underwater radiance reference; spatial plausibility does not guarantee downstream restoration utility; no independent replication.",
+      "events": [
+        {
+          "type": "update",
+          "date": "2026-11-11",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-12 Paper Watch v3.2 Update/backfill",
+          "note": "v1 first public 2025-11-18; v2 submitted 2026-11-10 13:37 UTC and appeared in the 2026-11-11 replacement listing. Material addition: six architectures, three test sets and expanded synthetic-supervision reliability analysis; not a new paper."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_modified_in_this_run",
+        "camerapaper": "not_modified_in_this_run",
+        "alphaxiv_folder": "Restoration",
+        "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
       }
     }
   ],
