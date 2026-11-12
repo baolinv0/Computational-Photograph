@@ -146,6 +146,16 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 ---
 
 <a id="generative-hdr"></a>
+### Adjacent branch: RAW-domain low-light neural rendering / 3DGS
+
+This is multi-view scene reconstruction, not single-image ISP enhancement.
+
+- **RawNeRF** — Mildenhall et al., 2021: direct linear RAW NeRF; 25–200 noisy views exploit multi-view noise averaging.
+- **LE3D** — Jin et al., 2024: RAW 3DGS with Cone Scatter Initialization, Color MLP and depth regularization.
+- **From Chaos to Clarity: 3DGS in the Dark** — Li et al., 2024: noise extractor plus noise-distribution prior to prevent 3DGS fitting sensor noise.
+- **HDRSplat** — Singh et al., 2024: 14-bit linear RAW, HDR loss and rasterization tuning.
+- **RetinexGS** — Fei et al., 2026: Retinex appearance factorization, DNG noise-metadata weighting and depth-guided initialization. [Canonical card](../papers/arxiv-2611.13280.md) · [Living survey](../surveys/low-light-raw-neural-rendering.md)
+
 # 4. Generative HDR / Foundation-Model Direction
 
 ### 14. LumaFlux: Lifting 8-Bit Worlds to HDR Reality with Physically-Guided Diffusion Transformers — Saini et al., 2026 **[Preprint]**
@@ -173,6 +183,14 @@ Legend: **[P]** peer-reviewed paper · **[Preprint]** arXiv/preprint · **[D]** 
 ---
 
 <a id="hdr-iqa-vqa"></a>
+### VAE-aware SDR-to-HDR video representation
+
+- **LumiVid** — Korem et al., 2026: LogC3 encoding aligns HDR video with pretrained generative latents.
+- **DiffHDR** — Yu et al., ECCV 2026: Log-Gamma latent radiance inpainting with video diffusion.
+- **Dark Matters** — Cha et al., 2026: 13-parameter exposure-equivariant EquivFlow preserves deep-dark chroma before a frozen VAE. [Canonical card](../papers/arxiv-2611.13504.md) · [Living survey](../surveys/vae-aware-hdr-representation.md)
+
+The three works are competing representation choices, not an established single pipeline. The key comparison is exposure behavior and chroma transport through the actual VAE, not whether an encoding is merely logarithmic.
+
 # 5. HDR IQA / VQA / Perceptual Metrics
 
 <a id="full-reference-metrics"></a>
