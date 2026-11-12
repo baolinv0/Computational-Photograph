@@ -156,8 +156,8 @@ Reward model 训练期可用，不代表它已成为可靠的在线候选选择�
 
 - v1 首发：2025-11-18；当前 v2 提交：2026-11-10 13:37 UTC；v2 首次 public replacement listing：2026-11-11；本库首次覆盖：2026-11-12。
 - 核心路线：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 生成 underwater input，避免把传统增强算法输出直接当作 clean GT。
-- v2 真正增量：扩展 appearance distribution、structural consistency、depth-aware modulation、人类感知和 restoration behavior 分析，并引入 UWImgNetSD 辅助评估。
-- 关键证据：6 个 restoration architectures、3 个 test sets；更高 spatial plausibility 不必然提升下游 restoration performance。
+- v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的数据集，并报告 6 个架构/3 个测试集；v2 的真正增量是更深入的 appearance/structure/depth reliability 分析、depth-aware modulation、人类感知评价、degradation–restoration reciprocity 和 real-world validation。
+- 关键证据：v1 已有 6 个 restoration architectures、3 个 test sets；v2 的新增分析表明，更高 spatial plausibility 不必然提升下游 restoration performance。
 - 近年前序：UIEB/EUVP 等真实水下增强测试集；WaterGAN/算法增强参考等合成监督路线。UWNature 与真实水下 paired GT 不等价。
 - 作者主张：source-preserving supervision 可提供具有竞争力的 underwater restoration data。
 - 局部证据：跨架构/测试集结果与 human perceptual analysis。
