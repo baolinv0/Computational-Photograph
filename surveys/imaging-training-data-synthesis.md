@@ -217,6 +217,14 @@ RawGen 的重建对照中，其他 baseline 以默认 ISP 的 one-to-one 配对�
 | 2026-10-23 | 用户提出 RawGen 为相关历史工作 | 核实生成域和条件；与 MESS 建立综合对照，未发现 MESS v1 直接引用 | 不把时间顺序或关键词相同当继承 |
 | 2026-10-23 | 少量锚点可能漏掉必要前序 | 3–5 个锚点仅限制主视图，完整 survey 继续扩展；已制定有则插入、无则建分支规则 | 旧论文回填不冒充新论文推送 |
 
+## 2026-11-12 backfill：UWNature v2 的 supervision reliability
+
+[UWNature v2](../papers/arxiv-2511.14521.md) 是 2025-11-18 首发论文的实质版本更新，v2 于 2026-11-10 提交并在 2026-11-11 的新版本列表中出现。本次作为 **Update/backfill** 处理，不作为新论文。
+
+其基本路线是 source-preserving pseudo-pair：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 合成 underwater input。v2 增加 appearance distribution、structural consistency、depth-aware modulation、人类感知评价和 restoration behavior 分析，覆盖 6 个 restoration architectures 与 3 个 test sets。
+
+最重要的判断变化：**更高的 synthetic degradation spatial plausibility 不必然带来更好的 restoration performance。** 因此数据质量至少要分成 intrinsic realism、target/source consistency 和 downstream learning utility 三层；不能只用 VLM 或视觉观感挑选数据生成器。UWNature 仍是 underwater 专项证据，不能直接外推到移动 ISP。
+
 ## References
 
 各条目的作者、版本、证据位置和限制见对应卡片；以下为原始论文入口。
