@@ -37,6 +37,12 @@
 
 对固定候选池和真实测试样本，分别比较公开 test-time 设置与训练集可确定设置的排名变化，并叠加数值 ΔE/ROI fidelity 与独立偏好；重点测“哪些模型改进其实是匹配 GT 风格而非更自然”。
 
+## 2026-11-12：LR-faithfulness 不等于 NR-IQA
+
+[LucidNFT v4](../papers/arxiv-2603.05947.md) 将 Real-ISR 的目标拆成 perceptual quality 与 LR-referenced faithfulness，并训练 LucidConsistency 作为 LR 证据评价器。v4 新增 40 个 RealSR LR inputs、5 位专家、200 次 binary comparisons 的 reward-independent human study；LucidNFT 在 72.5% 比较中被判定更忠实于 LR，baseline 17.5%，tie 10%。
+
+这是一条 **training reward / preference** 证据，不是通用 NR-IQA，也不是在线 Agent judge。其指标仍需谨慎：LucidConsistency 同时参与训练和部分评价，存在 self-reference；小规模人评只能补强，不能替代跨数据集独立验证。完整机制与系统分层见 [LR-anchored Real-ISR preference optimization](lr-anchored-real-isr-preference-optimization.md)。
+
 ## References
 
 - [LOL Benchmark audit](https://arxiv.org/abs/2610.38121v1)
