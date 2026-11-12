@@ -3425,6 +3425,14 @@
           "earliest_public_date": "2026-03-06",
           "brief": "2026-11-12 Paper Watch v3.2 Update",
           "note": "v1 first public 2026-03-06; v4 submitted 2026-11-10 05:34 UTC and appeared in the 2026-11-11 replacement listing. Material addition: reward-independent 40-input/5-expert human study with 72.5% LR-faithfulness preference; not a new paper."
+        },
+        {
+          "type": "correction",
+          "date": "2026-11-12",
+          "new_alert": false,
+          "earliest_public_date": "2026-03-06",
+          "brief": "Correction: LucidNFT v4 human-study transcription",
+          "note": "Full v4 HTML Table 9 confirms 200 binary judgments, no ties allowed, 72.5% LucidNFT vs 27.5% LucidFlux; Fleiss kappa 0.415. Earlier draft's 17.5%/10% tie transcription was incorrect and has been corrected in card, survey and report."
         }
       ],
       "sync": {
@@ -3531,7 +3539,7 @@
           "new_alert": true,
           "earliest_public_date": "2025-11-18",
           "brief": "2026-11-12 Paper Watch v3.2 Update/backfill",
-          "note": "v1 first public 2025-11-18; v2 submitted 2026-11-10 13:37 UTC and appeared in the 2026-11-11 replacement listing. Material addition: six architectures, three test sets and expanded synthetic-supervision reliability analysis; not a new paper."
+          "note": "v1 first public 2025-11-18; v2 submitted 2026-11-10 13:37 UTC and appeared in the 2026-11-11 replacement listing. v1 already contained UWNature/UWImgNetSD, six architectures and three test sets; v2 adds deeper appearance/structure/depth, human-perceptual and degradation-restoration reciprocity analysis; not a new paper."
         }
       ],
       "sync": {
