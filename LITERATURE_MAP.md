@@ -99,6 +99,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 方案回忆：输入观测/元数据 → 候选采集配置 → 固定或条件化后端 → 同目标外观评价。没有同预算、同目标的对照，不能归因为联合控制。
 
+**2026-11-12 T01/T03 backfill：** [RetinexGS](papers/arxiv-2611.13280.md) 将 DNG noise metadata、Retinex appearance factorization 和 depth-guided initialization 接入低照 RAW 3DGS。它属于多视图 scene reconstruction，不是单帧 ISP；与 RawNeRF/LE3D 竞争，证据目前只有 5 个场景。详见 [Low-Light RAW Neural Rendering survey](surveys/low-light-raw-neural-rendering.md)。
+
 ### 2026-11-07｜T02：理解—生成训练与深度先验迁移是两条不同能力路径
 
 **旧路线**：Qwen-Image类通用编辑器+专门空间mask与外部动作系统；多轮编辑保真另有TailSteer/MT Forcing。**新证据**：[WeLM-Image](papers/arxiv-2611.07392.md)（GO-E，Engineering maturity）通过大型MoT–MoE分离理解/生成路径、不同生成/编辑奖励与蒸馏扩展一体执行器；[StitchEdit](papers/arxiv-2611.07922.md)（PROBE，New route/Boundary refinement）用逐层depth/edit梯度兼容性微调深度LoRA，解决特定几何编辑中的遗忘。StitchEdit同depth-init baseline DCS 0.80→0.92，但固定cosine已0.90、目标depth是真实感知模型proxy。
@@ -120,6 +122,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-10-24 增量（T02）**：[ECT](papers/arxiv-2610.30827.md) 用单时刻 angular transport + endpoint calibration 把 ChordEdit 的多时刻估计改成一次 temporal support；范围仅 ε-prediction VP 一步编辑，非任意 Qwen/FLUX。与 ER-Chord 的空间能量重新分配是**不同优化轴**，没有互相取代的实测证据。详见 [一步免反演编辑 survey](surveys/one-step-inversion-free-editing.md)。**保留判断**：指令完成度与未编辑区保真需要独立衡量。
 
 **2026-11-11 光照可控性分支**：[DynOLAT](papers/arxiv-2611.11210.md) 不直接由单个目标环境图生成整段人像视频，而是在 LightStage 动态 OLAT paired data 上训练同一视频多入射方向的响应基，再按目标 HDR 环境图在线**线性光域重组**；与 [Lux Post Facto](https://openaccess.thecvf.com/) / HumanOLAT / UniRelight 属于相邻/竞争的动态重照明路线，与 [Paste2Place](papers/arxiv-2611.09387.md) 只有 source-anchored bridge 的共同抽象，**非经证实直接继承**。**旧→新**：只比较新光照外观是否合理→增加控制方向/相对强度的可测接口。**不变**：准确光谱、局部曝光量、实时手机部署尚未验证；101 基、57帧1088p在 8×A100 下生成约26.89分钟，不能等同实时编辑。路线、采集和对照：[动态人像 OLAT relighting 专题](surveys/lighting-conditioned-portrait-video-relighting.md)。
+
+**2026-11-12 T02 增量：** [Dark Matters](papers/arxiv-2611.13504.md) 把 HDR 视频生成的表示接口前移到 frozen VAE 之前，使用 exposure-equivariant EquivFlow 保留 deep-dark chroma。与 LumiVid 的 LogC3、DiffHDR 的 Log-Gamma 是竞争表示路线；尚不能据此改写确定性 TM。详见 [VAE-Aware HDR Representation survey](surveys/vae-aware-hdr-representation.md)。
 
 ### 2026-11-06｜T01/T03：在输入侧补充真实观测，而非让恢复器猜得更好
 
@@ -149,6 +153,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-11-11 暗光 SR 可控恢复分支**：[DeLang-SR](papers/arxiv-2611.10485.md) 将 LQ 推导的退化意图/视觉 token 对应生成 velocity **direction**，将区域可靠性对应 step-size **magnitude**，在 SD3 先验上实现一网络 update。它承接 DaLPSR/S3Diff 的任务抽象，新增的是方向与局部剂量的显式分工而非首次使用语言。作者 RELLISUR x2 PSNR23.865dB；同 5K steps base→full 21.358→22.986dB，但没有纯数值描述对语言的足额反证，完整模型 20,390.77 GFLOPs、0.448s/图。**旧→新**：从只压 NFE，加入局部修复风险与语义方向的独立条件；**不变**：可信明区保护、GT 真实性和全链真实成本缺一不可。详见 [高效生成恢复 survey](surveys/efficient-generative-restoration.md)。
 
+**2026-11-12 T03 增量：** [DVFace v2](papers/arxiv-2604.14560.md) 增加 one-step 视频人脸恢复的单卡效率实测；81 帧 512×512 在 A6000 上 15.13 s，约 5.4 FPS，属于工程成熟度而非实时部署。RetinexGS 属 RAW 多视图重建邻接分支；Dark Matters 属 HDR VAE 表示邻接分支。三者不应合并成一个通用恢复器。
+
 ### 2026-11-07｜T04：可解释的故障列表是否真的提高候选选优？
 
 **旧路线**：VideoScore/VideoAlign等标量排序、VisionReward等自然语言推理、NightIQA/CheckDistill结构化视觉证据。**新证据**：[ArtiVidRM](papers/arxiv-2611.07301.md)（PROBE，Boundary refinement / Supporting evidence）在视频生成中先列artifact，再用semantic recall/列表长度/偏好同时优化Qwen3-VL。GenAI-Bench的无ties作者准确率0.753，较VisionReward 0.744略高；MonetBench 0.697低于VisionReward 0.721；T2VQA-DB的Hit@1不是最优。
@@ -175,6 +181,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 方案回忆：先定义该评什么 → 取得可用证据 → 校准评分/排序 → 检查稳定性 → 根据场景约束做决定 → 独立审核被优化后的结果。
 
+**2026-11-12 T04 增量：** [LucidNFT v4](papers/arxiv-2603.05947.md) 增加 40 个 LR 输入、5 位专家的 reward-independent human study（72.5% 比较更偏好其 LR-faithfulness）。它是离线 RL reward 证据，不是在线 Agent judge；详细路线见 [LR-Anchored Real-ISR Preference Optimization](surveys/lr-anchored-real-isr-preference-optimization.md)。
+
 ### T05｜数据与 Pseudo-GT
 
 系统位置：离线监督构造。至少分成四条并列路线：
@@ -193,6 +201,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 需要维护的争议：同规模下收益来自退化建模、目标质量还是场景覆盖？合成输出更像照片，不等于成像信息损失更准确。生成目标更漂亮，不等于结构真实。
 
 方案回忆：确定 target 来源 → 选择退化/目标生产方式 → 检查配对与区域可靠性 → 训练同一 student → 在独立真实数据上验收。
+
+**2026-11-12 T05 更新：** [UWNature v2](papers/arxiv-2511.14521.md) 扩大了 synthetic supervision reliability 评估，并明确指出更高 spatial plausibility 不必然改善 restoration performance。该版本是 2025-11-18 首发论文的实质更新，不作为新论文计数；source-preserving pseudo-pair 仍是有效路线，但需同时测 intrinsic realism 与 downstream utility。
 
 专题深化：[成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)。覆盖逆 ISP、RAW/XYZ 生成和曝光监督的历史路线；MESS 与 RawGen 是综合建立的并行关联，不是已核实的直接继承。阅读时同时区分 UNICE 的融合目标与 MESS 保留原始 RGB 目标。
 
@@ -221,6 +231,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 它是贯穿六个主题的比较维度，不再把每个高效模块当成新的孤立研究方向。
 
 已有入口：[RelayVSR](papers/arxiv-2609.37850.md)、[LoopMoEVR](papers/arxiv-2610.05109.md)、[BluePixel](papers/arxiv-2610.19882.md)。
+
+**2026-11-12 X01 增量：** RetinexGS 报告 RTX 4090 91–145 FPS novel-view rendering，但训练迭代与 baseline 不同；DVFace v2 报告约 5.4 FPS 的 81-frame batch，不是实时视频。训练成本、模型推理时延和完整端到端吞吐继续分开记录。
 
 统一记录：训练 GPU-hours/teacher 调用、推理 NFE、总时延、显存/内存带宽、设备与分辨率、质量约束、是否含预处理/数据搬运/重试。没有设备实测就不标手机部署成功。
 
@@ -254,6 +266,62 @@ Topic ID / 稳定问题：
 快速回忆：一个机制句、一个关键反例
 ```
 
+### 2026-11-12｜三个受影响主题的 Topic Update
+
+#### 1. T01/T02/T03：输入表示决定可恢复信息的边界
+
+**旧地图：** RAW 多视图重建已有 RawNeRF、LE3D、From Chaos to Clarity、HDRSplat；HDR 视频生成已有 LumiVid（LogC3）和 DiffHDR（Log-Gamma）。这些是历史锚点，不是本轮新推荐。
+
+**本次变化：**
+- [RetinexGS](papers/arxiv-2611.13280.md)：在已有 RAW 3DGS 路线上增加 DNG 噪声元数据加权与 Retinex 外观分解，地图变化为 Engineering maturity / Boundary refinement。
+- [Dark Matters](papers/arxiv-2611.13504.md)：提出 exposure-equivariant、scale-independent chroma 的 VAE 前编码，地图变化为 New route。
+
+两篇只共享“输入表示决定可恢复信息”这一抽象机制；不是直接继承，也不是同一系统。
+
+**判断更新：** 过去把 RAW/HDR 表示主要看作输入预处理；现在应把它视为模型内部可恢复信息的关键接口。保持不变的是：RetinexGS 只证明小规模多视图 RAW 场景，Dark Matters 只证明特定冻结 VAE/视频扩散设置，均不等于移动 ISP 已可部署。
+
+**系统方案：**
+- RAW 3DGS：多视图 RAW + DNG metadata → 几何/深度初始化 → Retinex 颜色分解与噪声加权优化 → novel-view rendering。
+- HDR video diffusion：SDR → scene-linear proxy → LogC3/Log-Gamma/EquivFlow → frozen VAE → video diffusion → HDR video。
+- 两条路线均无 Agent 控制层。
+
+**行动：** 保留两条研究分支，不改动现有确定性 ISP/TM 方案。若验证 HDR 表示，先做同输入合同、同 backbone 的三编码 matched comparison；若验证 RAW 噪声先验，固定 3DGS appearance capacity 后只切换噪声权重。
+
+**记忆锚点：** 线性 RAW 的多视图噪声平均，与 VAE 前的 HDR 色度传输，是两个不同层级的表示问题。
+
+#### 2. T03/T04/X01：生成恢复的保真奖励与真实推理成本
+
+**旧地图：** DSPO（2025）将人类偏好引入 Real-ISR；DiffusionNFT 提供 policy update；DicFace（2025）使用时序 codebook 处理视频人脸；多步 diffusion 视频恢复强调时序先验但推理成本高。
+
+**本次变化：**
+- [LucidNFT v4](papers/arxiv-2603.05947.md) 增加独立 human study，支持 LR-faithfulness reward；地图变化 Supporting evidence / Boundary refinement。
+- [DVFace v2](papers/arxiv-2604.14560.md) 增加单卡效率测量与更多对比；地图变化 Engineering maturity。
+
+**判断更新：** LR-faithfulness 已有比 NR-IQA 更直接的训练/人评接口，但 LucidNFT 仍是离线 reward optimization，不是在线 judge；DVFace 的 one-step 有实际速度收益，但约 5.4 FPS 不能称为实时。保持不变的是：候选可达性、可发现性、可选择性仍须分开验证。
+
+**系统方案：**
+- LucidNFT 在线：LR → flow-based SR generator → SR；离线：LucidConsistency + LucidLR → 多候选 rollout → per-reward group normalization → DiffusionNFT update。Agent 层为空。
+- DVFace 在线：LQ video → spatial/temporal codebooks → asymmetric fusion → one-step Wan2.1 diffusion；离线：codebook、LQ refinement、diffusion adaptation。长视频 chunk boundary 是未验证接口。
+
+**行动：** 将 perceptual quality 与 LR-faithfulness 保持为两个独立目标；视频恢复报告真实吞吐、显存和 chunk 边界质量。不要把两篇工作合并成通用图像 Agent。
+
+**记忆锚点：** Reward model 训练期可用，不代表它已成为可靠的在线候选选择器；one-step 也不等于 real-time。
+
+#### 3. T05：Pseudo-GT 的内在真实性不等于训练效用
+
+**旧地图：** UIEB/EUVP 等数据集提供真实水下增强测试；WaterGAN/算法增强参考等路线试图扩展配对监督；source-preserving synthetic pair 则保留 clean source 作为 target。
+
+**本次变化：** [UWNature v2](papers/arxiv-2511.14521.md) 对 6 个 restoration architectures、3 个 test sets 增加外观、结构、深度和人类感知分析，指出空间上更合理的合成退化不一定提升下游恢复。地图变化 Counter-evidence / Boundary refinement。
+
+**判断更新：** 不能只根据合成图像是否“像真实水下”选择数据引擎；必须同时评价 source/target 一致性与 student 的 downstream learning utility。保持不变的是：该证据仍限于 underwater domain，不直接外推手机相机。
+
+**系统方案：** clean source + unpaired underwater references → I2I degradation synthesis / depth modulation → source-preserving pseudo-pair → 多个 restoration students → 三个测试集与 human evaluation。Agent 层为空。
+
+**行动：** 将 intrinsic realism 与 downstream utility 分开记录；当前其他数据管线不因这一水下更新自动改变。
+
+**记忆锚点：** 更真实的退化图，不一定产生更好的恢复模型。
+
+
 ## 回忆与维护
 
 专题层按 [survey 索引](surveys/README.md) 维护。先检索两仓库的同问题综述：有则插入，无且存在独立分支才新建；沿引用与机制关系补齐历史工作。总图保留少量锚点，完整 survey 不受锚点数量限制。
@@ -265,6 +333,15 @@ Topic ID / 稳定问题：
 完整方案另以一页回忆卡呈现：目标与非目标、输入输出、运行链、训练链、关键约束、已有证据和未验证接口。关联私人项目时应先读取实际计划/实验记录；不要把该信息写入本公共文献地图。
 
 重访一个主题时，可用一个简短问题帮助主动回忆，例如“同样提高 IQA，哪些情况不意味着保真提高？”不因用户看过报告或收藏论文就记为已掌握。
+
+### 2026-11-12 Paper Watch v3.2 source coverage
+
+- arXiv latest available daily listing at scan time: Wednesday 2026-11-11. Checked cs.CV/new, cs.LG/new, cs.AI/new, cs.MM/new, eess.IV/new and eess.SP/new; the 2026-11-12 listing had not yet appeared at scan time.
+- alphaXiv followed-researcher roster: 15 researchers queried for recent papers; no additional qualifying paper from the followed roster beyond already covered items.
+- Open discovery: alphaXiv discovery plus title/keyword search across HDR/RAW, generative restoration, IQA/reward, preference optimization, benchmarks and efficiency.
+- GitHub recovery: Computational-Photograph default branch, archive protocol, Paper Watch v3.2, literature map, legacy record, registry, relevant cards and surveys; CameraPaper README/knowledge indexes and matching title search. No CameraPaper record was changed.
+- Current run first-coverage date: 2026-11-12. Version/listing dates and original arXiv v1 dates are stored separately in canonical cards and registry.
+- Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
 
