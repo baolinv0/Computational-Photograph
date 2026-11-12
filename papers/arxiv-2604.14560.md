@@ -41,7 +41,7 @@ DVFace 用 spatial 与 temporal 两套 facial codebook 提供互补先验，再�
 - **输出：** 高质量、身份稳定、时间一致的人脸视频。
 - **目标定义：** 训练期合成退化高质量人脸视频定义像素监督；真实场景通过无参考质量、身份和时序指标评估。
 - **执行表示：** spatial/temporal dual codebook + asymmetric fusion + one-step Wan2.1 diffusion。
-- **训练数据/监督：** 论文使用高质量人脸视频和合成退化训练；v2 报告 codebook learning 250K iterations、LQ refinement 50K iterations、diffusion adaptation 15K iterations，4×A6000、batch size 4。
+- **训练数据/监督：** 训练使用约 16,000 条 VFHQ 高质量人脸视频并合成退化；论文报告 codebook learning 250K iterations、LQ refinement 50K iterations、diffusion adaptation 15K iterations，4×A6000、batch size 4。合成评估覆盖 VFHQ-Test/HDTF；真实场景报告 50 条 RFV-LQ 与 100 条 VoxCeleb2 视频。
 - **评价：** VFHQ/HDTF 合成测试，以及 RFV-LQ/VoxCeleb2 等真实视频测试；关注质量、身份保持和 temporal consistency。
 - **反馈：** 训练期重建/感知/时序约束；无在线 reward model。
 - **成本：** v2 在单张 A6000 上测得 81 frames、512×512、one step、15.13 s、约 1.604B parameters、230.21 TFLOPs；相对 SVFR 约 15.2×、Upscale-A-Video 约 23.1×。按 81/15.13 计算约 5.4 FPS，不是 30 FPS 实时。
