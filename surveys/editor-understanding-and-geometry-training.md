@@ -38,6 +38,10 @@ Marigold、Lotus-2 等把扩散先验迁移到深度感知；[StitchEdit](../pap
 ## 缺口
 需要等预算WeLM组件消融、真实开源权重与可访问性、不同相机的颜色保持、深度先验在非几何编辑是否负迁移，以及真实3D/人工ground truth对StitchEditBench进行外部核验。
 
+## 2026-11-13｜评价器主归属修正（历史索引，不是新论文）
+
+[EditJudge-Bench](../papers/arxiv-2611.12524.md) 的新证据是**可控 before/after 编辑的 VLM 判断正确性**，并非生成器的几何训练能力。为避免错误归类及重复全文，其主 survey 统一调整到 [T04 伪影证据与反事实 Judge 审计](artifact-grounded-reward-and-verification.md)；本专题仅保留交叉链接，用于提醒“执行器完成编辑”和“Judge 看出操作”不能混为同一种能力。
+
 ## References
 - [WeLM-Image 原文](https://arxiv.org/html/2611.07392v1)
 - [StitchEdit 原文](https://arxiv.org/html/2611.07922v1)
