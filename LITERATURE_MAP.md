@@ -183,6 +183,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-11-12 T04 增量：** [LucidNFT v4](papers/arxiv-2603.05947.md) 增加 40 个 LR 输入、5 位专家、200 次 binary judgments 的 reward-independent human study（72.5% vs 27.5%，不允许 tie，Fleiss’ κ=0.415）。它是离线 RL reward 证据，不是在线 Agent judge；详细路线见 [LR-Anchored Real-ISR Preference Optimization](surveys/lr-anchored-real-isr-preference-optimization.md)。
 
+**2026-11-13 T04 历史地图接入补齐（backfill，非新通知）：** [EditJudge-Bench](papers/arxiv-2611.12524.md)（2026-11-09 首次 arXiv 公开，11-13 周报已覆盖）以 1,382 组已知 Blender 操作真值审计 25 个 judge 配置；作者报告 VIEScore+GPT-4o 的 correctness AUROC 69.0%，图文顺序可令 AUROC 变化最多 14.1 个百分点。与 [EditJudgeBias](papers/arxiv-2610.01670.md)（顺序/线索偏差）、[CheckDistill](papers/arxiv-2610.26740.md)（checklist 蒸馏）和 ArtiVidRM（视频伪影 reward）属于相互补充的评价问题，**不是已核实的直接继承链**。**旧判断→新判断：** 先检验评委是否看到了可证伪的编辑操作，再问它能否按人类偏好选图；binary correctness 不等于真实风格保真，评价器改善不提高 executor 可达性。[T04 canonical survey](surveys/artifact-grounded-reward-and-verification.md) 已接入，原 T02 编辑器训练 survey 仅保留交叉索引。
+
 ### T05｜数据与 Pseudo-GT
 
 系统位置：离线监督构造。至少分成四条并列路线：
@@ -233,6 +235,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 已有入口：[RelayVSR](papers/arxiv-2609.37850.md)、[LoopMoEVR](papers/arxiv-2610.05109.md)、[BluePixel](papers/arxiv-2610.19882.md)。
 
 **2026-11-12 X01 增量：** RetinexGS 报告 RTX 4090 91–145 FPS novel-view rendering，但训练迭代与 baseline 不同；DVFace v2 报告约 5.4 FPS 的 81-frame batch，不是实时视频。训练成本、模型推理时延和完整端到端吞吐继续分开记录。
+
+**2026-11-13 X01 历史地图接入补齐（backfill，非新通知）：** [Edge NPU Benchmark](papers/arxiv-2611.13563.md)（2026-11-10 arXiv 首发、11-13 周报已覆盖）将共同 host I/O 下的 VG-NPU 模型转换与 vendor-native VG-E2E 整链部署分成不同的实验合同。作者在四款边缘 NPU×三任务中报告 VG-E2E 较 VG-NPU 再降低 10.4%–70.7% system latency，只有 4/12 组相对 baseline 提高精度。与 [Mobile AI 2026 Learned Smartphone ISP](papers/arxiv-2611.05008.md) 是**不同任务/平台下的工程测量互补**，不能拿来证明手机 RAW→RGB 性能。**旧→新：**“MAC/NFE/模型调用≠产品完整成本”不变，新增 common-I/O model conversion 与 native E2E 的分层归因要求；功耗、P95、热与相机质量仍待核验。[X01 canonical survey](surveys/mobile-isp-and-event-hdr-efficiency.md) 已接入。
 
 统一记录：训练 GPU-hours/teacher 调用、推理 NFE、总时延、显存/内存带宽、设备与分辨率、质量约束、是否含预处理/数据搬运/重试。没有设备实测就不标手机部署成功。
 
@@ -347,6 +351,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-13 | 已归档论文 living survey 接入 / T04、X01 | EditJudge-Bench（Judge事实操作审计）与 Edge NPU Benchmark（统一 I/O→厂商原生 E2E）的既有卡片归位；校正前者的主 survey；不重算论文首发 | 区分指令正确性/偏好、模型调用/E2E。仅 backfill，无新论文通知 |
 | 2026-11-11 | 新论文 / T02、T03、T06、X01、T05 | V2C-Edit（逐时刻编辑动作选择）、DeLang-SR（暗光 SR 方向/局部剂量）、DynOLAT（动态人像物理光照响应基） | T06 加强可发现性与评审成本边界；T03 增控制分工但不改变手机计算预算结论；T02 新增可测方向/光强控制路线；均不宣称多论文共识 |
 | 2026-11-10 | 新论文 / T02、T03、T04、T05、X01 | FANO、Paste2Place、AR-Edit、水下 UAV 五模型基准（均11-06 arXiv v1、11-09 新公告）归位；新增两专题、修订两专题 | 分离真实测量一致性/优化先验、源图条件化编辑、失真诊断/真实恢复能力；原 ISP/TM 方案保持 |
 | 2026-11-09 | 历史实质版本回填 / T04、T02 | Undertone v1（09-22）→ v2（11-05）技术命题改变；补审 PARA、DEAR 与同场景渲染偏好边界；11-06 已覆盖，不作为新通知 | crowd-only 强先验与 K 个用户标签净收益分开；新个人化 survey，但不直接改变 ISP/TM 或 Agent 实验 |
@@ -373,3 +378,12 @@ v0.1 建立时直接访问上述几篇 arXiv 页面未取得内容，当时没�
 ### v0.2 核验增量
 
 2026-10-23 本轮通过原论文全文文本重新核对 MESS 与 RawGen 的方法及选定证据，并在专题中记录各前序的核验范围。上文 v0.1 的“本次未重审/访问失败”描述保留为当时状态，不代表 v0.2 未取得这些原文；VHA、HarnessIR 等未在本轮重审。完整范围与缺口见 survey 的核验记录。
+
+
+### 2026-11-13｜Paper Watch v3.2 本轮检索与覆盖边界
+
+- 官方 arXiv `cs.CV`、`cs.LG`、`cs.AI`、`cs.MM`、`eess.IV`、`eess.SP` 的 `/new` 本轮仍均显示 **2026-11-11（Wednesday）**，与此前已成功覆盖的 public listing 相同；**不将 11-12 listing 冒充已核验，也不以 last_run_time 代替源水位**。
+- alphaXiv 15 位已关注研究者名单按研究者独立检索，姓名重合的 PolyU Lei Zhang、Kai Zhang、Xiaowei Zhou 与 Zhilu Zhang 用准确 slug 补查。另对 T01–T06/X01 做开放发现；当前实际覆盖内未核实晚于上次已覆盖 source window 的合格新公开。作者检索及开放检索不代表穷尽所有会议、团队或个人主页。
+- 本轮读回 11-13 周报与 registry 100 个身份记录，原文复核 EditJudge-Bench、Edge NPU Benchmark 的选定方法、结果及失败边界，两篇的技术正文已经存在，只补 survey、总图与身份映射。原作者结果没有独立复现。
+- **待核验：** 11-12 的新公告页尚未出现在所读官方源中；OpenReview/作者提前公开材料未穷尽；真实手机相机照片的 Judge 跨域审计与移动 ISP 原生 NPU 完整成本尚欠数据。下次应从最后成功 public listing 前至少 7 天重叠检索，未覆盖源不推进水位。
+
