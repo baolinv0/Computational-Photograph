@@ -3596,12 +3596,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
         "camerapaper": "not_applicable",
         "alphaxiv_folder": "HDR",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     },
     {
@@ -3649,12 +3649,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
-        "camerapaper": "not_applicable",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
+        "camerapaper": "not_written_company_affiliation_only_no_established_brand_route",
         "alphaxiv_folder": "ISP",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     },
     {
@@ -3701,12 +3701,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
         "camerapaper": "not_applicable",
         "alphaxiv_folder": "ISP",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     },
     {
@@ -3753,12 +3753,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
         "camerapaper": "not_applicable",
         "alphaxiv_folder": "Restoration",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     },
     {
@@ -3803,12 +3803,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
         "camerapaper": "not_applicable",
         "alphaxiv_folder": "IQA",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     },
     {
@@ -3855,12 +3855,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
-        "notion": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "verified_updated",
         "camerapaper": "not_applicable",
         "alphaxiv_folder": "ISP",
-        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+        "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
     }
   ],
