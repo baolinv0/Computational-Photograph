@@ -8,6 +8,12 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-13 周报：测量可靠性、端到端部署与评价审计
+
+- [本期 6 篇新作与评分](Recent_Papers_2026-11-13.md)：[光谱 HDR](papers/arxiv-2611.13663.md)、[事件触发](papers/arxiv-2611.13488.md)、[端侧 NPU](papers/arxiv-2611.13563.md)、[稳健 flow 恢复](papers/arxiv-2611.13995.md)、[编辑 judge 审计](papers/arxiv-2611.12524.md)、[学习式编解码 PTQ](papers/arxiv-2611.13707.md)。
+- 共同决策：可靠性要前移到测量/表示层；部署必须看端到端而非 NPU-only；评价器先做反事实与顺序审计。
+- 证据范围为原始论文选定章节，均未独立复现；已由 Paper Watch 通知的 11 月 10–12 日条目不重复标新。
+
 ## 2026-11-12 Paper Watch：HDR 表示、RAW 重建、Real-ISR Reward 与监督可靠性
 
 - [本轮 Topic Update](Recent_Papers_2026-11-12.md)：2 篇新作 + 3 项实质版本更新。

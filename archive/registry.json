@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-12",
+  "updated_on": "2026-11-13",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Incremental research archive through 2026-11-11; selected papers only, not exhaustive arXiv or author-level listing coverage.",
@@ -3550,7 +3550,319 @@
         "alphaxiv_folder": "Restoration",
         "notation": "canonical-card-survey-map-and-alphaxiv-membership-readback-verified-2026-11-12"
       }
+    },
+    {
+      "id": "arxiv-2611.13663",
+      "title": "Overcoming Dynamic Range Limitations in Computational Hyperspectral Imaging",
+      "authors": "Qianqian Yu; Jinhang Lin; Zhihai Yao; Shuo Wang; Chaofan Weng; Xiang Hao",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "HDR",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T02",
+        "X01"
+      ],
+      "system_roles": [
+        "measurement",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.13663v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13663.md",
+      "canonical_survey": null,
+      "decision_key": "measurement_domain_channel_exposure_reliability_before_spectral_inversion",
+      "decision_boundary": "Static specialized 9-channel hyperspectral camera; no motion, mobile Bayer transfer, power or thermal evidence.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "HDR",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
+    },
+    {
+      "id": "arxiv-2611.13488",
+      "title": "When Reconstruction Helps Event-Camera Person Triggers",
+      "authors": "Yifan Shuai",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "X01"
+      ],
+      "system_roles": [
+        "measurement",
+        "execution",
+        "evaluation",
+        "deployment"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.13488v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13488.md",
+      "canonical_survey": null,
+      "decision_key": "event_reconstruction_as_interface_for_general_visual_triggers",
+      "decision_boundary": "Four held-out DSEC recordings; offline preparation slower than update cadence; no wearable long-tail false starts or power.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "ISP",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
+    },
+    {
+      "id": "arxiv-2611.13563",
+      "title": "Benchmarking Vendor-Guided Optimizations on Edge NPUs: From NPU Only to End-to-End Performance",
+      "authors": "Youngjin Jo; Jihwan Kim; Minseok Choi; Kwanghoon Choi; Jusung Kang; Jaein Kim",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "X01",
+      "secondary_themes": [
+        "T01"
+      ],
+      "system_roles": [
+        "execution",
+        "evaluation",
+        "deployment"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.13563v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13563.md",
+      "canonical_survey": null,
+      "decision_key": "controlled_npu_only_and_vendor_native_e2e_benchmarking_must_be_separated",
+      "decision_boundary": "No energy; one platform has a different host; E2E changes multiple components jointly; no mobile camera workload.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "ISP",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
+    },
+    {
+      "id": "arxiv-2611.13995",
+      "title": "Lipschitz-Controlled Flow Matching for Robust Image Restoration",
+      "authors": "Sedjro Salomon Hotegni; Konstantin Sonntag; Paul-Christian Bürkner; Sebastian Peitz",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "X01"
+      ],
+      "system_roles": [
+        "execution",
+        "training",
+        "evaluation"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.13995v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13995.md",
+      "canonical_survey": "surveys/efficient-generative-restoration.md",
+      "decision_key": "perturbation_gain_control_requires_quality_robustness_pareto",
+      "decision_boundary": "Synthetic face degradation and adversarial perturbations only; no global certificate, real sensor shift or mobile cost.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
+    },
+    {
+      "id": "arxiv-2611.12524",
+      "title": "EditJudge-Bench: Auditing VLM Image-Edit Judges with Synthetic Ground Truth",
+      "authors": "Jens Parslov; Marco Schouten; Dim P. Papadopoulos",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [],
+      "system_roles": [
+        "data",
+        "evaluation",
+        "verification"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.12524v1",
+      "earliest_public_verified": "2026-11-09",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.12524.md",
+      "canonical_survey": "surveys/editor-understanding-and-geometry-training.md",
+      "decision_key": "controlled_3d_counterfactuals_before_vlm_edit_judges_become_rewards",
+      "decision_boundary": "Synthetic indoor deterministic edits; no editor artifacts, identity/text/style preservation, or pairwise preference.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-09",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "IQA",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
+    },
+    {
+      "id": "arxiv-2611.13707",
+      "title": "Joint Activation and Weight Quantization for Learned Image Compression",
+      "authors": "Yile Tu; Heming Sun",
+      "aliases": [],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "X01",
+      "secondary_themes": [
+        "T03"
+      ],
+      "system_roles": [
+        "execution",
+        "calibration",
+        "deployment"
+      ],
+      "map_change": [
+        "New evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.13707v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "arxiv_v1_public_record_earlier_non_arxiv_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_covered": "2026-11-13",
+      "checked_on": "2026-11-13",
+      "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13707.md",
+      "canonical_survey": null,
+      "decision_key": "joint_rd_search_for_activation_weight_ptq_in_learned_image_compression",
+      "decision_boundary": "RD-only experiments on desktop GPU; no integer hardware coverage, fallback, entropy coding E2E latency, energy or thermal evidence.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-13",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-10",
+          "brief": "2026-11-13 weekly maintenance",
+          "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "notion": "pending",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "ISP",
+        "notation": "weekly_maintenance_2026-W46_content_pending_readback"
+      }
     }
   ],
-  "updated_at": "2026-11-11"
+  "updated_at": "2026-11-13"
 }
