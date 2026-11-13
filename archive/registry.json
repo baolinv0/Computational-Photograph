@@ -3687,7 +3687,7 @@
       "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
       "independent_replication": "not_performed",
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.13563.md",
-      "canonical_survey": null,
+      "canonical_survey": "surveys/mobile-isp-and-event-hdr-efficiency.md",
       "decision_key": "controlled_npu_only_and_vendor_native_e2e_benchmarking_must_be_separated",
       "decision_boundary": "No energy; one platform has a different host; E2E changes multiple components jointly; no mobile camera workload.",
       "events": [
@@ -3698,6 +3698,13 @@
           "earliest_public_date": "2026-11-10",
           "brief": "2026-11-13 weekly maintenance",
           "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        },
+        {
+          "type": "backfill",
+          "date": "2026-11-13",
+          "new_alert": false,
+          "brief": "Paper Watch v3.2: integrate previously archived weekly paper into its canonical living survey",
+          "note": "missing_map_integration: original survey=none; corrected or added canonical survey=surveys/mobile-isp-and-event-hdr-efficiency.md. The paper's public date, source version, first_covered, and previously verified alphaXiv/GitHub receipts are unchanged. This event does not constitute a new-paper notification."
         }
       ],
       "sync": {
@@ -3789,7 +3796,7 @@
       "verification_scope": "arxiv_metadata_and_selected_original_paper_method_results_limitations_checked",
       "independent_replication": "not_performed",
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.12524.md",
-      "canonical_survey": "surveys/editor-understanding-and-geometry-training.md",
+      "canonical_survey": "surveys/artifact-grounded-reward-and-verification.md",
       "decision_key": "controlled_3d_counterfactuals_before_vlm_edit_judges_become_rewards",
       "decision_boundary": "Synthetic indoor deterministic edits; no editor artifacts, identity/text/style preservation, or pairwise preference.",
       "events": [
@@ -3800,6 +3807,13 @@
           "earliest_public_date": "2026-11-09",
           "brief": "2026-11-13 weekly maintenance",
           "note": "New identity verified against arXiv v1 and selected original-paper sections; no independent replication."
+        },
+        {
+          "type": "correction",
+          "date": "2026-11-13",
+          "new_alert": false,
+          "brief": "Paper Watch v3.2: integrate previously archived weekly paper into its canonical living survey",
+          "note": "missing_map_integration: original survey=surveys/editor-understanding-and-geometry-training.md; corrected or added canonical survey=surveys/artifact-grounded-reward-and-verification.md. The paper's public date, source version, first_covered, and previously verified alphaXiv/GitHub receipts are unchanged. This event does not constitute a new-paper notification."
         }
       ],
       "sync": {
