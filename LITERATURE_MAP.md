@@ -393,6 +393,7 @@ v0.1 建立时直接访问上述几篇 arXiv 页面未取得内容，当时没�
 
 - 读取默认分支现有protocol/v3.2/registry/legacy/主题入口，核对11-13周报已报道6项不同ID；公开arXiv cs.CV、eess.IV、cs.LG、cs.MM 2026-11-13 new listing，另按标题/机制查同行历史及独立前序，重点复核ATune、Blind ITM、FreeDeshadow的arXiv v1 HTML原文方法、消融及限制；未做独立复现。
 - 新的 arXiv v1 首发/首次本库覆盖分别为 ATune 2026-11-12/11-14、Blind ITM 2026-11-11/11-14；FreeDeshadow虽然2026-11-10首次上传expanded稿，但其核心任务在2025-01-25已由PACSRNet公开，本轮仅对文本+局部refiner+PCSRD+的实质变化标Update。
+- 同轮以alphaXiv已关注研究者列表为入口核对15位稳定研究者slug近2026-11-04后的文章（Brown、PolyU Lei Zhang、Radu Timofte、Wangmeng Zuo、Tianfan Xue等）；该来源没有引出更高优先级且此前尚未覆盖的相关新作。跨主题alphaXiv发现另外标记ReasonText-SR与HIFC-IQA的最早公开日期待查，不以其arXiv上传自动触发。作者索引不等于独立成功覆盖全部主页/会议。
 - 2026-11-13 public listing的当前检索成功范围不等于今天已完成全站OpenReview、所有团队和最新周末公告；11-14的其他新公告、完整作者逐人水位和独立重复训练仍待补；旧11-13覆盖陈述保留为当时情况，不再当当前水位。
 
 ### 2026-11-13｜Paper Watch v3.2 本轮检索与覆盖边界
