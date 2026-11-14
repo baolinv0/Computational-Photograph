@@ -8,6 +8,12 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-14 Paper Watch：目标属性、盲逆影调与对象阴影（2 New + 1 Update）
+
+- [本轮 Topic Update](Recent_Papers_2026-11-14.md)：ATune与blind video ITM首次进入地图；FreeDeshadow为2025 PACSRNet的实质扩展，不是2026独创。
+- 新专题：[属性目标与编辑器控制](surveys/photo-attribute-targets-and-editor-control.md)、[未知 TMO/逆影调可辨识性](surveys/blind-video-inverse-tone-mapping.md)，更新[物体—环境光影专题](surveys/object-scene-composition-and-relighting.md)。
+- [ATune card](papers/arxiv-2611.16236.md) · [Blind ITM card](papers/arxiv-2611.15146.md) · [FreeDeshadow Update](papers/arxiv-2611.14608.md)。
+
 ## 2026-11-13 周报：测量可靠性、端到端部署与评价审计
 
 - [本期 6 篇新作与评分](Recent_Papers_2026-11-13.md)：[光谱 HDR](papers/arxiv-2611.13663.md)、[事件触发](papers/arxiv-2611.13488.md)、[端侧 NPU](papers/arxiv-2611.13563.md)、[稳健 flow 恢复](papers/arxiv-2611.13995.md)、[编辑 judge 审计](papers/arxiv-2611.12524.md)、[学习式编解码 PTQ](papers/arxiv-2611.13707.md)。
