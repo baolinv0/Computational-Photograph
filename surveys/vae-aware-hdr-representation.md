@@ -82,6 +82,8 @@ The decisive experiment is a matched-input, matched-backbone comparison of LogC3
 
 Do not conflate representation quality with the quality of the inverse-tone-mapped proxy or the strength of the diffusion prior.
 
+**2026-11-14 cross-topic boundary:** [Blind inverse tone mapping and operator identifiability](blind-video-inverse-tone-mapping.md) adds a separate T02 branch: unknown SDR formation operator and clipped-region luminance bias. In contrast, this survey addresses HDR encoding before a frozen VAE (LogC3/Log-Gamma/EquivFlow). The studies are **complementary system interfaces**, not a validated combination or proof that one representation solves inverse-operator uncertainty. [Canonical card](../papers/arxiv-2611.15146.md).
+
 ## 8. Current judgment
 
 A representation-level research branch is emerging around making HDR radiance compatible with pretrained VAE latents. The important variable is not “log versus linear” alone; it is whether the representation preserves exposure structure and chroma through the actual encoder. No single encoding is established as the winner.
