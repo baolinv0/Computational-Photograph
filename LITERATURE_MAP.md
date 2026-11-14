@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.6｜结构建立/最近实质修订：2026-11-11
+版本：v0.7｜结构建立/最近实质修订：2026-11-14
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -124,6 +124,14 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-11-11 光照可控性分支**：[DynOLAT](papers/arxiv-2611.11210.md) 不直接由单个目标环境图生成整段人像视频，而是在 LightStage 动态 OLAT paired data 上训练同一视频多入射方向的响应基，再按目标 HDR 环境图在线**线性光域重组**；与 [Lux Post Facto](https://openaccess.thecvf.com/) / HumanOLAT / UniRelight 属于相邻/竞争的动态重照明路线，与 [Paste2Place](papers/arxiv-2611.09387.md) 只有 source-anchored bridge 的共同抽象，**非经证实直接继承**。**旧→新**：只比较新光照外观是否合理→增加控制方向/相对强度的可测接口。**不变**：准确光谱、局部曝光量、实时手机部署尚未验证；101 基、57帧1088p在 8×A100 下生成约26.89分钟，不能等同实时编辑。路线、采集和对照：[动态人像 OLAT relighting 专题](surveys/lighting-conditioned-portrait-video-relighting.md)。
 
 **2026-11-12 T02 增量：** [Dark Matters](papers/arxiv-2611.13504.md) 把 HDR 视频生成的表示接口前移到 frozen VAE 之前，使用 exposure-equivariant EquivFlow 保留 deep-dark chroma。与 LumiVid 的 LogC3、DiffHDR 的 Log-Gamma 是竞争表示路线；尚不能据此改写确定性 TM。详见 [VAE-Aware HDR Representation survey](surveys/vae-aware-hdr-representation.md)。
+
+
+**2026-11-14｜T02/T03 三个不同控制对象（2 New + 1 substantive Update）：**
+- **目标控制**：[ATune](papers/arxiv-2611.16236.md)（11-12 v1，GO-E）由10M优质图的自退化监督学习13维全局摄影目标，并通过RawTherapee/darktable数值搜索实现。与 [PREEN](papers/arxiv-2610.36896.md) 的「参考B→预设」是互补目标，不是已确认直接继承。旧“参数化可控但需专家配对”→新“可无专家配对训练目标且可更换编辑器”，但无法区域独立，median42s且没有手机E2E。见 [摄影属性目标survey](surveys/photo-attribute-targets-and-editor-control.md)。
+- **观测不确定性控制**：[Blind Video ITM](papers/arxiv-2611.15146.md)（11-11 v1，GO）通过五种TMO训练边缘化和clip-gated非对称潜空间亮度监督，缓解未知TMO造成的有符号亮度偏差；不替代 [Dark Matters](papers/arxiv-2611.13504.md) 的VAE前色度编码。旧“编解码/生成prior主要约束”→新“未知TMO和clip位置本身必须作为可辨识性问题”；仍无法恢复丢失的唯一辐射，族外Severe可能失效。见 [盲逆影调survey](surveys/blind-video-inverse-tone-mapping.md)。
+- **空间修改控制**：[FreeDeshadow](papers/arxiv-2611.14608.md)（2026-11-10 v1，2025 [PACSRNet](https://arxiv.org/abs/2501.15043)的**实质扩展**，GO-E/Update），新增文本object指定与1024² PCSRD+，分离投影定位与非目标保留。此任务**2025已有**、不是2026首创；它与 [Paste2Place](papers/arxiv-2611.09387.md) 的增加投影是互补逆任务。见 [物体场景光影survey](surveys/object-scene-composition-and-relighting.md)。
+
+**系统边界（推断组合，非论文已验证系统）**：离线优质图自退化、HDR/TMO合成、object-shadow prompt数据为三类不同监督；在线依次区分目标属性预测/未知算子下HDR估计/对象阴影局部移除；T06可选择动作与验收，但三篇均未证明端到端Agent路由或手机部署。**不变**：可达性、可发现性、可选择性分测，物理真值/人评/空间保持独立。
 
 ### 2026-11-06｜T01/T03：在输入侧补充真实观测，而非让恢复器猜得更好
 
@@ -351,6 +359,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-14 | 2篇新作 + 1项实质衍生扩展 / T02、T03、T05、T06 | ATune无专家pair全局摄影属性目标；视频Blind ITM联合TMO族与clip非对称监督；FreeDeshadow在2025 PACSRNet基础上扩展文本提示/多样数据并纠正首创归属 | 增目标/算子/空间三控制接口，分别标GO-E/GO/GO-E；传统全局/局部ISP及用户项目状态不自动改变，后者为material Update非新问题 |
 | 2026-11-13 | 已归档论文 living survey 接入 / T04、X01 | EditJudge-Bench（Judge事实操作审计）与 Edge NPU Benchmark（统一 I/O→厂商原生 E2E）的既有卡片归位；校正前者的主 survey；不重算论文首发 | 区分指令正确性/偏好、模型调用/E2E。仅 backfill，无新论文通知 |
 | 2026-11-11 | 新论文 / T02、T03、T06、X01、T05 | V2C-Edit（逐时刻编辑动作选择）、DeLang-SR（暗光 SR 方向/局部剂量）、DynOLAT（动态人像物理光照响应基） | T06 加强可发现性与评审成本边界；T03 增控制分工但不改变手机计算预算结论；T02 新增可测方向/光强控制路线；均不宣称多论文共识 |
 | 2026-11-10 | 新论文 / T02、T03、T04、T05、X01 | FANO、Paste2Place、AR-Edit、水下 UAV 五模型基准（均11-06 arXiv v1、11-09 新公告）归位；新增两专题、修订两专题 | 分离真实测量一致性/优化先验、源图条件化编辑、失真诊断/真实恢复能力；原 ISP/TM 方案保持 |
@@ -379,6 +388,12 @@ v0.1 建立时直接访问上述几篇 arXiv 页面未取得内容，当时没�
 
 2026-10-23 本轮通过原论文全文文本重新核对 MESS 与 RawGen 的方法及选定证据，并在专题中记录各前序的核验范围。上文 v0.1 的“本次未重审/访问失败”描述保留为当时状态，不代表 v0.2 未取得这些原文；VHA、HarnessIR 等未在本轮重审。完整范围与缺口见 survey 的核验记录。
 
+
+### 2026-11-14｜Paper Watch 本轮真实覆盖与未核验边界
+
+- 读取默认分支现有protocol/v3.2/registry/legacy/主题入口，核对11-13周报已报道6项不同ID；公开arXiv cs.CV、eess.IV、cs.LG、cs.MM 2026-11-13 new listing，另按标题/机制查同行历史及独立前序，重点复核ATune、Blind ITM、FreeDeshadow的arXiv v1 HTML原文方法、消融及限制；未做独立复现。
+- 新的 arXiv v1 首发/首次本库覆盖分别为 ATune 2026-11-12/11-14、Blind ITM 2026-11-11/11-14；FreeDeshadow虽然2026-11-10首次上传expanded稿，但其核心任务在2025-01-25已由PACSRNet公开，本轮仅对文本+局部refiner+PCSRD+的实质变化标Update。
+- 2026-11-13 public listing的当前检索成功范围不等于今天已完成全站OpenReview、所有团队和最新周末公告；11-14的其他新公告、完整作者逐人水位和独立重复训练仍待补；旧11-13覆盖陈述保留为当时情况，不再当当前水位。
 
 ### 2026-11-13｜Paper Watch v3.2 本轮检索与覆盖边界
 
