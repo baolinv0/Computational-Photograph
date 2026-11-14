@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-13",
+  "updated_on": "2026-11-14",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Incremental research archive through 2026-11-11; selected papers only, not exhaustive arXiv or author-level listing coverage.",
+  "scope": "Selected paper identities through 2026-11-13 arXiv new listings, last specifically checked 2026-11-14. Classification listings and author coverage partial; registry not exhaustive.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -3876,7 +3876,188 @@
         "alphaxiv_folder": "ISP",
         "notation": "canonical-card-snapshot-registry-alphaxiv-membership-and-notion-readback-verified-2026-11-13"
       }
+    },
+    {
+      "id": "arxiv-2611.16236",
+      "title": "ATune: Unsupervised Photo Retouching Through Image-Editor Controls",
+      "authors": "Divyanshu Goyal; Gabriel Ruiz; Amir Meisami",
+      "aliases": [
+        "ATune"
+      ],
+      "kind": "paper",
+      "topic": "Color",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T05",
+        "T06",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "target",
+        "offline_training",
+        "execution",
+        "search"
+      ],
+      "map_change": [
+        "New route",
+        "Bridge"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.16236v1",
+      "earliest_public_verified": "2026-11-12",
+      "earliest_source": "arxiv_v1_2026-11-12_03:36UTC_earlier_public_material_not_exhaustively_checked",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-13",
+      "first_covered": "2026-11-14",
+      "checked_on": "2026-11-14",
+      "verification_scope": "arxiv_v1_html_selected_related_work_method_experiments_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.16236.md",
+      "canonical_survey": "surveys/photo-attribute-targets-and-editor-control.md",
+      "decision_key": "declarative_photo_attribute_targets_from_self_degradation_and_editor_parameter_search",
+      "decision_boundary": "Global-only 13 attributes; 10M high-quality-stock photos and style bias; median 42s iterative editor search; no phone E2E; human comparison vs professional supervised baseline 46.3%.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-14",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-12",
+          "brief": "Paper Watch v3.2 Topic T02",
+          "note": "New arXiv v1 after previously successful listing; original method and selected evidence checked, no independent replication. Compared Distort-and-Recover, FiveK/PPR10K, PREEN; not a personal-style reference model."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Color",
+        "notation": "2026-11-14 canonical card and surveys reread; alphaXiv membership reread"
+      }
+    },
+    {
+      "id": "arxiv-2611.15146",
+      "title": "Reframing Video Inverse Tone Mapping as Blind Posterior Inference via Latent Luminance Supervision",
+      "authors": "Hanwool Sul; Chang-Hoon Jeong; Kisung Shin; Bomseok Park; Donghoon Cha; Hansl von Kwon; DoHyung Ku; Byoung-Tak Zhang",
+      "aliases": [
+        "Blind Video Inverse Tone Mapping"
+      ],
+      "kind": "paper",
+      "topic": "HDR",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T01",
+        "T03",
+        "T05"
+      ],
+      "system_roles": [
+        "observation_model",
+        "target",
+        "training",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO",
+      "source": "https://arxiv.org/abs/2611.15146v1",
+      "earliest_public_verified": "2026-11-11",
+      "earliest_source": "arxiv_v1_2026-11-11_07:36UTC_earlier_public_material_not_exhaustively_checked",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-13",
+      "first_covered": "2026-11-14",
+      "checked_on": "2026-11-14",
+      "verification_scope": "arxiv_v1_html_related_work_training_operator_grid_ablation_boundaries_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.15146.md",
+      "canonical_survey": "surveys/blind-video-inverse-tone-mapping.md",
+      "decision_key": "blind_itm_unknown_tone_operator_marginalization_and_clipping_gated_luminance_expectile",
+      "decision_boundary": "Family-conditioned, not universal operator invariance; out-of-family Severe fails; only one training run per stack, clip-alignment affects comparison; no mobile runtime.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-14",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-11",
+          "brief": "Paper Watch v3.2 Topic T02/T03",
+          "note": "New v1 on previously uncovered 2026-11-13 public listing. Different problem interface from Dark Matters frozen-VAE color encoding; original results only."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "HDR",
+        "notation": "2026-11-14 canonical card and surveys reread; alphaXiv membership reread"
+      }
+    },
+    {
+      "id": "arxiv-2611.14608",
+      "title": "FreeDeshadow: Shadow Removal for User-Specified Objects With Multimodal Prompts",
+      "authors": "Zhiliang Wu; Jihao Gu; Kun Li; Hanyu Xuan; Hehe Fan; Meng Wang; Weisi Lin",
+      "aliases": [
+        "FreeDeshadow",
+        "PACSRNet expanded successor (not same arXiv identity)"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T02",
+        "T05",
+        "T06"
+      ],
+      "system_roles": [
+        "user_target",
+        "training_data",
+        "spatial_grounding",
+        "execution",
+        "preservation_evaluation"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.14608v1",
+      "earliest_public_verified": "2026-11-10",
+      "earliest_source": "2026_arxiv_expanded_v1_only; core_2025_predecessor_arxiv_2501.15043_first_public_2025-01-25",
+      "predecessor_id": "arxiv-2501.15043",
+      "predecessor_earliest_public_verified": "2025-01-25",
+      "predecessor_relation": "explicit_journal_expansion_IJCAI2025_PACSRNet; original object-selective shadow removal task already public",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-13",
+      "first_covered": "2026-11-14",
+      "checked_on": "2026-11-14",
+      "verification_scope": "arxiv_v1_html_related_work_predecessor_method_dataset_table_and_ablation_checked_and_IJCAI2025_official",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.14608.md",
+      "canonical_survey": "surveys/object-scene-composition-and-relighting.md",
+      "decision_key": "text_and_visual_object_specified_cast_shadow_grounding_with_local_preservation_refiner_and_1024_dataset",
+      "decision_boundary": "Not a new 2026 task; previous PACSRNet 2025 already object-selected shadow removal. 154571 prompt quadruples from 28573 base pairs; synthetic/curated data and no mobile E2E; mechanism ablations are author-only.",
+      "events": [
+        {
+          "type": "material_update",
+          "date": "2026-11-14",
+          "new_alert": true,
+          "earliest_public_date": "2025-01-25 (predecessor), 2026-11-10 (expanded manuscript)",
+          "brief": "Paper Watch v3.2 Topic T03/T02",
+          "note": "Explicit substantive extension of 2025 IJCAI original: text prompts, 1024 resolution, 154571 prompt-conditioned cases, independent spatial preservation ablations. Do not label as entirely new method in 2026. New expanded manuscript has distinct arXiv id, canonical card maintained separately but predecessor relationship recorded."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "2026-11-14 canonical card and surveys reread; alphaXiv membership reread"
+      }
     }
   ],
-  "updated_at": "2026-11-13"
+  "updated_at": "2026-11-14"
 }
