@@ -29,6 +29,7 @@
 ## 非通知候选、历史证据与开放缺口
 - [ReasonText-SR 2611.15449](https://arxiv.org/abs/2611.15449)：新arXiv上传前已发现较早公开的[HuggingFace ReasonText实验输出](https://huggingface.co/datasets/Jasonleex1995/ReasonText-SR-outputs)，需核对项目/数据首次真实公开、是否有实质新稿，**pending chronology**，不按本轮纯新增推送。
 - [HIFC-IQA 2611.16451](https://arxiv.org/abs/2611.16451)：NeurIPS2026论文是否在OpenReview早于arXiv v1公开需查、且train-free含冻结feature+memory/gallery；**pending prior disclosure**，暂不推送。
+- 核对alphaXiv已关注15位研究者近11-04之后条目（包括Michael S. Brown、Lei Zhang、Tianfan Xue、Radu Timofte、Wangmeng Zuo、Kai Zhang等）和跨主题发现；Radu Timofte的RipBench偏任务检测不达本轮直接相关性门槛；相关已通知旧文未重复计算。作者索引检索仅作为并行召回、非全面发表水位。
 - 公开检索至11-13新公告，不代表已穷尽所有专业会议、核心作者独立水位；OpenReview与部分团队提前发布页待补。
 - 对应论文作者的结果不是独立复现；跨手机真实成像和端到端功耗热稳定没有证据，不把全局修图强度优化扩张为AE-TM新课题。
 
