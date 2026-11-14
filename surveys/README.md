@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-13
+更新：2026-11-14
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -8,9 +8,11 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T02/T05/T06：无专家编辑对时如何学习可执行的全局摄影目标？ | [摄影属性目标与确定性编辑器控制](photo-attribute-targets-and-editor-control.md) | 2026-11-14：ATune 10M优质图自退化→13属性目标→RawTherapee/darktable优化；与PREEN参考预设、群体/个体MOS区分，全局控制与42s搜索边界 |
+| T02/T01/T03：未知TMO下如何约束SDR-to-HDR亮度偏差？ | [盲逆影调与可辨识性](blind-video-inverse-tone-mapping.md) | 2026-11-14：新SDR→HDR视频论文采用5个TMO边缘化+clip-gated expectile；与LogC3/EquivFlow前VAE表示分开；族外失效是明确边界 |
 | T02/T05/T01：人物动态重照明怎样让光方向和相对强度可检验？ | [动态 OLAT 光照响应基与视频重照明](lighting-conditioned-portrait-video-relighting.md) | 2026-11-11：DynOLAT 实采 24M 帧+224衣着身份组合；对比 Lux Post Facto/HumanOLAT/直接视频 relighting；基视频生成成本和绝对光强不确定性明确 |
 | T03/T01：已知测量算子下怎样在保持先验分布内优化？ | [已知算子的生成式反演与测量一致性](measurement-consistent-generative-inverse-problems.md) | 2026-11-10：FANO 对 DAPS/SITCOM 的优化变量与 radial drift；BAM/Dual Flow 为不同训练预算路线，真实 RAW 待验证 |
-| T02/T05：固定物体布局，怎样协调前景照明与背景投影？ | [物体—环境光影协调与一步合成](object-scene-composition-and-relighting.md) | 2026-11-10：Paste2Place 的物理标注合成数据及 bridge/physics 分量消融，不能外推端侧色彩校准 |
+| T02/T05：固定物体布局，怎样协调前景照明与背景投影？ | [物体—环境光影协调与一步合成](object-scene-composition-and-relighting.md) | 2026-11-14：扩展与PACSRNet(2025)关联的FreeDeshadow物体指定cast-shadow移除；其是Paste2Place物体插入光影的互补逆任务，2026仅material Update；保留11-10物理bridge证据 |
 | T04/T02：众人美学 MOS 怎样校准为个人偏好，与同场景修图偏好有何区别？ | [个人审美与摄影渲染评价](personalized-aesthetic-preference-and-rendering.md) | 2026-11-09：Undertone-P v2（11-05 公开）历史实质修订补录，PARA / LAPIS / DEAR 路线比较；不作新研究通知 |
 | T02/T03：编辑器如何联合理解、生成并保留几何先验？ | [执行器理解、几何与训练](editor-understanding-and-geometry-training.md) | 2026-11-07：WeLM-Image工程系统与StitchEdit逐层兼容迁移；独立于多轮漂移/Agent Judge |
 | T04/T06：可控编辑真值与可解释伪影怎样共同检验Reward？ | [伪影、反事实正确性与Reward](artifact-grounded-reward-and-verification.md) | 2026-11-13 backfill：EditJudge-Bench 真值审计与 ArtiVidRM/CheckDistill 的不同角色，保留跨域与偏好边界 |
