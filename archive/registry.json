@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-14",
+  "updated_on": "2026-11-15",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-13 arXiv new listings, last specifically checked 2026-11-14. Classification listings and author coverage partial; registry not exhaustive.",
+  "scope": "Selected paper identities through 2026-11-13 arXiv new listings; 2026-11-15 official category pages still display 2026-11-13, so no new category-watermark advancement. Author index partial and public listings not exhaustive.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -4057,7 +4057,67 @@
         "alphaxiv_folder": "Restoration",
         "notation": "2026-11-14 canonical card and surveys reread; alphaXiv membership reread"
       }
+    },
+    {
+      "id": "arxiv-2611.16310",
+      "title": "Selective Generative Restoration for Video Deraining via Uncertainty-Aware Diffusion",
+      "authors": "Yi'ang Chen; Han Li; Laibin Chang; Hui Liu; Kui Jiang; Junjun Jiang",
+      "aliases": [
+        "SGVD",
+        "Selective Generative Video Deraining"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T06",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "uncertainty_evidence",
+        "regional_execution_control",
+        "offline_training",
+        "video_consistency",
+        "deployment_cost"
+      ],
+      "map_change": [
+        "Supporting evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.16310v1",
+      "earliest_public_verified": "2026-11-12",
+      "earliest_source": "arxiv_v1_2026-11-12_05:10:53UTC; earlier public material not exhaustively checked",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-13",
+      "first_covered": "2026-11-15",
+      "checked_on": "2026-11-15",
+      "verification_scope": "arxiv_v1_html_selected_related_work_framework_training_tables_ablation_costs_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.16310.md",
+      "canonical_survey": "surveys/selective-task-aware-restoration.md",
+      "decision_key": "spatial_posterior_disagreement_gates_video_latent_generation_with_temporal_trajectory_anchor",
+      "decision_boundary": "On 2026-11-13 cs.CV listing already covered by prior successful run, hence historical backfill only; two extra diffusion probes nearly double 640x480 runtime on RTX4090 despite 1-step nomenclature; 8 clean videos train origin, real evaluation without clean GT; no phone E2E.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-15",
+          "new_alert": false,
+          "earliest_public_date": "2026-11-12",
+          "brief": "Paper Watch v3.2 T03 spatial-selective restoration map correction",
+          "note": "Missed discovery from previously successful 2026-11-13 cs.CV listing; registered historical v1 and compared three distinct selection loci (whole-image routing, within-image latent uncertainty fusion, post-generation judge). Mechanism and computational cost checked in official v1 HTML, not independently replicated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "2026-11-15 card/survey/map/index readback and alphaXiv Restoration membership readback; snapshot/registry verified in run"
+      }
     }
   ],
-  "updated_at": "2026-11-14"
+  "updated_at": "2026-11-15"
 }
