@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.7｜结构建立/最近实质修订：2026-11-14
+版本：v0.7｜结构建立/最近实质修订：2026-11-15
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -162,6 +162,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-11-11 暗光 SR 可控恢复分支**：[DeLang-SR](papers/arxiv-2611.10485.md) 将 LQ 推导的退化意图/视觉 token 对应生成 velocity **direction**，将区域可靠性对应 step-size **magnitude**，在 SD3 先验上实现一网络 update。它承接 DaLPSR/S3Diff 的任务抽象，新增的是方向与局部剂量的显式分工而非首次使用语言。作者 RELLISUR x2 PSNR23.865dB；同 5K steps base→full 21.358→22.986dB，但没有纯数值描述对语言的足额反证，完整模型 20,390.77 GFLOPs、0.448s/图。**旧→新**：从只压 NFE，加入局部修复风险与语义方向的独立条件；**不变**：可信明区保护、GT 真实性和全链真实成本缺一不可。详见 [高效生成恢复 survey](surveys/efficient-generative-restoration.md)。
 
 **2026-11-12 T03 增量：** [DVFace v2](papers/arxiv-2604.14560.md) 增加 one-step 视频人脸恢复的单卡效率实测；81 帧 512×512 在 A6000 上 15.13 s，约 5.4 FPS，属于工程成熟度而非实时部署。RetinexGS 属 RAW 多视图重建邻接分支；Dark Matters 属 HDR VAE 表示邻接分支。三者不应合并成一个通用恢复器。
+
+**2026-11-15 T03 历史 backfill（不通知）**：[SGVD](papers/arxiv-2611.16310.md) 首传2026-11-12，已处于上一轮成功检查的11-13公告窗口。新增**空间级连续混合**的机制证据：两个生成 probe 的 disagreement → ROI uncertainty M → 潜空间按 M 选择 LQ保真与生成预测；训练期 ATC 减小视频漂移。它与整图 KEEP/RESTORE Router、结果后 Judge 和 DeLang-SR 的 step-size control 均非同一控制接口。作者 NTURain-Syn 消融 USG/ATC 对 fidelity/warping 的贡献可分离，但 2 probes 使单步端到端 133→296ms/frame（RTX4090 48GB、640×480），真实 GT 保真和移动部署缺证。**PROBE / Supporting evidence + Boundary refinement**；选择性恢复 [survey](surveys/selective-task-aware-restoration.md) 新增路线表，不把作者结果混为共识，现有系统不变。
 
 ### 2026-11-07｜T04：可解释的故障列表是否真的提高候选选优？
 
@@ -359,6 +361,7 @@ Topic ID / 稳定问题：
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
+| 2026-11-15 | 历史 backfill / T03、T06、X01 | SGVD(2611.16310，v1首传11-12，11-13已覆盖公告)补入区域不确定性门控与视频一致性路线；新增单篇卡片并明确与整图路由/候选后选择的接口区别 | 两次额外 probe 有可观时延；一阶段扩散不代表一次网络调用；无新作通知，既有 ISP/TM 路线不变 |
 | 2026-11-14 | 2篇新作 + 1项实质衍生扩展 / T02、T03、T05、T06 | ATune无专家pair全局摄影属性目标；视频Blind ITM联合TMO族与clip非对称监督；FreeDeshadow在2025 PACSRNet基础上扩展文本提示/多样数据并纠正首创归属 | 增目标/算子/空间三控制接口，分别标GO-E/GO/GO-E；传统全局/局部ISP及用户项目状态不自动改变，后者为material Update非新问题 |
 | 2026-11-13 | 已归档论文 living survey 接入 / T04、X01 | EditJudge-Bench（Judge事实操作审计）与 Edge NPU Benchmark（统一 I/O→厂商原生 E2E）的既有卡片归位；校正前者的主 survey；不重算论文首发 | 区分指令正确性/偏好、模型调用/E2E。仅 backfill，无新论文通知 |
 | 2026-11-11 | 新论文 / T02、T03、T06、X01、T05 | V2C-Edit（逐时刻编辑动作选择）、DeLang-SR（暗光 SR 方向/局部剂量）、DynOLAT（动态人像物理光照响应基） | T06 加强可发现性与评审成本边界；T03 增控制分工但不改变手机计算预算结论；T02 新增可测方向/光强控制路线；均不宣称多论文共识 |
