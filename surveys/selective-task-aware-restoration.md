@@ -1,6 +1,6 @@
 # 选择性图像恢复与任务效用：什么时候保留原图？
 
-版本 v0.3 | 2026-11-10 | 主主题 T06，桥接 T03、T04、T01、X01
+版本 v0.4 | 2026-11-15 | 主主题 T06，桥接 T03、T04、T01、X01
 
 目录：[快速回忆](#快速回忆) · [问题树](#问题树) · [关键新证据](#关键新证据) · [完整方案与局限](#完整方案与局限) · [判断与积压](#判断与积压) · [References](#references)
 
@@ -14,6 +14,7 @@
 - **直接对所有图运行恢复器**：实现简单；有损害原本干净图的风险。
 - **输入先路由 KEEP / RESTORE**：有选择成本和误分损失；净化器仍需要做得对。
 - **候选后验证 ACCEPT / VETO**：能够拒绝失败结果，但验证器自身可能同源偏差。
+- **图内局部保留 / 生成融合**：不是整图 KEEP/RESTORE，也不是完成后的候选 Judge；在高不确定区域增加生成成分，可靠区域以原观测为锚。
 - **面向下游任务学习**：评价从纯 RGB 感知变为几何、识别、检测或其他效用，需要各任务特定 GT/Proxy。
 
 这些分叉可组合但不是因果继承。路由判断质量与恢复器像素质量必须独立评估。
@@ -30,6 +31,20 @@
 ```
 
 仅在有下游任务的情形，任务效用成为首要指标；消费照片恢复仍需考虑用户偏好、影像真实性、显示与相机条件。
+
+### 2026-11-15 历史 backfill｜空间级选择性生成与整图路由是两类控制问题
+
+[SGVD：Selective Generative Restoration for Video Deraining](../papers/arxiv-2611.16310.md) 的 v1 **2026-11-12** 首传，已在先前成功覆盖的 11-13 官方 cs.CV 列表，故本次归入 **backfill**，**不作为新论文通知**。该工作对 T03 建立独立的**区域级**路线：两个随机生成 clean-latent probe 的差异形成不确定性图 M，控制 `z_sel=M*z_generated+(1-M)*z_LQ`；训练期 ATC 五帧 anchor 约束视频一致性。没有整图 Agent 路由或事后 Listwise Judge。
+
+| 决策位置 | 输入与控制变量 | 执行结果 | 必须比的简单对照 |
+|---|---|---|---|
+| **整图路由**（Gate3DGen / low-light detector） | 输入图/任务信号 → KEEP/PURIFY | 只选保留或调用一个执行器 | always-KEEP / always-PURIFY |
+| **图内区域融合**（SGVD） | 雨视频 latent / 两次随机预测差异 → 空间连续 M | 在潜空间混合 LQ 与生成 proposal，adapter 送入 DiT | 统一 mix、显式 rain/occlusion mask、同 compute 的随机 mask |
+| **候选后选择**（Agent Judge，本文未实现） | 固定候选池与质量证据 → accept/reject/rank | 从已生成结果中选优 | 等预算 best-of-K、人类 oracle |
+
+**证据**：作者 §IV-G 同数据消融中无 USG/ATC PSNR 23.0013、warping error 0.0287；仅 USG 26.2416 / 0.0309；仅 ATC 25.9347 / 0.0225；联合 26.5174 / 0.0207。空间选择本身不保证时序稳定。§IV-F RTX4090 48GB、640×480、49帧，1 step + 2 probes 为296ms/frame (3.37FPS)；无 probes 133ms/frame (7.52FPS)。**一网络更新不等于一次网络评估**；probe 带来显著时间代价，端侧尚无证据。训练数据 NTURain-Syn 仅来自8段 clean clips 的25段合成雨序列，真实 NTURain-Real 缺干净 GT；作者 NR-IQA 改善不等于真实区域纹理保真。
+
+**旧→新→保持**：原路由“是否执行”仍须与 always-KEEP 比；新增 “同图哪里借助生成、哪里保留观测” 的可检验连续控制。**不变**：生成结果的可达性、错误自信（低预测方差仍可能 hallucinate）、Judge 可选择性都没有被该机制解决。该工作与 [DeLang-SR](../papers/arxiv-2611.10485.md) 的方向/局部幅度分离是分析者归纳的共同问题，不可称直接继承或已形成共识。**裁决 PROBE / Supporting evidence + Boundary refinement**，目前不改任何手机 TM/ISP 系统。最小实验为固定 backbone 与总 forward 数，对比随机分歧 Mask、可见遮挡 Mask、固定/随机混合以及高置信错误区域的保真和泄漏。
 
 ## 关键新证据
 
@@ -78,6 +93,8 @@
 
 当前路线裁决：**PROBE**，优先保留 KEEP、always-on 增强和按任务评价的强基线；暂不把 Gate3DGen 学习路由或道路检测亮度门控写成通用照片/移动 ISP 的已证最佳策略。2026-11-08 backfill 论文仅 **WATCH**。
 
+**2026-11-15 补充边界**：整图路由与潜变量区域混合并列，不能把 SGVD 的 ROI 保真提升算成 learned KEEP/RESTORE selector 成功；见上方 backfill 表及卡片。
+
 相关待核：VetoNet 2610.21335（GT 风险控制）、PreActIR 2610.20384（执行前价值预测）、RawVLA 2609.37530（任务导向 ISP）；核心机制和公平性需各自核验，不把它们直接升级为 Gate3DGen 的方法前作。
 
 ## References
@@ -86,4 +103,5 @@
 - [论文细节与作者实验](../papers/arxiv-2610.31649.md)
 - [Adaptive Low-Light Enhancement for Road Anomaly Detection, 2026-11-05 v1（backfill）](https://arxiv.org/abs/2611.08393v1)；[HTML Tables I–II](https://arxiv.org/html/2611.08393v1)
 - [2026-11-06 水下UAV unified MLLM 诊断/恢复基准](https://arxiv.org/abs/2611.09740v1) · [canonical card](../papers/arxiv-2611.09740.md)
+- [SGVD v1：Spatial uncertainty-gated video deraining，2026-11-12 首传，2026-11-15 backfill](https://arxiv.org/html/2611.16310v1) · [canonical card](../papers/arxiv-2611.16310.md)
 - [T03/T06 总图](../LITERATURE_MAP.md)
