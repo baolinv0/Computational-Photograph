@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-15
+更新：2026-11-16
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -8,6 +8,7 @@
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
+| T03/T04/T06：自然场景文字模糊时，什么时候可以借助语义推断恢复字符？ | [文字恢复的像素证据、语境推断和真实性边界](scene-text-faithfulness-and-reasoning.md) | 2026-11-16 backfill：ReasonText-SR 11-11 arXiv v1，11-14 已列候选；区分文本可推断性、render 执行能力、GT polygon OCR 指标与真实字符保真；不触发新论文通知 |
 | T02/T05/T06：无专家编辑对时如何学习可执行的全局摄影目标？ | [摄影属性目标与确定性编辑器控制](photo-attribute-targets-and-editor-control.md) | 2026-11-14：ATune 10M优质图自退化→13属性目标→RawTherapee/darktable优化；与PREEN参考预设、群体/个体MOS区分，全局控制与42s搜索边界 |
 | T02/T01/T03：未知TMO下如何约束SDR-to-HDR亮度偏差？ | [盲逆影调与可辨识性](blind-video-inverse-tone-mapping.md) | 2026-11-14：新SDR→HDR视频论文采用5个TMO边缘化+clip-gated expectile；与LogC3/EquivFlow前VAE表示分开；族外失效是明确边界 |
 | T02/T05/T01：人物动态重照明怎样让光方向和相对强度可检验？ | [动态 OLAT 光照响应基与视频重照明](lighting-conditioned-portrait-video-relighting.md) | 2026-11-11：DynOLAT 实采 24M 帧+224衣着身份组合；对比 Lux Post Facto/HumanOLAT/直接视频 relighting；基视频生成成本和绝对光强不确定性明确 |
