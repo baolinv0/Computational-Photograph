@@ -8,6 +8,10 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-16 文本 SR 历史回填（非新增论文通知）
+
+- [ReasonText-SR v1](papers/arxiv-2611.15449.md) 2026-11-11 首传、11-14 已记录候选；本轮核验文字上下文推断与渲染可达性的独立瓶颈，接入 [文字事实保真 living survey](surveys/scene-text-faithfulness-and-reasoning.md)。已存在较早公开输出工件，完整论文更早公开日期待核验；事件为 backfill，不冒充 11-16 新论文。
+
 ## 2026-11-14 Paper Watch：目标属性、盲逆影调与对象阴影（2 New + 1 Update）
 
 - [本轮 Topic Update](Recent_Papers_2026-11-14.md)：ATune与blind video ITM首次进入地图；FreeDeshadow为2025 PACSRNet的实质扩展，不是2026独创。
