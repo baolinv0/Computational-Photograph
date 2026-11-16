@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-15",
+  "updated_on": "2026-11-16",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-13 arXiv new listings; 2026-11-15 official category pages still display 2026-11-13, so no new category-watermark advancement. Author index partial and public listings not exhaustive.",
@@ -4117,7 +4117,69 @@
         "alphaxiv_folder": "Restoration",
         "notation": "2026-11-15 card/survey/map/index readback and alphaXiv Restoration membership readback; snapshot/registry verified in run"
       }
+    },
+    {
+      "id": "arxiv-2611.15449",
+      "title": "Reading the Unreadable: Text-Aware Image Super-Resolution Needs Reasoning",
+      "authors": "Jaeseong Lee; Jinwoo Kim; Jinho Jeong; Seon Joo Kim",
+      "aliases": [
+        "ReasonText-SR",
+        "RTC",
+        "TAISR Needs Reasoning"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T04",
+        "T06",
+        "X01"
+      ],
+      "system_roles": [
+        "text_evidence",
+        "contextual_inference",
+        "execution_conditioning",
+        "evaluation",
+        "cost"
+      ],
+      "map_change": [
+        "Boundary refinement",
+        "Bridge"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.15449v1",
+      "earliest_public_verified": "2026-10-28",
+      "earliest_source": "2026-10-28 secondary archive of authors' already-public HuggingFace experimental output; HF listing reports 2026-08-04 dataset creation not independently verified as public manuscript; earliest complete paper public date not verified",
+      "arxiv_v1_first_submitted": "2026-11-11",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-13",
+      "first_covered": "2026-11-14",
+      "checked_on": "2026-11-16",
+      "verification_scope": "arxiv_v1_html_selected_related_work_dataset_method_tables_1_3_4_appendix_checked; earlier_artifact_third_party_chronology_only",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.15449.md",
+      "canonical_survey": "surveys/scene-text-faithfulness-and-reasoning.md",
+      "decision_key": "contextual_scene_text_inference_separate_from_sr_renderer_factual_fidelity_and_oracle_gt_polygon_metric",
+      "decision_boundary": "513 pairs, 2463 main text samples, excludes Level3 1522; GT polygon used for GTTCA; 31B MLLM plus SR inference on H200 with no mobile E2E; context guess not proof of original text",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-16",
+          "new_alert": false,
+          "earliest_public_date": "2026-10-28 (author output artifact only; complete manuscript unverified); arxiv v1 2026-11-11",
+          "brief": "Paper Watch v3.2 T03/T04 text truthfulness map correction",
+          "note": "Originally identified 2026-11-14 as pending-chronology candidate and included in 2026-11-13 source window. Selected original v1 sections and earlier publicly indexed HF artifact now checked. Not a 2026-11-16 new-paper notification; selected author experiment reported, not independently reproduced."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "2026-11-16 canonical/survey/map/index/registry readback and alphaXiv membership confirmed"
+      }
     }
   ],
-  "updated_at": "2026-11-15"
+  "updated_at": "2026-11-16"
 }
