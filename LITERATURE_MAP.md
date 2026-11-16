@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.7｜结构建立/最近实质修订：2026-11-15
+版本：v0.7｜结构建立/最近实质修订：2026-11-16
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -164,6 +164,12 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-11-12 T03 增量：** [DVFace v2](papers/arxiv-2604.14560.md) 增加 one-step 视频人脸恢复的单卡效率实测；81 帧 512×512 在 A6000 上 15.13 s，约 5.4 FPS，属于工程成熟度而非实时部署。RetinexGS 属 RAW 多视图重建邻接分支；Dark Matters 属 HDR VAE 表示邻接分支。三者不应合并成一个通用恢复器。
 
 **2026-11-15 T03 历史 backfill（不通知）**：[SGVD](papers/arxiv-2611.16310.md) 首传2026-11-12，已处于上一轮成功检查的11-13公告窗口。新增**空间级连续混合**的机制证据：两个生成 probe 的 disagreement → ROI uncertainty M → 潜空间按 M 选择 LQ保真与生成预测；训练期 ATC 减小视频漂移。它与整图 KEEP/RESTORE Router、结果后 Judge 和 DeLang-SR 的 step-size control 均非同一控制接口。作者 NTURain-Syn 消融 USG/ATC 对 fidelity/warping 的贡献可分离，但 2 probes 使单步端到端 133→296ms/frame（RTX4090 48GB、640×480），真实 GT 保真和移动部署缺证。**PROBE / Supporting evidence + Boundary refinement**；选择性恢复 [survey](surveys/selective-task-aware-restoration.md) 新增路线表，不把作者结果混为共识，现有系统不变。
+
+### 2026-11-16｜T03/T04：自然场景文字恢复的推断与真实保真（backfill）
+
+**历史回填，不构成新增论文通知。** [ReasonText-SR](papers/arxiv-2611.15449.md) arXiv v1 首传于 2026-11-11，已处于 11-13 成功覆盖的公开公告；11-14 本库已记录候选，11-16 补读原文并接入 [场景文字真实性专题](surveys/scene-text-faithfulness-and-reasoning.md)。其作者公开 HF 实验输出在 10-28 的第三方历史快照中已有记录，但仍需查最早**完整论文**公开日期；不能把数据工件创建日当稿件首发日。
+
+**旧路线**：通用 SR、OCR/text-aware SR、生成式 hallucination 审计。**本次边界修正**：把（1）原始像素是否支持字符、（2）场景与语言上下文能否推断、（3）SR renderer 能否画对、（4）系统是否能宣称恢复了原始真实文字分开。作者在 Level 2（需推理）上报告 DiT4SR GTTCA 从 24.54% 增至 45.84%，但提供 GT transcript 的 oracle 仍仅 47.70%，说明渲染执行器的能力与推断正确性互相独立。GTTCA 使用 GT polygon，不是可直接部署的无 GT 事实性 Judge；无手机端成本证据。**GO-E / Boundary refinement + Bridge；旧结论（可读≠真实）保持不变，当前系统不改，仅保留分层实验建议。**
 
 ### 2026-11-07｜T04：可解释的故障列表是否真的提高候选选优？
 
@@ -358,6 +364,9 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+
+- **2026-11-16 执行回执：** 官方 arXiv cs.CV、cs.LG、cs.AI、cs.MM、eess.IV、eess.SP 的 /new 在本次读取时仍显示 2026-11-13 公开公告（未见更晚已完成公告）；对 11 名已关注研究者做近 11-09 条目级检索，并跨 T01–T06/X01 开放关键词检索，未核验出可触发的新论文。ReasonText-SR 补读并建 T03/T04 正文与 survey，标历史 backfill，不推进新论文成功覆盖日期；HIFC-IQA 首次 OpenReview 公开时间仍 pending。此次 alphaXiv 只同步 ReasonText-SR Restoration 收藏。11-16 全量新公告、所有 OpenReview 与所有作者主页未宣称成功覆盖。
+
 
 | 日期 | 类型 | 变化 | 研究结论影响 |
 |---|---|---|---|
