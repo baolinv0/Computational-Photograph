@@ -1,6 +1,6 @@
-# 低光与颜色 IQA：分数、目标、Judge 与 Benchmark 到底在测量什么？
+# 无 GT 图像增强的 IQA / Reward 可靠性：低光、颜色与水下的不同失效
 
-版本 v0.1｜2026-11-05｜T04 主主题，连接 T02/T05
+版本 v0.2｜2026-11-17｜T04 主主题，连接 T02/T03/T05；11-17 扩展水下 NR-IQA 跨来源人评与压力测试，旧低光证据保持原核验范围
 
 ## 一分钟回忆
 
@@ -13,7 +13,7 @@
 | FR-IQA 与配对 Benchmark | 预测对 GT 的距离 | [What Does LOL Measure?](../papers/arxiv-2610.38121.md) | GT 目标漂移/数据重叠/test-only tuning |
 | CIE 真值颜色诊断 | AWB、肤色、CCT、ΔE 排序等可计算目标 | [CIE-computable color judge benchmark](../papers/arxiv-2610.40212.md) | VLM 粗分类会对，但细色差、数值估计未校准 |
 | 夜景结构化质量问答 | 失真类别、严重度、位置及成因 | [NightIQA](../papers/arxiv-2611.04811.md) | MCQ accuracy 不等同 MOS / pairwise preference |
-| 主观/多维 IQA | 自然、真实性、局部品质与任务效用 | 既有 [VHA](../papers/arxiv-2610.25770.md)、EditJudgeBias、Face Contrast | 单一分数难以涵盖互不补偿维度 |
+| **跨来源同场景主观排序及刷分审计** | 水下/真实增强版本 + 跨实验室 MOS/人类 pairwise → κ + 简单编辑/对抗/生成漂移压力测试 | [TrustUIQA](../papers/arxiv-2611.18429.md) | 73 配置包含同模型多 checkpoint；无单指标可保证所有来源的人类一致性，真实性与偏好也不同 |\n| 主观/多维 IQA | 自然、真实性、局部品质与任务效用 | 既有 [VHA](../papers/arxiv-2610.25770.md)、EditJudgeBias、Face Contrast | 单一分数难以涵盖互不补偿维度 |
 
 ## 三条新证据
 
@@ -43,9 +43,30 @@
 
 这是一条 **training reward / preference** 证据，不是通用 NR-IQA，也不是在线 Agent judge。其指标仍需谨慎：LucidConsistency 同时参与训练和部分评价，存在 self-reference；小规模人评只能补强，不能替代跨数据集独立验证。完整机制与系统分层见 [LR-anchored Real-ISR preference optimization](lr-anchored-real-isr-preference-optimization.md)。
 
+## 2026-11-17｜TrustUIQA：跨来源主观偏好与评价器的可刷分性（New）
+
+**主 T04；次 T03/T05；角色评价、Benchmark；GO-E；地图 Counter-evidence + Boundary refinement。** [Do Underwater Image Quality Metrics Agree with Human Perception?](../papers/arxiv-2611.18429.md)（Rishii Kumar Singh、Abhinav Rajput、Dinesh Kumar Vishwakarma，2026-11-13 arXiv v1 / 11-16 新公告）没有发明“NR-IQA 与人类不一致”的问题，但提供了可重复的系统性审计：73 个评价器配置、4 套先前 MOS 数据和额外 20 人/32 场景/1920 次人工二选一；同一图的不同增强版本上检验 pairwise Cohen κ，另用简单色彩/锐化/CLAHE、梯度扰动和多轮生成自拷贝寻找反例。
+
+| 路线与历史锚点（非新推荐） | 测量对象/监督/控制 | 核心界限 |
+|---|---|---|
+| UIQM、UCIQE，传统 UW NR-IQA | 颜色、清晰度、对比度 hand-crafted proxy → 分数 | 极端饱和与强锐化可刷分；非感知保真真值 |
+| URanker、Q-Align、泛化 NR-IQA | MOS/模型预训练 → 排序 | 同训练来源或某一数据集高相关不能保证新实验室、同图候选选优 |
+| BAPPS/gMAD/先前 NR-IQA attacks（历史） | 双选偏好或指标不一致/抗攻击测试 | 比较和刷分思想已有先例，不把本次概括为第一次提出 |
+| Banana100（历史） | 多轮生成复制 → 检查分数与退化单调性 | 旧共性，本次测更具体的水下域和两执行器 |
+| **TrustUIQA 新增证据** | 五个人类参照源 → 场景内同图候选比较；对 73 指标做简单编辑/攻击/漂移/实现审计 | best worst-source κ 0.23；本实验人-人 median κ 0.41；跨实验室学得水下 metric κ ≤0.31；不可推成所有真实照片任务通用数值 |
+| [EditJudge-Bench](artifact-grounded-reward-and-verification.md) | 已知操作参数 → 编辑正确性二元判断 | 事实正确性不是美学偏好；与水下人评互补 |
+
+**实验事实与审查边界**：四个既有 MOS 数据按库相加为 12,360 张/1,160 场景，但 SAUD/SAUD2.0 同实验室、共享 33 张场景，不能算完全独立；自建偏好 32 个场景人数仅 20。最佳跨来源 worst-case κ 为 0.23（Q-Align），不是总体 κ=0.23；学得水下 metric 同源 κ 可达 0.60–0.92，迁移至独立实验室不超过 0.31；Nano Banana Pro exact-copy 链噪声增约 2.5×时，只有 22/73 指标各 checkpoint 单调变差。PGD 是对**5 个可微模型**成功，并非全部 73 项，也非所有闭源 Judge。作者原文已承认早期水下感知偏差与 general metric hacking 前序。
+
+**判断更新（旧 → 新 → 不变）**：此前的低光/颜色审计强调 GT 风格、CIE 计量和 VLM 是否能定位缺陷；现在增加一条独立必要性：即使没有 GT，也要在同场景多候选上比较人工 winner 和评分器，验证指标在容易优化的色彩/锐化方向是否鼓励错误结果。不变的是**人类偏好、真实内容、局部结构/设备颜色和下游效用不互相替代**；本结果只在水下增强域提供定量反例。
+
+**离线方案**：多设备/不同失真域数据 + 同源候选 + 匿名人评 → 防泄漏分层 → 配对一致率/κ+人-人分歧 → 简单参数刷分与多步重复编辑压力测试 → 得到指标适用条件。**在线评价（设计假设，非 TrustUIQA 原系统）**：LQ + K 候选 → 颜色/结构/自然度分开检查 + 已审计 Judge → 接受/拒绝/保留输入。**Agent 层**仅使用该评价结果，不因此提高 executor 产出能力。最小实验固定 K 与调用预算，比较 NR-IQA、VLM Judge 与简单可解释规则在真实人工 pairwise 中的可选择性，再用过饱和/锐化反例审计。
+
+**记忆锚点**：IQA 能给两张照片排序，不等于排序和人一致；奖励能被优化，不等于改进了照片。
+
 ## References
 
 - [LOL Benchmark audit](https://arxiv.org/abs/2610.38121v1)
 - [CIE color judgment](https://arxiv.org/abs/2610.40212v1)
 - [NightIQA](https://arxiv.org/abs/2611.04811v1)
-- [VHA 卡片](../papers/arxiv-2610.25770.md)
+- [TrustUIQA 论文](https://arxiv.org/abs/2611.18429) · [代码](https://github.com/TrustUIQA/TrustUIQA)\n- [VHA 卡片](../papers/arxiv-2610.25770.md)
