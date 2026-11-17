@@ -1,6 +1,6 @@
 # 基于可观察伪影的 Reward 与候选验证：解释能否帮助选对？
 
-版本 v0.2｜2026-11-13｜主主题 T04，连接 T06/T05
+版本 v0.3｜2026-11-17｜主主题 T04，连接 T06/T05；此次仅增加跨域人类偏好压力测试的对照
 
 目录：[稳定问题](#稳定问题) · [路线地图](#路线地图) · [新旧证据](#新旧证据) · [完整方案](#完整方案) · [决策与缺口](#决策与缺口) · [References](#references)
 
@@ -64,6 +64,10 @@ NightIQA 的夜景失真定位、[CIE颜色评价](low-light-iqa-and-gt-validity
 **记忆锚点：**看出改了什么 ≠ 能判断哪张最好 ≠ 执行器能够达到目标。
 
 原始依据：[EditJudge-Bench v1，方法/实验/附录](https://arxiv.org/html/2611.12524v1)。
+
+## 2026-11-17｜评价目标的第三条必要审计（跨专题 Bridge）
+
+[TrustUIQA 水下增强 NR-IQA 审计](low-light-iqa-and-gt-validity.md#2026-11-17trustuiqa跨来源主观偏好与评价器的可刷分性new) 在已知编辑正确性的 [EditJudge-Bench](../papers/arxiv-2611.12524.md) 之外补充 **同场景人类 winner 的跨来源一致性与 metric hacking**。它表明：可控编辑指令是否达成、用户偏好哪张、候选纹理是否真实，是三种不同验收合同。73 个 metric 配置在五个人类参照中的最佳 worst-source κ 0.23，为水下域作者证据，非通用图像真理。新结果落在 T04 的**测量误差与奖励优化风险**路线，不意味着应直接换用一个新评委，也不影响执行器可达性。旧视频 artifact-as-rubric 路线和其成本判断不变。
 
 ## References
 - [ArtiVidRM v1](https://arxiv.org/html/2611.07301v1)
