@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-16",
+  "updated_on": "2026-11-17",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-13 arXiv new listings; 2026-11-15 official category pages still display 2026-11-13, so no new category-watermark advancement. Author index partial and public listings not exhaustive.",
+  "scope": "Selected paper identities through 2026-11-16 arXiv new listings (cs.CV, cs.LG, cs.AI, cs.MM, eess.IV, eess.SP); 10 followed imaging researchers' alphaXiv recent papers checked since 2026-11-09; broader OpenReview/early author releases and remaining tracked researchers not exhausted. Previous verified new-listing cutoff was 2026-11-13.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -4179,7 +4179,122 @@
         "alphaxiv_folder": "Restoration",
         "notation": "2026-11-16 canonical/survey/map/index/registry readback and alphaXiv membership confirmed"
       }
+    },
+    {
+      "id": "arxiv-2611.18006",
+      "title": "RecurIR: Learning When and How to Revise Restoration Policies via Recursive Self-Improvement",
+      "authors": "Hu Gao; Haoran Zhang; Yulong Chen; Lizhuang Ma",
+      "aliases": [
+        "RecurIR"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T03",
+        "T05",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "offline_training",
+        "strategy",
+        "execution",
+        "verification"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.18006v1",
+      "earliest_public_verified": "2026-11-13",
+      "earliest_source": "arxiv_v1_2026-11-13_10:33UTC_earlier_manuscript_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-16",
+      "first_covered": "2026-11-17",
+      "checked_on": "2026-11-17",
+      "verification_scope": "arxiv_v1_original_paper_related_work_method_training_formula_results_ablations_limitations_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.18006.md",
+      "canonical_survey": "https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md",
+      "decision_key": "falsifiable_degradation_conditioned_tool_policy_revision_with_transfer_retention_verification",
+      "decision_boundary": "Offline clean GT and matched tool executions construct conditional outcomes; same tool library does not equal matched task-evolution/GT budget. Real RAW, cross-camera and frozen-MFM transfer unverified; gains may derive from hard-example mining and extra offline compute.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-17",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-13",
+          "brief": "Paper Watch v3.2 T06",
+          "note": "Official Monday 2026-11-16 cs.CV new listing was uncovered after previous verified 2026-11-13 listing. New v1 and selected full original method/results read; prior EvoIR/SEAR/SkillIR and HarnessIR compared conditionally; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "verified_canonical_survey_updated",
+        "alphaxiv_folder": "Agent",
+        "notation": "2026-11-17 canonical card, CameraPaper T06 survey, local map/indices, alphaXiv membership readback verified."
+      }
+    },
+    {
+      "id": "arxiv-2611.18429",
+      "title": "Do Underwater Image Quality Metrics Agree with Human Perception? A Benchmark with Human Choices, Simple Edits and Generative Drift",
+      "authors": "Rishii Kumar Singh; Abhinav Rajput; Dinesh Kumar Vishwakarma",
+      "aliases": [
+        "TrustUIQA"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T03",
+        "T05"
+      ],
+      "system_roles": [
+        "evaluation",
+        "benchmark",
+        "reward_audit"
+      ],
+      "map_change": [
+        "Counter-evidence",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.18429v1",
+      "earliest_public_verified": "2026-11-13",
+      "earliest_source": "arxiv_v1_2026-11-13_17:10UTC_earlier_manuscript_publication_not_exhaustively_verified",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-16",
+      "first_covered": "2026-11-17",
+      "checked_on": "2026-11-17",
+      "verification_scope": "arxiv_v1_original_paper_metric_inventory_study_human_agreement_edits_pgd_drift_caveats_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.18429.md",
+      "canonical_survey": "surveys/low-light-iqa-and-gt-validity.md",
+      "decision_key": "underwater_no_reference_iqa_cross_source_pairwise_human_agreement_and_reward_hacking_stress_audit",
+      "decision_boundary": "Underwater enhancement only; 73 metric configurations include correlated model checkpoints; SAUD/SAUD2.0 same lab share 33 scenes; new human study 20 raters 32 scenes; PGD tests five differentiable metrics not all 73; preference is not physical scene fidelity.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-17",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-13",
+          "brief": "Paper Watch v3.2 T04",
+          "note": "Official 2026-11-16 cs.CV new listing uncovered; original v1 study and controls checked. Strong negative evidence for NR-IQA proxy and training reward; does not claim novel original IQA attack principle. No independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "IQA",
+        "notation": "2026-11-17 canonical card, two T04 survey routes, map/indices, alphaXiv membership readback verified."
+      }
     }
   ],
-  "updated_at": "2026-11-16"
+  "updated_at": "2026-11-17"
 }
