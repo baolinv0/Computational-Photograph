@@ -8,6 +8,12 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-17 Paper Watch：条件策略证伪与 NR-IQA 可刷分审计（2 New）
+
+- [本轮 Topic Update](Recent_Papers_2026-11-17.md)：[RecurIR](papers/arxiv-2611.18006.md)（T06：工具策略有效条件、主动反例、修订验收）与 [TrustUIQA](papers/arxiv-2611.18429.md)（T04：水下 human pairwise 一致性、NR-IQA 可刷分、生成漂移）。
+- 更新 [CameraPaper AgenticIR canonical survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) 和 [IQA/GT 可信度](surveys/low-light-iqa-and-gt-validity.md)，前者为跨库唯一主正文；RecurIR/TrustUIQA 均于 2026-11-13 arXiv 首传、11-16 新公告。AUTOREF 多参考生成只作为旧锚点/新增监测分支，不重复当新作。
+- 证据为作者原文方法/实验，不是独立复现；2026-11-16 的 six-category 新公告是本轮窗口，未宣称 OpenReview/作者提前公开全量覆盖。
+
 ## 2026-11-16 文本 SR 历史回填（非新增论文通知）
 
 - [ReasonText-SR v1](papers/arxiv-2611.15449.md) 2026-11-11 首传、11-14 已记录候选；本轮核验文字上下文推断与渲染可达性的独立瓶颈，接入 [文字事实保真 living survey](surveys/scene-text-faithfulness-and-reasoning.md)。已存在较早公开输出工件，完整论文更早公开日期待核验；事件为 backfill，不冒充 11-16 新论文。
