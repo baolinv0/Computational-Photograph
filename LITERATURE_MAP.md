@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.7｜结构建立/最近实质修订：2026-11-16
+版本：v0.8｜结构建立/最近实质修订：2026-11-17
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -201,6 +201,18 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **2026-11-13 T04 历史地图接入补齐（backfill，非新通知）：** [EditJudge-Bench](papers/arxiv-2611.12524.md)（2026-11-09 首次 arXiv 公开，11-13 周报已覆盖）以 1,382 组已知 Blender 操作真值审计 25 个 judge 配置；作者报告 VIEScore+GPT-4o 的 correctness AUROC 69.0%，图文顺序可令 AUROC 变化最多 14.1 个百分点。与 [EditJudgeBias](papers/arxiv-2610.01670.md)（顺序/线索偏差）、[CheckDistill](papers/arxiv-2610.26740.md)（checklist 蒸馏）和 ArtiVidRM（视频伪影 reward）属于相互补充的评价问题，**不是已核实的直接继承链**。**旧判断→新判断：** 先检验评委是否看到了可证伪的编辑操作，再问它能否按人类偏好选图；binary correctness 不等于真实风格保真，评价器改善不提高 executor 可达性。[T04 canonical survey](surveys/artifact-grounded-reward-and-verification.md) 已接入，原 T02 编辑器训练 survey 仅保留交叉索引。
 
+### 2026-11-17｜T04：评价器的偏好一致性、可刷分性与可部署性
+
+**旧判断**：LOL 的 GT 风格偏移、CIE 色差、NightIQA 失真问答和 EditJudge-Bench 的编辑操作审计分别衡量不同错误，不能靠单个 NR-IQA 提供所有答案。历史锚点：UIQM/UCIQE、gMAD/BAPPS、Banana100，以及本库已有 EditJudge-Bench（均非本轮新推荐）。
+
+**本次证据**：[TrustUIQA/Do Underwater Image Quality Metrics Agree with Human Perception?](papers/arxiv-2611.18429.md)，2026-11-13 arXiv v1、11-16 新公告；GO-E，Counter-evidence/Boundary refinement；主 T04，次 T03/T05，评价角色。73 个指标配置与 5 套人类参考的最优 worst-source κ 仅 0.23；20 人/32 场景独立二选一的人-人 median κ 0.41；同源训练较好但跨实验室显著退化；简单调色、锐化及生成自复制漂移可刷高或蒙蔽评分。作者实验，不是独立复现；五个人类参照源不是五个完全独立实验室。
+
+**判断更新**：从“审计操作是否做对”扩展到“同图多候选的人工偏好是否被正确排序、指标是否被优化诱导误判”。保持不变：主观偏好、事实保真、部署成本是不同轴；评价器更可靠也不能创造 executor 没有生成的真实候选。新的 **主 survey** 是 [低光、颜色与水下无 GT IQA 可靠性](surveys/low-light-iqa-and-gt-validity.md)，[伪影与反事实评委](surveys/artifact-grounded-reward-and-verification.md) 作为互补，不重复卡片全文。
+
+**系统回忆**：离线真实样本/多个增强候选 + human pairwise → 分层抽样/一致性 → 简单编辑+梯度/生成漂移 stress test → 校准分数和适用边界；在线（跨论文设计假设）：LQ + 候选集 → 独立显式保真证据与经审计偏好评分 → 选/拒；Agent 层不得把 score 上升当真实恢复。**行动**：先审计候选排序/刷分，不直接替换现有 ISP 或 Judge。最小实验：等候选池的人工 winner + 过锐化、过饱和错误提升反例。
+
+**记忆**：可靠奖励首先要经得住被优化，稳定的分数并不代表稳定的真实图像质量。
+
 ### T05｜数据与 Pseudo-GT
 
 系统位置：离线监督构造。至少分成四条并列路线：
@@ -243,6 +255,20 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **2026-11-06 增量（T06/T02）**：[TailSteer](papers/arxiv-2611.06741.md) 在多轮编辑器训练期，以原图保护区构造自监督 endpoint，并让 early trajectory 学 base、late trajectory 学 preservation。与 [MT Forcing](papers/arxiv-2610.25404.md) 的跨回合 rollout distillation 属竞争/互补机制（分析者综合，非断言直接继承），与推理时原图回退/ROI compositor 也是不同选项。作者的十轮保真优势伴随某些 Qwen/FLUX 单轮编辑准确率下降，不能称无损。**地图变化 New route/Boundary refinement**：将“多轮执行器本身的保真能力”从 Agent 的可发现性、可选择性明确分开；单轮目标区域操作失败不能由此文直接解决。综述见 [多轮编辑保真](surveys/multi-turn-editing-preservation.md)。
 
 **2026-11-11 同执行器轨迹内闭环选择**：[V2C-Edit](papers/arxiv-2611.10066.md) 基于 FlowEdit 的 coupled/decoupled 等多 velocity 备选，逐时刻使用 VLM Instruction-Level Similarity 选择和可选 mask；改变的是**可发现性**，不是训练新 executor 或完全解决 Judge **可选择性**。同骨干消融 IA 5.69→6.07、保护区 PSNR 17.78→17.44；高预算 brute-force IA6.22但更破坏背景；H100 26.44s/图远慢于固定 FlowEdit 4.00s。**地图变化 Bridge/Boundary refinement**：Agent 思路能下沉到模型生成轨迹，且闭环成本/偏差必须评价。**不变**：可达/可发现/可选及 ROI 真实保持独立，现有确定性局部 photofinishing 不是直接被替代。详见 [免反演编辑竞争路线](surveys/one-step-inversion-free-editing.md)。
+
+### 2026-11-17｜T06：从储存成功经验到主动寻找策略失效条件
+
+**旧地图**：AgenticIR/MAIR 的诊断与工具调度；EvoIR-Agent、SEAR 的经验/轨迹检索；SkillIR 的条件技能；HarnessIR 的 MFM 证据编排；V2C-Edit 的同次编辑轨迹内动作选择。均为历史锚点，不能画成同一单向进化链。
+
+**新证据**：[RecurIR](papers/arxiv-2611.18006.md)，Hu Gao 等，2026-11-13 arXiv v1、11-16 新公告；GO-E，New route/Boundary refinement；主 T06，次 T03/T05，策略/训练角色。它在**离线 GT + 配对恢复工具执行**下形成条件收益规则，主动构造针对退化严重度/区域/交互的反例，再学习工具、顺序、强度和 Mask 的修订；由迁移与旧任务保留测试验收。作者内部消融平均 PSNR 34.88→35.58dB，未独立复现，额外离线预算和 GT oracle 尚未做严格同预算归因。
+
+**旧→新→不变**：经验不仅是“以前怎么做”，还应保留“什么条件下它会失效”；现有经验复用与条件技能本来已存在，本次增量是**显式假说证伪 + 条件修订 + 双域验收**，非 RSI 概念首创。仍须分别检查像素可达、动作搜索可发现和 Judge 可选择；真实 RAW/跨相机策略与冻结 MFM 执行器的迁移尚未验证。与 2026-09-28 已公开的 [AUTOREF](https://arxiv.org/abs/2609.35530) 是 harness/策略优化的分析层共同问题，不是经核实的直接方法继承或新论文。
+
+**系统回忆**：离线 GT/退化生成 → 同图不同计划 → 条件性收益 → 反例任务 → 规则修订 → transfer/retention；在线 LQ/估计退化 → 已学规则 → 专用工具计划执行 → 拒绝/接受。**Agent控制**负责决策，**执行器能力**及 Judge 的真实性单独测。**行动**：保留现有系统不重构；用固定 GT、工具、难例样本数和总前向预算比较主动规则证伪 vs 随机 hard-example mining，优先测分布外条件和旧任务退化。
+
+**记忆**：学会一条策略不难，难的是知道何时它不再有效、应该改哪一部分。
+
+[主 canonical survey：CameraPaper Agentic Image Restoration](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) 的经验/条件规则路线已增补本轮证据，未新建冗余 survey。
 
 ### X01｜效率与训练部署
 
@@ -364,6 +390,8 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+
+- **2026-11-17 Paper Watch 新证据：** cs.CV 2026-11-16 新公告覆盖，补 2026-11-13 首传 RecurIR（T06 离线规则证伪/条件修订）与 TrustUIQA（T04 水下 NR-IQA 人偏好/刷分审计）。原文重点章节和旧 survey 已核，非独立复现；Core author alphaXiv 10 人 11-09 后索引检索，未得本轮额外合格新增；AUTOREF 2609.35530 为历史 seed，非当期新作。更早作者提前公开来源和所有 OpenReview 不宣称穷尽。
 
 - **2026-11-16 执行回执：** 官方 arXiv cs.CV、cs.LG、cs.AI、cs.MM、eess.IV、eess.SP 的 /new 在本次读取时仍显示 2026-11-13 公开公告（未见更晚已完成公告）；对 11 名已关注研究者做近 11-09 条目级检索，并跨 T01–T06/X01 开放关键词检索，未核验出可触发的新论文。ReasonText-SR 补读并建 T03/T04 正文与 survey，标历史 backfill，不推进新论文成功覆盖日期；HIFC-IQA 首次 OpenReview 公开时间仍 pending。此次 alphaXiv 只同步 ReasonText-SR Restoration 收藏。11-16 全量新公告、所有 OpenReview 与所有作者主页未宣称成功覆盖。
 
