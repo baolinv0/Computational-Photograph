@@ -6,6 +6,20 @@
 
 **两个完全不同的路线问题**：现有 RAW→RGB 网络能否部署到真手机 GPU；一帧 LDR+事件流能否作为高时间分辨 HDR 的采集接口。它们不能按单项 PSNR 比出统一赢家，因为观测与成本不同。
 
+
+### 2026-11-18｜移动端 DiT 推理必须按“算子—denoising—完整产品链”三层验收
+
+[dit.xpu](../papers/arxiv-2611.19261.md)（PKU 等，2026-11-14 v1；**X01 Engineering maturity / GO-E**）探索静态 tile halo sparse attention+periodic dense anchor residual correction，以及 NPU+GPU 异构并发/共享 buffer，将不规则稀疏计算转成 SoC 可执行数据流。
+
+| 成本口径 | 作者能支持什么 | **不能**推出什么 |
+|---|---|---|
+| attention kernel | 最快相对替代 kernel 报 11.5× | 全网络/手机拍照 11.5× |
+| DiT **end-to-end denoising** | 五种 DiT、两款 Snapdragon 机型，对 Hexagon NPU backend 最高 1.56× | VAE decoding、RAW/ISP、保存/显示、长期功耗同幅提升 |
+| 手机成像真实闭环 | 无独立真机场景/长时 ISP 管线测试 | 不能由桌面 GPU FLOPs 推断热稳态 |
+
+此前已有 Edge NPU Benchmark 的 common-I/O 与 vendor-native E2E 差异，是相同部署抽象要求的独立支持；新文提供具体异构优化工程案例，并不直接验证摄像头 ISP。数据流与 kernel 适配为可用的工程机制，**不改变现有传统 ISP 执行链**；条件满足的 DiT 编辑/生成部署可列入设计选项。待测功耗、VAE、反复调用的长期温升和实际手机画质。
+
+
 ## 竞争方案
 
 | 输入与任务 | 执行方式 | 测试关键 |
