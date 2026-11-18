@@ -8,6 +8,12 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-18 Paper Watch：采集目标、生成参考、恢复训练、部署与观看条件（4 New + 1 Update）
+
+- [完整 Topic Update](Recent_Papers_2026-11-18.md)：[LC-ISP](papers/arxiv-2611.19284.md)（T01/T05 同设备 live→capture 训练监督）、[MrLIE](papers/arxiv-2611.19285.md)（T03 自生成参考须做源图保真与置信配准）、[Improved Fréchet FDIR](papers/arxiv-2611.20805.md)（T03/X01 一步恢复训练替代路线）、[dit.xpu](papers/arxiv-2611.19261.md)（X01 两款 Snapdragon 上真实 NPU/GPU denoising 优化）。
+- **2024 QoMEX 历史纠错：** [HDR-VDC 2026 journal extension](papers/arxiv-2611.20226.md) 为 2024 已公开数据和实验的实质扩展，仅新增 35 评价指标与 viewing-condition adaptation 分析，不作为全新数据集。见 [显示与观看条件专题](surveys/display-viewing-conditioned-visual-quality.md)。
+- 其余 canonical 路线增补： [T05 数据合成](surveys/imaging-training-data-synthesis.md) · [T03 高效恢复](surveys/efficient-generative-restoration.md) · [T03 生成参考独立专题](surveys/generated-reference-guided-low-light-restoration.md) · [X01 端侧 ISP](surveys/mobile-isp-and-event-hdr-efficiency.md)。2026-11-17 官方公告是新窗口，核心作者索引与开放检索同步，非 OpenReview/全部作者主页穷尽。
+
 ## 2026-11-17 Paper Watch：条件策略证伪与 NR-IQA 可刷分审计（2 New）
 
 - [本轮 Topic Update](Recent_Papers_2026-11-17.md)：[RecurIR](papers/arxiv-2611.18006.md)（T06：工具策略有效条件、主动反例、修订验收）与 [TrustUIQA](papers/arxiv-2611.18429.md)（T04：水下 human pairwise 一致性、NR-IQA 可刷分、生成漂移）。
