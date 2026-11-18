@@ -91,6 +91,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T01｜采集与成像物理
 
+**2026-11-18｜新观察：同机 live/capture 监督是数据来源的新接口。** [LC-ISP](papers/arxiv-2611.19284.md) 用同一 iPhone live 单帧 RAW/预览与多帧 capture quality/最终 sRGB 组成恢复+渲染双监督，归入 [T05 训练数据路线比较](surveys/imaging-training-data-synthesis.md)，连接 X01 轻量 ISP。不同于 SID 长曝光 RAW 真观测和 DPED/ZRR 跨设备 reference；capture 是多帧+ISP 目标，不是物理 radiance GT。GO-E / New route + Engineering maturity；不替换现有采集/AE–TM 路线。
+
+
 系统位置：进入恢复之前的观测生成与控制。保留曝光时间、模拟增益、数字增益、帧数与渲染亮度的区别。
 
 已有入口：[RIECR](papers/arxiv-2610.28191.md)、[RawVLA](papers/arxiv-2609.37530.md)、[Neural Block-wise AE](papers/arxiv-2610.18733.md)、[HDR 专题](HDR/)。这些是已有卡片导航，不表示本次重审了各篇方法。
@@ -145,6 +148,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
+**2026-11-18｜两条竞争机制，不等于单一新模型趋势。** [MrLIE](papers/arxiv-2611.19285.md) 在输入不足时**生成 daylight reference**并用置信配准/原图锚点控制 diffusion（PROBE / Bridge），与 [UGD-FM](papers/arxiv-2611.06422.md) 的 **独立实测 NIR** 不同；见 [生成参考专题](surveys/generated-reference-guided-low-light-restoration.md)。[FDIR-2611.20805](papers/arxiv-2611.20805.md) 把 Fréchet feature distribution loss 用于**离线一步恢复训练**，与 teacher/score distillation 和 GAN 竞争（GO-E / New route），其高 NR-IQA 与较低 PSNR 是真实性边界；见 [高效生成式恢复](surveys/efficient-generative-restoration.md)。不因新参考或损失假定文字/皮肤真实细节可恢复，或现有 Judge 已选对。
+
+
 系统位置：保留/重建观测信息，并界定可接受的生成自由度。
 
 已有入口：[BAM](papers/arxiv-2609.39660.md)、[WorldSR](papers/arxiv-2610.28423.md)、[RelayVSR](papers/arxiv-2609.37850.md)、[VHA](papers/arxiv-2610.25770.md)。
@@ -186,6 +192,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **判断变化（New route / Boundary refinement）**：从「更好群体美学分数」细分为 crowd MOS / 单图个人美学 / 同场景编辑候选偏好。**不变**：物理色差、结构事实、编辑任务完成必须单独验收；Judge 的准确分数不自动意味着用户候选池可选择性提高。**离线**：冻结特征 + 非测试用户群监督 → 人群先验 → 独立同场景渲染偏好采集；**在线**：个人 K 条评分 → 后验权重 → 候选排序/保留原图；Agent 只调用评价接口，非已经验证的联合修图框架。详见[个人偏好与渲染评价 living survey](surveys/personalized-aesthetic-preference-and-rendering.md)。
 
 ### T04｜IQA、Reward 与偏好决策
+
+**2026-11-18｜2024→2026实质扩展而非新数据。** [HDR-VDC观看条件评价](papers/arxiv-2611.20226.md) 的 QoMEX 2024 原作已经公开 HDR/AV1 两视距两亮度人评，2026 arXiv 扩展 35 指标、显示光度模型+PU21+PPS 适配及跨条件消融，标 **material_update** / GO-E / Supporting evidence，不能冒充 2026 首创 HDR-VDC。与 TrustUIQA 的 *是否刷分/跨偏好一致* 是不同评价维度；见 [显示观看条件专题](surveys/display-viewing-conditioned-visual-quality.md)。同像素失真在不同观看条件下的**可见度**不同，但物理内容真实度不由亮度改善。
+
 
 系统位置：候选测量、选择、验收和训练反馈。必须分别说明这些角色，不能因同用 IQA 名称就合并。
 
@@ -271,6 +280,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 [主 canonical survey：CameraPaper Agentic Image Restoration](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) 的经验/条件规则路线已增补本轮证据，未新建冗余 survey。
 
 ### X01｜效率与训练部署
+
+**2026-11-18｜移动 DiT 稀疏算子与产品部署口径。** [dit.xpu](papers/arxiv-2611.19261.md) 用静态 tile sparse attention + dense anchors + NPU/GPU shared dataflow，在两款 Snapdragon 手机上作者报告 kernel 最高 11.5×、**denoising stage E2E** 最高 1.56×。不等于相机 RAW→ISP 或完整 UI/持续功耗 1.56×；与此前 Edge NPU Benchmark 的 model-call vs full E2E 边界相互支持，归 [部署 survey](surveys/mobile-isp-and-event-hdr-efficiency.md)。GO-E / Engineering maturity；现有传统 ISP 方案不变。
+
 
 它是贯穿六个主题的比较维度，不再把每个高效模块当成新的孤立研究方向。
 
@@ -390,6 +402,9 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+
+- **2026-11-18：4 New + 1 Material Update。** 2026-11-17 官方 cs.CV/LG/AI/MM、eess.IV/SP 新公告继承 11-16 上次成功覆盖水位；LC-ISP(T01/T05)、MrLIE(T03/T06)、improved Fréchet FDIR(T03)、dit.xpu(X01) 为 arXiv 11-14 至 11-16 首传新作。[HDR-VDC 2026](papers/arxiv-2611.20226.md) 正文自述扩展 **2024 QoMEX**，因此仅 35 metrics 实质更新而非新数据/新首创；独立复现、所有 OpenReview 与全部提前公开仍欠缺。对各主题的路线、方案、限制参见 [2026-11-18 Topic Update](Recent_Papers_2026-11-18.md)。
+
 
 - **2026-11-17 Paper Watch 新证据：** cs.CV 2026-11-16 新公告覆盖，补 2026-11-13 首传 RecurIR（T06 离线规则证伪/条件修订）与 TrustUIQA（T04 水下 NR-IQA 人偏好/刷分审计）。原文重点章节和旧 survey 已核，非独立复现；Core author alphaXiv 10 人 11-09 后索引检索，未得本轮额外合格新增；AUTOREF 2609.35530 为历史 seed，非当期新作。更早作者提前公开来源和所有 OpenReview 不宣称穷尽。
 
