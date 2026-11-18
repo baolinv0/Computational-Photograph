@@ -32,6 +32,22 @@
 
 图示比较同一**低光增强目标**的竞争机制；并非这些方法都共享相同任务或训练源。
 
+
+### 2026-11-18｜训练目标路线：改善训练效率不等于减少推理调用
+
+[FDIR / Improved Fréchet Loss](../papers/arxiv-2611.20805.md)（2026-11-16 首传，**勿与 2026-08 同缩写 FDIR 混同**）是与 SinSR/OSEDiff 蒸馏、HYPIR/OMGSR 对抗训练并行的**冻结特征 Fréchet 分布损失**路线，而非一种新 NFE 调度。
+
+| 一步恢复器如何训练 | 学习约束 | 必需额外模块 | 风险 |
+|---|---|---|---|
+| SinSR / OSEDiff（历史） | 教师轨迹、score/consistency | 教师网络及监督采样 | 训练算力，教师偏差 |
+| HYPIR / OMGSR（历史） | 对抗+perceptual | 判别器/高质量目标 | adversarial instability |
+| Representation Fréchet Loss（2026 方法前序）→ FDIR（新恢复适配） | 冻结多尺度特征的图像/patch distribution moments；历史 EMA 统计 | 冻结编码器及矩统计 | 可能奖励感知分布而忽略实例细节 |
+
+作者在近 40 A100 GPU-hour 条件的 RealPhoto60 对照报告 MUSIQ 73.579（FDIR）、42.595（VSD）、52.089（GAN）；但 DIV2K-Val PSNR FDIR 19.414，OSEDiff 20.529 dB。**GO-E（训练与工程路线）**，支持无判别器/蒸馏教师的可行性，不足以支持真实细节更准确或真机更快。与 2026 Representation Fréchet Loss 属方法继承/适配，测试集内不同 backbone 的横向结果不构成无条件公平比较。
+
+在线链仍为 LQ→一步恢复输出；离线 FD loss 训练的额外开销不可忽略。最小对照：固定同一 checkpoint、训练图像数、目标与训练 GPU budget，比较 FD / GAN / score 并报告真实内容/PSNR/MOS。**原有多步 vs 少步部署判断不变。**
+
+
 ## 横向证据
 
 GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLOW-FM card](../papers/arxiv-2610.31222.md)。
