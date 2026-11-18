@@ -4,6 +4,16 @@
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
+### 2026-11-18｜4 New + 1 Material Update（跨主题路由）
+
+| 主题 | Canonical living survey | 本轮对长期地图的变化 |
+|---|---|---|
+| T01/T05 | [成像训练数据与真实同机采集监督](imaging-training-data-synthesis.md) | LC-ISP：live/capture 双流形成单帧 Neural ISP 的中间/终端监督；同机目标也不等于辐射 GT；GO-E |
+| T03/T06 | [生成参考与真实测量不同](generated-reference-guided-low-light-restoration.md) | MrLIE：MLLM 造正常曝光参考→置信配准→源结构锚定 diffusion；生成参考不提供独立实测细节；PROBE |
+| T03/X01 | [高效生成恢复的训练目标路线](efficient-generative-restoration.md) | FDIR：Fréchet feature distribution 损失训练一步恢复，对比 distillation / GAN；MUSIQ↑与PSNR↓须同时看；GO-E |
+| X01/T03 | [移动 ISP 与 DiT 真实硬件成本](mobile-isp-and-event-hdr-efficiency.md) | dit.xpu：异构 NPU/GPU 静态 sparse+anchors；denoising E2E 与全产品 pipeline 不同；GO-E |
+| T04/T02 | [HDR 显示与观看条件评价](display-viewing-conditioned-visual-quality.md) | HDR-VDC **2024 QoMEX→2026 arXiv 实质扩展**：新的是 35 VQA 指标/PU21+PPS 的比较和失败边界，原数据非新作；GO-E Update |
+
 ## 专题
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
