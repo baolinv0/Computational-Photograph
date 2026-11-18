@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-17",
+  "updated_on": "2026-11-18",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-16 arXiv new listings (cs.CV, cs.LG, cs.AI, cs.MM, eess.IV, eess.SP); 10 followed imaging researchers' alphaXiv recent papers checked since 2026-11-09; broader OpenReview/early author releases and remaining tracked researchers not exhausted. Previous verified new-listing cutoff was 2026-11-13.",
+  "scope": "Selected paper identities through 2026-11-17 arXiv new listings (cs.CV, cs.LG, cs.AI, cs.MM, eess.IV, eess.SP); 10 followed imaging researchers' alphaXiv recent papers since 2026-11-09; additional open discovery, selected HTML evidence. Broader OpenReview, earlier author disclosures, and 5 non-core followed researchers not exhausted. Previous verified new-listing cutoff 2026-11-16. 2024 QoMEX HDR-VDC marked material Update, not new.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -4294,7 +4294,296 @@
         "alphaxiv_folder": "IQA",
         "notation": "2026-11-17 canonical card, two T04 survey routes, map/indices, alphaXiv membership readback verified."
       }
+    },
+    {
+      "id": "arxiv-2611.19284",
+      "title": "LC-ISP Benchmark: Leveraging Capture Frames for Real-Time Learned ISP",
+      "authors": "Kai Chen; Junyu Lou; Jinhua Zhang; Weiyi You; Shuhang Gu",
+      "aliases": [
+        "LC-ISP"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T05",
+        "X01",
+        "T02"
+      ],
+      "system_roles": [
+        "capture",
+        "target",
+        "data",
+        "training",
+        "deployment"
+      ],
+      "map_change": [
+        "New route",
+        "Engineering maturity"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.19284v1",
+      "earliest_public_verified": "2026-11-14",
+      "earliest_source": "arxiv_v1_2026-11-14_earlier_author_public_material_not_exhaustively_verified",
+      "arxiv_v1_first_submitted": "2026-11-14",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-17",
+      "first_covered": "2026-11-18",
+      "checked_on": "2026-11-18",
+      "verification_scope": "arxiv_v1_original_html_selected_method_related_work_results_and_limitations_checked; 2024_QoMEX_official_prior_verified_for_2611.20226; no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.19284.md",
+      "canonical_survey": "surveys/imaging-training-data-synthesis.md",
+      "decision_key": "same_device_live_raw_preview_and_multiframe_capture_intermediate_supervision_for_single_frame_neural_isp",
+      "decision_boundary": "iPhone16Pro 1000 independent scenes 53892 patches; capture sRGB is ISP/stacked output, not scene radiance GT; 2.5 GFLOPs not phone E2E cost.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-18",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-14",
+          "brief": "Paper Watch v3.2 2026-11-18 T01",
+          "note": "arxiv 2026-11-17 official new listing after prior verified 2026-11-16 listing. Selected original paper, prior-art and limitations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "ISP",
+        "notation": "2026-11-18 paper cards, affected living surveys, map and indexes read back; alphaXiv collection membership checked after save."
+      }
+    },
+    {
+      "id": "arxiv-2611.19285",
+      "title": "Generate, Align, and Restore: MLLM-Empowered Diffusion for Generalizable Low-light Image Enhancement",
+      "authors": "MrLIE authors (see canonical arXiv page)",
+      "aliases": [
+        "MrLIE"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T06",
+        "T05",
+        "T04"
+      ],
+      "system_roles": [
+        "target",
+        "execution",
+        "strategy",
+        "evaluation"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.19285v1",
+      "earliest_public_verified": "2026-11-14",
+      "earliest_source": "arxiv_v1_2026-11-14_earlier_author_public_material_not_exhaustively_verified",
+      "arxiv_v1_first_submitted": "2026-11-14",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-17",
+      "first_covered": "2026-11-18",
+      "checked_on": "2026-11-18",
+      "verification_scope": "arxiv_v1_original_html_selected_method_related_work_results_and_limitations_checked; 2024_QoMEX_official_prior_verified_for_2611.20226; no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.19285.md",
+      "canonical_survey": "surveys/generated-reference-guided-low-light-restoration.md",
+      "decision_key": "self_generated_daylight_reference_from_lowlight_input_plus_confidence_offsets_and_source_anchored_diffusion",
+      "decision_boundary": "Generated reference is not independent radiometric measurement; NIQE/BRISQUE/MLLM self critique not factual fidelity; multi-call Gemini and diffusion cost.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-18",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-14",
+          "brief": "Paper Watch v3.2 2026-11-18 T03",
+          "note": "arxiv 2026-11-17 official new listing after prior verified 2026-11-16 listing. Selected original paper, prior-art and limitations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "2026-11-18 paper cards, affected living surveys, map and indexes read back; alphaXiv collection membership checked after save."
+      }
+    },
+    {
+      "id": "arxiv-2611.20805",
+      "title": "An Efficient Training Paradigm for Image Restoration via Improved Fréchet Loss",
+      "authors": "Shanyuan Jie; Wu Shi; collaborators incl. Chao Dong",
+      "aliases": [
+        "FDIR (Improved Fréchet Loss; not the distinct 2026-08 FDIR)"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T04",
+        "X01",
+        "T05"
+      ],
+      "system_roles": [
+        "training",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.20805v1",
+      "earliest_public_verified": "2026-11-16",
+      "earliest_source": "arxiv_v1_2026-11-16_earlier_author_public_material_not_exhaustively_verified",
+      "arxiv_v1_first_submitted": "2026-11-16",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-17",
+      "first_covered": "2026-11-18",
+      "checked_on": "2026-11-18",
+      "verification_scope": "arxiv_v1_original_html_selected_method_related_work_results_and_limitations_checked; 2024_QoMEX_official_prior_verified_for_2611.20226; no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.20805.md",
+      "canonical_survey": "surveys/efficient-generative-restoration.md",
+      "decision_key": "train_one_step_restorer_with_frozen_multiscale_representation_frechet_distribution_loss_not_GAN_or_teacher_trajectory",
+      "decision_boundary": "Higher MUSIQ without higher DIV2K PSNR; train GPU hours do not equal inference time; strong dependence on feature encoders and target pairs.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-18",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-16",
+          "brief": "Paper Watch v3.2 2026-11-18 T03",
+          "note": "arxiv 2026-11-17 official new listing after prior verified 2026-11-16 listing. Selected original paper, prior-art and limitations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Restoration",
+        "notation": "2026-11-18 paper cards, affected living surveys, map and indexes read back; alphaXiv collection membership checked after save."
+      }
+    },
+    {
+      "id": "arxiv-2611.19261",
+      "title": "dit.xpu: Taming DiT Sparse Inference on Mobile SoCs",
+      "authors": "Jiayu Chen; Jinye Hu; Xiang Chen; collaborators at Peking University",
+      "aliases": [
+        "dit.xpu"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "X01",
+      "secondary_themes": [
+        "T03",
+        "T06"
+      ],
+      "system_roles": [
+        "deployment",
+        "execution"
+      ],
+      "map_change": [
+        "Engineering maturity"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.19261v1",
+      "earliest_public_verified": "2026-11-14",
+      "earliest_source": "arxiv_v1_2026-11-14_earlier_author_public_material_not_exhaustively_verified",
+      "arxiv_v1_first_submitted": "2026-11-14",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-17",
+      "first_covered": "2026-11-18",
+      "checked_on": "2026-11-18",
+      "verification_scope": "arxiv_v1_original_html_selected_method_related_work_results_and_limitations_checked; 2024_QoMEX_official_prior_verified_for_2611.20226; no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.19261.md",
+      "canonical_survey": "surveys/mobile-isp-and-event-hdr-efficiency.md",
+      "decision_key": "mobile_DiT_tile_sparse_attention_dense_anchor_residual_correction_NPU_GPU_shared_buffer",
+      "decision_boundary": "Kernel up to 11.5x vs attention baseline distinct from denoising E2E up to 1.56x; not full ISP/camera latency or sustained power.",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-18",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-14",
+          "brief": "Paper Watch v3.2 2026-11-18 X01",
+          "note": "arxiv 2026-11-17 official new listing after prior verified 2026-11-16 listing. Selected original paper, prior-art and limitations checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "Agent",
+        "notation": "2026-11-18 paper cards, affected living surveys, map and indexes read back; alphaXiv collection membership checked after save."
+      }
+    },
+    {
+      "id": "arxiv-2611.20226",
+      "title": "Streaming across viewing conditions — The effect of viewing distance and display luminance on video quality",
+      "authors": "Dounia Hammou; Lukáš Krasula; Christos G. Bampis; Zhi Li; Rafał K. Mantiuk",
+      "aliases": [
+        "HDR-VDC 2026 journal extension of 2024 QoMEX"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T02",
+        "X01"
+      ],
+      "system_roles": [
+        "evaluation",
+        "benchmark",
+        "deployment"
+      ],
+      "map_change": [
+        "Supporting evidence",
+        "Engineering maturity"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.20226v1",
+      "earliest_public_verified": "2024-06-18",
+      "earliest_source": "2024 QoMEX original paper DOI 10.1109/QoMEX61742.2024.10598289, IEEE conference June 18–20 2024; 2026 arxiv journal expansion",
+      "arxiv_v1_first_submitted": "2026-11-15",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-17",
+      "first_covered": "2026-11-18",
+      "checked_on": "2026-11-18",
+      "verification_scope": "arxiv_v1_original_html_selected_method_related_work_results_and_limitations_checked; 2024_QoMEX_official_prior_verified_for_2611.20226; no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.20226.md",
+      "canonical_survey": "surveys/display-viewing-conditioned-visual-quality.md",
+      "decision_key": "HDR_VDC_2024_dataset_extended_2026_with_35_view_condition_adapted_IQA_VQA_metrics_and_PU21_PPS",
+      "decision_boundary": "2024 QoMEX prior already introduced dataset and finding. 2026 adds metric benchmarking; one OLED, dark room, two conditions, AV1/Lanczos; not phone outdoor.",
+      "events": [
+        {
+          "type": "material_update",
+          "date": "2026-11-18",
+          "new_alert": true,
+          "earliest_public_date": "2024-06-18",
+          "brief": "Paper Watch v3.2 2026-11-18 T04",
+          "note": "2024 QoMEX dataset/pairwise predecessor explicitly acknowledged by 2026 journal version. New 2026 contribution: 35 VQA metrics, viewing-condition adaptation and statistics; NOT a new 2026 dataset."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "alphaxiv_folder": "IQA",
+        "notation": "2026-11-18 paper cards, affected living surveys, map and indexes read back; alphaXiv collection membership checked after save."
+      }
     }
   ],
-  "updated_at": "2026-11-17"
+  "updated_at": "2026-11-18"
 }
