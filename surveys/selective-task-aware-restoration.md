@@ -46,6 +46,22 @@
 
 **旧→新→保持**：原路由“是否执行”仍须与 always-KEEP 比；新增 “同图哪里借助生成、哪里保留观测” 的可检验连续控制。**不变**：生成结果的可达性、错误自信（低预测方差仍可能 hallucinate）、Judge 可选择性都没有被该机制解决。该工作与 [DeLang-SR](../papers/arxiv-2611.10485.md) 的方向/局部幅度分离是分析者归纳的共同问题，不可称直接继承或已形成共识。**裁决 PROBE / Supporting evidence + Boundary refinement**，目前不改任何手机 TM/ISP 系统。最小实验为固定 backbone 与总 forward 数，对比随机分歧 Mask、可见遮挡 Mask、固定/随机混合以及高置信错误区域的保真和泄漏。
 
+## 2026-11-19｜内部执行策略场：ExplicitIR 与选择性恢复的边界
+
+[ExplicitIR（2026-11-17 v1，PROBE）](../papers/arxiv-2611.22222.md) 是另一种“哪里改/改多少”：其输入是混合退化 RGB，网络内部预测 per-pixel **Budget d** 和 **Style λ**，前者显式约束恢复 decoder 更新的幅度，后者在 narrow/wide context 响应中选择。原论文只需恢复 GT 的图像监督，不需每像素 policy label 或外部 Agent，在线仍只单次 forward。
+
+| 路线 | 决策位置与信息 | 可改变的变量 | 不能证明的能力 |
+|---|---|---|---|
+| Whole-image KEEP / RESTORE | 外部 router | 整图是否调用 purifier | 局部修复可靠性 |
+| SGVD 的 uncertainty mixing | 生成恢复执行中 latent | 逐像素 LQ/generative latent 混合比 | 置信=事实正确性 |
+| **ExplicitIR 的 Budget / Style fields** | 判别式恢复网络 decoder 内部 | 当前 feature 更新幅度/局部上下文范围 | 输出像素严格不变、外部工具策略/候选选优 |
+| 独立候选 Judge | 执行后的外部核验 | Accept/Reject、重试/停止 | 执行器候选不可达问题 |
+
+作者的三任务平均 PSNR Restormer 31.98、ExplicitIR 32.78、外部标签条件化 DFPIR 32.88 dB；不是击败所有同条件模型。与 SGVD 的“局部选择”是分析者的共同抽象，并非方法继承。**替代解释**：更强特征容量、RMS 归一化、普通空间注意力或 gated updates 在等预算下也可能产生相似结果。需要分解归因，而非把 +0.80 dB 全部算成可解释 field。
+
+**判断变更**：原来保留/恢复控制主要发生在整图路由或生成后的验证；新增第三种内部 feature 更新控制位置。**不变**：真实信息不可恢复时仍可能凭先验补细节；局部低 d 不等于像素完全无损，且只有一致 GT 下才能测量内容保持。该工作尚无真实相机 RAW / 手机 E2E 验证。离线 clean/LQ 配对训练，在线 input→Budget/Style→decoder→output；Agent 可选但未验证。当前实现不作扩容，最小判别实验固定 backbone/FLOPs/训练，比较 naive spatial attention、单 d field 和双场，记录 degraded ROI 收益与 clean ROI leakage。
+
+
 ## 关键新证据
 
 [Gate3DGen](../papers/arxiv-2610.31649.md) 用 3D assets 构造恢复监督，并将下游 3D 几何作为成功判据。对比非退化输入，合成 3D benchmark 的几何误差大幅改善，证明**任务相关恢复目标有价值的局部证据**。
