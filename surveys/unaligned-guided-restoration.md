@@ -22,6 +22,22 @@
 
 前序锚点：NAID、SANet、CUNet/DVN/RFFNet（按 UGD-FM 原文 Related Work 核对定位；其各自完整原文仍待补）；[CHROMA-MILL](../papers/arxiv-2611.04092.md) 是低照颜色与照明监督的**互补问题**，不代表本路线直接前作。
 
+## 2026-11-19｜真实双摄 RGB–HSI 与错配可靠性：TANGO / DUET
+
+**新证据**：[TANGO / DUET（2026-11-17 arXiv v1，GO-E）](../papers/arxiv-2611.22699.md) 不只是把两种模拟对齐图像拿来训练。作者使用真实 Sony α6100 RGB 与 Specim IQ HSI 组成 **403 个双物理相机场景**，原 HSI 204 bands 中选择 400–700nm 的 31 bands；RGB 与 HSI 机心分离约 15cm，粗 FOV 对齐后仍有真实视差/遮挡。训练使用 327/36/40 scene train/val/test，白卡反射率标定。**重要边界：高分辨率 HSI 真实拍摄，低分辨率 HSI 输入是从真实 HR HSI 合成 Gaussian downsample**，因此不是完全真实的双低/高谱传感器 LR/HR 对照。
+
+| 方案与前序 | 输入/监督与控制 | 在线步骤与收益来源 | 核验边界 |
+|---|---|---|---|
+| 单 HSI-SR | LR-HSI → HR-HSI GT | 无跨谱引导 | 强简单基线 |
+| 既有 simulated aligned RGB-guided HSI | LR-HSI + 合成同视角 RGB | 直接融合或轻量对应 | 无跨设备真实遮挡 |
+| **TANGO (DUET)** | 真实高分辨率 HSI + 真实异机 RGB；合成 LR-HSI | global RAFT registration → residual local alignment → occlusion confidence gate → HR-HSI | 优势不能都归因 gate；真实 LR-HSI 与 RGB 双相机连续视频部署未测 |
+| UGD-FM | noisy RGB + 另一谱段 NIR 实测 | sparse correspondence + stage-wise flow denoise | 恢复目标、谱段与额外硬件不同；**共同抽象，非继承** |
+
+DUET x8 作者报告 PSNR 38.116 vs strongest comparator 36.403 dB（约 +1.71dB）；整体宣称最高 +2.29dB 只对应特定 scale。其 global registration 和 flow 调整已贡献大部分提升，local alignment/gate 的净增量更小；需固定同源训练、骨干、FLOPs 和同传感器输入，按 occlusion/parallax 分层评估。数据/代码 URL 在此次检查时尚未访问成功，暂不可称实际公开发布。
+
+**旧→新→不变**：已有 RGB/NIR 非配准引导方法 → 出现真实双相机 HSI/RGB 的匹配与错配 benchmark；**不变**：新增有效传感观测与跨视角错配的价值必须分开测，几何失败会传播虚假纹理，非手机 ISP 落地。离线高质 HSI+RGB/场景标定→合成 LR HSI+训练；在线 HSI+RGB→对齐/置信→谱恢复；无 Agent 必需。行动 GO-E 基准方向，当前单相机方案保持，最小对照 global-only/global+local/+gate，并检查高视差失败区域。
+
+
 ## 可比较证据
 
 **2026-11-04 新证据 UGD-FM**：其 FANVID/RGB-NIR Scene/MS2 测试包含单图、guided 和 diffusion/flow 的作者对照。其 FANVID Table 6 观察为：直接回归 30.27、标准 FM 2 step 30.34、stage-focused 30.42、加 inference-consistent states 30.58 dB；另外从 window guidance 30.03 到 sparse propagation 30.58。由此不能将全部增益归结为“用了 flow”；引导聚合和训练时刻匹配均有贡献。
