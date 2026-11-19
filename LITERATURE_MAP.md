@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.8｜结构建立/最近实质修订：2026-11-17
+版本：v0.8｜结构建立/最近实质修订：2026-11-19
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -91,6 +91,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T01｜采集与成像物理
 
+**2026-11-19｜真实跨设备双传感器观测：TANGO/DUET（GO-E，New route + Boundary refinement）**。[TANGO](papers/arxiv-2611.22699.md) 实拍 403 个独立 RGB–HSI 双摄场景，RGB 额外提供空间纹理观测却引入视差/遮挡。区别于 [LC-ISP](papers/arxiv-2611.19284.md) 同手机两条 ISP 成像链的教师监督，TANGO 的 RGB 是另一台**真实相机**的不同模态观测，故“新增测量”和“错误匹配”须同时计入。**重要边界**：真实 HR HSI+RGB，LR HSI 来自 HR HSI 模拟退化；不是端到端真实 LR HSI 采集或手机真机部署。离线双摄光谱/几何标定与受控 LR 生成→训练对齐+融合；在线 LR-HSI+RGB→全局/局部匹配与 gate→HR-HSI。主调查入口：[跨模态不对齐引导 survey](surveys/unaligned-guided-restoration.md)。当前单手机 AE/ISP 方案不变。
+
+
 **2026-11-18｜新观察：同机 live/capture 监督是数据来源的新接口。** [LC-ISP](papers/arxiv-2611.19284.md) 用同一 iPhone live 单帧 RAW/预览与多帧 capture quality/最终 sRGB 组成恢复+渲染双监督，归入 [T05 训练数据路线比较](surveys/imaging-training-data-synthesis.md)，连接 X01 轻量 ISP。不同于 SID 长曝光 RAW 真观测和 DPED/ZRR 跨设备 reference；capture 是多帧+ISP 目标，不是物理 radiance GT。GO-E / New route + Engineering maturity；不替换现有采集/AE–TM 路线。
 
 
@@ -148,6 +151,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
+**2026-11-19｜单模型内部可解释的空间恢复策略（PROBE，Bridge）**。[ExplicitIR](papers/arxiv-2611.22222.md) 通过每像素 update Budget 与 context Style field 控制 decoder 的局部响应。不同于整图 KEEP/RESTORE routing、SGVD 的 LQ/生成潜变量混合和候选后 Judge；网络内 Budget≈小并不能推断输出逐像素严格保真。作者三任务均值 PSNR 32.78（Restormer 31.98；外部退化标注 DFPIR 32.88），价值主要是控制接口与局部恢复，不是已证明全任务最好。离线 clean/LQ→训练 Policy field；在线输入→spatial field→decoder→RGB，外部 Agent 非必需。原路线与最小实验见[选择性恢复 living survey](surveys/selective-task-aware-restoration.md)。保持原恢复方案，不因机制相似直接引入新 Agent。
+
+
 **2026-11-18｜两条竞争机制，不等于单一新模型趋势。** [MrLIE](papers/arxiv-2611.19285.md) 在输入不足时**生成 daylight reference**并用置信配准/原图锚点控制 diffusion（PROBE / Bridge），与 [UGD-FM](papers/arxiv-2611.06422.md) 的 **独立实测 NIR** 不同；见 [生成参考专题](surveys/generated-reference-guided-low-light-restoration.md)。[FDIR-2611.20805](papers/arxiv-2611.20805.md) 把 Fréchet feature distribution loss 用于**离线一步恢复训练**，与 teacher/score distillation 和 GAN 竞争（GO-E / New route），其高 NR-IQA 与较低 PSNR 是真实性边界；见 [高效生成式恢复](surveys/efficient-generative-restoration.md)。不因新参考或损失假定文字/皮肤真实细节可恢复，或现有 Judge 已选对。
 
 
@@ -192,6 +198,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **判断变化（New route / Boundary refinement）**：从「更好群体美学分数」细分为 crowd MOS / 单图个人美学 / 同场景编辑候选偏好。**不变**：物理色差、结构事实、编辑任务完成必须单独验收；Judge 的准确分数不自动意味着用户候选池可选择性提高。**离线**：冻结特征 + 非测试用户群监督 → 人群先验 → 独立同场景渲染偏好采集；**在线**：个人 K 条评分 → 后验权重 → 候选排序/保留原图；Agent 只调用评价接口，非已经验证的联合修图框架。详见[个人偏好与渲染评价 living survey](surveys/personalized-aesthetic-preference-and-rendering.md)。
 
 ### T04｜IQA、Reward 与偏好决策
+
+**2026-11-19｜判断失败的层次：质量表示 vs 输出读出（GO-E，New route + Boundary refinement）**。[Lost in Read-out](papers/arxiv-2611.22564.md) 用冻结 VLM 的多层 linear probe 检查单图质量信息是否存在，发现部分模型虽然 hidden states 含有 MOS 信息，最终 good-vs-poor 文本回答仍与人评不一致；对最后语言层单 neuron closed-form read-out 校准在部分数据改善相关性，但有 prompt/输出格式与文本语义副作用。与 Q-Align 训练式 IQA、EditJudge-Bench 指令事实审计、TrustUIQA metric hacking 是不同评价合同，**不是已证通用好 Judge**。离线 MOS→probe/readout 拟合与跨域审计；在线图像→VLM→已校准答案→独立图像事实与人类偏好验证，Agent 仅潜在使用者。**不变**：可达性、搜索发现性、可选择性独立，不能仅凭此论文改用某个 judge。详见[评价证据与可靠性 living survey](surveys/artifact-grounded-reward-and-verification.md)。
+
 
 **2026-11-18｜2024→2026实质扩展而非新数据。** [HDR-VDC观看条件评价](papers/arxiv-2611.20226.md) 的 QoMEX 2024 原作已经公开 HDR/AV1 两视距两亮度人评，2026 arXiv 扩展 35 指标、显示光度模型+PU21+PPS 适配及跨条件消融，标 **material_update** / GO-E / Supporting evidence，不能冒充 2026 首创 HDR-VDC。与 TrustUIQA 的 *是否刷分/跨偏好一致* 是不同评价维度；见 [显示观看条件专题](surveys/display-viewing-conditioned-visual-quality.md)。同像素失真在不同观看条件下的**可见度**不同，但物理内容真实度不由亮度改善。
 
