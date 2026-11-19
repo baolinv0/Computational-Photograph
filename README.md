@@ -8,6 +8,11 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-19 Paper Watch：三项跨主题新证据
+
+- [本轮 Topic Update：TANGO/DUET 双摄错配基准、ExplicitIR 内部空间策略、Lost in Read-out 的 VLM 质量读出](Recent_Papers_2026-11-19.md)：3 篇 2026-11-17 arXiv v1（11-18 公告），单篇卡、living survey 和总图已连接；均不代表独立复现。
+- [总图](LITERATURE_MAP.md) · [长期专题索引](surveys/README.md) · [归档协议](ARCHIVE_PROTOCOL.md)。
+
 ## 2026-11-18 Paper Watch：采集目标、生成参考、恢复训练、部署与观看条件（4 New + 1 Update）
 
 - [完整 Topic Update](Recent_Papers_2026-11-18.md)：[LC-ISP](papers/arxiv-2611.19284.md)（T01/T05 同设备 live→capture 训练监督）、[MrLIE](papers/arxiv-2611.19285.md)（T03 自生成参考须做源图保真与置信配准）、[Improved Fréchet FDIR](papers/arxiv-2611.20805.md)（T03/X01 一步恢复训练替代路线）、[dit.xpu](papers/arxiv-2611.19261.md)（X01 两款 Snapdragon 上真实 NPU/GPU denoising 优化）。
