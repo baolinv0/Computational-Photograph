@@ -26,6 +26,22 @@ VideoScore (2024)、VideoAlign/VideoScore2 (2025) 与 VisionReward (2026) 是该
 
 NightIQA 的夜景失真定位、[CIE颜色评价](low-light-iqa-and-gt-validity.md)、CheckDistill 的结构清单是**不同任务的共同抽象机制**。它们对视频偏好和对真实修图的结论条件不同，不是假定已能无缝迁移的成熟系统。
 
+## 2026-11-19｜IQA 失败可能发生在最终读出，不是视觉感知：Lost in Read-out
+
+[Lost in Read-out（2026-11-17 v1，GO-E）](../papers/arxiv-2611.22564.md) 新增 **hidden quality representation → language read-out** 这条评价校准路线。旧地图以“是否看对质量 / 指令是否真的执行 / 可否学到稳定偏好”划分；新证据显示还须区分**中间表征是否有信息**与**语言回答是否正确读出**。
+
+| 评价阶段 | 输入→机制→输出 | 失败/简单对照 |
+|---|---|---|
+| 冻结视觉表示 / 中间层线性探针 | 图像→各层 embeddings + MOS 拟合→预测质量 | 如果表征本身缺失质量，改读出无效 |
+| **语言层 closed-form read-out 编辑** | 冻结 VLM 的特定 LLM 激活+MOS/多 prompt→编辑单 neuron→good-vs-poor 答案 | 必须对照同预算 linear head、适配 prompt；输出格式受限，可能有文字语义副作用 |
+| 独立编辑事实审计 | 原图/编辑指令/候选→可控变化真值 | 单图主观质量分数不等于编辑完成 |
+| 多候选人类 winner 与结构验证 | 固定候选池→人工/ROI 保真和 pairwise correctness | 准确输出单图 MOS 不证明排序可信或不幻觉 |
+
+作者在五个 VLM 上通过 layer-wise probe 发现 quality 在视觉与后期语言状态中可读但回答不完全利用。例：KonIQ Qwen3.5-0.8B Spearman 0.642→0.800，为作者测试条件；其他模型/域收益不一致，部分反向。约百量级 MOS 标注足以校准部分信号，并非零监督。作者也报告 good/poor read-out 的情感文本语义副作用，yes/no 或 1-5 评分格式不继承效果。它和 Q-Align 训练式 IQA、EditJudge-Bench 指令事实、TrustUIQA metric hacking 是**不同指标合同的互补证据**，非方法继承或领域共识。
+
+**新判断**：诊断“Judge 不会判断”时应先测 hidden representation probe 的容量上界，再决定是否改读出、增加标注、换模型；**保持**既有可达性/可发现性/可选择性分离，不以此推断所有修图 VLM 打分都可被单 neuron 修好。**系统**离线 MOS+heldout prompts→probe→closed-form calibration→跨域、人评及副作用；在线源图/候选→评分读出→独立保真证据→选择（Agent 控制非本文结果）。**行动**：暂不替换任何 Judge，等预算固定候选集比较 answer/probe/readout 与人工 winner/ROI 泄漏/跨场景稳定性。
+
+
 ## 完整方案
 **离线数据/训练**：真实视频候选+人类偏好/MOS+多来源伪影标注 → 筛选/验证证据 → SFT artifact list → reward GRPO → held-out split上的伪影recall、pairwise winner、排序和鲁棒性。
 **在线**：视频/原始prompt → artifact list→score→候选选择或提示修正；可训练生成器，但论文图像/视频推理与训练费用需分别统计。
