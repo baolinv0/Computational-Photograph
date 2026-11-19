@@ -1,8 +1,18 @@
 # 持续专题综述索引
 
-更新：2026-11-17
+更新：2026-11-19
 
 目录：[专题](#专题) · [维护原则](#维护原则)
+
+### 2026-11-19｜3 New：采集可信度、局部执行与VLM读出
+
+| 稳定问题/主主题 | 复用现有 Canonical living survey | 新证据与判断 |
+|---|---|---|
+| T01/T03/T05：不对齐的真实双相机引导怎样利用额外观测？ | [RGB–HSI / RGB–NIR 非配准恢复](unaligned-guided-restoration.md) | [TANGO/DUET](../papers/arxiv-2611.22699.md) 真实双相机 HR HSI+RGB，但 LR HSI 合成；全局/局部对齐+occlusion gate，GO-E / New route |
+| T03/T06：恢复动作能否在网络内部区域化？ | [选择性恢复与控制位置](selective-task-aware-restoration.md) | [ExplicitIR](../papers/arxiv-2611.22222.md) 逐像素 Budget/Style field，区别于整图路由、latent gate、后处理 Judge；PROBE / Bridge |
+| T04/T06：VLM 分数失准来自看不见还是读不出？ | [伪影证据、IQA 和评价接口](artifact-grounded-reward-and-verification.md) | [Lost in Read-out](../papers/arxiv-2611.22564.md) 层间 quality probe 与 closed-form readout，可能救回单图 MOS，但非通用编辑 Judge；GO-E / Boundary refinement |
+
+新论文首传 2026-11-17、官方 cs.CV 新公告 11-18、首次覆盖 11-19。跨主题复用 canonical card，不另建重复 survey。
 
 ### 2026-11-18｜4 New + 1 Material Update（跨主题路由）
 
