@@ -4819,10 +4819,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
+        "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
       }
     },
     {
@@ -4873,10 +4875,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
+        "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
       }
     },
     {
@@ -4926,10 +4930,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
+        "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
       }
     },
     {
@@ -4980,10 +4986,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
+        "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
       }
     },
     {
@@ -5033,10 +5041,12 @@
         }
       ],
       "sync": {
-        "github": "pending_readback",
-        "alphaxiv": "pending",
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending"
+        "notion": "hub_indexed",
+        "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
+        "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
       }
     }
   ]
