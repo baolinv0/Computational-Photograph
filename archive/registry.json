@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-19",
+  "updated_on": "2026-11-20",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-17 arXiv new listings (cs.CV, cs.LG, cs.AI, cs.MM, eess.IV, eess.SP); 10 followed imaging researchers' alphaXiv recent papers since 2026-11-09; additional open discovery, selected HTML evidence. Broader OpenReview, earlier author disclosures, and 5 non-core followed researchers not exhausted. Previous verified new-listing cutoff 2026-11-16. 2024 QoMEX HDR-VDC marked material Update, not new.",
+  "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -4767,5 +4767,277 @@
       }
     }
   ],
-  "updated_at": "2026-11-19"
+  "updated_at": "2026-11-19",
+  "records": [
+    {
+      "id": "arxiv-2611.24805",
+      "title": "Edge-Efficient Joint RAW Image Compression and Restoration for Smart Wearable Devices",
+      "authors": "Yunong Sun; Sicheng Chen; Fei Xia",
+      "aliases": [
+        "CRAW",
+        "joint RAW compression and restoration for wearables"
+      ],
+      "kind": "paper",
+      "topic": "Raw",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T03",
+        "X01",
+        "T05"
+      ],
+      "system_roles": [
+        "acquisition",
+        "compression",
+        "restoration",
+        "deployment"
+      ],
+      "map_change": [
+        "New route",
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.24805v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_selected_method_results_device_latency_sections_and_code_entry_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24805.md",
+      "decision_key": "clean_target_joint_raw_compression_restoration_with_measured_wearable_sender_cost",
+      "decision_boundary": "12MP sender-side measurements exclude backend latency, power, thermals and wireless instability; real glasses reference is a 32-frame mean; 342.98ms on Xiaomi 13 and 1290.8ms on Rokid are not real-time video",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "2026-W47 weekly brief",
+          "note": "New arXiv v1, selected sections and real-device sender breakdown checked; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2611.24915",
+      "title": "PrismRestore: A Compact Restoration Toolbox for Agentic Image Restoration",
+      "authors": "Zhaocheng Yu; Kui Jiang; Jing Cao; Yiang Chen; Xiaocheng Feng; Junjun Jiang; Xianming Liu",
+      "aliases": [
+        "PrismRestore"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T03",
+        "T04"
+      ],
+      "system_roles": [
+        "toolbox",
+        "policy",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.24915v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_selected_method_tables_and_ablation_sections_checked_code_unverified",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24915.md",
+      "decision_key": "single_frozen_backbone_channel_prior_toolbox_with_learned_sequence_policy",
+      "decision_boundary": "Synthetic composite training; real benchmark uses no-reference IQA; average 5 seconds per image on desktop GPU; storage reduction does not establish judge reliability or mobile feasibility",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "2026-W47 weekly brief",
+          "note": "Single-backbone multi-action route selected; code and independent replication unavailable."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Agent",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2611.24579",
+      "title": "ALIVE: Bring Foundation Features to Life with Events",
+      "authors": "Rong Zou; Haiqing Hao; Davide Scaramuzza",
+      "aliases": [
+        "ALIVE"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "X01",
+        "T03"
+      ],
+      "system_roles": [
+        "event sensing",
+        "feature update",
+        "deployment"
+      ],
+      "map_change": [
+        "New route",
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.24579v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_selected_method_table_and_data_sections_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24579.md",
+      "decision_key": "event_driven_incremental_refresh_of_frozen_visual_foundation_features_between_frames",
+      "decision_boundary": "Synthetic-only training; GH200 FP32 4.66ms update excludes anchor encoder and task heads; event-domain drift and mobile deployment unverified",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "2026-W47 weekly brief",
+          "note": "Event feature update route selected; no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2611.24212",
+      "title": "DetailScale-SR: Decoupling Restoration and Continuous Detail Control for Real-World Super-Resolution",
+      "authors": "Shengchuan Gao; Zhongjie Duan; Yingda Chen; Jingjing Chen",
+      "aliases": [
+        "DetailScale-SR"
+      ],
+      "kind": "paper",
+      "topic": "Raw",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T02",
+        "T04",
+        "T06"
+      ],
+      "system_roles": [
+        "restoration",
+        "control",
+        "editing",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.24212v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_selected_method_results_and_ablation_sections_and_model_entry_checked",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24212.md",
+      "decision_key": "frozen_restoration_path_with_scalar_continuous_detail_preference_and_optional_extrapolation",
+      "decision_boundary": "Synthetic degradations; prompt-assisted text may supply missing content; higher detail and CFG improve no-reference scores while fidelity metrics degrade; no OCR, identity or mobile E2E",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "2026-W47 weekly brief",
+          "note": "Continuous detail-control route selected; model link visible, no independent replication."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending"
+      }
+    },
+    {
+      "id": "arxiv-2611.24233",
+      "title": "Psychometrics-Inspired Coreset Selection for Image Quality Assessment",
+      "authors": "Susu Jiang; Xuelin Shen; Baoliang Chen",
+      "aliases": [
+        "GRAM",
+        "psychometric IQA coreset"
+      ],
+      "kind": "paper",
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T05"
+      ],
+      "system_roles": [
+        "data selection",
+        "annotation",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement",
+        "Counter-evidence"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.24233v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_selected_method_results_split_and_leakage_note_checked_code_announced_not_verified",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24233.md",
+      "decision_key": "psychometric_quality_content_distortion_representation_for_iqa_coreset_selection",
+      "decision_boundary": "Synthetic severity supervision; KADID upstream and downstream splits may share reference images or distorted samples; not all dataset-strategy cells improve; code only promised",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "2026-W47 weekly brief",
+          "note": "IQA annotation-selection route retained as PROBE because group leakage can change the conclusion."
+        }
+      ],
+      "sync": {
+        "github": "pending_readback",
+        "alphaxiv": "pending",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending"
+      }
+    }
+  ]
 }

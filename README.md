@@ -8,6 +8,12 @@
 
 本仓库存通用研究技术笔记；厂商归属、产品/专利和竞品证据进入 [CameraPaper](https://github.com/baolinv0/CameraPaper/blob/main/WEEKLY_ARCHIVE.md)。Notion 作为私有阅读入口，alphaXiv 收藏原论文。
 
+## 2026-11-20 周报：RAW端云分工、单骨干Agent与评价数据预算
+
+- [本期周度快照](Recent_Papers_2026-11-20.md)：5张11月18日新卡 + 11月14–19日日更证据与两条产业Update；不把已日更条目重新标为周度首发。
+- 新卡：[RAW联合压缩恢复](papers/arxiv-2611.24805.md) · [PrismRestore](papers/arxiv-2611.24915.md) · [ALIVE](papers/arxiv-2611.24579.md) · [DetailScale-SR](papers/arxiv-2611.24212.md) · [GRAM IQA coreset](papers/arxiv-2611.24233.md)。
+- 当前裁决：端云RAW表示值得复现；Agent工具箱压缩与detail控制进入原型审计；IQA coreset先修group leakage。
+
 ## 2026-11-19 Paper Watch：三项跨主题新证据
 
 - [本轮 Topic Update：TANGO/DUET 双摄错配基准、ExplicitIR 内部空间策略、Lost in Read-out 的 VLM 质量读出](Recent_Papers_2026-11-19.md)：3 篇 2026-11-17 arXiv v1（11-18 公告），单篇卡、living survey 和总图已连接；均不代表独立复现。
