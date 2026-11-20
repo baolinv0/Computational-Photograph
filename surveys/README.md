@@ -4,6 +4,15 @@
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
+### 2026-11-20｜状态交互与物理光度保真（新日更，独立于既有周报）
+
+| 稳定问题/主题 | Canonical living survey | 本次改变 |
+|---|---|---|
+| T03/T05/T06：多退化当前状态是否改变另一退化的恢复响应？ | [统一恢复退化路由（已有页）](universal-restoration-degradation-routing.md) | [PROBE](../papers/arxiv-2611.23889.md)：语义轴+强度坐标+交叉有限差分；同骨干组合增量受静态坐标强基线限制，PROBE / New route |
+| T03/T01/T05：科学SR如何兼顾真实测量与跨滤镜域泛化？ | [物理光度保持与跨滤镜超分（新稳定问题页）](photometric-fidelity-and-cross-filter-super-resolution.md) | [STAR++](../papers/arxiv-2611.24023.md)：2025 STAR 的重大扩展，36 HST滤镜、7个未见测试、FAA/SADL；GO-E / substantive Update；不将已有Flux Error当新 |
+
+其中11月18日 v1的新研究在11月19日官方新公告；与当日周度任务已登记的五项不同ID，旧STAR不计当日新增。无跨手机实测、独立复现与OpenReview全覆盖证明。
+
 ### 2026-11-19｜3 New：采集可信度、局部执行与VLM读出
 
 | 稳定问题/主主题 | 复用现有 Canonical living survey | 新证据与判断 |
