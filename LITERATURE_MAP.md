@@ -159,6 +159,12 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **判断**：把“训练期共享”“在线专家路由”“后验权重合并”列为三种竞争路线；同样需要共享底座及跨相机迁移检验。**不变**：不能把低秩融合训练费用或32 DDIM steps当作手机端低成本。**系统**：离线各任务专家→冻结→联合校准权重→单合并checkpoint；在线LQ→合并扩散恢复器→RGB；无额外Agent，仍需外部GT fidelity与成本。见[统一恢复survey](surveys/universal-restoration-degradation-routing.md)。
 
+### 2026-11-20｜T03/T05：复合退化状态交互与天文光度一致性（增量日更）
+
+- **T03/T05｜复合退化的状态条件交互**：[PROBE / 2611.23889](papers/arxiv-2611.23889.md)（2026-11-18 arXiv v1，首覆盖11-20，**PROBE / New route + Boundary refinement**）把雨/雪/雾/低光不再仅看成静态标签或MoE路由，提出局部退化强度τ、特征空间正负扰动的cross-response与对单因子参考的偏差ΔD来条件化NAFNet。作者 CDD-11 30.77 dB vs CART 29.95，但同骨干τ+ΔD为30.63，额外cross-response的净增益仅0.14dB。与 OneRestore/DPL/CART 的静态组合、UniRestorer++ 的层级专家是**竞争机制/综合比较**而非直接继承。没有真实RAW或手机端部署；[主survey](surveys/universal-restoration-degradation-routing.md)记录等算力/同数据反证。
+- **T03/T01/T05｜物理光度约束的跨光谱SR**：[STAR++ / 2611.24023](papers/arxiv-2611.24023.md)（2026-11-18 v1，**GO-E / substantive Update + Engineering maturity**）是2025 STAR 的同团队**明确扩展**，从单滤镜54,738扩为36滤镜1,697,816个HST-derived LR/HR配对，新增滤镜条件化FAA与位置不确定性SADL；7个未见滤镜×2作者35.42dB/FE0.4341，比在同扩展数据上训练的FISR34.32dB/FE0.5304好。**旧flux守恒与FE不是新概念**；LR仍为HR经PSF+保光通量下采样模拟，不能推出真实另一望远镜采集或手机SR表现。[独立稳定问题survey](surveys/photometric-fidelity-and-cross-filter-super-resolution.md)对照点源测量与自然照片真实性。
+- **判断与方案**：此前知道“一个恢复器不必泛化所有退化”和“SR需要超越视觉分数的保真约束”；现在增加两条可检验边界：(1)退化间响应是否有独立于强度τ的增量？(2)跨滤镜泛化需有仪器元数据和物理量合同。离线分别为合成复合退化+单因子参考和HST HR→PSF合成LR；在线分别为RGB→状态探测→恢复与LR+滤镜元数据→光度SR。**没有经过验证的组合接口**，不因此改写已有AE–TM/ISP/Agent系统。历史 STAR 2025 仅作前序，不是2026新作；文献结果均作者报告。
+
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
 **2026-11-19｜单模型内部可解释的空间恢复策略（PROBE，Bridge）**。[ExplicitIR](papers/arxiv-2611.22222.md) 通过每像素 update Budget 与 context Style field 控制 decoder 的局部响应。不同于整图 KEEP/RESTORE routing、SGVD 的 LQ/生成潜变量混合和候选后 Judge；网络内 Budget≈小并不能推断输出逐像素严格保真。作者三任务均值 PSNR 32.78（Restormer 31.98；外部退化标注 DFPIR 32.88），价值主要是控制接口与局部恢复，不是已证明全任务最好。离线 clean/LQ→训练 Policy field；在线输入→spatial field→decoder→RGB，外部 Agent 非必需。原路线与最小实验见[选择性恢复 living survey](surveys/selective-task-aware-restoration.md)。保持原恢复方案，不因机制相似直接引入新 Agent。
