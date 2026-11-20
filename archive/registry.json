@@ -4765,9 +4765,128 @@
         "alphaxiv_folder": "IQA",
         "notation": "2026-11-19 canonical, affected survey/map, alphaXiv membership read back"
       }
+    },
+    {
+      "id": "arxiv-2611.23889",
+      "title": "Beyond Additive Composition: Interventional Modeling of State-Dependent Cross-Degradation Responses for Composite Image Restoration",
+      "authors": "Zongda Tang; Jie Feng; Wenda Zhao; Mingtao Feng; Yuping Liang; Ronghua Shang; Weisheng Dong",
+      "aliases": [
+        "PROBE composite image restoration",
+        "state-dependent cross-degradation probing"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T05",
+        "T06"
+      ],
+      "system_roles": [
+        "degradation measurement",
+        "restoration",
+        "data",
+        "training"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.23889v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1_submission_2026-11-18_05:41_UTC;_authors_prior_publication_not_exhaustive",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_html_sections_2_5_tables_1_5_and_hist_competitors_checked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.23889.md",
+      "canonical_survey": "surveys/universal-restoration-degradation-routing.md",
+      "decision_key": "state_dependent_cross_degradation_interventions_with_static_severity_and_reference_relative_descriptors",
+      "decision_boundary": "CDD-11 synthetic composites +0.82dB over CART; within-architecture adding normalized response to state+reference descriptor only +0.14dB; no real paired phone RAW or runtime; physical interaction may reflect synthesis ordering",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "brief": "archive/PAPER_WATCH_2026-11-20_daily.md",
+          "note": "Distinct from five studies already covered in weekly brief; method-level additive-factor challenge with state-only baseline attribution."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-20 canonical survey map and daily distinct snapshot read back; alphaXiv membership verified"
+      }
+    },
+    {
+      "id": "arxiv-2611.24023",
+      "title": "STAR++: A Physical-Aware Benchmark and Framework for Astronomical Super-Resolution across Multiple Filters",
+      "authors": "Guohang Zhuang; Jiaze Li; Kuo-cheng Wu; Hao Du; Jinyang Huang; Xiang Zhang; Wanli Ouyang; Yan Lu",
+      "aliases": [
+        "STAR++",
+        "FISR++",
+        "substantive follow-up to STAR 2025 arxiv-2507.16385"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T01",
+        "T05",
+        "T04"
+      ],
+      "system_roles": [
+        "physics-driven data",
+        "super-resolution",
+        "training",
+        "evaluation"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.24023v1",
+      "earliest_public_verified": "2026-11-18",
+      "earliest_source": "arxiv_v1_submission_2026-11-18_08:13_UTC;_direct_predecessor_STAR_published_2025-07-22",
+      "source_version": "v1",
+      "first_covered": "2026-11-20",
+      "checked_on": "2026-11-20",
+      "verification_scope": "arxiv_v1_html_sections_I_V_tables_I_III_VII_selected;_STAR_2025_original_arxiv_page_metadata_checked;_not_reproduced",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.24023.md",
+      "canonical_survey": "surveys/photometric-fidelity-and-cross-filter-super-resolution.md",
+      "decision_key": "STAR_2025_major_extension_36_HST_filters_meta_conditioned_SADL_and_cross_filter_flux_generalization",
+      "decision_boundary": "Direct same-team extension of 2025 STAR not newly invented flux conservation; HST HR PSF+resampling creates synthetic LR, unseen-filter results not true cross-device measurements, dataset scale confounds method improvements",
+      "events": [
+        {
+          "type": "material_update",
+          "date": "2026-11-20",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-18",
+          "original_ancestor": "arxiv-2507.16385",
+          "old_state": "2025 STAR one filter 54738 pairs FISR/FE",
+          "new_state": "2026 STAR++ 36 filters 1697816 pairs 7 unseen filters FAA and SADL with new quantitative comparisons",
+          "brief": "archive/PAPER_WATCH_2026-11-20_daily.md",
+          "note": "Separate new arXiv identity but direct prior STAR 2025 acknowledged; substantive expanded publication, not rediscovered original."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-20 canonical survey map and daily distinct snapshot read back; alphaXiv membership verified"
+      }
     }
   ],
-  "updated_at": "2026-11-19",
+  "updated_at": "2026-11-20",
   "records": [
     {
       "id": "arxiv-2611.24805",
