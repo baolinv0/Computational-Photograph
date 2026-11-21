@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v0.9｜结构建立/最近实质修订：2026-11-20
+版本：v1.0｜结构建立/最近实质修订：2026-11-21
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -65,6 +65,18 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 | T06 Agent、动作与闭环控制 | 在既定执行器下，如何找到有效动作并控制失败与成本？ | 固定链；单步直接模型；等预算候选选择；自适应工具；原图重试/就地编辑；学习动作后果 | 执行器能做到、搜索找得到、评价选得对须分开 |
 | X01 效率与训练部署（横向层） | 哪些能力在训练期获取，哪些计算必须在部署期保留？ | 蒸馏/量化；低分辨率控制+高分辨率执行；少步/多阶段；缓存；端云分工 | 训练成本、模型时延、完整产品成本分别算 |
 
+### 2026-11-21｜三处独立研究问题变化（5 New，非一条已验证系统）
+**T03/T06：错误发生在哪、凭什么修、是否应继续修？**
+旧路线是 AgenticIR/MAIR 的整图工具决策、SGVD/ExplicitIR 的网络内部空间控制与 RecurIR 条件经验反例。新增 [FAIR](papers/arxiv-2611.26456.md) 把 **区域R与外部事实参考v** 绑定到单次修复执行（GO-E），[RegionAgent](papers/arxiv-2611.26179.md) 把 **一步收益 vs 整条轨迹收益** 拆成组件级和轨迹级偏好 DPO（PROBE）。前者的 synthetic headline 受 clean GT 引导 reference retrieval，完全LQ-driven FID 从63.28退至67.97；后者在Group C fixed action pool SFT20.01→step20.47→both20.90dB、18.60s/图。共同抽象是区域控制，不代表方法继承。现有判断不变：**执行器候选可达、搜索可发现、评价可选择必须分别检查**。[专题选择性控制](surveys/selective-task-aware-restoration.md)；[Agent策略主survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md)。在线前者LQ+ROI+参考→单次恢复；后者Base→区域动作/专家→最多8次局部尝试；离线前者失败区域+GT建训练数据、后者GT派生步骤/轨迹偏好，均非无需GT的自进化。
+
+**T02/T05：目标是谁定义？**
+旧路线包含专家FiveK/PPR10K单对目标、PREEN参考色调到预设、ATune显式属性、真实/合成 RAW 监督。新增 [AesDistill](papers/arxiv-2611.25635.md)（GO-E）用四生成教师造64,644颜色目标、3360 H100 GPU小时训练1.13M颜色学生；16个自动指标联合JS学生74.75 vs DeepLPF67.50，**非独立人类偏好**。新增 [ApexFuse](papers/arxiv-2611.25453.md)（PROBE）在真实VIS+IR缺唯一融合GT时，改由LMM+人筛选生成式目标指导FLUX融合（FMB segmentation mIoU59.05 vs Text-IF58.54；LLVIP detection mAP50:95 65.353 vs Mask-DiFuser63.872，作者独立训练下游模型）。两项共有分析者抽象“生成目标→训练学生”，**目标一项是颜色美学，另一项是多物理模态融合**，不能合并一个模型GT；生成目标仍不等于源场景证据。在线均不需每张图调用目标生成器。见 [摄影目标](surveys/photo-attribute-targets-and-editor-control.md)、[数据/PGT](surveys/imaging-training-data-synthesis.md)。
+
+**T01：场景条件化不一定需要多专家。**
+旧路线 AWNet/RMFA-Net的共享RAW ISP、MetaISP的场景条件和LC-ISP的高质量教师监督；新增 [LG-FiLM](papers/arxiv-2611.25639.md)（PROBE）实测 Fujifilm RAW GT 24.998 vs同作者RMFA-Net24.377dB，但同框架global-only24.857 vs full24.998，local-only23.387与无条件23.366近似；MoE主要收益解释尚不充分。在线 Bayer→global/local调制→共享decoder→RGB；离线真实配对学习。暂无手机 SoC E2E 验证，不扩张现有采集/AE–TM课题。新 [场景条件 Neural ISP survey](surveys/scene-conditioned-neural-isp.md)系统比较 global-only FiLM、local-only、MoE、ISP中间监督。
+
+**综合判断与不变部分**：这些新工作分处“采集观测—训练目标—执行控制—评价”，不是已验证端到端集成。强简单对照分别是同容量 global-FiLM、仅专家GT的轻量调色学生、源相似度约束融合器、同参考ROI条件及SFT/step-DPO；ROI真实保真与作者自动NR-IQA应分开。没有任何新论文要求当前手机 ISP/TM 或私有恢复框架自动重构。五篇 v1 均2026-11-19首次上传，2026-11-20新公告；当前证据来自原文选段、非独立复现；更早作者公开材料尚未穷尽。
+
 ### 2026-11-20｜周度系统边界：传输、工具箱、偏好轴与标注预算
 
 - **T01/T03/X01**：[Joint RAW compression-restoration](papers/arxiv-2611.24805.md) 把 noisy RAW 传输表示直接优化到 clean linear RGB，首次在本图中闭合 wearable sender NPU/I-O/CPU coding/50Mbps transmission 拆账。它支持端云分工新路线，但342.98ms/12MP（Xiaomi 13）和1290.8ms（Rokid）尚非实时视频。
@@ -100,6 +112,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **行动**：上述结果暂无需扩张当前 Tone Mapping / AWB / RAW 恢复执行链；优先复用强简单对照，只有出现对应真实失败条件再安排最小判别实验。所有技术指标均为作者报告，并非独立复现。
 
 ### T01｜采集与成像物理
+**2026-11-21 状态：**场景条件神经ISP可从[AWNet/RMFA-Net→MetaISP→LG-FiLM](surveys/scene-conditioned-neural-isp.md)比较；关键判别是带全局上下文的轻量FiLM是否已解释大部分收益。LG-FiLM更大软MoE并未证明手机真实部署，不与LC-ISP的数据监督和AE/曝光采集混为一个机制。
+
 
 **2026-11-19｜真实跨设备双传感器观测：TANGO/DUET（GO-E，New route + Boundary refinement）**。[TANGO](papers/arxiv-2611.22699.md) 实拍 403 个独立 RGB–HSI 双摄场景，RGB 额外提供空间纹理观测却引入视差/遮挡。区别于 [LC-ISP](papers/arxiv-2611.19284.md) 同手机两条 ISP 成像链的教师监督，TANGO 的 RGB 是另一台**真实相机**的不同模态观测，故“新增测量”和“错误匹配”须同时计入。**重要边界**：真实 HR HSI+RGB，LR HSI 来自 HR HSI 模拟退化；不是端到端真实 LR HSI 采集或手机真机部署。离线双摄光谱/几何标定与受控 LR 生成→训练对齐+融合；在线 LR-HSI+RGB→全局/局部匹配与 gate→HR-HSI。主调查入口：[跨模态不对齐引导 survey](surveys/unaligned-guided-restoration.md)。当前单手机 AE/ISP 方案不变。
 
@@ -124,6 +138,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **判断**：模型表示、已有知识迁移和按指令命中区域是不同能力，不能把榜单或3D深度基准迁移成光度区域编辑的证据。**不变**：保持目标区域成功与未编辑区泄漏双独立指标。**系统**：离线大规模多任务数据/奖励训练或深度先验+逐层探针训练；在线源图+指令/参考→编辑器→独立空间保护检验；外部Agent仅负责动作/候选，不被上述研究证明已集成。详见[编辑执行器训练与几何专题](surveys/editor-understanding-and-geometry-training.md)。
 
 ### T02｜影调、颜色、意图与参考
+**2026-11-21 新增**[AesDistill生成审美教师蒸馏](papers/arxiv-2611.25635.md)连接[摄影目标/属性/编辑器survey](surveys/photo-attribute-targets-and-editor-control.md)：目标来源由专家单一参考扩展到多教师外观分布；自动审美高分不能当真实偏好共识，需单独人评和结构保持。
+
 
 系统位置：目标定义与可控渲染。区分摄影修图、恢复和改变内容的创作编辑。
 
@@ -248,6 +264,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **记忆**：可靠奖励首先要经得住被优化，稳定的分数并不代表稳定的真实图像质量。
 
 ### T05｜数据与 Pseudo-GT
+**2026-11-21 新增**[ApexFuse无唯一融合GT的生成目标路线](papers/arxiv-2611.25453.md)：真实多模态源→人机筛选生成Pseudo-GT→融合模型；源像素相似约束可能冲突，但不能随意放弃真实热目标/文字结构；[长线survey](surveys/imaging-training-data-synthesis.md)与AesDistill的生成审美目标并列，不宣称共同系统。
+
 
 系统位置：离线监督构造。至少分成四条并列路线：
 
@@ -427,6 +445,8 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+- **2026-11-21** Paper Watch v3.2：5篇2026-11-19 v1 新研究，T01补场景条件化ISP的强global-only反解释；T02/T05补生成式目标是非物理GT的双路线；T03/T06补局部事实引导和轨迹级偏好策略边界。新增[scene-conditioned survey](surveys/scene-conditioned-neural-isp.md)，其他已存在survey就地更新，详情见[日更快照](archive/PAPER_WATCH_2026-11-21_daily.md)。
+
 
 - **2026-11-18：4 New + 1 Material Update。** 2026-11-17 官方 cs.CV/LG/AI/MM、eess.IV/SP 新公告继承 11-16 上次成功覆盖水位；LC-ISP(T01/T05)、MrLIE(T03/T06)、improved Fréchet FDIR(T03)、dit.xpu(X01) 为 arXiv 11-14 至 11-16 首传新作。[HDR-VDC 2026](papers/arxiv-2611.20226.md) 正文自述扩展 **2024 QoMEX**，因此仅 35 metrics 实质更新而非新数据/新首创；独立复现、所有 OpenReview 与全部提前公开仍欠缺。对各主题的路线、方案、限制参见 [2026-11-18 Topic Update](Recent_Papers_2026-11-18.md)。
 
