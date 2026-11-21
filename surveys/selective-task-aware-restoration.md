@@ -1,6 +1,6 @@
 # 选择性图像恢复与任务效用：什么时候保留原图？
 
-版本 v0.4 | 2026-11-15 | 主主题 T06，桥接 T03、T04、T01、X01
+版本 v0.5 | 2026-11-21 | 主主题 T06，桥接 T03、T04、T01、X01
 
 目录：[快速回忆](#快速回忆) · [问题树](#问题树) · [关键新证据](#关键新证据) · [完整方案与局限](#完整方案与局限) · [判断与积压](#判断与积压) · [References](#references)
 
@@ -55,12 +55,25 @@
 | Whole-image KEEP / RESTORE | 外部 router | 整图是否调用 purifier | 局部修复可靠性 |
 | SGVD 的 uncertainty mixing | 生成恢复执行中 latent | 逐像素 LQ/generative latent 混合比 | 置信=事实正确性 |
 | **ExplicitIR 的 Budget / Style fields** | 判别式恢复网络 decoder 内部 | 当前 feature 更新幅度/局部上下文范围 | 输出像素严格不变、外部工具策略/候选选优 |
+| **区域参考条件恢复 FAIR（2026-11-19）** | LQ + ROI R + reference/text/contour → 一步生成 | ROI信息补充（来自额外可用证据）和作用域严格约束 | Oracle GT区域检索不可带到真实部署 |
+| **RegionAgent（2026-11-19）** | Base + ROI候选 + 专家动作→分步DPO学习策略，至多8 refine | 学会单步行动和全轨迹延迟后果 | GT reward与在线无GT分离；执行器能力及调用预算固定验收 |
 | 独立候选 Judge | 执行后的外部核验 | Accept/Reject、重试/停止 | 执行器候选不可达问题 |
 
 作者的三任务平均 PSNR Restormer 31.98、ExplicitIR 32.78、外部标签条件化 DFPIR 32.88 dB；不是击败所有同条件模型。与 SGVD 的“局部选择”是分析者的共同抽象，并非方法继承。**替代解释**：更强特征容量、RMS 归一化、普通空间注意力或 gated updates 在等预算下也可能产生相似结果。需要分解归因，而非把 +0.80 dB 全部算成可解释 field。
 
 **判断变更**：原来保留/恢复控制主要发生在整图路由或生成后的验证；新增第三种内部 feature 更新控制位置。**不变**：真实信息不可恢复时仍可能凭先验补细节；局部低 d 不等于像素完全无损，且只有一致 GT 下才能测量内容保持。该工作尚无真实相机 RAW / 手机 E2E 验证。离线 clean/LQ 配对训练，在线 input→Budget/Style→decoder→output；Agent 可选但未验证。当前实现不作扩容，最小判别实验固定 backbone/FLOPs/训练，比较 naive spatial attention、单 d field 和双场，记录 degraded ROI 收益与 clean ROI leakage。
 
+
+## 2026-11-21｜控制区域是三种不同系统动作
+**既有** SGVD/ExplicitIR 在单模型内部决定哪些像素混合/更新；新增 [FAIR](../papers/arxiv-2611.26456.md)（GO-E）用**外部可靠参考和ROI描述指导单次生成**；[RegionAgent](../papers/arxiv-2611.26179.md)（PROBE）用**多步策略优化决定每次局部动作和什么时候停**。彼此有空间控制共同抽象，不能称直接继承。
+| 路线 | 新证据改变哪个接口 | 强简单替代 | 条件性判断 |
+|---|---|---|---|
+| FAIR | 外部 reference/outline/text 进入 frozen-ish 大生成执行器的区域condition；借助可靠额外参考处理不可恢复信息 | 相同reference与mask的直接ROI crop处理/简单融合；同背骨全图prompt | 120 synthetic区域：FAIR FID63.28/ROI LPIPS0.0319 vs AdaRefSR81.93/0.0368；但synthetic reference以 clean GT 区域辅助检索。无GT完全LQ驱动FID67.97而非63.28；20人×10案例有偏好证据，真实NR-IQA不全面胜出 |
+| RegionAgent | 同一ROI修复动作的单步即时收益与跨轨迹的后续收益分开训练；推理最多8动作 | 固定四专家+mask，仅SFT或step-DPO；同预算Best-of-K | MiO100 Group C SFT20.01→step-DPO20.47→两级DPO20.90 dB；训练数据10K一步+20K轨迹偏好源于GT和自动指标；18.60s/图；没有真实RAW部署 |
+| ExplicitIR | 单次内部逐像素decoder预算/上下文 | 单场+通常空间注意力 | 原结论仍PROBE；无外部参考不能恢复不可见内容 |
+**旧→新→保持**：从“位置是否值得恢复、网络怎样抑制泄漏”拓展为“哪里需要外部事实引导”和“当前操作会否恶化后续状态”。不变：可达性（是否有正确候选）、可发现性（预算内得到）、可选择性（能否认出正确）必须独立试验，任何自动生成代理GT不能证明真实细节已经恢复。
+**方案回忆**：离线分别 (FAIR) GT+合成退化→错误ROI定位→检索参考→单次条件恢复训练；(RegionAgent) GT+固定专家尝试→对动作/完整轨迹配对→SFT/DPO。在线 (FAIR) LQ+可靠额外reference+ROI→一次恢复；(RegionAgent) Base+当前图→区域动作→可选反馈→停止；Judge是外层可添加能力，不是两者已验证共同系统。**行动：**不改变现有执行器；最小对照同域真实失败ROI上固定候选/参考/预算，分开比较“有无可靠参考”的信息增益及“有无轨迹DPO”的策略增益。
+**记忆锚点**：告诉模型“修哪里”不等于提供“正确内容”；告诉策略“这步有用”不等于证明“最终路径好”。
 
 ## 关键新证据
 
@@ -112,6 +125,9 @@
 **2026-11-15 补充边界**：整图路由与潜变量区域混合并列，不能把 SGVD 的 ROI 保真提升算成 learned KEEP/RESTORE selector 成功；见上方 backfill 表及卡片。
 
 相关待核：VetoNet 2610.21335（GT 风险控制）、PreActIR 2610.20384（执行前价值预测）、RawVLA 2609.37530（任务导向 ISP）；核心机制和公平性需各自核验，不把它们直接升级为 Gate3DGen 的方法前作。
+
+- [FAIR v1](https://arxiv.org/abs/2611.26456v1) · [canonical](../papers/arxiv-2611.26456.md)
+- [RegionAgent v1](https://arxiv.org/abs/2611.26179v1) · [canonical](../papers/arxiv-2611.26179.md)
 
 ## References
 
