@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-20",
+  "updated_on": "2026-11-21",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
@@ -4884,9 +4884,304 @@
         "camerapaper": "not_applicable",
         "notation": "2026-11-20 canonical survey map and daily distinct snapshot read back; alphaXiv membership verified"
       }
+    },
+    {
+      "id": "arxiv-2611.26179",
+      "title": "RegionAgent: Two-Stage Preference Optimization for Regional Image Restoration",
+      "authors": "Weiyu Zhou; Jiacong Tang; Tao Hu; Axi Niu; Jinqiu Sun; Peng Wu; Wei Dong; Qingsen Yan",
+      "aliases": [
+        "RegionAgent"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "system_roles": [
+        "regional policy",
+        "preference training",
+        "execution"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.26179v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_first_submitted_2026-11-19T14:29:56Z;_earlier_author_prepublic_not_exhaustively_checked",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-21",
+      "checked_on": "2026-11-21",
+      "verification_scope": "arxiv_v1_method_relatedwork_selected_main_and_ablation_tables_appendix_reviewed;_web_arxiv_metadata_crosschecked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.26179.md",
+      "canonical_survey": "https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md",
+      "decision_key": "step_component_DPO_plus_single_changed_action_trajectory_DPO_region_agent",
+      "decision_boundary": "GT-scorer-derived offline preferences not human or online GT; fixed pool Group C step-only20.47 vs joint20.90 PSNR;18.60s A100/image; no mobile raw deployment",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-21",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-21_daily.md",
+          "note": "New arxiv v1 since last verified Nov19 announcement. Original methods and key tables selected, alternatives and failure boundaries checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_attempted",
+        "camerapaper": "verified_survey_only",
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+      }
+    },
+    {
+      "id": "arxiv-2611.26456",
+      "title": "Fixing the Last Mile: Failure-Aware Image Restoration with Region-Specific Guidance",
+      "authors": "Hongyu An; Fanghua Yu; Kainan Yan; Luc Van Gool; Chao Dong; Jinjin Gu",
+      "aliases": [
+        "Fixing the Last Mile"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T05",
+        "T06",
+        "T04"
+      ],
+      "system_roles": [
+        "regional execution",
+        "reference guidance",
+        "data training",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.26456v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_first_submitted_2026-11-19T17:21:15Z;_earlier_author_prepublic_not_exhaustively_checked",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-21",
+      "checked_on": "2026-11-21",
+      "verification_scope": "arxiv_v1_method_relatedwork_selected_main_and_ablation_tables_appendix_reviewed;_web_arxiv_metadata_crosschecked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.26456.md",
+      "canonical_survey": "surveys/selective-task-aware-restoration.md",
+      "decision_key": "failure_ROI_plus_external_evidence_region_bound_one_pass_generation",
+      "decision_boundary": "Synthetic reference retrieval uses clean GT region; annotation-assisted FID63.28 vs LQ-driven67.97; 20 observers x10 cases small; real no-GT NR-IQA not dominant; heavy 9B training",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-21",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-21_daily.md",
+          "note": "New arxiv v1 since last verified Nov19 announcement. Original methods and key tables selected, alternatives and failure boundaries checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+      }
+    },
+    {
+      "id": "arxiv-2611.25639",
+      "title": "LG-FiLM: Local–Global Mixture-of-Experts Modulation for RAW-to-RGB Reconstruction",
+      "authors": "Fei Li; Xilei Cao; Shichang Zhai; Kun Zhan",
+      "aliases": [
+        "LG-FiLM"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T02",
+        "X01",
+        "T05"
+      ],
+      "system_roles": [
+        "RAW reconstruction",
+        "conditional execution",
+        "training"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.25639v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_first_submitted_2026-11-19;_earlier_author_prepublic_not_exhaustively_checked",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-21",
+      "checked_on": "2026-11-21",
+      "verification_scope": "arxiv_v1_method_relatedwork_selected_main_and_ablation_tables_appendix_reviewed;_web_arxiv_metadata_crosschecked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.25639.md",
+      "canonical_survey": "surveys/scene-conditioned-neural-isp.md",
+      "decision_key": "global_plus_local_scene_modulation_shared_raw_isp_soft_MoE",
+      "decision_boundary": "Fujifilm24.998 vs reproduced RMFA24.377; global only24.857; local only23.387 vs no-condition23.366; ZRR requires retraining, COCO synthetic, no mobile E2E",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-21",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-21_daily.md",
+          "note": "New arxiv v1 since last verified Nov19 announcement. Original methods and key tables selected, alternatives and failure boundaries checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+      }
+    },
+    {
+      "id": "arxiv-2611.25635",
+      "title": "AesDistill: Distilling Generative Aesthetics for Image Color Enhancement",
+      "authors": "Chuanzhi Xu; Chengkun Yue; Huiqi Liang; Haoyang Li; Zihan Deng; Qingwen Zeng; Pengfei Ye; Weidong Cai",
+      "aliases": [
+        "AesDistill"
+      ],
+      "kind": "paper",
+      "topic": "Color",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T05",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "target creation",
+        "data",
+        "training",
+        "color execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.25635v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_first_submitted_2026-11-19T07:20:53Z;_earlier_author_prepublic_not_exhaustively_checked",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-21",
+      "checked_on": "2026-11-21",
+      "verification_scope": "arxiv_v1_method_relatedwork_selected_main_and_ablation_tables_appendix_reviewed;_web_arxiv_metadata_crosschecked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.25635.md",
+      "canonical_survey": "surveys/photo-attribute-targets-and-editor-control.md",
+      "decision_key": "four_generative_color_teachers_confidence_distillation_compact_structure_preserving_student",
+      "decision_boundary": "64,644 generated edits 3360 H100-hours; 1.13M student JS74.75 16 automatic mostly correlated aesthetic/IQA models, no independent MOS proof; teacher may alter source structure",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-21",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-21_daily.md",
+          "note": "New arxiv v1 since last verified Nov19 announcement. Original methods and key tables selected, alternatives and failure boundaries checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+      }
+    },
+    {
+      "id": "arxiv-2611.25453",
+      "title": "Beyond Resemblance: Image Fusion Reimagined",
+      "authors": "Hao Zhang; Yumin Huang; Linfeng Tang; Junjun Jiang; Jiayi Ma",
+      "aliases": [
+        "Beyond Resemblance"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "T05",
+      "secondary_themes": [
+        "T01",
+        "T03",
+        "T04",
+        "T02"
+      ],
+      "system_roles": [
+        "pseudo-GT",
+        "fusion training",
+        "evaluation",
+        "execution"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.25453v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_first_submitted_2026-11-19T03:32:47Z;_earlier_author_prepublic_not_exhaustively_checked",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-21",
+      "checked_on": "2026-11-21",
+      "verification_scope": "arxiv_v1_method_relatedwork_selected_main_and_ablation_tables_appendix_reviewed;_web_arxiv_metadata_crosschecked;_no_independent_reproduction",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.25453.md",
+      "canonical_survey": "surveys/imaging-training-data-synthesis.md",
+      "decision_key": "human_LMM_curated_generative_pseudo_GT_for_visible_infrared_fusion",
+      "decision_boundary": "Generated fusion target not physical GT; downstream task models independently retrained; NR-IQA and human-in-loop cannot prove no hallucination; larger FLUX backbone/training budget confounds",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-21",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-21_daily.md",
+          "note": "New arxiv v1 since last verified Nov19 announcement. Original methods and key tables selected, alternatives and failure boundaries checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_attempted",
+        "camerapaper": "not_applicable",
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+      }
     }
   ],
-  "updated_at": "2026-11-20",
+  "updated_at": "2026-11-21",
   "records": [
     {
       "id": "arxiv-2611.24805",
