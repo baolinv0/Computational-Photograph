@@ -1,6 +1,6 @@
 # 成像训练数据合成：逆 ISP、RAW 生成与曝光退化
 
-版本：v0.1｜更新：2026-10-23｜主主题：T05；连接 T01、T02、T03、T04
+版本：v0.1｜更新：2026-11-21｜主主题：T05；连接 T01、T02、T03、T04
 
 目录：[一分钟回忆](#一分钟回忆) · [问题与范围](#问题与范围) · [路线地图](#路线地图) · [历史工作矩阵](#历史工作矩阵) · [MESS与RawGen](#mess与rawgen) · [系统方案回忆](#系统方案回忆) · [证据与瓶颈](#证据与瓶颈) · [最小判别实验](#最小判别实验) · [维护与核验](#维护与核验) · [References](#references)
 
@@ -17,9 +17,24 @@
 | 真实 RAW 正向渲染 | MSEC、UEC/RCD | 源数据有线性观测基础，曝光与部分 ISP 变量可以受控 | RAW 场景规模受限；目标还可能包含人工风格 |
 | RGB 逆 ISP，再显式造退化 | Unprocessing、CycleISP、ParamISP | 可用大规模 RGB；噪声、曝光、WB 等变量可单独控制 | 逆 ISP 不唯一，未知处理与信息丢失带来错配 |
 | 学习线性表示/RAW 生成 | CIE XYZ Net、RAW-Diffusion、RawGen | 学习复杂逆映射；RAW/XYZ 可服务多个下游任务 | 对训练域、相机标定或适配有要求；生成细节不等于真实观测 |
+| **人/生成器选定的融合目标（ApexFuse 2026）** | 多模态真实输入→人工校验的生成融合目标→FLUX LoRA训练 | 可将多个模态互斥的源相似度换成显式美学/语义目标 | 生成目标可能虚构热目标、身份与纹理；NR-IQA不等于测量一致性 |
 | RAW 监督迁移到 RGB 曝光合成 | UNICE → MESS 的相关问题脉络 | 将曝光先验用于更大场景覆盖；MESS 保留原始高质 RGB 作为目标 | 生成的输入可能结构漂移；目标“高质”仍需筛选和定义 |
 
 最后一行是**有引用和作者重叠支持的研究脉络**，不表示两个系统目标相同。UNICE 在增强时生成 MES 再融合；MESS 将生成器放在离线数据生产阶段，部署时可以只保留下游学生。
+
+### 2026-11-21｜无唯一融合 GT：从源相似度代理转向人工审核生成目标
+本专题需要把**输入观测真实性 / 训练目标是否可满足 / GT内容真实性**分别记录。新增 [ApexFuse](../papers/arxiv-2611.25453.md)（arXiv v1 2026-11-19，PROBE / New route）：输入配准可见光+红外图，先以多模态大模型+人工筛选产生 fused pseudo-GT，再把它作为训练目标适配FLUX。问题核心不是发明另一张物理融合GT，而是让“目标应是什么”从互相冲突的多源像素相似约束变为**明确的输出分布**；保留热目标、可见纹理是额外必须验证的事实约束。
+**竞争比较**：
+| 任务路线 | 源测量与目标生成 | 主要控制 | 支持/不支持的证据 |
+|---|---|---|---|
+| 传统 DDFM / SegMiF / ControlFusion 等 | 真VIS+IR，不存在唯一融合GT→多源相似度/梯度保留约束 | 保持源可测量信息 | 避免乱造热目标但可能在不同模态强制相似上有冲突 |
+| [ApexFuse](../papers/arxiv-2611.25453.md) | 真VIS+IR→GPT-Image生成+LMM审计+人工选择融合候选作为Pseudo-GT | 目标分布+生成式FLUX条件化 | LLVIP/FMB/MFNet的MUSIQ等高；FMB segmentation mIoU59.05 vs Text-IF58.54、LLVIP mAP50:95 65.353 vs Mask-DiFuser63.872是作者任务训练设置报告；未能单独证明新视觉目标的物理正确性 |
+| [AesDistill](../papers/arxiv-2611.25635.md)（T02主） | 单RGB真实原图+四生成器审美目标 | 颜色/影调、结构保持 | 学生自动评分高，非生成融合物理GT；与ApexFuse共同抽象是生成目标→学生，并非直接学术继承 |
+| [LC-ISP](../papers/arxiv-2611.19284.md)（T01主） | 单帧真实Bayer+同手机Capture多帧真实处理教师 | 中间恢复+最终渲染监督 | 教师含真实额外光子/多帧信息，不能类比生成式融合目标 |
+
+**旧判断→新判断**：原先强调伪RAW输入是否逼真；本轮补充在无唯一GT任务中**目标函数本身也可能与物理输入源相似约束冲突**。不变的是生成目标、预处理外观、独立测量、人体美学和客观真实不可混同；训练更强FLUX与更高教师预算是强替代解释。
+完整链：离线真实VIS/IR→候选/人工校验目标→pseudo-GT→LoRA训练；在线双模态输入+固定目标指令→融合图，Agent只是可能的审查层不是论文在线行为。最小判别：同FLUX/数据/预算对比源约束GT、生成目标、严格结构审核生成目标，独立标识热目标虚构/丢失和跨数据域评估。
+**Backlog**：核验生成目标人工审核一致性与失败例、将绝对物理量/红外测量保持约束的独立对照、未见相机和不同光谱的真域泛化。
 
 ## 问题与范围
 
@@ -252,6 +267,9 @@ The underwater literature provides three distinct supervision/evidence routes th
 其基本路线是 source-preserving pseudo-pair：保留清晰自然照片作为 target，通过 unpaired image-to-image translation 合成 underwater input。v1 已构建 UWNature 与 UWImgNetSD 两个各 10,000 pairs 的 source-preserving datasets，并报告 6 个 restoration architectures 与 3 个 test sets。v2 的新增内容是更深入的 appearance/structure/depth reliability 分析、depth-aware modulation、人类感知评价、degradation–restoration reciprocity 和 real-world validation。
 
 最重要的判断变化：**更高的 synthetic degradation spatial plausibility 不必然带来更好的 restoration performance。** 因此数据质量至少要分成 intrinsic realism、target/source consistency 和 downstream learning utility 三层；不能只用 VLM 或视觉观感挑选数据生成器。UWNature 仍是 underwater 专项证据，不能直接外推到移动 ISP。
+
+- [ApexFuse arXiv v1](https://arxiv.org/abs/2611.25453v1) · [canonical](../papers/arxiv-2611.25453.md)
+- [AesDistill arXiv v1](https://arxiv.org/abs/2611.25635v1) · [canonical](../papers/arxiv-2611.25635.md)
 
 ## References
 
