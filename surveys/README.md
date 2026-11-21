@@ -1,8 +1,19 @@
 # 持续专题综述索引
 
-更新：2026-11-19
+更新：2026-11-21
 
 目录：[专题](#专题) · [维护原则](#维护原则)
+
+### 2026-11-21｜5 New：场景自适应、生成目标与局部失败可控恢复
+| 稳定问题 / 系统位置 | Canonical living survey | 本次判断变化 |
+|---|---|---|
+| T01 / ISP 执行：是场景global条件还是local多专家真正有效？ | [场景条件化 Neural ISP（新稳定问题页）](scene-conditioned-neural-isp.md) | [LG-FiLM](../papers/arxiv-2611.25639.md)：真实Fujifilm约+0.62 dB vs RMFA-Net，但global-only距full仅0.141；PROBE / Bridge+Boundary refinement |
+| T02/T05 / 目标训练：生成器的审美选择能否转成结构保留的低成本调色？ | [摄影属性目标和编辑器控制](photo-attribute-targets-and-editor-control.md) | [AesDistill](../papers/arxiv-2611.25635.md)：64,644教师编辑→1.13M学生；自动评分不等于人类偏好，GO-E / New route |
+| T05/T01/T03 / 无融合GT的目标如何定义？ | [成像数据与PGT监督](imaging-training-data-synthesis.md) | [ApexFuse](../papers/arxiv-2611.25453.md)：VIS/IR→经人筛选的生成目标→FLUX LoRA；需事实真实性审计，PROBE / New route |
+| T03/T06 / 局部失败怎么修且保住别处？ | [选择性恢复与控制](selective-task-aware-restoration.md) | [FAIR](../papers/arxiv-2611.26456.md)：参考/ROI约束单步执行，GT-assisted reference vs LQ-only强区别，GO-E |
+| T06/T03 / 即时动作收益与后续轨迹收益不同时怎样学习？ | [CameraPaper 唯一AgenticIR主survey](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | [RegionAgent](../papers/arxiv-2611.26179.md)：单步+轨迹DPO，固定工具消融+0.43dB，PROBE；18.6s/图，需无GT迁移 |
+
+首次arXiv v1 2026-11-19、2026-11-20新公告；原论文选段核验，非独立复现，不把自动分数称人工判断；本轮[完整快照](../archive/PAPER_WATCH_2026-11-21_daily.md)。
 
 ### 2026-11-20｜状态交互与物理光度保真（新日更，独立于既有周报）
 
