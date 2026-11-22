@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-21",
+  "updated_on": "2026-11-22",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
@@ -5179,9 +5179,60 @@
         "camerapaper": "not_applicable",
         "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
       }
+    },
+    {
+      "id": "arxiv-2611.26629",
+      "title": "Posterior Matching Distillation",
+      "authors": "Hidir Yesiltepe; Julius Berner; Arash Vahdat; Pinar Yanardag",
+      "aliases": [
+        "PMD",
+        "Posterior Matching Distillation"
+      ],
+      "kind": "paper",
+      "topic": "Restoration",
+      "main_theme": "X01",
+      "secondary_themes": [
+        "T03",
+        "T05"
+      ],
+      "system_roles": [
+        "offline distillation training",
+        "few-step generation"
+      ],
+      "map_change": [
+        "Boundary refinement",
+        "No material map change"
+      ],
+      "verdict": "WATCH",
+      "source": "https://arxiv.org/abs/2611.26629v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1",
+      "source_version": "v1",
+      "first_covered": "2026-11-22",
+      "checked_on": "2026-11-22",
+      "verification_scope": "arxiv_v1_selected_methods_tables_1_2_appendix_E_checked_no_restoration",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.26629.md",
+      "decision_key": "tilted_posterior_mean_matching_for_stochastic_few_step_text_to_image_distillation",
+      "decision_boundary": "Text-to-image rather than restoration; PMD-only high diversity but poor FID=56.13 and prompt alignment; needs GAN and multiple student draws; no mobile E2E.",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-22",
+          "new_alert": false,
+          "earliest_public_date": "2026-11-19",
+          "note": "Previous run already covered 2026-11-20 arXiv announcement; historical missed discovery is not a new-paper alert."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "not_saved_watch",
+        "notion": "not_attempted",
+        "notation": "Canonical card, living survey, X01 literature map and silent-run log written; no alphaXiv save under WATCH gate."
+      }
     }
   ],
-  "updated_at": "2026-11-21",
+  "updated_at": "2026-11-22",
   "records": [
     {
       "id": "arxiv-2611.24805",
