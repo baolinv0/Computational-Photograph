@@ -324,6 +324,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### X01｜效率与训练部署
 
+**2026-11-22 历史补发现（非通知事件，No material map change）**：[Posterior Matching Distillation / 2611.26629](papers/arxiv-2611.26629.md) 在一般 text-to-image 领域以一组倾斜后验均值约束训练 1–N 步 stochastic student，与 DMD2 的生成分布匹配、LCM 的轨迹/端点蒸馏竞争；它没有图像退化观测 y 或 RAW 真实恢复的实例保真证据。作者 PMD-only 消融出现高多样性但严重 FID/对齐下降（FID 56.13），需联合 GAN 才平衡目标。**旧判断不变**：可在训练时更好覆盖模式 ≠ 在恢复中更真实；少 NFE ≠ 训练或端侧总成本下降。已进入 [高效生成恢复专题](surveys/efficient-generative-restoration.md)，WATCH，不占 11-22 新论文名额，不替代现有高效恢复路线。
+
 **2026-11-18｜移动 DiT 稀疏算子与产品部署口径。** [dit.xpu](papers/arxiv-2611.19261.md) 用静态 tile sparse attention + dense anchors + NPU/GPU shared dataflow，在两款 Snapdragon 手机上作者报告 kernel 最高 11.5×、**denoising stage E2E** 最高 1.56×。不等于相机 RAW→ISP 或完整 UI/持续功耗 1.56×；与此前 Edge NPU Benchmark 的 model-call vs full E2E 边界相互支持，归 [部署 survey](surveys/mobile-isp-and-event-hdr-efficiency.md)。GO-E / Engineering maturity；现有传统 ISP 方案不变。
 
 
