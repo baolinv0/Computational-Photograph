@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-22",
+  "updated_on": "2026-11-23",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
@@ -5230,9 +5230,69 @@
         "notion": "not_attempted",
         "notation": "Canonical card, living survey, X01 literature map and silent-run log written; no alphaXiv save under WATCH gate."
       }
+    },
+    {
+      "id": "arxiv-2611.25648",
+      "title": "TRACE: Attribute Execution for Sequential Image Editing",
+      "authors": "Xiyang Zhang; Yuanhe Tian; Hongzhi Wang; Yan Song",
+      "aliases": [
+        "TRACE",
+        "Attribute Execution for Sequential Image Editing"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "system_roles": [
+        "active-goal state",
+        "local attribute execution",
+        "candidate verification",
+        "historical reference"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.25648v1",
+      "earliest_public_verified": "2026-11-19",
+      "earliest_source": "arxiv_v1_2026-11-19T07:32:00Z;_author_prepublication_not_exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-19",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-20",
+      "first_covered": "2026-11-23",
+      "checked_on": "2026-11-23",
+      "verification_scope": "arxiv_v1_section_1_4_tables_1_5_and_supplement_S1_S2_selected_checked;_no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.25648.md",
+      "canonical_survey": "surveys/multi-turn-editing-preservation.md",
+      "decision_key": "persistent_user_attributes_applied_to_current_surface_carrier_in_sequential_editing",
+      "decision_boundary": "Narrow color/material 56-conversation success, but complete EdiVal Core-to-TRACE IF3 only 30.77-to-31.12, source-disjoint Klein Core 63/125 vs TRACE 60/125; no genuine restoration guarantee or matched full-budget/human ISP test",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-23",
+          "new_alert": false,
+          "earliest_public_date": "2026-11-19",
+          "brief": "archive/PAPER_WATCH_2026-11-23_daily.md",
+          "note": "2026-11-20 arXiv new listing already covered; previously 11-21 backlog. 11-23 selective full-paper review & counter-evidence improved T06-T02 survey; no new-paper notification."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_attempted",
+        "camerapaper": "existing_canonical_survey_referenced_only",
+        "notation": "2026-11-23 checked canonical card, multi-turn survey, map, index, daily log; alphaXiv paper membership Agent confirmed; prior source/author pages not exhaustive"
+      }
     }
   ],
-  "updated_at": "2026-11-22",
+  "updated_at": "2026-11-23",
   "records": [
     {
       "id": "arxiv-2611.24805",
