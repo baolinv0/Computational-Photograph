@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-21
+更新：2026-11-23（T06 历史 backfill，非新通知）
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -59,7 +59,7 @@
 | T04/T06：编辑事实正确性、视频伪影与人类偏好如何分开检验Reward？ | [伪影、反事实正确性与Reward](artifact-grounded-reward-and-verification.md) | 2026-11-17 交叉更新：EditJudge-Bench 测指令事实正确性，TrustUIQA 测人类偏好/指标可刷分；ArtiVidRM/CheckDistill 保留原方法边界 |
 | T01/T03：真实跨模态观测在不对齐时如何帮助恢复？ | [非配准跨模态导引恢复](unaligned-guided-restoration.md) | 2026-11-06：UGD-FM，含 NIR 数据边界、sparse alignment 与单图基线 |
 | T03/T05/X01：统一恢复怎样随退化层次扩容？ | [统一恢复的退化建模与专家扩容](universal-restoration-degradation-routing.md) | 2026-11-07：增加OptIMerge后验融合权重（与UniRestorer++层级MoE竞争而非继承）；完整预算/硬件边界 |
-| T06/T02：如何抑制多轮图片编辑中的累积漂移？ | [多轮编辑保真](multi-turn-editing-preservation.md) | 2026-11-06：MT Forcing 与 TailSteer 的训练/推理/控制分层；单轮副作用 |
+| T06/T02：连续编辑怎样同时防止漂移，并保留未被撤销的属性？ | [多轮编辑保真/有效属性与当前载体](multi-turn-editing-preservation.md) | 2026-11-23 历史 backfill：在MT Forcing/TailSteer的训练期抑漂移路线外，加入TRACE（2026-11-19旧文），把“活跃颜色属性”与“旧表面像素”区分；窄颜色+材质任务有效，一般多轮仅小幅增益且有负例；不作新研究通知 |
 | T01/T02/T05：低光、光源、色彩怎样联合定义 GT？ | [低光 RAW、AWB 与照明光谱](low-light-raw-awb-illumination.md) | 2026-11-05 补查：CHROMA-MILL、3L-D、Beyond CCT；含关键成立条件及跨手机缺口 |
 | T04/T05：无 GT 增强评价和训练奖励在跨域/多轮优化时是否仍可靠？ | [低光、颜色与水下 IQA/Reward 审计](low-light-iqa-and-gt-validity.md) | 2026-11-17：TrustUIQA 73 个指标、五个人类参照、场景内偏好/简单调色与多轮漂移压力测试（与 LOL/CIE/NightIQA 目标区分）；GO-E，跨数据集最差 κ/同源训练收益边界 |
 | T05/T03：只有噪声测量能否学习干净生成分布？ | [无干净 GT 的生成式恢复](noisy-measurements-to-clean-generators.md) | 2026-11-05 补查：Noise2Noise→非高斯测量过程+Consistency，理论条件与手机 RAW 缺口 |
