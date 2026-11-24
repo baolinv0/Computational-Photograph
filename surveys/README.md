@@ -1,8 +1,15 @@
 # 持续专题综述索引
 
-更新：2026-11-23（T06 历史 backfill，非新通知）
+更新：2026-11-24（任务导向 RAW ISP、Agent 元修订与指令依赖）
 
 目录：[专题](#专题) · [维护原则](#维护原则)
+
+### 2026-11-24｜3 New：任务相关重建、元修订、依赖顺序
+| 问题 | Canonical survey | 本次变化 |
+|---|---|---|
+| T01 任务性能是否应从RAW重建阶段优化 | [任务导向 RAW ISP](task-oriented-raw-isp.md) | Dem2TA：表征对齐增量，非照片审美结论 |
+| T06 怎样修改恢复技能的修订规则 | [AgenticIR 主综述](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md) | SIR-Agent：每次修订成本和旧任务回放约束 |
+| T06/T02 单次请求内撤销与对象依赖 | [多轮编辑与保真](multi-turn-editing-preservation.md) | CRIE：内部依赖与跨轮状态、外部多图参考分开 |
 
 ### 2026-11-21｜5 New：场景自适应、生成目标与局部失败可控恢复
 | 稳定问题 / 系统位置 | Canonical living survey | 本次判断变化 |
