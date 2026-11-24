@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-23",
+  "updated_on": "2026-11-24",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
@@ -5290,9 +5290,187 @@
         "camerapaper": "existing_canonical_survey_referenced_only",
         "notation": "2026-11-23 checked canonical card, multi-turn survey, map, index, daily log; alphaXiv paper membership Agent confirmed; prior source/author pages not exhaustive"
       }
+    },
+    {
+      "id": "arxiv-2611.27209",
+      "title": "Dem2TA: Beyond Pixels, Towards Perception",
+      "authors": "Ping Chen; Zhongwei Lin; Xiang He; Xiangming Wang; Kai Zhang; Jiezhang Cao; Yongyong Chen; Jingyong Su; Jie Liu; Haijin Zeng",
+      "aliases": [
+        "Dem2TA"
+      ],
+      "kind": "paper",
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T03",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "reconstruction",
+        "training",
+        "task rendering",
+        "evaluation"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.27209v1",
+      "earliest_public_verified": "2026-11-20",
+      "earliest_source": "arxiv_v1_2026-11-20T06:47:58Z;_author_prepublication_not_exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-20",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-23",
+      "first_covered": "2026-11-24",
+      "checked_on": "2026-11-24",
+      "verification_scope": "v1_fulltext_selected_tables1_4;_no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.27209.md",
+      "canonical_survey": "surveys/task-oriented-raw-isp.md",
+      "decision_key": "task_aware_demosaic_representation_alignment",
+      "decision_boundary": "Joint adaptation with downstream; real box-prompted segmentation, no human photo or mobile deployment evidence",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-24",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-20",
+          "brief": "archive/PAPER_WATCH_2026-11-24_daily.md",
+          "note": "11-23 arXiv announcement after previous verified 11-20 listing; selected primary evidence checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "not_attempted",
+        "camerapaper": "existing_canonical_survey_referenced_only",
+        "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified."
+      }
+    },
+    {
+      "id": "arxiv-2611.27285",
+      "title": "SIR-Agent: Skill-Augmented Image Restoration Agent with Recursive Self-Improvement",
+      "authors": "Yijian Wang; Qingsen Yan; Weiyu Zhou; Mingde Zhang; Axi Niu; Haokui Zhang; Jiantao Zhou",
+      "aliases": [
+        "SIR-Agent"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T03",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "skill policy",
+        "revision",
+        "evaluation",
+        "cost"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.27285v1",
+      "earliest_public_verified": "2026-11-20",
+      "earliest_source": "arxiv_v1_2026-11-20T08:24:50Z;_author_prepublication_not_exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-20",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-23",
+      "first_covered": "2026-11-24",
+      "checked_on": "2026-11-24",
+      "verification_scope": "v1_method_tables5_7;_no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.27285.md",
+      "canonical_survey": "https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md",
+      "decision_key": "external_skill_revision_rule_search_with_regression_guard",
+      "decision_boundary": "Per-revision not per-image cost; adaptation not zero-shot; independent old/new assessment and full initial cost unverified",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-24",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-20",
+          "brief": "archive/PAPER_WATCH_2026-11-24_daily.md",
+          "note": "11-23 arXiv announcement after previous verified 11-20 listing; selected primary evidence checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_attempted",
+        "camerapaper": "verified_survey_updated",
+        "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified."
+      }
+    },
+    {
+      "id": "arxiv-2611.27388",
+      "title": "CRIE-Agent: What Stays in the Picture? From Redundant Instructions to Dependency-Aware Image Editing",
+      "authors": "Zi-Jun Wang; Yu Lin; Zhilin Zhao",
+      "aliases": [
+        "CRIE-Agent"
+      ],
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T02",
+        "T04",
+        "T05"
+      ],
+      "system_roles": [
+        "intent",
+        "planning",
+        "execution",
+        "verification",
+        "benchmark"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "verdict": "PROBE",
+      "source": "https://arxiv.org/abs/2611.27388v1",
+      "earliest_public_verified": "2026-11-20",
+      "earliest_source": "arxiv_v1_2026-11-20T09:52:39Z;_author_prepublication_not_exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-20",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-23",
+      "first_covered": "2026-11-24",
+      "checked_on": "2026-11-24",
+      "verification_scope": "v1_method_tables2_4_external_eval;_no_independent_replication",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.27388.md",
+      "canonical_survey": "surveys/multi-turn-editing-preservation.md",
+      "decision_key": "final_intent_object_dependency_execution_in_single_request",
+      "decision_boundary": "Synthetic instructions; automated VLM all-condition success; unmatched end-to-end budgets; external foreground alignment counter-evidence",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-24",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-20",
+          "brief": "archive/PAPER_WATCH_2026-11-24_daily.md",
+          "note": "11-23 arXiv announcement after previous verified 11-20 listing; selected primary evidence checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_attempted",
+        "camerapaper": "existing_canonical_survey_referenced_only",
+        "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified."
+      }
     }
   ],
-  "updated_at": "2026-11-23",
+  "updated_at": "2026-11-24",
   "records": [
     {
       "id": "arxiv-2611.24805",
