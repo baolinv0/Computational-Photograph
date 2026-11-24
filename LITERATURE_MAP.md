@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v1.0｜结构建立/最近实质修订：2026-11-23（T06 历史路线补齐）
+版本：v1.0｜结构建立/最近实质修订：2026-11-24（任务相关重建与Agent控制）
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -116,6 +116,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 **行动**：上述结果暂无需扩张当前 Tone Mapping / AWB / RAW 恢复执行链；优先复用强简单对照，只有出现对应真实失败条件再安排最小判别实验。所有技术指标均为作者报告，并非独立复现。
 
 ### T01｜采集与成像物理
+
+**2026-11-24：目标相关重建。** [Dem2TA](papers/arxiv-2611.27209.md) 在 SegDem 预训练基础上，用 reconstruction+语义/任务表征对齐适配 Demosaic，再冻结前端优化局部渲染。Table4 IoU 联合无对齐77.379→对齐80.023；两阶段与同时训练仅0.105差。小模型PSNR下降、任务IoU增加，说明指标不等价，不说明下降PSNR导致提升。新增独立[任务导向 RAW ISP](surveys/task-oriented-raw-isp.md) 路线，与人眼照片目标分离；保留固定重建强基线。
 **2026-11-21 状态：**场景条件神经ISP可从[AWNet/RMFA-Net→MetaISP→LG-FiLM](surveys/scene-conditioned-neural-isp.md)比较；关键判别是带全局上下文的轻量FiLM是否已解释大部分收益。LG-FiLM更大软MoE并未证明手机真实部署，不与LC-ISP的数据监督和AE/曝光采集混为一个机制。
 
 
@@ -294,6 +296,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T06｜Agent、动作与闭环控制
 
+**2026-11-24：三层策略与依赖。** [SIR-Agent](papers/arxiv-2611.27285.md) 在 SkillIR 初始技能基础上把修订规则本身作为搜索对象；相对固定规则，新任务15.62→16.00dB、旧24.51→24.55、19.6→13.4次工具调用/修订，不是单图速度。与 RecurIR 条件证伪、RegionAgent DPO 权重学习为竞争/互补。[CRIE](papers/arxiv-2611.27388.md) 则先解析单请求最终有效目标，再依对象引用顺序分块；不是TRACE跨实际轮次，也不是AUTOREF外部多图绑定。任务可达、搜索发现、独立选择继续分开。见[AgenticIR主综述](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md)、[编辑保真](surveys/multi-turn-editing-preservation.md)。
+
 系统位置：控制器，组织已有能力；不是默认替代恢复网络本身。
 
 已有入口：[HarnessIR](papers/arxiv-2610.10133.md)、[PreActIR](papers/arxiv-2610.20384.md)、[FlowTool](papers/arxiv-2609.35673.md)、[AgenticIR 专题](AgenticIR/)。
@@ -451,6 +455,8 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+
+- 2026-11-24：3项新公开（11-20 v1、11-23公告）；T01 新稳定问题页，T06 修订既有两份主综述。无旧文冒充新论文。详见 [日更记录](archive/PAPER_WATCH_2026-11-24_daily.md)。
 - **2026-11-23：历史 backfill，非新论文。** TRACE（arXiv 2611.25648，2026-11-19 v1）把跨轮有效属性状态与当前材质载体分离，补进 T06↔T02 局部执行路线；一般 EdiVal 增益很小且存在更简单 Core 更优子集，故不触发研究通知、未更改真实 IR 执行决策。见 [专题](surveys/multi-turn-editing-preservation.md) 和 [卡片](papers/arxiv-2611.25648.md)。
 - **2026-11-21** Paper Watch v3.2：5篇2026-11-19 v1 新研究，T01补场景条件化ISP的强global-only反解释；T02/T05补生成式目标是非物理GT的双路线；T03/T06补局部事实引导和轨迹级偏好策略边界。新增[scene-conditioned survey](surveys/scene-conditioned-neural-isp.md)，其他已存在survey就地更新，详情见[日更快照](archive/PAPER_WATCH_2026-11-21_daily.md)。
 
