@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-24",
+  "updated_on": "2026-11-25",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.",
+  "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.; 2026-11-25: 11-24 four official arXiv listings partial keyword review, two selected new v1; per-source coverage in daily log.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -5468,9 +5468,125 @@
         "camerapaper": "existing_canonical_survey_referenced_only",
         "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified."
       }
+    },
+    {
+      "id": "arxiv-2611.30114",
+      "title": "Thermal-Guided Low-Light UAV Image Enhancement: A Reliability-Aware Guidance Network and a Unified Benchmark",
+      "authors": "Zhicheng Zhao; Yu Wang; Jiangong Xu; Lixiang Xu; Chenglong Li; Jin Tang",
+      "aliases": [
+        "RMGNet",
+        "UWOT"
+      ],
+      "topic": "Raw",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T03",
+        "T05",
+        "T04"
+      ],
+      "system_roles": [
+        "acquisition",
+        "data",
+        "alignment",
+        "execution",
+        "evaluation"
+      ],
+      "map_change": [
+        "Supporting evidence",
+        "Boundary refinement"
+      ],
+      "earliest_public_verified": "2026-11-23",
+      "canonical_survey": "surveys/unaligned-guided-restoration.md",
+      "decision_key": "crossmodal_alignment_and_visible_evidence_dual_confidence",
+      "decision_boundary": "Mixed real/synthetic low-light; day reference not physical night GT; concat explains much of gain; no true phone deployment",
+      "verification_scope": "v1_primary_fulltext_extraction_selected_sections3_5_tables2_9",
+      "kind": "paper",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.30114v1",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-23",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-24",
+      "first_covered": "2026-11-25",
+      "checked_on": "2026-11-25",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.30114.md",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-25",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-23",
+          "brief": "archive/PAPER_WATCH_2026-11-25_daily.md",
+          "note": "New arXiv listing after prior 11-23 verified list; original evidence selected sections checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "not_attempted",
+        "notation": "Card, survey, map, index and daily log read back; alphaXiv membership checked."
+      }
+    },
+    {
+      "id": "arxiv-2611.28736",
+      "title": "Dynamic Spectrum Re-parameterized Convolution for Cost-free Image Enhancement",
+      "authors": "Zhiyan Zhou; Hailong Yan; Hanlin Liu; Yongrui Zhang; Xiangtao Zhang; Le Zhang",
+      "aliases": [
+        "DSRC"
+      ],
+      "topic": "ISP",
+      "main_theme": "X01",
+      "secondary_themes": [
+        "T03",
+        "T01"
+      ],
+      "system_roles": [
+        "training",
+        "execution",
+        "deployment"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "earliest_public_verified": "2026-11-21",
+      "canonical_survey": "surveys/mobile-isp-and-event-hdr-efficiency.md",
+      "decision_key": "training_spectral_reparameterization_static_inference_kernel",
+      "decision_boundary": "RTX3090, not mobile SoC; extra training overhead and equal train-param rep controls unresolved",
+      "verification_scope": "v1_html_selected_sections2_3_tables2_3",
+      "kind": "paper",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.28736v1",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-21",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-24",
+      "first_covered": "2026-11-25",
+      "checked_on": "2026-11-25",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.28736.md",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-25",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-21",
+          "brief": "archive/PAPER_WATCH_2026-11-25_daily.md",
+          "note": "New arXiv listing after prior 11-23 verified list; original evidence selected sections checked."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "not_attempted",
+        "notation": "Card, survey, map, index and daily log read back; alphaXiv membership checked."
+      }
     }
   ],
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-25",
   "records": [
     {
       "id": "arxiv-2611.24805",
