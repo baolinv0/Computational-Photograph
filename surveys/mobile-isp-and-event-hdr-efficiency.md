@@ -20,6 +20,19 @@
 此前已有 Edge NPU Benchmark 的 common-I/O 与 vendor-native E2E 差异，是相同部署抽象要求的独立支持；新文提供具体异构优化工程案例，并不直接验证摄像头 ISP。数据流与 kernel 适配为可用的工程机制，**不改变现有传统 ISP 执行链**；条件满足的 DiT 编辑/生成部署可列入设计选项。待测功耗、VAE、反复调用的长期温升和实际手机画质。
 
 
+## 2026-11-25｜训练期频域重参数化，不增加在线算子
+
+[DSRC](../papers/arxiv-2611.28736.md)（v1 11-21，首覆盖11-25，X01/T03/T01，GO-E / Engineering maturity + Boundary refinement）与 MobileIE ICCV2025 已有重参数化直接相关。[MobileIE 官方摘要](https://openaccess.thecvf.com/content/ICCV2025/html/Yan_MobileIE_An_Extremely_Lightweight_and_Effective_ConvNet_for_Real-Time_Image_ICCV_2025_paper.html)；DSRC 原文引用并以其为骨干。不同于推理时动态卷积/专家，DSRC 训练时学习 kernel 频带及高低通增益与线性残差，部署前合并为静态卷积，不增加 FFT 或分支。
+
+| 路线 | 训练和部署控制 | 成本与证据 |
+|---|---|---|
+| MobileIE / CSSC | 重参数化、部署普通卷积 | 强同部署成本基线 |
+| DSRC | 频域 kernel 参数化+线性支路→固定卷积 | LOL MobileIE23.01→23.74 dB；CSSC23.29；作者 RTX3090 latency同为1.82，4.05K/0.92G |
+| DyConv / FreqFusion | 输入自适应或频域特征处理 | 同骨干23.31/23.72 dB，但增加部署复杂度 |
+| NPU编译/异构优化 | 同模型映射到硬件 | 不同优化层，不能把模型提升当硬件实测 |
+
+更新判断：固定部署拓扑仍有训练参数化优化空间，非运行时适应；12个作者 backbone-task 正PSNR，但 Set5仅0.03–0.17dB，缺多seed、等训练自由度普通rep及真实移动SoC量化后的证据。离线paired GT→训练频域gain/线性支路→融合+数值等价测试→真机profile；在线固定普通Conv→RGB，Agent非必需。保留现有ISP，最小判别实验固定训练数据/预算/部署拓扑，对比 vanilla、等自由度线性rep、CSSC、DSRC；记录训练额外开销/真机时延和热功耗。没有证据证明 RAW/TM 或跨设备迁移。
+
 ## 竞争方案
 
 | 输入与任务 | 执行方式 | 测试关键 |
