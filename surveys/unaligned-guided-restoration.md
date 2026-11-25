@@ -38,6 +38,20 @@ DUET x8 作者报告 PSNR 38.116 vs strongest comparator 36.403 dB（约 +1.71dB
 **旧→新→不变**：已有 RGB/NIR 非配准引导方法 → 出现真实双相机 HSI/RGB 的匹配与错配 benchmark；**不变**：新增有效传感观测与跨视角错配的价值必须分开测，几何失败会传播虚假纹理，非手机 ISP 落地。离线高质 HSI+RGB/场景标定→合成 LR HSI+训练；在线 HSI+RGB→对齐/置信→谱恢复；无 Agent 必需。行动 GO-E 基准方向，当前单相机方案保持，最小对照 global-only/global+local/+gate，并检查高视差失败区域。
 
 
+## 2026-11-25｜双置信与区域动作：RMGNet / UWOT（Supporting evidence + Boundary refinement）
+
+[新证据 RMGNet](../papers/arxiv-2611.30114.md)（v1 11-23，首覆盖11-25，GO-E）把几何可信和目标模态自身证据可用性分开。历史 RT-X Net 已做 RGB-T cross-attention（ICIP2025，[官方摘要](https://ieeexplore.ieee.org/abstract/document/11084466)）；与 UGD-FM、TANGO 是共同抽象，不是直接继承。
+
+| 路线 | 额外观测/目标 | 主要控制 | 边界 |
+|---|---|---|---|
+| RT-X Net | RGB/T→增强RGB | cross-attention | 既有热引导 |
+| TANGO | RGB/HSI→HR HSI | 几何置信与遮挡 | LR HSI 模拟 |
+| RMGNet | 夜间或合成低光RGB/T→正常照明RGB | 空间对齐置信+可见证据可用性→保细节/relight/热补偿 | 5000 triplets 混合真实和合成；日夜参考不是真实夜景radiance |
+
+UWOT Table2 ICLRNet24.31→直接四通道25.16→完整25.38dB；额外观测解释大部分增益。Table4 双先验/对齐/区域动作全开25.38 vs 仅对齐+路由24.89；Table5 最强双动作24.98。另一个重新训练的合成 DroneVehicle 测试只比 RT-X +0.10dB。SAM3 一致性是日间 pseudo-label，非人工GT。2.93M/30.89 GFLOPs 非无人机端到端时延。
+
+判断更新：从对齐后融合扩展为“**正确对应且值得用**”的双条件路由；不变的是热信息不能推导可见色彩，日夜参考、视差、训练自由度是混杂变量。离线按实采/合成分别构建参考与噪声数据，训练双置信和三个候选；在线RGB/T→预清理→局部匹配及可见证据估计→空间混合→RGB；无Agent。固定两路输入与计算量，比较 RGB-only、concat、置信门控，按真实/合成与遮挡分层。未核验数据下载、实采比例、scene split，保留为 backlog；单传感器方案不改。
+
 ## 可比较证据
 
 **2026-11-04 新证据 UGD-FM**：其 FANVID/RGB-NIR Scene/MS2 测试包含单图、guided 和 diffusion/flow 的作者对照。其 FANVID Table 6 观察为：直接回归 30.27、标准 FM 2 step 30.34、stage-focused 30.42、加 inference-consistent states 30.58 dB；另外从 window guidance 30.03 到 sparse propagation 30.58。由此不能将全部增益归结为“用了 flow”；引导聚合和训练时刻匹配均有贡献。
