@@ -115,6 +115,10 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 **行动**：上述结果暂无需扩张当前 Tone Mapping / AWB / RAW 恢复执行链；优先复用强简单对照，只有出现对应真实失败条件再安排最小判别实验。所有技术指标均为作者报告，并非独立复现。
 
+### 2026-11-25｜两种边界：新增观测的必要性与训练期参数化的成本
+- T01/T03/T05/T04：[RMGNet/UWOT](papers/arxiv-2611.30114.md)（GO-E / Supporting evidence + Boundary refinement）把跨模态空间可靠性和可见局部证据可用性分开，按区域保细节、relight与热补偿。5000 triplets混合真实日夜与合成，日间非夜景物理GT。UWOT ICLRNet24.31→直接concat25.16→完整25.38dB，新增测量与算法净收益须分开；[跨模态 survey](surveys/unaligned-guided-restoration.md)。单相机不改。
+- X01/T03/T01：[DSRC](papers/arxiv-2611.28736.md)（GO-E / Engineering maturity + Boundary refinement）训练卷积频带与高低通gain后线性融合成静态卷积；相同MobileIE部署拓扑 LOL23.01→23.74 dB，CSSC23.29。与 MobileIE 已有 rep 相关，并非在线动态滤波；训练开销和真实SoC量化待测。[端侧效率 survey](surveys/mobile-isp-and-event-hdr-efficiency.md)。保留既有ISP，作为训练期原型候选。
+
 ### T01｜采集与成像物理
 
 **2026-11-24：目标相关重建。** [Dem2TA](papers/arxiv-2611.27209.md) 在 SegDem 预训练基础上，用 reconstruction+语义/任务表征对齐适配 Demosaic，再冻结前端优化局部渲染。Table4 IoU 联合无对齐77.379→对齐80.023；两阶段与同时训练仅0.105差。小模型PSNR下降、任务IoU增加，说明指标不等价，不说明下降PSNR导致提升。新增独立[任务导向 RAW ISP](surveys/task-oriented-raw-isp.md) 路线，与人眼照片目标分离；保留固定重建强基线。
