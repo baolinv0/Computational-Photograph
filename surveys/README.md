@@ -97,6 +97,10 @@
 - [Edge NPU Benchmark](../papers/arxiv-2611.13563.md) 在 11-13 周报已归档：补入 [端侧部署合同](mobile-isp-and-event-hdr-efficiency.md) 中的 common-I/O NPU 与 vendor-native E2E 三层比较。
 - 两项均为 `missing_map_integration` 的历史整理；未改变首次公开、首次覆盖日期或已完成的 alphaXiv 收藏，不构成新论文或新通知。
 
+## 2026-11-25 证据更新
+- [跨模态非配准恢复](unaligned-guided-restoration.md)：RMGNet/UWOT，几何置信与可见证据可用性双条件路由；真实/合成日夜参考分开。
+- [端侧 ISP 与效率](mobile-isp-and-event-hdr-efficiency.md)：DSRC 训练频域重参数化；部署固定卷积 vs 动态运行时；不继承 MobileIE 真机结果。
+
 ## 维护原则
 
 1. **已有则插入，缺少独立分支才创建。** 查同问题和同义词，不仅查文件名。
