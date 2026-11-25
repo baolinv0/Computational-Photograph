@@ -5,6 +5,8 @@
 > **2026-11-21 Paper Watch v3.2：**新增5篇首次公开于11月19日的候选：[FAIR](papers/arxiv-2611.26456.md)（ROI + 外部事实参考）、[RegionAgent](papers/arxiv-2611.26179.md)（单步/轨迹DPO）、[LG-FiLM](papers/arxiv-2611.25639.md)（场景条件ISP）、[AesDistill](papers/arxiv-2611.25635.md)（生成审美教师颜色蒸馏）、[ApexFuse](papers/arxiv-2611.25453.md)（无唯一融合GT的生成目标）。跨主题系统判断见[文献地图](LITERATURE_MAP.md)、[living survey索引](surveys/README.md)，本轮[日更快照](archive/PAPER_WATCH_2026-11-21_daily.md)。原论文选段核验、未独立复现；不因新方法改动既有私有项目。
 
 
+> **2026-11-25 Paper Watch：** [RMGNet/UWOT](papers/arxiv-2611.30114.md)（弱配准双置信）、[DSRC](papers/arxiv-2611.28736.md)（训练频域重参数化）；[本轮 Topic Update](archive/PAPER_WATCH_2026-11-25_daily.md)。
+
 目录：[怎么使用](#怎么使用) · [长期文献地图](#长期文献地图) · [主题入口](#主题入口) · [周报快照](#周报快照) · [归档机制](#归档机制) · [既有资料](#既有资料) · [References](#references)
 
 ## 怎么使用
