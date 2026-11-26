@@ -1,6 +1,6 @@
 # 高效生成式图像恢复：少步能力从哪里来？
 
-版本 v0.2 | 首次建图 2026-10-24，最近更新 2026-11-22 | T03 / X01（跨 T01 低光）
+版本 v0.2 | 首次建图 2026-10-24，最近更新 2026-11-26 | T03 / X01（跨 T01 低光）
 
 目录：[一分钟回忆](#一分钟回忆) · [路线地图](#路线地图) · [横向证据](#横向证据) · [系统方案](#系统方案) · [判断与缺口](#判断与缺口) · [References](#references)
 
@@ -116,6 +116,21 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 
 **历史待核**：PnP-Flow、Flower、D-Flow 的原文和 matched compute；BAM 实验前向算子失配；真实相机设备端总时延。本节为新的相关但不等价任务分支，不改变原 survey 的低光优势/失败边界。
 
+## 2026-11-26｜少步生成编辑器的任务适配与源图空间旁路（T03/X01）
+
+[HazeFlux](../papers/arxiv-2611.32632.md)（2026-11-24 v1）把两个问题拆开：生成器是否会去雾、潜空间压缩后是否还能保持源图细节。既有 GLOW-FM 属紧凑潜空间与一步传输，HNDiff 属物理退化建模引导生成，DehazeXL 属高分辨率局部与全局上下文；HazeFlux 是预训练少步编辑器的任务适配与 decoder 空间信息旁路，不是 skip connection 首创。
+
+| 路线 | 输入与控制 | 收益/边界 |
+|---|---|---|
+| DehazeXL / 判别式去雾 | 雾图 patch + 全局上下文 | 不必调用生成先验，强基线 |
+| HNDiff / 物理建模 | 雾和噪声过程引导扩散 | 物理假设的适用性 |
+| GLOW-FM / 少步传输 | LQ → 紧凑 latent → 一步端点 | 低光任务，非去雾直接比较 |
+| HazeFlux | 雾图条件 + 噪声 → 4-step FLUX → gated decoder skip | 保留源空间细节，仍可能生成错误内容 |
+
+Table 4（作者结果）Merge-HAZE PSNR base 11.94 → LoRA 20.61 → decoder adapter 20.98；I-HAZE 24.55→24.30 是反例。主收益来自任务适配，decoder增量小且依域。总参数7.98B，适配参数12.55M+33.4M；1024² RTX4090 报告3.44→3.75s，不是手机端到端时延。
+
+离线：真实配对雾/清晰图→训练LoRA（latent+pixel监督）→冻结第一阶段并训练decoder adapter；在线：雾图编码与提示词作为条件，从噪声采样4步，同时源图空间特征送decoder→输出RGB；Agent非必需。比较相同checkpoint、相同decoder参数预算的普通decoder与gated skip及简单频率融合，按雾浓度/颜色/边缘/细节事实分层。**GO-E：有工程价值，不直接换现有恢复链。** 未决：真实手机夜景雾、全分辨率端到端、普通decoder同预算消融、训练数据域与原始权重可用性。
+
 ## 判断与缺口
 
 **旧判断**：采样步数是生成式恢复的主要资源瓶颈；多步方法会持续降低 NFE。
@@ -140,6 +155,9 @@ GLOW-FM 原文 Tables 1, 3, 5 是本轮直接核验的主来源，详情见 [GLO
 - [VAE-aware HDR representation](vae-aware-hdr-representation.md)：表示侧的 HDR/VAE 接口是另一条独立分支。
 
 ## References
+
+- [HazeFlux v1](https://arxiv.org/abs/2611.32632v1) · [HNDiff](https://arxiv.org/abs/2608.10995) · [DehazeXL (CVPR 2025)](https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Tokenize_Image_Patches_Global_Context_Fusion_for_Effective_Haze_Removal_CVPR_2025_paper.html)
+
 
 - [PMD / arXiv 2611.26629v1：文生图条件后验少步蒸馏（2026-11-22 historical backfill；非恢复直接证据）](https://arxiv.org/html/2611.26629v1)
 - [DMD2 / NeurIPS 2024](https://proceedings.neurips.cc/paper_files/paper/2024/hash/54dcf25318f9de5a7a01f0a4125c541e-Abstract-Conference.html)
