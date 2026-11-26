@@ -1,6 +1,6 @@
 # 持续专题综述索引
 
-更新：2026-11-24（任务导向 RAW ISP、Agent 元修订与指令依赖）
+更新：2026-11-26（可执行空间控制与少步恢复源图旁路）
 
 目录：[专题](#专题) · [维护原则](#维护原则)
 
@@ -52,6 +52,12 @@
 | T04/T02 | [HDR 显示与观看条件评价](display-viewing-conditioned-visual-quality.md) | HDR-VDC **2024 QoMEX→2026 arXiv 实质扩展**：新的是 35 VQA 指标/PU21+PPS 的比较和失败边界，原数据非新作；GO-E Update |
 
 ## 专题
+
+| 稳定问题 / 系统位置 | Canonical living survey | 2026-11-26 判断 |
+|---|---|---|
+| T06/T02 多参考图像生成如何从参考绑定进入可核验空间控制？ | [多参考可执行空间控制](multi-reference-executable-scene-control.md) | MAGPIE：可执行3D代理与执行器LoRA互补；冻结执行器proxy可退化，GO-E |
+| T03/X01 少步生成恢复如何保住源空间结构？ | [高效生成恢复](efficient-generative-restoration.md) | HazeFlux：任务适配是主收益，decoder旁路额外增益且依域，GO-E |
+
 
 | 主问题/主题 | Canonical survey | 范围与状态 |
 |---|---|---|
