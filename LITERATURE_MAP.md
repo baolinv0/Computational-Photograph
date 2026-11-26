@@ -1,6 +1,6 @@
 # 影像研究文献地图：从单篇论文到系统认识
 
-版本：v1.0｜结构建立/最近实质修订：2026-11-24（任务相关重建与Agent控制）
+版本：v1.0｜结构建立/最近实质修订：2026-11-26（可执行空间控制与少步恢复源图旁路）
 
 目录：[使用方法](#使用方法) · [系统总图](#系统总图) · [长期主题](#长期主题) · [三个连接示例](#三个连接示例) · [主题更新卡](#主题更新卡) · [回忆与维护](#回忆与维护) · [变更记录](#变更记录) · [来源与覆盖](#来源与覆盖)
 
@@ -193,6 +193,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T03｜可信恢复、生成式 SR 与高分辨率
 
+**2026-11-26：少步生成恢复的任务适配 vs 源图旁路。** [HazeFlux](papers/arxiv-2611.32632.md) 在4步FLUX上先用LoRA学去雾，再用decoder结构adapter传递源空间信息；作者Merge-HAZE PSNR 11.94→20.61→20.98；I-HAZE后阶段24.55→24.30。主要增益是任务适配，旁路的独立价值尚需同参数普通decoder和频率融合对照。连接 X01/T05；[高效生成恢复](surveys/efficient-generative-restoration.md)。无端侧部署证据，不改既有恢复方案。
+
+
 **2026-11-19｜单模型内部可解释的空间恢复策略（PROBE，Bridge）**。[ExplicitIR](papers/arxiv-2611.22222.md) 通过每像素 update Budget 与 context Style field 控制 decoder 的局部响应。不同于整图 KEEP/RESTORE routing、SGVD 的 LQ/生成潜变量混合和候选后 Judge；网络内 Budget≈小并不能推断输出逐像素严格保真。作者三任务均值 PSNR 32.78（Restormer 31.98；外部退化标注 DFPIR 32.88），价值主要是控制接口与局部恢复，不是已证明全任务最好。离线 clean/LQ→训练 Policy field；在线输入→spatial field→decoder→RGB，外部 Agent 非必需。原路线与最小实验见[选择性恢复 living survey](surveys/selective-task-aware-restoration.md)。保持原恢复方案，不因机制相似直接引入新 Agent。
 
 
@@ -299,6 +302,9 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 专题深化：[成像训练数据合成 survey](surveys/imaging-training-data-synthesis.md)。覆盖逆 ISP、RAW/XYZ 生成和曝光监督的历史路线；MESS 与 RawGen 是综合建立的并行关联，不是已核实的直接继承。阅读时同时区分 UNICE 的融合目标与 MESS 保留原始 RGB 目标。
 
 ### T06｜Agent、动作与闭环控制
+
+**2026-11-26：多参考几何控制独立分支。** [MAGPIE](papers/arxiv-2611.32462.md) 将对象与空间关系转成可执行Blender代理场景，几何验证后渲染作为生成条件。与 AutoRef 的离线 harness 搜索、Scone 的模型理解/生成训练竞争互补，不是直接继承 AutoRef。Qwen冻结生成器仅增加proxy时DreamOmni2 overall 42.01→29.47，适配后64.26；故中间控制表示和执行器兼容性是两个变量，代理通过不保证像素事实。适用于复杂空间组合，不外推纯风格/纹理。主专题：[多参考可执行空间控制](surveys/multi-reference-executable-scene-control.md)。
+
 
 **2026-11-24：三层策略与依赖。** [SIR-Agent](papers/arxiv-2611.27285.md) 在 SkillIR 初始技能基础上把修订规则本身作为搜索对象；相对固定规则，新任务15.62→16.00dB、旧24.51→24.55、19.6→13.4次工具调用/修订，不是单图速度。与 RecurIR 条件证伪、RegionAgent DPO 权重学习为竞争/互补。[CRIE](papers/arxiv-2611.27388.md) 则先解析单请求最终有效目标，再依对象引用顺序分块；不是TRACE跨实际轮次，也不是AUTOREF外部多图绑定。任务可达、搜索发现、独立选择继续分开。见[AgenticIR主综述](https://github.com/baolinv0/CameraPaper/blob/main/knowledge/imaging-agent/agentic-image-restoration-survey.md)、[编辑保真](surveys/multi-turn-editing-preservation.md)。
 
@@ -459,6 +465,9 @@ Topic ID / 稳定问题：
 - Private project implementation/experiment status was not asserted; this run updated public literature only.
 
 ## 变更记录
+
+- 2026-11-26：新增 MAGPIE、HazeFlux 两项v1原文证据；新增多参考可执行空间控制独立专题并更新高效生成恢复专题。详见 [当日日更记录](archive/PAPER_WATCH_2026-11-26_daily.md)。
+
 
 - 2026-11-24：3项新公开（11-20 v1、11-23公告）；T01 新稳定问题页，T06 修订既有两份主综述。无旧文冒充新论文。详见 [日更记录](archive/PAPER_WATCH_2026-11-24_daily.md)。
 - **2026-11-23：历史 backfill，非新论文。** TRACE（arXiv 2611.25648，2026-11-19 v1）把跨轮有效属性状态与当前材质载体分离，补进 T06↔T02 局部执行路线；一般 EdiVal 增益很小且存在更简单 Core 更优子集，故不触发研究通知、未更改真实 IR 执行决策。见 [专题](surveys/multi-turn-editing-preservation.md) 和 [卡片](papers/arxiv-2611.25648.md)。
