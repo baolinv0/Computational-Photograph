@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-25",
+  "updated_on": "2026-11-26",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.; 2026-11-25: 11-24 four official arXiv listings partial keyword review, two selected new v1; per-source coverage in daily log.",
@@ -5584,9 +5584,123 @@
         "notion": "not_attempted",
         "notation": "Card, survey, map, index and daily log read back; alphaXiv membership checked."
       }
+    },
+    {
+      "id": "arxiv-2611.32462",
+      "title": "MAGPIE: Agentic Multi-Reference Image Generation via Executable Scene Construction",
+      "authors": "Yifan Dai, Daili Hua, Bohan Zeng et al.",
+      "aliases": [
+        "MAGPIE"
+      ],
+      "topic": "Agent",
+      "main_theme": "T06",
+      "secondary_themes": [
+        "T02",
+        "T04",
+        "T05",
+        "X01"
+      ],
+      "system_roles": [
+        "strategy",
+        "execution",
+        "evaluation",
+        "training"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "canonical_survey": "surveys/multi-reference-executable-scene-control.md",
+      "decision_key": "executable_geometry_proxy_requires_generator_compatibility",
+      "decision_boundary": "Complex spatial composition; target-assisted offline data; proxy-only Qwen degrades; proxy checks do not guarantee final pixels; appearance-only excluded.",
+      "kind": "paper",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.32462v1",
+      "earliest_public_verified": "2026-11-24",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-24",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-25",
+      "first_covered": "2026-11-26",
+      "checked_on": "2026-11-26",
+      "verification_scope": "v1_primary_methods_results_selected_tables_and_historical_abstracts",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.32462.md",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-26",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-24",
+          "brief": "archive/PAPER_WATCH_2026-11-26_daily.md",
+          "note": "Complex spatial composition; target-assisted offline data; proxy-only Qwen degrades; proxy checks do not guarantee final pixels; appearance-only excluded."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent",
+        "notion": "not_attempted",
+        "notation": "Canonical card, survey, map, index and daily record read back; alphaXiv membership verified."
+      }
+    },
+    {
+      "id": "arxiv-2611.32632",
+      "title": "HazeFlux: Few-Step Generative Priors for Real-World Image Dehazing",
+      "authors": "Yunong Liu, Danna Xue, Javier Vazquez-Corral",
+      "aliases": [
+        "HazeFlux"
+      ],
+      "topic": "Restoration",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "X01",
+        "T05"
+      ],
+      "system_roles": [
+        "execution",
+        "training"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Boundary refinement"
+      ],
+      "canonical_survey": "surveys/efficient-generative-restoration.md",
+      "decision_key": "few_step_editor_task_adaptation_vs_source_structure_bypass",
+      "decision_boundary": "Most gain from LoRA; decoder gains modest and domain-specific; controlled real haze pairs, no mobile deployment, equal parameter control missing.",
+      "kind": "paper",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.32632v1",
+      "earliest_public_verified": "2026-11-24",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-24",
+      "source_version": "v1",
+      "first_public_new_listing_verified": "2026-11-25",
+      "first_covered": "2026-11-26",
+      "checked_on": "2026-11-26",
+      "verification_scope": "v1_primary_methods_results_selected_tables_and_historical_abstracts",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.32632.md",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-26",
+          "new_alert": true,
+          "earliest_public_date": "2026-11-24",
+          "brief": "archive/PAPER_WATCH_2026-11-26_daily.md",
+          "note": "Most gain from LoRA; decoder gains modest and domain-specific; controlled real haze pairs, no mobile deployment, equal parameter control missing."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Restoration",
+        "notion": "not_attempted",
+        "notation": "Canonical card, survey, map, index and daily record read back; alphaXiv membership verified."
+      }
     }
   ],
-  "updated_at": "2026-11-25",
+  "updated_at": "2026-11-26",
   "records": [
     {
       "id": "arxiv-2611.24805",
