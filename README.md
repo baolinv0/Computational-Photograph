@@ -1,5 +1,7 @@
 # Computational-Photograph｜计算摄影研究库
 
+> **2026-11-26 Paper Watch：** [MAGPIE](papers/arxiv-2611.32462.md)（可执行3D代理与生成器适配）、[HazeFlux](papers/arxiv-2611.32632.md)（四步去雾与源空间旁路）；[本轮 Topic Update](archive/PAPER_WATCH_2026-11-26_daily.md) · [新专题：多参考空间控制](surveys/multi-reference-executable-scene-control.md)。
+
 > **2026-11-24 Paper Watch：** [Dem2TA](papers/arxiv-2611.27209.md)、[SIR-Agent](papers/arxiv-2611.27285.md)、[CRIE-Agent](papers/arxiv-2611.27388.md)；[本轮 Topic Update](archive/PAPER_WATCH_2026-11-24_daily.md)，[文献地图](LITERATURE_MAP.md)。
 
 > **2026-11-21 Paper Watch v3.2：**新增5篇首次公开于11月19日的候选：[FAIR](papers/arxiv-2611.26456.md)（ROI + 外部事实参考）、[RegionAgent](papers/arxiv-2611.26179.md)（单步/轨迹DPO）、[LG-FiLM](papers/arxiv-2611.25639.md)（场景条件ISP）、[AesDistill](papers/arxiv-2611.25635.md)（生成审美教师颜色蒸馏）、[ApexFuse](papers/arxiv-2611.25453.md)（无唯一融合GT的生成目标）。跨主题系统判断见[文献地图](LITERATURE_MAP.md)、[living survey索引](surveys/README.md)，本轮[日更快照](archive/PAPER_WATCH_2026-11-21_daily.md)。原论文选段核验、未独立复现；不因新方法改动既有私有项目。
