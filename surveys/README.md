@@ -55,7 +55,7 @@
 
 | 稳定问题 / 系统位置 | Canonical living survey | 2026-11-26 判断 |
 |---|---|---|
-| T06/T02 多参考图像生成如何从参考绑定进入可核验空间控制？ | [多参考可执行空间控制](multi-reference-executable-scene-control.md) | MAGPIE：可执行3D代理与执行器LoRA互补；冻结执行器proxy可退化，GO-E |
+| T06/T02 多参考图像生成如何从参考绑定进入可核验空间控制？ | [多参考可执行空间控制](multi-reference-executable-scene-control.md) | 2026-11-27：LayoutRecall 对象局部表面历史缓存与适配；AutoRef历史卡补齐；MAGPIE可执行3D代理与LoRA保留独立边界，GO-E |
 | T03/X01 少步生成恢复如何保住源空间结构？ | [高效生成恢复](efficient-generative-restoration.md) | HazeFlux：任务适配是主收益，decoder旁路额外增益且依域，GO-E |
 
 
