@@ -1,7 +1,7 @@
 # Recovering What Matters, Transferring Only What Is Reliable: Toward Precise Reference-Based Super-Resolution
 
 ID: arxiv-2611.33455 | Sihan Ji, Wenxin Chen, Yue Shi, Jiezhang Cao (SJTU, Michigan, Shanghai AI Lab) | T03 / T02,T04 | restoration, reference transfer, evaluation | GO-E | Benchmark + reliability gate.
-First verified: arXiv v1 2026-11-25; first covered/checked 2026-11-27. Original method, VeriRef benchmark and main/ablation tables checked; no independent reproduction.
+First verified: arXiv v1 2026-11-24; first covered/checked 2026-11-27. Original method, VeriRef benchmark and main/ablation tables checked; no independent reproduction.
 Decision key: RefSR must separately measure exact information recovery and wrong-reference leakage.
 
 目录：[快速回忆](#快速回忆) · [精读记录](#精读记录) · [证据边界](#证据边界) · [下一实验](#下一实验) · [References](#references)
