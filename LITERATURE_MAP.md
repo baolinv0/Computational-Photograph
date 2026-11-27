@@ -303,6 +303,8 @@ RAW 成像与已有照片编辑的入口不同。只有 RGB 的编辑系统不�
 
 ### T06｜Agent、动作与闭环控制
 
+**2026-11-27：几何作为历史证据地址，而非仅目标布局。** [LayoutRecall](papers/arxiv-2611.33885.md) 为 T06/T02/T05/X01 的 Bridge + Boundary refinement，给定框与相机，以object-local表面记忆检索此前可见的appearance token。Table5 synthetic十轮 Back=23.75/19.18/15.71 dB (full/last2/no memory)，支持历史可用性；训练GT历史、推理生成历史；真实序列仅10条，原始历史同预算检索尚欠。与MAGPIE几何目标验证、[AutoRef](papers/arxiv-2609.35530.md)冻结harness搜索互补，非直接继承或同任务。详见[主专题](surveys/multi-reference-executable-scene-control.md)。AutoRef v1 Table4/Appendix I 本轮历史回填：等采样数去定向修订7.37→6.99；Qwen五参考1.89→1.87，不把作者hard-failure判定等同绝对不可达。无独立复现。
+
 **2026-11-26：多参考几何控制独立分支。** [MAGPIE](papers/arxiv-2611.32462.md) 将对象与空间关系转成可执行Blender代理场景，几何验证后渲染作为生成条件。与 AutoRef 的离线 harness 搜索、Scone 的模型理解/生成训练竞争互补，不是直接继承 AutoRef。Qwen冻结生成器仅增加proxy时DreamOmni2 overall 42.01→29.47，适配后64.26；故中间控制表示和执行器兼容性是两个变量，代理通过不保证像素事实。适用于复杂空间组合，不外推纯风格/纹理。主专题：[多参考可执行空间控制](surveys/multi-reference-executable-scene-control.md)。
 
 
