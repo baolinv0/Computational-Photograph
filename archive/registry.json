@@ -5698,6 +5698,118 @@
         "notion": "hub_indexed",
         "notation": "Canonical card, survey, map, index and daily record read back; alphaXiv membership verified. 2026-11-27 weekly hub section read back."
       }
+    },
+    {
+      "id": "arxiv-2611.33885",
+      "title": "LayoutRecall: Preserving Appearance in Multi-Round 3D Layout-Controlled Image Editing",
+      "authors": "Yankuan Chi; Xin Lin; Baihan Yang; Yuheng Liu; Jason Li; Truong Nguyen",
+      "aliases": [
+        "LayoutRecall",
+        "LayoutLoop"
+      ],
+      "earliest_public_verified": "2026-11-25",
+      "first_public_new_listing_verified": "2026-11-26",
+      "first_covered": "2026-11-27",
+      "secondary_themes": [
+        "T02",
+        "T03",
+        "T05",
+        "X01"
+      ],
+      "system_roles": [
+        "memory",
+        "execution",
+        "training",
+        "data"
+      ],
+      "map_change": [
+        "Bridge",
+        "Boundary refinement"
+      ],
+      "decision_key": "object_local_appearance_memory_for_calibrated_spatial_editing",
+      "decision_boundary": "Known layouts and cameras; only 10 real sequences; generated-history contamination, unseen view fidelity and token-budget matched retrieval not established.",
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.33885v1",
+      "source_version": "v1",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-11-25",
+      "checked_on": "2026-11-27",
+      "verification_scope": "v1_original_selected_methods_tables_and_appendix",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.33885.md",
+      "canonical_survey": "surveys/multi-reference-executable-scene-control.md",
+      "events": [
+        {
+          "type": "new",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "archive/PAPER_WATCH_2026-11-27_daily.md",
+          "note": "Known layouts and cameras; only 10 real sequences; generated-history contamination, unseen view fidelity and token-budget matched retrieval not established."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "a83db0daf1143d4ca531179618aa83e167d6d150",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent"
+      }
+    },
+    {
+      "id": "arxiv-2609.35530",
+      "title": "AutoRef: Harness Optimization for Agentic Multi-Reference Image Generation",
+      "authors": "Yuta Oshima; Ku Onoda; Yusuke Iwasawa; Masahiro Suzuki; Yutaka Matsuo; Hiroki Furuta",
+      "aliases": [
+        "AUTOREF",
+        "AutoRef-Harness"
+      ],
+      "earliest_public_verified": "2026-09-28",
+      "first_covered": null,
+      "secondary_themes": [
+        "T02",
+        "T04",
+        "X01"
+      ],
+      "system_roles": [
+        "strategy",
+        "execution",
+        "selection"
+      ],
+      "map_change": [
+        "Boundary refinement"
+      ],
+      "decision_key": "frozen_generator_harness_search_and_diagnosis_correction_boundary",
+      "decision_boundary": "Known covered by 2026-11-17, exact first coverage unknown; same-count revision ablation exists but targeted error-level correction not isolated.",
+      "kind": "paper",
+      "topic": "Agent",
+      "main_theme": "T06",
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2609.35530v1",
+      "source_version": "v1",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "arxiv_v1_first_submitted": "2026-09-28",
+      "checked_on": "2026-11-27",
+      "verification_scope": "v1_original_selected_methods_tables_and_appendix",
+      "independent_replication": "not_performed",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2609.35530.md",
+      "canonical_survey": "surveys/multi-reference-executable-scene-control.md",
+      "events": [
+        {
+          "type": "backfill",
+          "date": "2026-11-27",
+          "new_alert": false,
+          "brief": "archive/PAPER_WATCH_2026-11-27_daily.md",
+          "note": "Known covered by 2026-11-17, exact first coverage unknown; same-count revision ablation exists but targeted error-level correction not isolated."
+        }
+      ],
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "125e2214c442f90dac8e0ddd0a2b5ba7a84707bd",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Agent"
+      }
     }
   ],
   "updated_at": "2026-11-27",
