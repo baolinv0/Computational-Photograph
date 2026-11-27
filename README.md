@@ -1,5 +1,7 @@
 # Computational-Photograph｜计算摄影研究库
 
+> **2026-11-27 周度增量：** [RAWPrism](papers/arxiv-2611.34359.md)（三任务RAW融合）、[PreciseRef](papers/arxiv-2611.33455.md)（精确信息恢复/错参考泄露）、[JarvisAura](papers/arxiv-2611.32299.md)（可编辑参考调色参数）、[PreserveReward](papers/arxiv-2611.34446.md)、[SPGSR](papers/arxiv-2611.34418.md)、[SPIRE](papers/arxiv-2611.34828.md)；[周快照](Recent_Papers_2026-11-27.md)。
+
 > **2026-11-26 Paper Watch：** [MAGPIE](papers/arxiv-2611.32462.md)（可执行3D代理与生成器适配）、[HazeFlux](papers/arxiv-2611.32632.md)（四步去雾与源空间旁路）；[本轮 Topic Update](archive/PAPER_WATCH_2026-11-26_daily.md) · [新专题：多参考空间控制](surveys/multi-reference-executable-scene-control.md)。
 
 > **2026-11-24 Paper Watch：** [Dem2TA](papers/arxiv-2611.27209.md)、[SIR-Agent](papers/arxiv-2611.27285.md)、[CRIE-Agent](papers/arxiv-2611.27388.md)；[本轮 Topic Update](archive/PAPER_WATCH_2026-11-24_daily.md)，[文献地图](LITERATURE_MAP.md)。
