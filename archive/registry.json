@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-26",
+  "updated_on": "2026-11-27",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
-  "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.; 2026-11-25: 11-24 four official arXiv listings partial keyword review, two selected new v1; per-source coverage in daily log.",
+  "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.; 2026-11-25: 11-24 four official arXiv listings partial keyword review, two selected new v1; per-source coverage in daily log.; weekly 2026-W48 adds six source-verified 2026-11-24/25 v1 papers, reconciles 2026-11-21 to 2026-11-26 daily intake, no independent replication.",
   "date_semantics": "earliest_public_verified means earliest source found, not an exhaustive first-publication claim",
   "sync_semantics": "github=write acknowledged and content reread; alphaxiv=saved and membership reread; notion=automatic hub section updated and reread, not a full note mirror",
   "privacy": "Private Notion URLs, folder IDs, credentials and personal reading states are intentionally not stored here.",
@@ -5700,7 +5700,7 @@
       }
     }
   ],
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-27",
   "records": [
     {
       "id": "arxiv-2611.24805",
@@ -5980,6 +5980,319 @@
         "notion": "hub_indexed",
         "github_content_commit": "25121c99f94eccc403cdb4b90c1157ccf8d55a24",
         "notation": "2026-11-20 canonical card and weekly snapshot read back; alphaXiv primary-folder membership verified; Notion auto-maintenance section read back."
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.34359",
+      "title": "RAWPrism: A Three-Task Dataset and a Unified Model for RAW-Domain Image Fusion",
+      "authors": "Tianyi Hu; Yangdong Li; Shuyan Liu; et al.",
+      "aliases": [
+        "RAWPrism"
+      ],
+      "topic": "Raw",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "T03",
+        "X01"
+      ],
+      "system_roles": [
+        "RAW fusion",
+        "ISP boundary",
+        "evaluation"
+      ],
+      "map_change": [
+        "New route",
+        "Benchmark",
+        "Counter-evidence"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.34359v1",
+      "earliest_public_verified": "2026-11-25",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_methods_dataset_qc_tables1_5_limitations_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.34359.md",
+      "decision_key": "shared_cfa_aware_raw_fusion_across_exposure_focus_and_visible_thermal",
+      "decision_boundary": "MEF/MFF captured; IVIF visible RAW inverse-ISP reconstructed; cross-split near-duplicate candidates retained; protocol-sensitive metrics; no mobile E2E",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "687dcee0bc672dee337cbfaaaa0c258c5ae8e59e",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending_weekly_hub"
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.34446",
+      "title": "PreserveReward: Reliable Consistency Reward Modeling for Image Editing via Dual-Teacher On-Policy Self-Distillation",
+      "authors": "Xueheng Li; Yong Liu; Wen Xue; et al.",
+      "aliases": [
+        "PreserveReward"
+      ],
+      "topic": "IQA",
+      "main_theme": "T04",
+      "secondary_themes": [
+        "T02",
+        "T05"
+      ],
+      "system_roles": [
+        "evaluation",
+        "reward",
+        "editing"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.34446v1",
+      "earliest_public_verified": "2026-11-25",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_methods_benchmarks_rl_and_selected_ablations_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.34446.md",
+      "decision_key": "dual_teacher_local_change_and_instruction_necessity_for_edit_preservation_reward",
+      "decision_boundary": "9B author-reported model; no independent MOS or mobile cost; downstream RL may reward-hack the same evaluator",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "0227c5505c9460c47ae7a399b47ba558bc396c58",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "IQA",
+        "notion": "pending_weekly_hub"
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.33455",
+      "title": "Recovering What Matters, Transferring Only What Is Reliable: Toward Precise Reference-Based Super-Resolution",
+      "authors": "Sihan Ji; Wenxin Chen; Yue Shi; Jiezhang Cao",
+      "aliases": [
+        "PreciseRef",
+        "VeriRef"
+      ],
+      "topic": "Raw",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "T02",
+        "T04"
+      ],
+      "system_roles": [
+        "restoration",
+        "reference transfer",
+        "evaluation"
+      ],
+      "map_change": [
+        "Benchmark",
+        "Boundary refinement"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.33455v1",
+      "earliest_public_verified": "2026-11-25",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_method_veriref_main_and_ablation_tables_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.33455.md",
+      "decision_key": "exact_reference_information_recovery_with_wrong_reference_leakage_control",
+      "decision_boundary": "Small exact-text/code/identity benchmark; wrong references unseen in training; no mobile, RAW or independent human evaluation",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "e91d7ea41fed36d88dd3642c6333d4cc56497d98",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending_weekly_hub"
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.32299",
+      "title": "Towards a Multimodal Aesthetic Agent for Photographic Reference Grading",
+      "authors": "Kunjie Lin; Haitao Zhang; Bosheng Chen; et al.",
+      "aliases": [
+        "JarvisAura"
+      ],
+      "topic": "Color",
+      "main_theme": "T02",
+      "secondary_themes": [
+        "T04",
+        "T06"
+      ],
+      "system_roles": [
+        "color grading",
+        "reference transfer",
+        "agent"
+      ],
+      "map_change": [
+        "New route",
+        "Industrial research signal"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.32299v1",
+      "earliest_public_verified": "2026-11-24",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_front_page_methods_dataset_benchmark_and_selected_results_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.32299.md",
+      "decision_key": "reference_grading_as_replayable_edit_parameters_not_flattened_pixels",
+      "decision_boundary": "Huawei paper-time affiliation verified; product adoption, mobile E2E, HDR/RAW and cross-display behavior unverified",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "0a79ecad8ab1559bd5a1602c5363d6813bf167fe",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Color",
+        "notion": "pending_weekly_hub"
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.34418",
+      "title": "SPGSR: A Small Pixel-Space Generator for One-Step Super-Resolution",
+      "authors": "Yun Yue; Luming Liang; Yiqi Zhong",
+      "aliases": [
+        "SPGSR"
+      ],
+      "topic": "Raw",
+      "main_theme": "T03",
+      "secondary_themes": [
+        "X01",
+        "T04"
+      ],
+      "system_roles": [
+        "restoration",
+        "efficient inference"
+      ],
+      "map_change": [
+        "Engineering maturity",
+        "Counter-evidence"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.34418v1",
+      "earliest_public_verified": "2026-11-25",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_methods_tables1_3_training_and_inference_accounting_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.34418.md",
+      "decision_key": "small_vision_only_pixel_residual_generator_with_full_gpu_pipeline_accounting",
+      "decision_boundary": "Synthetic degradation training, small benchmarks, no human or mobile E2E; DINO-GAN strongly changes no-reference metrics",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "15f61ab95dda0076e67b2787d81765b3fee1eaa9",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "Raw",
+        "notion": "pending_weekly_hub"
+      }
+    },
+    {
+      "kind": "paper",
+      "first_covered": "2026-11-27",
+      "checked_on": "2026-11-27",
+      "independent_replication": "not_performed",
+      "events": [
+        {
+          "type": "first_archive",
+          "date": "2026-11-27",
+          "new_alert": true,
+          "brief": "2026-W48 weekly brief",
+          "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        }
+      ],
+      "id": "arxiv-2611.34828",
+      "title": "Beyond Feature Fusion: Sensor-Grounded Semantic–Spiking Learning for Robust Object Detection",
+      "authors": "Hanwen Liang; Wenxuan Liu; Wenxin Huang; et al.",
+      "aliases": [
+        "SPIRE"
+      ],
+      "topic": "ISP",
+      "main_theme": "T01",
+      "secondary_themes": [
+        "X01"
+      ],
+      "system_roles": [
+        "spike sensing",
+        "detection",
+        "ISP"
+      ],
+      "map_change": [
+        "New route",
+        "Boundary refinement",
+        "Counter-evidence"
+      ],
+      "verdict": "GO-E",
+      "source": "https://arxiv.org/abs/2611.34828v1",
+      "earliest_public_verified": "2026-11-25",
+      "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
+      "source_version": "v1",
+      "verification_scope": "arxiv_v1_methods_tables1_5_data_and_efficiency_checked",
+      "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.34828.md",
+      "decision_key": "single_spike_stream_joint_appearance_temporal_counts_and_measurement_refinement",
+      "decision_boundary": "Most simulated data; adaptive ISP dominates some gains; static non-spiking competitive on VOC; no mobile power/E2E or cross-sensor reproduction",
+      "sync": {
+        "github": "verified_written",
+        "github_content_commit": "e4a67b0aad3ae25b306f41fdba2c181cf6b12255",
+        "alphaxiv": "verified_saved",
+        "alphaxiv_folder": "ISP",
+        "notion": "pending_weekly_hub"
       }
     }
   ]
