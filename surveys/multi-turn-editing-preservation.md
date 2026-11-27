@@ -57,6 +57,8 @@
 
 **剩余缺口**：独立人工观察者/真实摄影图、颜色卡与肤色/白衣及保真约束、跨模型成本和各 VLM 判断可靠性；作者选定局部实验不能替代无 GT 真实恢复验收。
 
+## 2026-11-27 交叉证据：消失的对象再出现
+[LayoutRecall](../papers/arxiv-2611.33885.md) 与 TRACE 的“活动属性/当前载体”不同，保存的是曾观察到的空间对象外观，按已知三维框和相机检索历史 latent；不是同一区域属性延续。原文 Table5 full vs last2 vs no memory 在 synthetic ten-round Back=23.75/19.18/15.71 dB。训练GT历史而推理写入生成历史；真实集仅10条十轮，且未验证未知视角事实。详细竞争路线、系统与边界统一维护于[多参考可执行空间控制](multi-reference-executable-scene-control.md)，不重复正文。
 ## 在线与离线方案
 
 **离线训练**：原图与局部/identity prompt → base editor 自生成候选和轨迹 → 通过 mask/局部性检查 → 保留区复制原像素、编辑区保留 base 结果作为 endpoint → early prior matching + on-policy tail steering → 多轮/单轮平衡验证。
