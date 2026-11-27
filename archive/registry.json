@@ -6101,6 +6101,12 @@
           "new_alert": true,
           "brief": "2026-W48 weekly brief",
           "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        },
+        {
+          "type": "correction",
+          "date": "2026-11-27",
+          "new_alert": false,
+          "note": "Corrected v1 submission date from 2026-11-25 to 2026-11-24 after direct arXiv submission-history readback."
         }
       ],
       "id": "arxiv-2611.33455",
@@ -6127,7 +6133,7 @@
       ],
       "verdict": "GO-E",
       "source": "https://arxiv.org/abs/2611.33455v1",
-      "earliest_public_verified": "2026-11-25",
+      "earliest_public_verified": "2026-11-24",
       "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
       "source_version": "v1",
       "verification_scope": "arxiv_v1_method_veriref_main_and_ablation_tables_checked",
@@ -6136,12 +6142,13 @@
       "decision_boundary": "Small exact-text/code/identity benchmark; wrong references unseen in training; no mobile, RAW or independent human evaluation",
       "sync": {
         "github": "verified_written",
-        "github_content_commit": "e91d7ea41fed36d88dd3642c6333d4cc56497d98",
+        "github_content_commit": "af2f28f089fe1622fd1ed723536d8a1eaa46eb62",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
         "notion": "hub_indexed",
         "notation": "2026-11-27 weekly hub section read back."
-      }
+      },
+      "arxiv_v1_first_submitted": "2026-11-24"
     },
     {
       "kind": "paper",
