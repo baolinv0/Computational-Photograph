@@ -5055,9 +5055,9 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "not_attempted",
+        "notion": "hub_indexed",
         "camerapaper": "not_applicable",
-        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete"
+        "notation": "2026-11-21 canonical and affected survey, map, snapshot readback; alphaXiv primary folder membership verified; OpenReview and preprint prepublic incomplete 2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -5404,9 +5404,9 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Agent",
-        "notion": "not_attempted",
+        "notion": "hub_indexed",
         "camerapaper": "verified_survey_updated",
-        "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified."
+        "notation": "Canonical card, survey, map, survey index exact readback; alphaXiv membership verified. 2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -5695,8 +5695,8 @@
         "github": "verified_written",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Restoration",
-        "notion": "not_attempted",
-        "notation": "Canonical card, survey, map, index and daily record read back; alphaXiv membership verified."
+        "notion": "hub_indexed",
+        "notation": "Canonical card, survey, map, index and daily record read back; alphaXiv membership verified. 2026-11-27 weekly hub section read back."
       }
     }
   ],
@@ -6032,7 +6032,8 @@
         "github_content_commit": "687dcee0bc672dee337cbfaaaa0c258c5ae8e59e",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -6084,7 +6085,8 @@
         "github_content_commit": "0227c5505c9460c47ae7a399b47ba558bc396c58",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -6137,7 +6139,8 @@
         "github_content_commit": "e91d7ea41fed36d88dd3642c6333d4cc56497d98",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -6189,7 +6192,8 @@
         "github_content_commit": "0a79ecad8ab1559bd5a1602c5363d6813bf167fe",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Color",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -6240,7 +6244,8 @@
         "github_content_commit": "15f61ab95dda0076e67b2787d81765b3fee1eaa9",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "Raw",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     },
     {
@@ -6292,7 +6297,8 @@
         "github_content_commit": "e4a67b0aad3ae25b306f41fdba2c181cf6b12255",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "ISP",
-        "notion": "pending_weekly_hub"
+        "notion": "hub_indexed",
+        "notation": "2026-11-27 weekly hub section read back."
       }
     }
   ]
