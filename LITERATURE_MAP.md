@@ -533,6 +533,9 @@ v0.1 建立时直接访问上述几篇 arXiv 页面未取得内容，当时没�
 
 
 
+## 2026-11-28｜T04 保真评价监督归因（历史整理，非新增通知）
+[PreserveReward](papers/arxiv-2611.34446.md) 已于11-27周报归档，本次接入[伪影与Reward主专题](surveys/artifact-grounded-reward-and-verification.md)。区分局部变化可见性、指令授权和教师/标签可靠性。Table3同9B base→Score-MSE→full 的保真偏好准确率39.80→67.30→80.60%，直接监督贡献显著，双视野蒸馏仍有增量；RL后结果用GPT评分而非独立人评。旧结论不变：保真偏好不能代替目标完成或真实结构验收，评价改进不能创造可达候选。无新版本、无新通知。
+
 ## 2026-11-27 周度主题更新
 
 - **RAW系统边界：** [RAWPrism](papers/arxiv-2611.34359.md)把MEF/MFF/IVIF放入一个CFA-aware checkpoint，但IVIF是逆ISP重建RAW且协议敏感；共享表示与传感器真实性必须分开判断。
