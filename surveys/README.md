@@ -107,6 +107,9 @@
 - [跨模态非配准恢复](unaligned-guided-restoration.md)：RMGNet/UWOT，几何置信与可见证据可用性双条件路由；真实/合成日夜参考分开。
 - [端侧 ISP 与效率](mobile-isp-and-event-hdr-efficiency.md)：DSRC 训练频域重参数化；部署固定卷积 vs 动态运行时；不继承 MobileIE 真机结果。
 
+## 2026-11-28 已覆盖证据接入
+- [T04 伪影与Reward](artifact-grounded-reward-and-verification.md)：PreserveReward 周报历史整理，分开直接标签监督、双视野蒸馏、授权保真与RL后模型评分；不重复通知。
+
 ## 维护原则
 
 1. **已有则插入，缺少独立分支才创建。** 查同问题和同义词，不仅查文件名。
