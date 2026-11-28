@@ -42,6 +42,19 @@ NightIQA 的夜景失真定位、[CIE颜色评价](low-light-iqa-and-gt-validity
 **新判断**：诊断“Judge 不会判断”时应先测 hidden representation probe 的容量上界，再决定是否改读出、增加标注、换模型；**保持**既有可达性/可发现性/可选择性分离，不以此推断所有修图 VLM 打分都可被单 neuron 修好。**系统**离线 MOS+heldout prompts→probe→closed-form calibration→跨域、人评及副作用；在线源图/候选→评分读出→独立保真证据→选择（Agent 控制非本文结果）。**行动**：暂不替换任何 Judge，等预算固定候选集比较 answer/probe/readout 与人工 winner/ROI 泄漏/跨场景稳定性。
 
 
+## 2026-11-28｜保真评分的视觉证据与训练监督分离（已归档周报 backfill）
+[PreserveReward](../papers/arxiv-2611.34446.md)（11-25 v1，11-27 已覆盖，GO-E；T04 主/T02,T05,T06；evaluation/training；Bridge + Boundary refinement）接入本专题。旧路线：CheckDistill 将指令相关检查表蒸馏进评分器；EditJudge-Bench 检验操作事实；新的增量是训练时让教师看见局部变化并依据全局指令判断变化是否被授权，而非单靠更长推理。
+| 竞争/互补路线 | 控制/监督→输出 | 验收与边界 |
+|---|---|---|
+| [CheckDistill](../papers/arxiv-2610.26740.md) | privileged checklist、项目判断与四维分数→on-policy distillation→分数分布 | 约束覆盖与效率；teacher共享偏差，非定位像素真值 |
+| PreserveReward | 匹配局部 crop / 局部+全局双视野→分数校准+梯度路由→保真分数 | 细微改动与是否授权；不保证所需编辑真的完成 |
+| [EditJudge-Bench](../papers/arxiv-2611.12524.md) | 已知反事实编辑操作→事实判别 | 检验目标完成，不直接度量未改区域的人类偏好 |
+| [EditReward-Compass](https://arxiv.org/abs/2605.13062) | 2,251 preference pairs，模拟 RL 评价条件 | 真实候选分布的偏好测试；不能代替物理真值 |
+原文 v1 Table3：9B base/Score-MSE/local-only/joint-only/full 的 EditReward-Bench 保真偏好准确率依次39.80/67.30/72.40/73.50/80.60%；去校准74.20%、去路由75.90%。主要初始收益来自直接分数监督，教师仍有增量；单教师联合视野/相同标注预算 crop+rubric 对照待核。Table1三保真子集27B为84.70/84.60/80.73%；Table2 RL后 KRIS consistency 3.67→4.07 为 GPT-6.1-Sol 评分，非人类盲评。均为作者实验；CheckDistill不同维度汇总数值不可直接比。
+**判断更新**：保真评估需区分视觉变化的可见性、变化是否被授权、标签/教师监督可信度。保持目标完成、保真、主观质量、可达/可发现/可选择独立；不构成共识或模型直接继承。
+**系统回忆**：离线源图+候选+指令+保真标签→匹配crop/双视野teacher→校准与梯度选择→学生reward；在线源图+候选+指令→保真评分，同时独立检验目标完成；Agent固定候选池→验收/拒绝/回滚（设计假设）。成本需区分教师训练/学生推理/RL editor训练；未核手机部署。行动：不替换既有Judge；最小实验固定候选池和模型，比较直接评分与crop+指令rubric，以真实人工偏好和局部事实标注作独立验收，同时记录 no-op 假阳性。
+原始依据：https://arxiv.org/html/2611.34446v1 (§3–4, Tables1–3)；CheckDistill、EditReward-Compass 本次原摘要核验，未重新核全文。
+
 ## 完整方案
 **离线数据/训练**：真实视频候选+人类偏好/MOS+多来源伪影标注 → 筛选/验证证据 → SFT artifact list → reward GRPO → held-out split上的伪影recall、pairwise winner、排序和鲁棒性。
 **在线**：视频/原始prompt → artifact list→score→候选选择或提示修正；可训练生成器，但论文图像/视频推理与训练费用需分别统计。
