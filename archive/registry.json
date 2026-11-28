@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-27",
+  "updated_on": "2026-11-28",
   "protocol": "../ARCHIVE_PROTOCOL.md",
   "legacy_coverage": "LEGACY.md",
   "scope": "Selected paper identities through 2026-11-18 arXiv v1 and 2026-11-19 announcement discovery; weekly 2026-W47 reconciles 2026-11-14 to 2026-11-19 Paper Watch plus five new 2026-11-18 v1 papers. OpenReview full sweep, all author preprints, patents and independent replication not exhausted.; 2026-11-25: 11-24 four official arXiv listings partial keyword review, two selected new v1; per-source coverage in daily log.; weekly 2026-W48 adds six source-verified 2026-11-24/25 v1 papers, reconciles 2026-11-21 to 2026-11-26 daily intake, no independent replication.",
@@ -6151,7 +6151,7 @@
     {
       "kind": "paper",
       "first_covered": "2026-11-27",
-      "checked_on": "2026-11-27",
+      "checked_on": "2026-11-28",
       "independent_replication": "not_performed",
       "events": [
         {
@@ -6160,6 +6160,13 @@
           "new_alert": true,
           "brief": "2026-W48 weekly brief",
           "note": "Original paper selected sections and quantitative tables checked; no independent replication."
+        },
+        {
+          "type": "backfill",
+          "date": "2026-11-28",
+          "new_alert": false,
+          "brief": "archive/PAPER_WATCH_2026-11-28_daily.md",
+          "note": "missing_map_integration; selected original tables rechecked, same version, T04 survey integration and RL evaluation boundary; no new paper or material version."
         }
       ],
       "id": "arxiv-2611.34446",
@@ -6188,18 +6195,19 @@
       "earliest_public_verified": "2026-11-25",
       "earliest_source": "arxiv_v1; earlier public evidence not exhaustive",
       "source_version": "v1",
-      "verification_scope": "arxiv_v1_methods_benchmarks_rl_and_selected_ablations_checked",
+      "verification_scope": "arxiv_v1_methods_and_tables1_3_rechecked; comparison abstracts_checked",
       "canonical_url": "https://github.com/baolinv0/Computational-Photograph/blob/main/papers/arxiv-2611.34446.md",
       "decision_key": "dual_teacher_local_change_and_instruction_necessity_for_edit_preservation_reward",
-      "decision_boundary": "9B author-reported model; no independent MOS or mobile cost; downstream RL may reward-hack the same evaluator",
+      "decision_boundary": "Direct score supervision accounts for large initial gain; dual teacher adds gain on same backbone; downstream RL consistency is scored by GPT-6.1-Sol, not independent human review; mobile cost and physical fidelity unverified.",
       "sync": {
         "github": "verified_written",
-        "github_content_commit": "0227c5505c9460c47ae7a399b47ba558bc396c58",
+        "github_content_commit": "a5ea0105f3b5e9a43cc84b5ca0004efd7c5c0953",
         "alphaxiv": "verified_saved",
         "alphaxiv_folder": "IQA",
         "notion": "hub_indexed",
         "notation": "2026-11-27 weekly hub section read back."
-      }
+      },
+      "canonical_survey": "surveys/artifact-grounded-reward-and-verification.md"
     },
     {
       "kind": "paper",
